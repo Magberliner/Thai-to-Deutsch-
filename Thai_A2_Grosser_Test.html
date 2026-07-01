@@ -403,7 +403,7 @@ function renderReading(){
     r.qs.forEach((q,qi)=>{
       const gi=ri*10+qi+1;
       h+=`<div class="q" id="r${ri}q${qi}"><div class="qtext"><span class="num">${gi}</span>${esc(q.q)}</div><div class="opts">`;
-      q.o.forEach((op,oi)=>{
+      shuffle(q.o.map((op,oi)=>({op,oi}))).forEach(({op,oi})=>{
         h+=`<div class="opt" data-r="${ri}" data-q="${qi}" data-o="${oi}" onclick="pickOpt(${ri},${qi},${oi})">
              <span class="mk"></span><span>${esc(op)}</span><span class="badge"></span></div>`;
       });
