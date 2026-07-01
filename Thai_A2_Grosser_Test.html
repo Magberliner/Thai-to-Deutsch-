@@ -18,25 +18,38 @@
     background:linear-gradient(180deg,#f4efe2 0%,#fbf7ee 100%);
     color:var(--ink); line-height:1.55; padding-bottom:80px;
   }
+  body.exam-active{background:#fff}
   .thai{font-family:"Noto Sans Thai","Leelawadee UI","Thonburi",sans-serif;}
-  .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
 
   /* ---------- Top bar ---------- */
-  #topbar{position:sticky;top:0;z-index:40;background:var(--teal);color:#fff;
-    box-shadow:0 2px 12px rgba(0,0,0,.15);display:none;}
-  #topbar .inner{max-width:860px;margin:0 auto;padding:10px 18px;display:flex;
-    align-items:center;gap:14px;flex-wrap:wrap;}
+  #topbar{position:sticky;top:0;z-index:40;background:#fff;color:var(--ink);
+    border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(20,60,60,.08);display:none;}
+  #topbar .inner{max-width:1180px;margin:0 auto;padding:10px 18px;display:grid;
+    grid-template-columns:auto auto minmax(180px,1fr) auto auto;align-items:center;gap:12px;}
   #topbar .brand{font-weight:700;letter-spacing:.3px}
-  #timer{font-variant-numeric:tabular-nums;font-weight:700;background:rgba(255,255,255,.16);
-    padding:5px 12px;border-radius:20px;font-size:1.05rem}
+  #timer{font-variant-numeric:tabular-nums;font-weight:800;background:var(--teal);
+    color:#fff;padding:6px 12px;border-radius:8px;font-size:1.05rem}
   #timer.warn{background:var(--gold);color:#3a2a00}
   #timer.danger{background:var(--red);animation:pulse 1s infinite}
   @keyframes pulse{50%{opacity:.55}}
-  .progwrap{flex:1;min-width:120px;height:9px;background:rgba(255,255,255,.25);border-radius:6px;overflow:hidden}
+  .examnav{display:flex;align-items:center;gap:6px;overflow-x:auto;padding-bottom:2px}
+  .examnav button{white-space:nowrap;background:transparent;color:var(--teal-dark);border:1px solid var(--line);
+    border-radius:8px;padding:7px 10px;font:inherit;font-size:.86rem;font-weight:700;cursor:pointer}
+  .examnav button:hover{border-color:var(--teal);background:#f3fbfa}
+  .progwrap{height:9px;background:#edf0ec;border-radius:6px;overflow:hidden}
   .progbar{height:100%;width:0;background:var(--gold);transition:width .3s}
-  #submitTop{margin-left:auto;background:var(--gold);color:#3a2a00;border:none;font-weight:700;
-    padding:8px 16px;border-radius:22px;cursor:pointer;font-size:.9rem}
+  #progtext{font-size:.8rem;color:var(--muted);white-space:nowrap}
+  #submitTop{background:var(--gold);color:#3a2a00;border:none;font-weight:700;
+    padding:9px 14px;border-radius:8px;cursor:pointer;font-size:.9rem;white-space:nowrap}
   #submitTop:hover{background:var(--gold-dark);color:#fff}
+  @media(max-width:760px){
+    #topbar .inner{grid-template-columns:1fr auto auto;gap:8px}
+    .examnav{grid-column:1 / -1;order:3}
+    .progwrap{grid-column:1 / 3;order:4}
+    #progtext{order:4}
+    #submitTop{grid-column:3;grid-row:1}
+  }
 
   /* ---------- Start screen ---------- */
   #start{padding:38px 0 60px}
@@ -68,13 +81,14 @@
   .btn.gold{background:var(--gold);color:#3a2a00}.btn.gold:hover{background:var(--gold-dark);color:#fff}
 
   /* ---------- Sections ---------- */
-  #test{display:none;padding-top:26px}
-  .part{background:var(--card);border-radius:18px;box-shadow:var(--shadow);margin:22px 0;overflow:hidden}
-  .part-head{background:linear-gradient(120deg,var(--teal),var(--teal-dark));color:#fff;padding:16px 22px}
-  .part-head .tag{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.85}
+  #test{display:none;padding-top:10px}
+  .part{background:transparent;border-radius:0;box-shadow:none;margin:0;padding:28px 0 34px;
+    border-bottom:1px solid var(--line);scroll-margin-top:104px}
+  .part-head{background:#fff;color:var(--ink);padding:0 0 14px;border-bottom:3px solid var(--teal)}
+  .part-head .tag{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-dark);font-weight:800}
   .part-head h2{margin:2px 0 0;font-size:1.35rem}
-  .part-head .desc{font-size:.9rem;opacity:.92;margin-top:3px}
-  .part-body{padding:20px 22px}
+  .part-head .desc{font-size:.9rem;color:var(--muted);margin-top:3px}
+  .part-body{padding:18px 0 0}
 
   .passage{background:var(--cream);border-left:5px solid var(--gold);border-radius:10px;
     padding:16px 18px;margin-bottom:18px}
@@ -188,8 +202,15 @@
   <div class="inner">
     <span class="brand">🪁 Thai mit Mac</span>
     <span id="timer">90:00</span>
+    <nav class="examnav" aria-label="Test Navigation">
+      <button type="button" onclick="jumpToPart('part1')">Lesen</button>
+      <button type="button" onclick="jumpToPart('part2')">Sätze</button>
+      <button type="button" onclick="jumpToPart('part3')">Wörter</button>
+      <button type="button" onclick="jumpToPart('part4')">Schreiben</button>
+      <button type="button" onclick="jumpToPart('results')">Ergebnis</button>
+    </nav>
     <div class="progwrap"><div class="progbar" id="progbar"></div></div>
-    <span id="progtext" style="font-size:.8rem">0 / 63</span>
+    <span id="progtext">0 / 63</span>
     <button id="submitTop" onclick="submitTest()">Test abgeben</button>
   </div>
 </div>
@@ -585,6 +606,11 @@ function startTimer(){
   },1000);
 }
 
+function jumpToPart(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 /* ============================================================
    FLOW
    ============================================================ */
@@ -600,6 +626,7 @@ function startTest(){
   }
   accessError.style.display = 'none';
   renderReading();renderSentences();renderMatching();renderWriting();renderKeyboard();
+  document.body.classList.add('exam-active');
   document.getElementById('start').style.display='none';
   document.getElementById('topbar').style.display='block';
   document.getElementById('test').style.display='block';
