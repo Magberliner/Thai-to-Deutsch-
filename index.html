@@ -1,0 +1,3047 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Thai mit Mac · Lernportal A2.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Sarabun font: covers both Thai and Latin glyphs; loaded from Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+/* ==================== BASE ==================== */
+@page {
+  size: A4;
+  margin: 22mm 14mm 18mm;
+  @top-center {
+    content: "Thai mit Mac · Lernportal A2.1";
+    font-size: 11px;
+    font-weight: 700;
+    color: #10b981;
+    letter-spacing: 0.04em;
+  }
+  @bottom-center {
+    content: "Seite " counter(page);
+    font-size: 10px;
+    color: #8a96a6;
+  }
+}
+* { box-sizing: border-box; }
+/* ==========================================================
+   FONT — SARABUN
+   Sarabun is a beautiful sans-serif that covers BOTH Thai and Latin
+   glyphs in the same family. Loaded from Google Fonts above.
+   Weights available: 100 / 200 / 300 / 400 / 500 / 600 / 700 / 800
+   plus italics for each.
+   ========================================================== */
+html, body {
+  margin: 0; padding: 0;
+  font-family: "Sarabun", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #1d2733;
+  line-height: 1.6;
+  background: #f0fdfa;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Apply Sarabun to every element so Thai and Latin always match */
+*, *::before, *::after {
+  font-family: "Sarabun", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+/* Monospace exception — keep code-style elements in Menlo */
+.formula, kbd, .grammar .formula {
+  font-family: "Menlo", "SF Mono", "Courier New", monospace !important;
+}
+/* Thai-class elements get a slightly larger size for legibility,
+   no other style change needed since Sarabun handles both scripts. */
+.thai, .th {
+  letter-spacing: 0;
+}
+/* Sarabun weight utility classes (per user's spec) */
+.sarabun-thin           { font-weight: 100; font-style: normal; }
+.sarabun-extralight     { font-weight: 200; font-style: normal; }
+.sarabun-light          { font-weight: 300; font-style: normal; }
+.sarabun-regular        { font-weight: 400; font-style: normal; }
+.sarabun-medium         { font-weight: 500; font-style: normal; }
+.sarabun-semibold       { font-weight: 600; font-style: normal; }
+.sarabun-bold           { font-weight: 700; font-style: normal; }
+.sarabun-extrabold      { font-weight: 800; font-style: normal; }
+.sarabun-thin-italic        { font-weight: 100; font-style: italic; }
+.sarabun-extralight-italic  { font-weight: 200; font-style: italic; }
+.sarabun-light-italic       { font-weight: 300; font-style: italic; }
+.sarabun-regular-italic     { font-weight: 400; font-style: italic; }
+.sarabun-medium-italic      { font-weight: 500; font-style: italic; }
+.sarabun-semibold-italic    { font-weight: 600; font-style: italic; }
+.sarabun-bold-italic        { font-weight: 700; font-style: italic; }
+.sarabun-extrabold-italic   { font-weight: 800; font-style: italic; }
+/* Headings get semibold weight by default in Sarabun */
+h1, h2, h3, h4, h5 { font-weight: 700; }
+.brand, .stat .num, h2.section-title, .hero-block h1 { font-weight: 800; }
+.th-big { font-size: 22px; }
+.th-mid { font-size: 18px; }
+.translit { color: #6c7785; font-style: italic; font-size: 0.94em; }
+
+/* ==================== NAV ==================== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.25);
+  color: #fff;
+}
+.topbar .inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+.brand .logo {
+  width: 36px; height: 36px;
+  background: #fff;
+  color: #10b981;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 18px;
+  font-weight: 900;
+}
+.brand small { display: block; font-size: 11px; opacity: 0.85; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; }
+nav.tabs {
+  display: flex;
+  gap: 4px;
+}
+nav.tabs button {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 22px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+nav.tabs button:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+nav.tabs button.active {
+  background: #fff;
+  color: #10b981;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.print-cta {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+}
+.print-cta:hover { background: rgba(255,255,255,0.25); }
+
+/* ==================== LAYOUT ==================== */
+main.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+section.page {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+section.page.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== PRINT (A4 OPTIMIZED) ==================== */
+@media print {
+  /* Print ONLY the section that is currently visible (saves paper).
+     User: navigate to the tab you want, then ⌘+P. To print everything,
+     use the "Alles drucken" button on the Home page. */
+  .topbar, .print-cta, .floating-print, .print-hint { display: none !important; }
+  section.page { display: none !important; }
+  section.page.active { display: block !important; }
+  /* When body has class "print-all", every section prints with a page break */
+  body.print-all section.page { display: block !important; page-break-before: always; }
+  body.print-all section.page#home { page-break-before: avoid; }
+
+  body {
+    background: #fff !important;
+    font-size: 10.5pt;
+    line-height: 1.42;
+  }
+  main.container { max-width: 100% !important; padding: 0 !important; }
+
+  /* Don't widow headings */
+  h1, h2, h3, h4 { page-break-after: avoid !important; }
+
+  /* HERO — compact gradient banner only, photo hidden (saves big block) */
+  .hero-block {
+    min-height: auto !important;
+    background: linear-gradient(135deg, #10b981, #047857) !important;
+    margin-bottom: 10px !important;
+    border-radius: 6px !important;
+    page-break-inside: avoid !important;
+  }
+  .hero-block .bg { display: none !important; }
+  .hero-block .content { padding: 14px 22px !important; align-self: stretch !important; }
+  .hero-block .badge {
+    font-size: 8.5pt !important;
+    padding: 2px 10px !important;
+    margin-bottom: 6px !important;
+  }
+  .hero-block h1 { font-size: 22pt !important; margin: 4px 0 2px !important; }
+  .hero-block .thai-title { font-size: 16pt !important; margin-bottom: 4px !important; }
+  .hero-block .lead { font-size: 10pt !important; max-width: none !important; line-height: 1.45 !important; }
+  .hero-block .cta-row { display: none !important; }
+
+  /* Stats cards — hide on home (decorative) */
+  .stats { display: none !important; }
+
+  /* CARDS — tighter padding, no shadow, thin border */
+  .card {
+    padding: 12px 16px !important;
+    margin-bottom: 8px !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e6ec !important;
+    border-radius: 6px !important;
+    break-inside: auto;
+  }
+  .card.green, .card.red, .card.blue, .card.amber { border-top-width: 3px !important; }
+  h2.section-title { font-size: 17pt !important; margin: 0 0 4px !important; }
+  .section-sub { font-size: 9.5pt !important; margin-bottom: 8px !important; }
+  h3.h-card { font-size: 13pt !important; margin: 0 0 8px !important; }
+  h3.h-card .pill { font-size: 8pt !important; padding: 2px 7px !important; }
+
+  /* INFO GRID */
+  .info-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; margin: 6px 0 10px !important; }
+  .info-card { padding: 7px 10px !important; }
+  .info-card .k { font-size: 8pt !important; }
+  .info-card .v { font-size: 10pt !important; }
+
+  /* DAILY METHOD GRID */
+  .daily { gap: 8px !important; margin: 8px 0 !important; }
+  .daily .seg { padding: 8px 10px !important; border-top-width: 3px !important; }
+  .daily .seg .icon { font-size: 14pt !important; }
+  .daily .seg .t { font-size: 10.5pt !important; }
+  .daily .seg .s { font-size: 8pt !important; margin-bottom: 3px !important; }
+  .daily .seg .d { font-size: 9pt !important; line-height: 1.35 !important; }
+
+  /* WEEK CARDS */
+  .weeks-grid { gap: 8px !important; }
+  .week-card {
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    border: 1px solid #d8dde3 !important;
+    border-radius: 6px !important;
+  }
+  .week-card .photo { height: 70px !important; }
+  .week-card .head { padding: 6px 12px !important; }
+  .week-card .head .n { font-size: 8pt !important; }
+  .week-card .head .t { font-size: 11pt !important; }
+  .week-card .head .th { font-size: 10pt !important; }
+  .week-card .body { padding: 8px 12px !important; font-size: 9pt !important; }
+  .week-card .body p { margin: 2px 0 !important; }
+  .week-card .body .lab { min-width: 60px !important; }
+  .week-card .open-link { display: none !important; } /* not useful in print */
+
+  /* PHOTO CARD — small inline photo */
+  .photo-card {
+    grid-template-columns: 110px 1fr !important;
+    gap: 12px !important;
+    margin: 6px 0 10px !important;
+    page-break-inside: avoid !important;
+  }
+  .photo-card .ph {
+    width: 110px !important;
+    aspect-ratio: 1;
+    box-shadow: none !important;
+    border: 1px solid #e2e6ec !important;
+    border-radius: 6px !important;
+  }
+  .photo-card .cap { font-size: 8.5pt !important; margin-top: 3px !important; }
+
+  /* VOCAB TABLE — tight */
+  table.vocab { font-size: 10.5pt !important; margin: 6px 0 10px !important; }
+  table.vocab th { padding: 4px 8px !important; font-size: 8.5pt !important; }
+  table.vocab td { padding: 4px 8px !important; }
+  table.vocab .col-thai { font-size: 12pt !important; }
+  table.vocab .col-icon { font-size: 12pt !important; }
+
+  /* DIALOG — compact */
+  .dialog-box {
+    padding: 10px 14px !important;
+    margin: 6px 0 10px !important;
+    page-break-inside: avoid !important;
+    background: #fcfffe !important;
+  }
+  .dialog-photo {
+    width: calc(100% + 28px) !important;
+    margin: -10px -14px 8px !important;
+    max-height: 90px !important;
+  }
+  .dialog-row { grid-template-columns: 22px 1fr !important; gap: 8px !important; margin-bottom: 6px !important; }
+  .dialog-row .who { width: 22px !important; height: 22px !important; line-height: 22px !important; font-size: 9.5pt !important; }
+  .dialog-row .text .thai { font-size: 12.5pt !important; line-height: 1.4 !important; }
+  .dialog-row .text .translit { font-size: 8.5pt !important; }
+  .dialog-row .text .de { font-size: 9.5pt !important; }
+
+  /* READING WRAP — compact side photo */
+  .reading-wrap {
+    grid-template-columns: 130px 1fr !important;
+    gap: 12px !important;
+    margin: 6px 0 10px !important;
+    page-break-inside: auto !important;
+  }
+  .reading-wrap .side { box-shadow: none !important; border: 1px solid #e2e6ec !important; max-height: 220px; }
+  .reading { padding: 10px 14px !important; }
+  .reading .thai { line-height: 1.75 !important; font-size: 11.5pt !important; }
+  .reading .thai p, .reading p.thai { margin: 4px 0 !important; }
+  .reading .de { font-size: 9pt !important; line-height: 1.4 !important; margin-top: 4px !important; }
+  .reading .de p { margin: 3px 0 !important; }
+
+  /* GRAMMAR */
+  .grammar {
+    padding: 10px 14px !important;
+    margin: 8px 0 !important;
+    page-break-inside: avoid !important;
+  }
+  .grammar .gh { font-size: 9.5pt !important; margin-bottom: 4px !important; }
+  .grammar .formula { padding: 6px 10px !important; font-size: 10pt !important; margin: 5px 0 !important; }
+  .grammar .ex { font-size: 10pt !important; margin: 3px 0 !important; }
+  .grammar p, .grammar ul { margin: 4px 0 !important; font-size: 10pt !important; }
+  .grammar li { margin-bottom: 3px !important; line-height: 1.45 !important; }
+
+  /* EXERCISES */
+  .exercise {
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+    page-break-inside: avoid !important;
+  }
+  .exercise .num { width: 20px !important; height: 20px !important; line-height: 20px !important; font-size: 10pt !important; margin-right: 6px !important; }
+  .exercise h4 { font-size: 11pt !important; }
+  .exercise .task { font-size: 9pt !important; margin: 4px 0 6px !important; }
+  .exercise ol { margin: 4px 0 0 !important; padding-left: 22px !important; }
+  .exercise li { margin-bottom: 4px !important; line-height: 1.55 !important; font-size: 10pt !important; }
+  .exercise .lines { height: 18px !important; margin-bottom: 4px !important; }
+  .exercise .blank { min-width: 70px !important; }
+  .exercise .blank.lg { min-width: 110px !important; }
+
+  /* TONES */
+  .tones { gap: 6px !important; margin: 6px 0 !important; }
+  .tones .t { padding: 6px 4px !important; border-radius: 6px !important; }
+  .tones .t .name { font-size: 8.5pt !important; }
+  .tones .t .word { font-size: 15pt !important; margin: 3px 0 !important; }
+  .tones .t .meaning { font-size: 8pt !important; line-height: 1.25 !important; }
+
+  /* PLAN TABLE */
+  .plan-table { font-size: 9.5pt !important; margin: 4px 0 !important; box-shadow: none !important; }
+  .plan-table th { padding: 5px 7px !important; font-size: 8.5pt !important; }
+  .plan-table td { padding: 5px 7px !important; line-height: 1.35 !important; }
+  .plan-table td.day { font-size: 9pt !important; }
+
+  /* SPEAK CARDS */
+  .speak-grid { gap: 8px !important; margin: 6px 0 !important; }
+  .speak-card { padding: 8px 12px !important; page-break-inside: avoid !important; }
+  .speak-card .role { font-size: 8pt !important; }
+  .speak-card .line { font-size: 9.5pt !important; margin: 3px 0 !important; line-height: 1.4 !important; }
+  .speak-card .line .thai { font-size: 11pt !important; }
+
+  /* GOALS list */
+  .goals { gap: 5px !important; }
+  .goals li { padding: 6px 10px !important; font-size: 10pt !important; }
+
+  /* METHOD BOX */
+  .method { padding: 8px 12px !important; margin: 8px 0 !important; font-size: 10pt !important; }
+
+  /* ANSWER KEY */
+  .answer-key { padding: 12px 16px !important; margin: 10px 0 !important; }
+  .answer-key h2 { font-size: 14pt !important; margin-bottom: 4px !important; }
+  .answer-key h4 { font-size: 10.5pt !important; margin: 6px 0 3px !important; }
+  .answer-key ol li { font-size: 9.5pt !important; margin-bottom: 2px !important; }
+  .answer-key .ak-block { margin-bottom: 8px !important; }
+
+  /* FOOTER — single line */
+  footer.foot { font-size: 8.5pt !important; margin-top: 14px !important; padding: 10px 0 4px !important; }
+
+  /* Hide hover-only / decorative */
+  hr.thin { margin: 8px 0 !important; }
+}
+
+/* ==================== HERO / HOME ==================== */
+.hero-block {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #10b981, #2c2c2c);
+  color: #fff;
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.hero-block .bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.42;
+}
+.hero-block .content {
+  position: relative;
+  z-index: 1;
+  padding: 56px 48px;
+  align-self: center;
+}
+.hero-block .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hero-block h1 {
+  font-size: 42px;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.hero-block .thai-title {
+  font-size: 28px;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+.hero-block .lead {
+  font-size: 16px;
+  opacity: 0.92;
+  max-width: 580px;
+  line-height: 1.6;
+}
+.hero-block .cta-row {
+  display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.18s ease;
+}
+.btn.primary { background: #fff; color: #10b981; }
+.btn.primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
+.btn.ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.5); }
+.btn.ghost:hover { background: rgba(255,255,255,0.1); }
+.btn.green { background: #047857; color: #fff; }
+.btn.green:hover { background: #065f46; }
+
+/* Stats strip */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-top: 4px solid #10b981;
+  text-align: center;
+}
+.stat .num { font-size: 28px; font-weight: 800; color: #10b981; line-height: 1; }
+.stat .lab { font-size: 12px; color: #6c7785; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ==================== CARDS ==================== */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  page-break-inside: avoid;
+}
+.card.green { border-top: 5px solid #047857; }
+.card.red   { border-top: 5px solid #10b981; }
+.card.blue  { border-top: 5px solid #1f6feb; }
+.card.amber { border-top: 5px solid #d18c10; }
+
+h2.section-title {
+  font-size: 26px;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  color: #1d2733;
+}
+.section-title .accent { color: #10b981; }
+.section-title .accent-green { color: #047857; }
+.section-sub {
+  color: #6c7785;
+  margin-top: 0;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+h3.h-card {
+  font-size: 18px;
+  margin: 0 0 14px;
+  color: #1d2733;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h3.h-card .pill {
+  background: #ecfdf5; color: #047857;
+  font-size: 11px; padding: 3px 10px; border-radius: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+}
+h3.h-card.red .pill { background: #d1fae5; color: #10b981; }
+h3.h-card.blue .pill { background: #e5efff; color: #1f6feb; }
+h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
+
+/* ==================== DAILY METHOD ==================== */
+.daily {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 14px 0;
+}
+.daily .seg {
+  border-radius: 10px;
+  padding: 16px 18px;
+  border: 1px solid #e2e6ec;
+  border-top: 5px solid #10b981;
+  background: #fff;
+}
+.daily .seg.b { border-top-color: #1f6feb; }
+.daily .seg.c { border-top-color: #047857; }
+.daily .seg .icon { font-size: 22px; }
+.daily .seg .t { font-size: 15px; font-weight: 700; margin-top: 4px; }
+.daily .seg .s { font-size: 12px; color: #6c7785; margin-bottom: 6px; }
+.daily .seg .d { font-size: 13px; color: #2c3744; }
+
+/* ==================== WEEK CARDS ==================== */
+.weeks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.week-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+  border: 1px solid #ececec;
+}
+.week-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.week-card .photo {
+  width: 100%; height: 140px; object-fit: cover; display: block;
+}
+.week-card .head {
+  padding: 12px 18px;
+  background: #10b981; color: #fff;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.week-card .head .n { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+.week-card .head .t { font-size: 17px; font-weight: 700; margin-top: 2px; }
+.week-card .head .th { font-size: 14px; opacity: 0.95; }
+.week-card.green .head { background: #047857; }
+.week-card.blue .head { background: #1f6feb; }
+.week-card.amber .head { background: #d18c10; }
+.week-card.purple .head { background: #6b3fa0; }
+.week-card.teal .head { background: #0d9488; }
+.week-card .body { padding: 16px 18px; font-size: 13px; }
+.week-card .body p { margin: 4px 0; }
+.week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
+.week-card .open-link {
+  display: inline-block;
+  margin-top: 10px; padding: 8px 14px;
+  background: #f4f7fb; color: #1d2733;
+  border-radius: 6px; text-decoration: none;
+  font-size: 12px; font-weight: 700;
+  border: none; cursor: pointer; font-family: inherit;
+}
+.week-card .open-link:hover { background: #e7ecf3; }
+
+/* ==================== VOCAB TABLE ==================== */
+table.vocab {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 12px 0 14px;
+  page-break-inside: avoid;
+}
+table.vocab th {
+  background: #ecfdf5; color: #047857;
+  text-align: left; padding: 8px 12px;
+  border-bottom: 2px solid #047857;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+}
+table.vocab.red th { background: #d1fae5; color: #10b981; border-bottom-color: #10b981; }
+table.vocab.blue th { background: #e5efff; color: #1f6feb; border-bottom-color: #1f6feb; }
+table.vocab td {
+  padding: 9px 12px; border-bottom: 1px solid #eef1f5; vertical-align: top;
+}
+table.vocab tr:nth-child(even) td { background: #fafbfd; }
+table.vocab .col-thai { width: 28%; font-size: 16px; }
+table.vocab .col-trans { width: 25%; }
+table.vocab .col-de { width: 38%; }
+table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
+
+/* ==================== PHOTO CARD ==================== */
+.photo-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin: 8px 0 14px;
+  page-break-inside: avoid;
+}
+.photo-card .ph {
+  width: 100%; aspect-ratio: 1;
+  background: #ecfdf5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.photo-card .ph img { width: 100%; height: 100%; object-fit: cover; }
+.photo-card .cap {
+  font-size: 12px; color: #6c7785;
+  margin-top: 6px; text-align: center;
+}
+
+/* ==================== DIALOG ==================== */
+.dialog-box {
+  border: 1px solid #e2e6ec;
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: #fbfdf9;
+  margin: 8px 0 14px;
+  page-break-inside: avoid;
+}
+.dialog-photo {
+  width: calc(100% + 40px);
+  margin: -16px -20px 14px;
+  max-height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+.dialog-row {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.dialog-row .who {
+  background: #047857; color: #fff; border-radius: 50%;
+  width: 30px; height: 30px; line-height: 30px;
+  text-align: center; font-weight: 700; font-size: 13px;
+}
+.dialog-row.b .who { background: #10b981; }
+.dialog-row .text .thai { display: block; font-size: 17px; }
+.dialog-row .text .translit { display: block; }
+.dialog-row .text .de { display: block; color: #2c3744; }
+
+/* ==================== READING ==================== */
+.reading-wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  align-items: stretch;
+  margin: 10px 0 18px;
+  page-break-inside: avoid;
+}
+.reading-wrap .side {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.reading-wrap .side img { width: 100%; height: 100%; object-fit: cover; }
+.reading {
+  background: #f9fbfa;
+  border-left: 4px solid #047857;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+}
+.reading .thai { line-height: 1.95; }
+.reading .de { color: #4a5563; font-style: italic; margin-top: 8px; font-size: 13px; }
+
+/* ==================== GRAMMAR ==================== */
+.grammar {
+  border: 2px solid #1f6feb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 14px 0 18px;
+  background: #f4f8ff;
+  page-break-inside: avoid;
+}
+.grammar .gh {
+  color: #1f6feb; font-weight: 800; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.grammar .formula {
+  background: #fff; padding: 10px 14px; border-radius: 6px;
+  border: 1px dashed #1f6feb;
+  font-family: "Menlo", "Courier New", monospace;
+  font-size: 14px;
+  margin: 8px 0;
+}
+.grammar .ex { font-size: 14px; margin: 6px 0; }
+
+/* ==================== EXERCISES ==================== */
+.exercise {
+  border: 1px solid #e2e6ec;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 12px 0 16px;
+  background: #fff;
+  page-break-inside: avoid;
+}
+.exercise .num {
+  display: inline-block;
+  background: #10b981; color: #fff;
+  border-radius: 50%;
+  width: 26px; height: 26px; line-height: 26px;
+  text-align: center; font-size: 13px; font-weight: 800;
+  margin-right: 10px;
+}
+.exercise h4 { display: inline; font-size: 15px; margin: 0; }
+.exercise .task { color: #5a6573; font-size: 13px; margin: 6px 0 10px; }
+.exercise ol { margin: 8px 0 0; padding-left: 26px; }
+.exercise li { margin-bottom: 8px; line-height: 1.7; }
+.exercise .blank {
+  display: inline-block; min-width: 90px;
+  border-bottom: 1.5px solid #888;
+  padding: 0 6px; margin: 0 2px;
+}
+.exercise .blank.lg { min-width: 150px; }
+.exercise .lines {
+  border-bottom: 1px solid #c0c7d2;
+  height: 24px; margin-bottom: 6px;
+}
+
+/* ==================== TONE BOX ==================== */
+.tones {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+.tones .t {
+  border: 1px solid #e2e6ec;
+  border-radius: 10px;
+  padding: 12px 8px;
+  text-align: center;
+  background: #fff;
+  transition: transform 0.15s;
+}
+.tones .t:hover { transform: translateY(-2px); }
+.tones .t .name { font-weight: 800; color: #1f6feb; font-size: 12px; }
+.tones .t .word { font-size: 22px; margin: 6px 0; }
+.tones .t .meaning { color: #6c7785; font-size: 11px; }
+
+/* ==================== 7-DAY PLAN ==================== */
+table.plan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 8px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.plan-table th {
+  background: #047857; color: #fff;
+  padding: 10px; text-align: left;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.plan-table.red th { background: #10b981; }
+.plan-table.blue th { background: #1f6feb; }
+.plan-table td { padding: 10px; border: 1px solid #e2e6ec; vertical-align: top; }
+.plan-table tr:nth-child(even) td { background: #fafbfd; }
+.plan-table td.day { background: #ecfdf5; font-weight: 700; color: #047857; }
+.plan-table.red td.day { background: #d1fae5; color: #10b981; }
+.plan-table.blue td.day { background: #e5efff; color: #1f6feb; }
+
+/* ==================== ANSWER KEY ==================== */
+.answer-key {
+  background: #fff7e6;
+  border: 2px solid #ffd591;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.answer-key h2 { color: #874d00; margin: 0 0 8px; font-size: 22px; }
+.answer-key .ak-block { margin-bottom: 14px; }
+.answer-key h4 { color: #874d00; margin: 12px 0 6px; font-size: 14px; }
+.answer-key ol li { margin-bottom: 4px; font-size: 13px; }
+
+/* ==================== SPEAKING CARDS ==================== */
+.speak-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.speak-card {
+  border: 1px solid #e2e6ec;
+  border-left: 4px solid #10b981;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: #fff;
+  page-break-inside: avoid;
+}
+.speak-card.green { border-left-color: #047857; }
+.speak-card .role {
+  font-size: 11px; text-transform: uppercase;
+  color: #10b981; letter-spacing: 0.08em; font-weight: 700;
+}
+.speak-card.green .role { color: #047857; }
+.speak-card .line { font-size: 13px; margin: 4px 0; }
+
+/* ==================== INFO GRID ==================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0 20px;
+}
+.info-card {
+  background: #f6f8fb;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border-left: 4px solid #047857;
+}
+.info-card.red { border-left-color: #10b981; }
+.info-card.blue { border-left-color: #1f6feb; }
+.info-card .k { font-size: 11px; text-transform: uppercase; color: #6c7785; letter-spacing: 0.06em; }
+.info-card .v { font-size: 14px; font-weight: 700; margin-top: 3px; }
+
+/* ==================== METHOD BOX ==================== */
+.method {
+  background: #fff7e6;
+  border: 1px solid #ffd591;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.method strong { color: #874d00; }
+
+/* Floating print button */
+.floating-print {
+  position: fixed;
+  bottom: 22px; right: 22px;
+  background: #10b981; color: #fff;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  z-index: 50;
+  transition: transform 0.2s;
+}
+.floating-print:hover { transform: scale(1.08); }
+
+/* Goals list */
+.goals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+.goals li {
+  padding: 12px 14px;
+  background: #f6f8fb;
+  border-left: 4px solid #1f6feb;
+  font-size: 14px;
+  border-radius: 0 6px 6px 0;
+}
+
+footer.foot {
+  text-align: center;
+  color: #8a96a6;
+  font-size: 12px;
+  margin-top: 36px;
+  padding: 22px 0 6px;
+  border-top: 1px solid #e2e6ec;
+}
+
+hr.thin { border: 0; border-top: 1px dashed #c0c7d2; margin: 18px 0; }
+
+kbd {
+  background: #fff; border: 1px solid #c0c7d2; border-radius: 3px;
+  padding: 1px 6px; font-size: 11px; font-family: "Menlo", "Courier New", monospace;
+}
+.pb { page-break-before: always; }
+ul, ol { padding-left: 22px; }
+
+/* Responsive */
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .weeks-grid { grid-template-columns: 1fr; }
+  .daily { grid-template-columns: 1fr; }
+  .photo-card, .reading-wrap { grid-template-columns: 1fr; }
+  .speak-grid { grid-template-columns: 1fr; }
+  .hero-block .content { padding: 32px 24px; }
+  .hero-block h1 { font-size: 30px; }
+  nav.tabs { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== TOP NAV ==================== -->
+<header class="topbar">
+  <div class="inner">
+    <div class="brand">
+      <div class="logo">ท</div>
+      <div>Thai mit Mac<small>Lernportal A2.1</small></div>
+    </div>
+    <nav class="tabs">
+      <button data-tab="home" class="active">Start</button>
+      <button data-tab="kursplan">Kursplan</button>
+      <button data-tab="woche1">Woche 1</button>
+      <button data-tab="woche2">Woche 2</button>
+      <button data-tab="woche3">Woche 3</button>
+      <button data-tab="woche4">Woche 4</button>
+      <button data-tab="woche5">Woche 5</button>
+      <button data-tab="test">📝 Test</button>
+    </nav>
+    <button class="print-cta" onclick="window.print()">⬇ Als PDF speichern</button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ==================== HOME ==================== -->
+<section id="home" class="page active">
+
+  <div class="hero-block">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge">Stufe A2.1 · 6 Wochen · 1 Stunde pro Tag</span>
+      <h1>Thai lernen mit Spaß</h1>
+      <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
+      <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
+      <div class="cta-row">
+        <button class="btn primary" onclick="showTab('kursplan')">📋 Kursplan ansehen</button>
+        <button class="btn ghost" onclick="showTab('woche1')">▶ Woche 1 starten</button>
+        <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">6</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">42</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~350</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">So funktioniert <span class="accent">Thai mit Mac</span></h2>
+    <p class="section-sub">Jede Woche behandelt ein Alltagsthema. Sie lernen 1 Stunde pro Tag — aufgeteilt in drei gleich lange Blöcke.</p>
+    <div class="daily">
+      <div class="seg">
+        <div class="icon">📖</div>
+        <div class="t">Lesen — การอ่าน</div>
+        <div class="s">20 Minuten</div>
+        <div class="d">Wortschatz mit Thai-Schrift, kurze Dialoge und A2-Texte. Verstehen Sie, was steht.</div>
+      </div>
+      <div class="seg b">
+        <div class="icon">✍️</div>
+        <div class="t">Schreiben — การเขียน</div>
+        <div class="s">20 Minuten</div>
+        <div class="d">Thai-Buchstaben üben, Lückentexte ausfüllen, eigene Sätze und kurze Texte verfassen.</div>
+      </div>
+      <div class="seg c">
+        <div class="icon">🗣</div>
+        <div class="t">Sprechen — การพูด</div>
+        <div class="s">20 Minuten</div>
+        <div class="d">Dialoge laut sprechen, die 5 Tonhöhen üben, Rollenspiele zum Wochenthema.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lernziele</span> Was Sie am Ende des Kurses können</h3>
+    <ul class="goals">
+      <li>~ 350 neue Wörter aktiv anwenden</li>
+      <li>Einfache Texte zu Alltagsthemen verstehen</li>
+      <li>Kurze Dialoge selbständig führen</li>
+      <li>Eigene Sätze in Thai-Schrift verfassen</li>
+      <li>Klassifikatoren und Fragen sicher nutzen</li>
+      <li>5 Tonhöhen unterscheiden und aussprechen</li>
+    </ul>
+  </div>
+
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">Schnellzugriff</span> Direkt zur Lektion</h3>
+    <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="week-card green" onclick="showTab('woche1')">
+        <img class="photo" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=70&fm=jpg&auto=format" alt="Sport">
+        <div class="head"><div><div class="n">Woche 1</div><div class="t">Sport und Gesundheit</div></div><div class="th thai">กีฬา &amp; สุขภาพ</div></div>
+        <div class="body"><p>30 Wörter · Klassifikatoren · Verlaufsform · Dialog beim Arzt</p><button class="open-link" onclick="showTab('woche1')">Lektion öffnen →</button></div>
+      </div>
+      <div class="week-card red" onclick="showTab('woche2')">
+        <img class="photo" src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?w=600&q=70&fm=jpg&auto=format" alt="Familie">
+        <div class="head"><div><div class="n">Woche 2</div><div class="t">Familie und Freunde</div></div><div class="th thai">ครอบครัว &amp; เพื่อน</div></div>
+        <div class="body"><p>32 Wörter · Fragewörter · Possessivpartikel · Dialog mit Freund</p><button class="open-link" onclick="showTab('woche2')">Lektion öffnen →</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">Prüfung</span> Großer Test — Woche 1–5</h3>
+    <p class="section-sub">Ein interaktiver 90-Minuten-Test mit Timer, Ziehen-&amp;-Ablegen und Thai-Bildschirmtastatur — automatische Auswertung mit voller Lösungsansicht.</p>
+    <button class="btn primary" onclick="showTab('test')">📝 Zum Test →</button>
+  </div>
+
+</section>
+
+<!-- ==================== KURSPLAN ==================== -->
+<section id="kursplan" class="page">
+
+  <div class="card">
+    <h2 class="section-title"><span class="accent">📋</span> Kursplan — 6 Wochen Thai A2.1</h2>
+    <p class="section-sub">Eine kompakte Übersicht aller Wochen. Jede Woche hat ein Alltagsthema und baut auf der vorigen auf.</p>
+
+    <div class="info-grid">
+      <div class="info-card red"><div class="k">Niveau</div><div class="v">A2.1 (GER)</div></div>
+      <div class="info-card"><div class="k">Dauer</div><div class="v">6 Wochen · 42 Stunden</div></div>
+      <div class="info-card blue"><div class="k">Pensum</div><div class="v">1 Std. / Tag · 7 Tage</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="h-card"><span class="pill">Methode</span> Tagesablauf 20 – 20 – 20</h3>
+    <div class="daily">
+      <div class="seg"><div class="icon">📖</div><div class="t">Lesen</div><div class="s">20 Minuten</div><div class="d">Neuen Wortschatz mit Thai-Schrift lernen, kurze Dialoge und A2-Texte lesen, Lückenfragen beantworten.</div></div>
+      <div class="seg b"><div class="icon">✍️</div><div class="t">Schreiben</div><div class="s">20 Minuten</div><div class="d">Thai-Buchstaben üben, Sätze nachschreiben, eigene Sätze und kurze Texte zum Wochenthema bilden.</div></div>
+      <div class="seg c"><div class="icon">🗣</div><div class="t">Sprechen</div><div class="s">20 Minuten</div><div class="d">Aussprache mit Tonzeichen üben, Dialoge nachsprechen, Rollenspiele laut durchspielen.</div></div>
+    </div>
+    <div class="method">
+      <strong>Lerntipp:</strong> Die 20–20–20-Methode hält den Tag abwechslungsreich und sorgt dafür, dass alle drei Fertigkeiten gleichmäßig wachsen. Wer mehr Zeit hat, kann am Wochenende einen vierten Block „Wiederholung" hinzufügen.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="h-card"><span class="pill">Wochen</span> Themen-Übersicht</h3>
+    <div class="weeks-grid">
+
+      <div class="week-card green" onclick="showTab('woche1')">
+        <img class="photo" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=70&fm=jpg&auto=format" alt="Sport">
+        <div class="head">
+          <div><div class="n">Woche 1</div><div class="t">Sport und Gesundheit</div></div>
+          <div class="th thai">กีฬา &amp; สุขภาพ</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Sportarten, Körperteile, Beim Arzt</p>
+          <p><span class="lab">Grammatik:</span> Klassifikatoren, Verlaufsform กำลัง…อยู่</p>
+          <p><span class="lab">Dialog:</span> Im Fitnessstudio · Beim Arzt</p>
+          <button class="open-link">Lektion öffnen →</button>
+        </div>
+      </div>
+
+      <div class="week-card red" onclick="showTab('woche2')">
+        <img class="photo" src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?w=600&q=70&fm=jpg&auto=format" alt="Familie">
+        <div class="head">
+          <div><div class="n">Woche 2</div><div class="t">Familie und Freunde</div></div>
+          <div class="th thai">ครอบครัว &amp; เพื่อน</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Verwandte, Berufe, Beziehungen</p>
+          <p><span class="lab">Grammatik:</span> Fragewörter, Possessivpartikel ของ</p>
+          <p><span class="lab">Dialog:</span> Über die Familie sprechen</p>
+          <button class="open-link">Lektion öffnen →</button>
+        </div>
+      </div>
+
+      <div class="week-card amber" onclick="showTab('woche3')">
+        <img class="photo" src="https://images.unsplash.com/photo-1654435526586-aabe3af3697a?w=600&q=70&fm=jpg&auto=format" alt="Nachtmarkt in Thailand">
+        <div class="head">
+          <div><div class="n">Woche 3</div><div class="t">Einkaufen in Thailand</div></div>
+          <div class="th thai">การช้อปปิ้งในไทย</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Straßenmarkt, Nachtmarkt, Supermarkt</p>
+          <p><span class="lab">Grammatik:</span> Demonstrativ นี่/นั่น/โน่น, เท่าไหร่</p>
+          <p><span class="lab">Dialog:</span> Feilschen auf dem Markt</p>
+          <button class="open-link">Lektion öffnen →</button>
+        </div>
+      </div>
+
+      <div class="week-card blue" onclick="showTab('woche4')">
+        <img class="photo" src="https://images.unsplash.com/photo-1635377090186-036bca445c6b?w=600&q=70&fm=jpg&auto=format" alt="Geometrische Formen">
+        <div class="head">
+          <div><div class="n">Woche 4</div><div class="t">Formen und Beschreibungen</div></div>
+          <div class="th thai">รูปทรงและคำบรรยาย</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Geometrische Formen, Größen, Farben, Materialien</p>
+          <p><span class="lab">Grammatik:</span> Adjektivstellung, Beschreibungsmuster</p>
+          <p><span class="lab">Dialog:</span> Verlorenes Objekt beschreiben</p>
+          <button class="open-link">Lektion öffnen →</button>
+        </div>
+      </div>
+
+      <div class="week-card purple" onclick="showTab('woche5')">
+        <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="Technologie am Arbeitsplatz">
+        <div class="head">
+          <div><div class="n">Woche 5</div><div class="t">Technologie im Alltag und Büro</div></div>
+          <div class="th thai">เทคโนโลยีในชีวิตและที่ทำงาน</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Computer, Smartphone, Drucker &amp; Büro</p>
+          <p><span class="lab">Grammatik:</span> Befehle, Anleitungen ก่อนอื่น…แล้วก็…</p>
+          <p><span class="lab">Dialog:</span> Der Drucker ist kaputt · IT-Hilfe</p>
+          <button class="open-link">Lektion öffnen →</button>
+        </div>
+      </div>
+
+      <div class="week-card teal">
+        <img class="photo" src="https://images.unsplash.com/photo-1710611229178-4d9015dd1ba0?w=600&q=70&fm=jpg&auto=format" alt="Festival">
+        <div class="head">
+          <div><div class="n">Woche 6</div><div class="t">Feste und Traditionen</div></div>
+          <div class="th thai">เทศกาล &amp; ประเพณี</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Songkran, Loi Krathong, Buddhismus</p>
+          <p><span class="lab">Grammatik:</span> Zukunft mit จะ, Sequenzen mit แล้วก็</p>
+          <p><span class="lab">Dialog:</span> Eine Einladung zum Fest</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="h-card"><span class="pill">Wochen-Plan</span> Aufbau einer typischen Woche</h3>
+    <table class="plan-table">
+      <thead>
+        <tr><th>Tag</th><th>📖 Lesen (20 min)</th><th>✍️ Schreiben (20 min)</th><th>🗣 Sprechen (20 min)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="day">Tag 1 (Mo)</td><td>Wochenwortschatz lernen</td><td>Wörter abschreiben, in Heft eintragen</td><td>Wörter laut nachsprechen, Tonhöhen üben</td></tr>
+        <tr><td class="day">Tag 2 (Di)</td><td>Hauptdialog des Themas lesen</td><td>Lückentext zum Dialog ausfüllen</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 3 (Mi)</td><td>Lesetext zum Wochenthema</td><td>Sätze umformen, Grammatik anwenden</td><td>Antworten zum Text laut formulieren</td></tr>
+        <tr><td class="day">Tag 4 (Do)</td><td>Grammatik-Box des Tages</td><td>10 eigene Sätze schreiben</td><td>Eigene Sätze laut sprechen</td></tr>
+        <tr><td class="day">Tag 5 (Fr)</td><td>Lesen mit Aufgaben (Wahr/Falsch)</td><td>Kurzen Text frei verfassen</td><td>Rollenspiel zum Wochenthema</td></tr>
+        <tr><td class="day">Tag 6 (Sa)</td><td>Wochenwortschatz wiederholen</td><td>Tagebucheintrag (3–5 Sätze)</td><td>Mit echtem Sprecher (Tandem) üben</td></tr>
+        <tr><td class="day">Tag 7 (So)</td><td>Test &amp; Selbstkontrolle</td><td>Lösungen prüfen, Fehler korrigieren</td><td>Freie Erzählung 2 Min. zum Thema</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+<!-- ==================== WOCHE 1: SPORT ==================== -->
+<section id="woche1" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(4, 120, 87, 0.85); border-color: transparent;">Woche 1 · A2.1</span>
+      <h1>Sport und Gesundheit</h1>
+      <div class="thai-title thai">กีฬาและสุขภาพ</div>
+      <p class="lead">Lernen Sie, über Ihre Sportroutine zu sprechen, Körperteile zu benennen und beim Arzt Ihre Beschwerden zu erklären — alles auf Thai.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 30 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Grammatik</div><div class="v">Klassifikatoren · Verlaufsform</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Über Sport &amp; Gesundheit sprechen</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Sportarten · กีฬา (gii-laa)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&q=70&fm=jpg&auto=format" alt="Fußball"></div>
+        <div class="cap">ลูกฟุตบอล · der Fußball</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ฟุตบอล</td><td class="translit">fút-bon</td><td>Fußball</td><td>⚽</td></tr>
+          <tr><td class="thai">วิ่ง</td><td class="translit">wîng</td><td>laufen, rennen</td><td>🏃</td></tr>
+          <tr><td class="thai">ว่ายน้ำ</td><td class="translit">wâai-náam</td><td>schwimmen</td><td>🏊</td></tr>
+          <tr><td class="thai">โยคะ</td><td class="translit">yoo-ká</td><td>Yoga</td><td>🧘</td></tr>
+          <tr><td class="thai">ขี่จักรยาน</td><td class="translit">khìi jàk-grà-yaan</td><td>Fahrrad fahren</td><td>🚴</td></tr>
+          <tr><td class="thai">เทนนิส</td><td class="translit">then-nít</td><td>Tennis</td><td>🎾</td></tr>
+          <tr><td class="thai">บาสเกตบอล</td><td class="translit">báat-gèt-bon</td><td>Basketball</td><td>🏀</td></tr>
+          <tr><td class="thai">ออกกำลังกาย</td><td class="translit">òk-gam-lang-gaai</td><td>Sport treiben</td><td>💪</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 14px;">B · Körperteile · ส่วนของร่างกาย</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70&fm=jpg&auto=format" alt="Yoga"></div>
+        <div class="cap">ร่างกาย · der Körper</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">หัว</td><td class="translit">hǔa</td><td>Kopf</td><td>🧠</td></tr>
+          <tr><td class="thai">ตา</td><td class="translit">taa</td><td>Auge</td><td>👁️</td></tr>
+          <tr><td class="thai">ปาก</td><td class="translit">pàak</td><td>Mund</td><td>👄</td></tr>
+          <tr><td class="thai">มือ</td><td class="translit">meu</td><td>Hand</td><td>✋</td></tr>
+          <tr><td class="thai">ขา</td><td class="translit">khǎa</td><td>Bein</td><td>🦵</td></tr>
+          <tr><td class="thai">เท้า</td><td class="translit">táo</td><td>Fuß</td><td>🦶</td></tr>
+          <tr><td class="thai">หลัง</td><td class="translit">lǎng</td><td>Rücken</td><td>🔙</td></tr>
+          <tr><td class="thai">ท้อง</td><td class="translit">tóng</td><td>Bauch</td><td>🫃</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 14px;">C · Gesundheit &amp; beim Arzt · สุขภาพและที่หาหมอ</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=400&q=70&fm=jpg&auto=format" alt="Arzt"></div>
+        <div class="cap">หาหมอ · Den Arzt aufsuchen</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">หมอ</td><td class="translit">mǒr</td><td>Arzt / Ärztin</td><td>👨‍⚕️</td></tr>
+          <tr><td class="thai">โรงพยาบาล</td><td class="translit">rohng-pá-yaa-baan</td><td>Krankenhaus</td><td>🏥</td></tr>
+          <tr><td class="thai">ยา</td><td class="translit">yaa</td><td>Medikament</td><td>💊</td></tr>
+          <tr><td class="thai">ปวด</td><td class="translit">pùat</td><td>schmerzen (dumpf)</td><td>😣</td></tr>
+          <tr><td class="thai">เจ็บ</td><td class="translit">jèp</td><td>weh tun (akut)</td><td>🤕</td></tr>
+          <tr><td class="thai">ไข้</td><td class="translit">khâi</td><td>Fieber</td><td>🌡️</td></tr>
+          <tr><td class="thai">ป่วย</td><td class="translit">pùai</td><td>krank</td><td>🤒</td></tr>
+          <tr><td class="thai">สุขภาพ</td><td class="translit">sùk-kà-pâap</td><td>Gesundheit</td><td>❤️</td></tr>
+          <tr><td class="thai">แข็งแรง</td><td class="translit">kǎeng-raeng</td><td>stark, gesund</td><td>💪</td></tr>
+          <tr><td class="thai">พักผ่อน</td><td class="translit">pák-pòn</td><td>sich ausruhen</td><td>😴</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Klassifikatoren (Zählwörter)</div>
+      <p>Im Thai braucht man bei <strong>Zahlen</strong> und Mengenangaben fast immer einen <strong>Klassifikator</strong> — ein kleines Wort, das angibt, was für eine Sorte Sache man zählt. Im Deutschen wäre das wie „drei <em>Stück</em> Brot".</p>
+      <div class="formula">Substantiv + Zahl + Klassifikator</div>
+      <p style="margin-top:8px;"><strong>Wichtige Klassifikatoren:</strong></p>
+      <ul>
+        <li><span class="thai th-mid">คน</span> <span class="translit">(kon)</span> — für <strong>Menschen</strong> ➜ <span class="thai">หมอสามคน</span> = 3 Ärzte</li>
+        <li><span class="thai th-mid">ลูก</span> <span class="translit">(lûuk)</span> — für <strong>runde Dinge</strong> ➜ <span class="thai">ฟุตบอลสองลูก</span> = 2 Fußbälle</li>
+        <li><span class="thai th-mid">ขวด</span> <span class="translit">(khùat)</span> — für <strong>Flaschen</strong> ➜ <span class="thai">ยาหนึ่งขวด</span> = 1 Flasche Medizin</li>
+        <li><span class="thai th-mid">ตัว</span> <span class="translit">(tua)</span> — für <strong>Tiere und Kleidung</strong></li>
+      </ul>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Verlaufsform — gerade etwas tun</div>
+      <p>Um auszudrücken, dass jemand <strong>gerade in diesem Moment</strong> etwas tut, umrahmt man das Verb mit <span class="thai th-mid">กำลัง … อยู่</span>.</p>
+      <div class="formula">กำลัง (gam-lang) + Verb + อยู่ (yùu)</div>
+      <p class="ex"><span class="thai th-mid">ฉันกำลังวิ่งอยู่</span> — Ich bin gerade am Laufen.</p>
+      <p class="ex"><span class="thai th-mid">เขากำลังกินข้าวอยู่</span> — Er/Sie isst gerade.</p>
+      <p class="ex"><span class="thai th-mid">เรากำลังเล่นฟุตบอลอยู่</span> — Wir spielen gerade Fußball.</p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog 1 · Im Fitnessstudio · ที่ฟิตเนส</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1566230555350-59683b1d16e0?w=900&q=70&fm=jpg&auto=format" alt="Schwimmer">
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">สวัสดีครับ คุณกำลังทำอะไรอยู่</span><span class="translit">sà-wàt-dii kráp, khun gam-lang tham à-rai yùu?</span><span class="de">Hallo, was machst du gerade?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">ผมกำลังออกกำลังกายอยู่ครับ ผมชอบวิ่งมาก</span><span class="translit">phǒm gam-lang òk-gam-lang-gaai yùu kráp. phǒm chôp wîng mâak.</span><span class="de">Ich treibe gerade Sport. Ich laufe sehr gerne.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">คุณวิ่งทุกวันไหมครับ</span><span class="translit">khun wîng thúk-wan măi kráp?</span><span class="de">Läufst du jeden Tag?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">ใช่ครับ ผมวิ่งทุกเช้า 30 นาที สุขภาพดีมาก</span><span class="translit">châi kráp. phǒm wîng thúk-cháao 30 naa-thii. sùk-kà-pâap dii mâak.</span><span class="de">Ja. Ich laufe jeden Morgen 30 Minuten. Sehr gut für die Gesundheit.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันสุขภาพดีของฉัน · „Mein gesunder Tag"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&q=70&fm=jpg&auto=format" alt="Obst"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> สวัสดีครับ ผมชื่อสมชาย อายุ 25 ปี ผมเป็นคนไทย ผมอยู่ที่กรุงเทพ ผมชอบเล่นกีฬาและรักษาสุขภาพมาก ผมคิดว่าสุขภาพดีคือสิ่งที่สำคัญที่สุดในชีวิต</p>
+        <p class="thai th-mid"><strong>2.</strong> ทุกวันจันทร์ถึงวันศุกร์ ผมตื่นนอนตอน 6 โมงเช้า แล้วผมไปวิ่งที่สวนสาธารณะใกล้บ้าน 30 นาที อากาศตอนเช้าเย็นสบาย หลังจากวิ่งเสร็จ ผมกลับบ้าน อาบน้ำ และกินข้าวเช้า</p>
+        <p class="thai th-mid"><strong>3.</strong> ผมชอบกินอาหารที่มีประโยชน์ ตอนเช้าผมกินขนมปัง ไข่ต้ม 1 ฟอง และผลไม้ เช่น กล้วยหรือแอปเปิ้ล ผมดื่มน้ำเปล่าวันละ 8 แก้ว ผมไม่ดื่มน้ำอัดลม และไม่กินขนมหวานมาก</p>
+        <p class="thai th-mid"><strong>4.</strong> ตอนเที่ยง ผมกินข้าวกับเพื่อนที่ทำงาน ผมชอบกินผัก ปลา และข้าวกล้อง ตอนเย็นหลังเลิกงาน ผมไปฟิตเนส 3 ครั้งต่อสัปดาห์ ผมว่ายน้ำ 30 นาที และกำลังเล่นโยคะอีก 20 นาทีอยู่</p>
+        <p class="thai th-mid"><strong>5.</strong> วันเสาร์ ผมเล่นฟุตบอลกับเพื่อน 2 คนที่สนามใกล้บ้าน เราเล่นกัน 2 ชั่วโมง สนุกมาก วันอาทิตย์ ผมพักผ่อนอยู่ที่บ้าน อ่านหนังสือ และนอนเร็ว เพราะการพักผ่อนสำคัญต่อสุขภาพ</p>
+        <p class="thai th-mid"><strong>6.</strong> ผมไม่ค่อยป่วย ปีที่แล้วผมไปหาหมอแค่ 1 ครั้ง เพราะปวดหัวและมีไข้นิดหน่อย หมอบอกว่าผมแข็งแรงดี ถ้าคุณอยากมีสุขภาพดี ต้องออกกำลังกายทุกวัน กินอาหารที่ดี ดื่มน้ำมาก ๆ และนอนให้พอครับ</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße Somchai, bin 25 Jahre alt und Thailänder. Ich wohne in Bangkok. Sport und Gesundheit sind mir sehr wichtig — ich glaube, Gesundheit ist das Wichtigste im Leben.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Von Montag bis Freitag stehe ich um sechs Uhr morgens auf und laufe 30 Minuten im Park. Die Morgenluft ist angenehm kühl. Danach gehe ich nach Hause, dusche und frühstücke.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Ich esse gerne gesund. Morgens gibt es Brot, ein gekochtes Ei und Obst (Banane oder Apfel). Ich trinke 8 Gläser Wasser am Tag, keine Limonade und wenig Süßigkeiten.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Mittags esse ich mit Kollegen — Gemüse, Fisch und Vollkornreis. Abends gehe ich 3-mal pro Woche ins Fitnessstudio: 30 Minuten schwimmen und gerade jetzt mache ich auch 20 Minuten Yoga.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Samstags spiele ich mit 2 Freunden 2 Stunden Fußball — sehr lustig. Sonntags ruhe ich mich aus, lese und gehe früh schlafen, denn Erholung ist wichtig.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Ich bin selten krank. Letztes Jahr war ich nur 1-mal beim Arzt, wegen Kopfschmerzen und leichtem Fieber. Der Arzt sagte, ich sei kerngesund. Mein Tipp: jeden Tag Sport, gut essen, viel Wasser, genug schlaf!</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+      <p class="task">Lesen Sie den Text oben und kreuzen Sie an.</p>
+      <ol>
+        <li>Somchai ist Thailänder und 25 Jahre alt. ☐ จริง ☐ ไม่จริง</li>
+        <li>Er steht erst um neun Uhr auf. ☐ จริง ☐ ไม่จริง</li>
+        <li>Morgens isst er Brot, ein Ei und Obst. ☐ จริง ☐ ไม่จริง</li>
+        <li>Er trinkt drei Gläser Wasser am Tag. ☐ จริง ☐ ไม่จริง</li>
+        <li>Er geht 3-mal pro Woche ins Fitnessstudio. ☐ จริง ☐ ไม่จริง</li>
+        <li>Samstags spielt er mit 2 Freunden Fußball. ☐ จริง ☐ ไม่จริง</li>
+        <li>Sonntags geht er auch ins Fitnessstudio. ☐ จริง ☐ ไม่จริง</li>
+        <li>Letztes Jahr war er einmal beim Arzt. ☐ จริง ☐ ไม่จริง</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Lückentext — die richtige Verlaufsform</h4>
+      <p class="task">Ergänzen Sie mit <span class="thai">กำลัง … อยู่</span> und dem passenden Verb.</p>
+      <ol>
+        <li><span class="thai">เขา</span> <span class="blank"></span> <span class="thai">ว่ายน้ำ</span> <span class="blank"></span> <span class="translit">(Er schwimmt gerade.)</span></li>
+        <li><span class="thai">ฉัน</span> <span class="blank"></span> <span class="thai">เล่นบาสเกตบอล</span> <span class="blank"></span> <span class="translit">(Ich spiele gerade Basketball.)</span></li>
+        <li><span class="thai">หมอ</span> <span class="blank"></span> <span class="thai">ทำงาน</span> <span class="blank"></span> <span class="translit">(Der Arzt arbeitet gerade.)</span></li>
+        <li><span class="thai">เด็ก ๆ</span> <span class="blank"></span> <span class="thai">วิ่ง</span> <span class="blank"></span> <span class="thai">ที่สวน</span> <span class="translit">(Die Kinder laufen gerade im Park.)</span></li>
+        <li><span class="thai">สมชาย</span> <span class="blank"></span> <span class="thai">เล่นโยคะ</span> <span class="blank"></span> <span class="translit">(Somchai macht gerade Yoga.)</span></li>
+        <li><span class="thai">เรา</span> <span class="blank"></span> <span class="thai">ขี่จักรยาน</span> <span class="blank"></span> <span class="translit">(Wir fahren gerade Fahrrad.)</span></li>
+        <li><span class="thai">เธอ</span> <span class="blank"></span> <span class="thai">กินผลไม้</span> <span class="blank"></span> <span class="translit">(Sie isst gerade Obst.)</span></li>
+        <li><span class="thai">ผม</span> <span class="blank"></span> <span class="thai">ดื่มน้ำ</span> <span class="blank"></span> <span class="translit">(Ich trinke gerade Wasser.)</span></li>
+        <li><span class="thai">เพื่อน</span> <span class="blank"></span> <span class="thai">เล่นเทนนิส</span> <span class="blank"></span> <span class="translit">(Der Freund spielt gerade Tennis.)</span></li>
+        <li><span class="thai">คนไข้</span> <span class="blank"></span> <span class="thai">พักผ่อน</span> <span class="blank"></span> <span class="thai">ที่บ้าน</span> <span class="translit">(Der Patient ruht sich gerade zu Hause aus.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Klassifikatoren einsetzen</h4>
+      <p class="task">Wählen Sie den richtigen Klassifikator: <span class="thai">คน · ลูก · ขวด</span></p>
+      <ol>
+        <li><span class="thai">หมอ 3</span> <span class="blank"></span> (3 Ärzte)</li>
+        <li><span class="thai">ฟุตบอล 2</span> <span class="blank"></span> (2 Fußbälle)</li>
+        <li><span class="thai">น้ำ 1</span> <span class="blank"></span> (1 Flasche Wasser)</li>
+        <li><span class="thai">เพื่อน 5</span> <span class="blank"></span> (5 Freunde)</li>
+        <li><span class="thai">ยา 3</span> <span class="blank"></span> (3 Flaschen Medizin)</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+      <ol>
+        <li>Ich bin krank.<div class="lines"></div></li>
+        <li>Mein Kopf tut weh.<div class="lines"></div></li>
+        <li>Sie spielt gerade Tennis.<div class="lines"></div></li>
+        <li>Wir sind gesund und stark.<div class="lines"></div></li>
+        <li>Ich habe Fieber.<div class="lines"></div></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein eigener Text — schreiben Sie 5 Sätze über Ihre Sportroutine</h4>
+      <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache — die 5 Töne</h4>
+    <p style="font-size:13px; color:#5a6573;">Im Thai entscheidet die <strong>Tonhöhe</strong> über die Bedeutung. Üben Sie diese fünf Wörter laut, jeweils 10-mal.</p>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">ตา</div><div class="meaning">taa<br>Auge</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">ข่า</div><div class="meaning">khàa<br>Galgant</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ไข้</div><div class="meaning">khâi<br>Fieber</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">น้ำ</div><div class="meaning">náam<br>Wasser</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">หมอ</div><div class="meaning">mǒr<br>Arzt</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel — beim Arzt</h4>
+      <p class="task">Lesen Sie die Rollen mit einem Partner laut.</p>
+      <div class="speak-grid">
+        <div class="speak-card green">
+          <div class="role">Arzt · หมอ</div>
+          <p class="line"><span class="thai th-mid">สวัสดีครับ เป็นอะไรครับ</span><br><span class="translit">sà-wàt-dii kráp, pen à-rai kráp?</span><br>Was fehlt Ihnen?</p>
+          <p class="line"><span class="thai th-mid">มีไข้ไหมครับ</span><br>Haben Sie Fieber?</p>
+          <p class="line"><span class="thai th-mid">กินยานี้ 3 วันครับ</span><br>Nehmen Sie diese Tablette 3 Tage.</p>
+        </div>
+        <div class="speak-card">
+          <div class="role">Patient · คนไข้</div>
+          <p class="line"><span class="thai th-mid">ผมปวดหัวครับ</span><br>Ich habe Kopfschmerzen.</p>
+          <p class="line"><span class="thai th-mid">ใช่ครับ มีไข้นิดหน่อย</span><br>Ja, etwas Fieber.</p>
+          <p class="line"><span class="thai th-mid">ขอบคุณครับหมอ</span><br>Danke, Herr Doktor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei — drei Fragen, drei Antworten</h4>
+      <ol>
+        <li><span class="thai">คุณชอบกีฬาอะไร</span> — Welchen Sport magst du?<div class="lines"></div></li>
+        <li><span class="thai">คุณออกกำลังกายกี่ครั้งต่อสัปดาห์</span> — Wie oft pro Woche?<div class="lines"></div></li>
+        <li><span class="thai">คุณมีสุขภาพดีไหม</span> — Bist du gesund?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · 8 Wörter laut lesen</td><td>Wortschatz A 5× abschreiben</td><td>Wörter laut nachsprechen, aufnehmen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B + C lernen</td><td>Übung 3 — Klassifikatoren</td><td>Tonübungen (5 Töne)</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Dialog 1 „Im Fitnessstudio"</td><td>Übung 2 — Verlaufsform</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Lesetext + Übung 1</td><td>Übung 4 — Übersetzen</td><td>Übung 7 — drei Fragen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Grammatik G1 + G2</td><td>Übung 5 — eigener Text</td><td>Eigenen Text laut vortragen</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Wortschatz wiederholen</td><td>Tagebuch (3 Sätze)</td><td>Übung 6 — Rollenspiel beim Arzt</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest</td><td>Antwortschlüssel prüfen</td><td>2-Min-Erzählung</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 — Wahr / Falsch</h4>
+      <ol>
+        <li>จริง — er ist 25 und Thailänder</li>
+        <li>ไม่จริง — er steht um <em>6 Uhr</em> auf</li>
+        <li>จริง — Brot, Ei und Obst</li>
+        <li>ไม่จริง — er trinkt <em>8 Gläser</em></li>
+        <li>จริง — 3-mal pro Woche</li>
+        <li>จริง — mit 2 Freunden</li>
+        <li>ไม่จริง — sonntags ruht er sich aus</li>
+        <li>จริง — wegen Kopfschmerzen und Fieber</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 — Verlaufsform</h4>
+      <ol>
+        <li>เขา <strong>กำลัง</strong> ว่ายน้ำ <strong>อยู่</strong></li>
+        <li>ฉัน <strong>กำลัง</strong> เล่นบาสเกตบอล <strong>อยู่</strong></li>
+        <li>หมอ <strong>กำลัง</strong> ทำงาน <strong>อยู่</strong></li>
+        <li>เด็ก ๆ <strong>กำลัง</strong> วิ่ง <strong>อยู่</strong> ที่สวน</li>
+        <li>สมชาย <strong>กำลัง</strong> เล่นโยคะ <strong>อยู่</strong></li>
+        <li>เรา <strong>กำลัง</strong> ขี่จักรยาน <strong>อยู่</strong></li>
+        <li>เธอ <strong>กำลัง</strong> กินผลไม้ <strong>อยู่</strong></li>
+        <li>ผม <strong>กำลัง</strong> ดื่มน้ำ <strong>อยู่</strong></li>
+        <li>เพื่อน <strong>กำลัง</strong> เล่นเทนนิส <strong>อยู่</strong></li>
+        <li>คนไข้ <strong>กำลัง</strong> พักผ่อน <strong>อยู่</strong> ที่บ้าน</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 — Klassifikatoren</h4>
+      <ol>
+        <li>หมอ 3 <strong>คน</strong></li>
+        <li>ฟุตบอล 2 <strong>ลูก</strong></li>
+        <li>น้ำ 1 <strong>ขวด</strong></li>
+        <li>เพื่อน 5 <strong>คน</strong></li>
+        <li>ยา 3 <strong>ขวด</strong></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 — Übersetzung</h4>
+      <ol>
+        <li>ฉันป่วย <span class="translit">(chăn pùai)</span></li>
+        <li>ฉันปวดหัว</li>
+        <li>เธอกำลังเล่นเทนนิสอยู่</li>
+        <li>เราแข็งแรงและสุขภาพดี</li>
+        <li>ฉันมีไข้</li>
+      </ol>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== WOCHE 2: FAMILIE ==================== -->
+<section id="woche2" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1611024847487-e26177381a3f?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(16, 185, 129, 0.85); border-color: transparent;">Woche 2 · A2.1</span>
+      <h1>Familie und Freunde</h1>
+      <div class="thai-title thai">ครอบครัวและเพื่อน</div>
+      <p class="lead">Lernen Sie Verwandtschaftsbezeichnungen, beschreiben Sie Ihre Familie auf Thai und üben Sie Fragewörter wie „wer", „was" und „wie viele".</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 32 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Grammatik</div><div class="v">Fragewörter · Possessivpartikel ของ</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Über Ihre Familie sprechen</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#10b981; margin-top: 14px;">A · Eltern und Geschwister · พ่อ แม่ พี่ น้อง</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1577896850561-dc005e5b5689?w=400&q=70&fm=jpg&auto=format" alt="Familie beim Essen"></div>
+        <div class="cap">ครอบครัว · die Familie</div>
+      </div>
+      <table class="vocab red">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">พ่อ</td><td class="translit">phôr</td><td>Vater</td><td>👨</td></tr>
+          <tr><td class="thai">แม่</td><td class="translit">mâe</td><td>Mutter</td><td>👩</td></tr>
+          <tr><td class="thai">พี่ชาย</td><td class="translit">phîi-chaai</td><td>älterer Bruder</td><td>🧑</td></tr>
+          <tr><td class="thai">พี่สาว</td><td class="translit">phîi-sǎao</td><td>ältere Schwester</td><td>👧</td></tr>
+          <tr><td class="thai">น้องชาย</td><td class="translit">nóng-chaai</td><td>jüngerer Bruder</td><td>👦</td></tr>
+          <tr><td class="thai">น้องสาว</td><td class="translit">nóng-sǎao</td><td>jüngere Schwester</td><td>👧</td></tr>
+          <tr><td class="thai">ลูก</td><td class="translit">lûuk</td><td>Kind</td><td>👶</td></tr>
+          <tr><td class="thai">ลูกชาย</td><td class="translit">lûuk-chaai</td><td>Sohn</td><td>👦</td></tr>
+          <tr><td class="thai">ลูกสาว</td><td class="translit">lûuk-sǎao</td><td>Tochter</td><td>👧</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#10b981; margin-top: 18px;">B · Großeltern, Tanten, Onkel · ปู่ ย่า ตา ยาย ลุง ป้า</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1700553856089-1ea9261143a7?w=400&q=70&fm=jpg&auto=format" alt="Großmutter"></div>
+        <div class="cap">ยาย · die Großmutter</div>
+      </div>
+      <table class="vocab red">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ปู่</td><td class="translit">pùu</td><td>Großvater (Vaters Seite)</td><td>👴</td></tr>
+          <tr><td class="thai">ย่า</td><td class="translit">yâa</td><td>Großmutter (Vaters Seite)</td><td>👵</td></tr>
+          <tr><td class="thai">ตา</td><td class="translit">taa</td><td>Großvater (Mutters Seite)</td><td>👴</td></tr>
+          <tr><td class="thai">ยาย</td><td class="translit">yaai</td><td>Großmutter (Mutters Seite)</td><td>👵</td></tr>
+          <tr><td class="thai">ลุง</td><td class="translit">lung</td><td>Onkel (älter als Vater/Mutter)</td><td>👨</td></tr>
+          <tr><td class="thai">ป้า</td><td class="translit">pâa</td><td>Tante (älter als Vater/Mutter)</td><td>👩</td></tr>
+          <tr><td class="thai">น้า</td><td class="translit">náa</td><td>jüngere Tante/Onkel (Mutters Seite)</td><td>👨</td></tr>
+          <tr><td class="thai">อา</td><td class="translit">aa</td><td>jüngere Tante/Onkel (Vaters Seite)</td><td>👩</td></tr>
+          <tr><td class="thai">ครอบครัว</td><td class="translit">khrôp-khrua</td><td>Familie</td><td>👨‍👩‍👧</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#10b981; margin-top: 18px;">C · Beziehungen &amp; Berufe · ความสัมพันธ์และอาชีพ</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1559035843-e20a3b69c7a1?w=400&q=70&fm=jpg&auto=format" alt="Freunde"></div>
+        <div class="cap">เพื่อน · Freund/in</div>
+      </div>
+      <table class="vocab red">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">เพื่อน</td><td class="translit">phûean</td><td>Freund / Freundin</td><td>👫</td></tr>
+          <tr><td class="thai">แฟน</td><td class="translit">faen</td><td>Partner/in (Freund)</td><td>💑</td></tr>
+          <tr><td class="thai">สามี</td><td class="translit">sǎa-mii</td><td>Ehemann</td><td>🤵</td></tr>
+          <tr><td class="thai">ภรรยา</td><td class="translit">phan-rá-yaa</td><td>Ehefrau</td><td>👰</td></tr>
+          <tr><td class="thai">อายุ</td><td class="translit">aa-yú</td><td>Alter</td><td>📅</td></tr>
+          <tr><td class="thai">ทำงาน</td><td class="translit">tham-ngaan</td><td>arbeiten</td><td>💼</td></tr>
+          <tr><td class="thai">เรียน</td><td class="translit">rian</td><td>lernen, studieren</td><td>📚</td></tr>
+          <tr><td class="thai">ครู</td><td class="translit">khruu</td><td>Lehrer/in</td><td>👩‍🏫</td></tr>
+          <tr><td class="thai">นักเรียน</td><td class="translit">nák-rian</td><td>Schüler/in</td><td>👨‍🎓</td></tr>
+          <tr><td class="thai">น่ารัก</td><td class="translit">nâa-rák</td><td>nett, lieb</td><td>🥰</td></tr>
+          <tr><td class="thai">ใจดี</td><td class="translit">jai-dii</td><td>gutherzig</td><td>💖</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Fragewörter — คำถาม</div>
+      <p>Mit diesen Wörtern stellen Sie Fragen über Personen und Dinge. Im Thai stehen Fragewörter meist <strong>am Ende</strong> des Satzes (anders als im Deutschen).</p>
+      <div class="formula">Aussagesatz + Fragewort + ครับ / ค่ะ</div>
+      <ul>
+        <li><span class="thai th-mid">ใคร</span> <span class="translit">(khrai)</span> — wer ➜ <span class="thai">เขาเป็นใคร</span> = Wer ist er/sie?</li>
+        <li><span class="thai th-mid">อะไร</span> <span class="translit">(à-rai)</span> — was ➜ <span class="thai">นี่อะไร</span> = Was ist das?</li>
+        <li><span class="thai th-mid">ที่ไหน</span> <span class="translit">(thîi nǎi)</span> — wo ➜ <span class="thai">บ้านอยู่ที่ไหน</span> = Wo ist das Haus?</li>
+        <li><span class="thai th-mid">เมื่อไหร่</span> <span class="translit">(mêua-rài)</span> — wann ➜ <span class="thai">มาเมื่อไหร่</span> = Wann kommst du?</li>
+        <li><span class="thai th-mid">ทำไม</span> <span class="translit">(tham-mai)</span> — warum ➜ <span class="thai">ทำไมไม่มา</span> = Warum kommst du nicht?</li>
+        <li><span class="thai th-mid">กี่</span> <span class="translit">(gìi)</span> — wie viele ➜ <span class="thai">ครอบครัวมีกี่คน</span> = Wie viele Familienmitglieder?</li>
+      </ul>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Possessivpartikel ของ — „von / 's"</div>
+      <p>Um Besitz oder Zugehörigkeit auszudrücken, kommt <span class="thai th-mid">ของ</span> <span class="translit">(kŏng)</span> zwischen das Substantiv und den Besitzer.</p>
+      <div class="formula">Substantiv + ของ + Besitzer</div>
+      <p class="ex"><span class="thai th-mid">พ่อของฉัน</span> <span class="translit">(phôr kŏng chăn)</span> — mein Vater (wörtlich: Vater von mir)</p>
+      <p class="ex"><span class="thai th-mid">บ้านของเรา</span> <span class="translit">(bâan kŏng rao)</span> — unser Haus</p>
+      <p class="ex"><span class="thai th-mid">ครอบครัวของเขา</span> — seine/ihre Familie</p>
+      <p style="font-size:12px; color:#5a6573; margin-top:8px;"><em>Tipp: Im Alltag wird ของ oft weggelassen —</em> <span class="thai">พ่อฉัน</span> <em>geht auch.</em></p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#10b981;">Dialog · Über die Familie · เรื่องครอบครัว</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?w=900&q=70&fm=jpg&auto=format" alt="Familie">
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">สวัสดีค่ะ ครอบครัวคุณมีกี่คนคะ</span><span class="translit">sà-wàt-dii khá. khrôp-khrua khun mii gìi kon khá?</span><span class="de">Hallo. Wie viele Personen umfasst deine Familie?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">ครอบครัวของผมมี 5 คนครับ มีพ่อ แม่ พี่สาว น้องชาย และผม</span><span class="translit">khrôp-khrua kŏng phǒm mii 5 kon kráp. mii phôr, mâe, phîi-sǎao, nóng-chaai, láe phǒm.</span><span class="de">Meine Familie hat 5 Personen: Vater, Mutter, ältere Schwester, jüngerer Bruder und ich.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">พ่อของคุณทำงานอะไรคะ</span><span class="translit">phôr kŏng khun tham-ngaan à-rai khá?</span><span class="de">Was macht dein Vater beruflich?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">พ่อของผมเป็นหมอครับ แม่ของผมเป็นครู</span><span class="translit">phôr kŏng phǒm pen mǒr kráp. mâe kŏng phǒm pen khruu.</span><span class="de">Mein Vater ist Arzt. Meine Mutter ist Lehrerin.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">พี่สาวคุณอายุเท่าไหร่คะ</span><span class="translit">phîi-sǎao khun aa-yú thâo-rài khá?</span><span class="de">Wie alt ist deine ältere Schwester?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">พี่สาวอายุ 28 ปี เธอเป็นพยาบาลที่โรงพยาบาล เธอใจดีมาก</span><span class="translit">phîi-sǎao aa-yú 28 pii. thoe pen phá-yaa-baan thîi rohng-pá-yaa-baan. thoe jai-dii mâak.</span><span class="de">Sie ist 28 und Krankenschwester im Krankenhaus. Sie ist sehr gutherzig.</span></div></div>
+    </div>
+
+    <h4 style="color:#10b981; margin-top: 22px;">Lesetext · ครอบครัวของฉัน · „Meine Familie"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1772160029951-81b9754a6044?w=400&q=70&fm=jpg&auto=format" alt="Großmutter und Enkel"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> สวัสดีค่ะ ฉันชื่อนภา อายุ 22 ปี ฉันเป็นนักเรียนที่กรุงเทพ ครอบครัวของฉันมี 6 คน เรารักกันมากและอยู่บ้านเดียวกัน</p>
+        <p class="thai th-mid"><strong>2.</strong> พ่อของฉันชื่อสมชาย อายุ 50 ปี เขาเป็นหมอที่โรงพยาบาลใหญ่ พ่อทำงานหนักทุกวัน แต่เขาใจดีและตลกมาก พ่อชอบเล่นฟุตบอลกับน้องชายของฉัน</p>
+        <p class="thai th-mid"><strong>3.</strong> แม่ของฉันชื่อมาลี อายุ 47 ปี เธอเป็นครูสอนภาษาอังกฤษที่โรงเรียน แม่น่ารักและทำอาหารอร่อยมาก ตอนเย็นฉันชอบช่วยแม่ทำอาหารในครัว</p>
+        <p class="thai th-mid"><strong>4.</strong> ฉันมีพี่สาว 1 คน ชื่อพิมพ์ พี่อายุ 26 ปี เธอเป็นพยาบาลและกำลังเรียนภาษาเยอรมันอยู่ พี่อยากไปทำงานที่ประเทศเยอรมนี ฉันและพี่ไปวิ่งที่สวนทุกวันเสาร์</p>
+        <p class="thai th-mid"><strong>5.</strong> น้องชายของฉันชื่อโต้ง อายุ 15 ปี เป็นนักเรียนมัธยม โต้งซน แต่ฉลาดมาก เขาชอบเล่นเกม และชอบกินขนม</p>
+        <p class="thai th-mid"><strong>6.</strong> ที่บ้าน ยายของฉันก็อยู่กับเรา ยายอายุ 75 ปี ยายใจดีและเล่าเรื่องเก่า ๆ ให้พวกเราฟัง ฉันรักยายมาก ยายชอบดื่มชาและดูทีวีทุกเย็น</p>
+        <p class="thai th-mid"><strong>7.</strong> ฉันมีเพื่อนสนิท 2 คน ชื่อแอนและบี เราเรียนด้วยกันที่มหาวิทยาลัย ทุกวันอาทิตย์ เราไปกินข้าวและเดินเล่นในห้างสรรพสินค้า เพื่อนของฉันใจดีและน่ารักมาก</p>
+        <p class="thai th-mid"><strong>8.</strong> ครอบครัวคือสิ่งที่สำคัญที่สุดสำหรับฉัน ฉันคิดว่าฉันโชคดีมากที่มีครอบครัวที่อบอุ่น ถ้าคุณมีเวลา คุณควรอยู่กับครอบครัวของคุณมาก ๆ ค่ะ</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße Napa, 22 Jahre alt, und studiere in Bangkok. Meine Familie besteht aus 6 Personen — wir lieben uns sehr und wohnen im selben Haus.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Mein Vater Somchai ist 50 und arbeitet als Arzt in einem großen Krankenhaus. Er arbeitet hart, ist aber sehr lieb und lustig. Mit meinem kleinen Bruder spielt er gerne Fußball.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Meine Mutter Mali ist 47 und Englischlehrerin an einer Schule. Sie ist süß und kocht köstlich. Abends helfe ich ihr gerne in der Küche.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Ich habe eine ältere Schwester namens Pim, 26 Jahre alt. Sie ist Krankenschwester und lernt gerade Deutsch — sie möchte in Deutschland arbeiten. Samstags laufen wir zusammen im Park.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Mein kleiner Bruder Tong (15) geht aufs Gymnasium. Er ist frech, aber sehr klug. Er spielt gerne Computerspiele und nascht ständig Süßigkeiten.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Bei uns wohnt auch meine Großmutter (75). Sie ist gutherzig und erzählt uns alte Geschichten. Ich liebe sie sehr — sie trinkt gerne Tee und schaut jeden Abend fern.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Meine zwei besten Freundinnen heißen Ann und Bee. Wir studieren zusammen an der Uni. Sonntags essen wir und spazieren im Einkaufszentrum. Sie sind sehr nett.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Familie ist für mich das Wichtigste. Ich habe Glück mit einer so warmherzigen Familie. Wenn ihr Zeit habt, verbringt sie mit eurer Familie!</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+      <ol>
+        <li>Napa ist 22 Jahre alt und Studentin. ☐ จริง ☐ ไม่จริง</li>
+        <li>Ihre Familie hat 4 Personen. ☐ จริง ☐ ไม่จริง</li>
+        <li>Ihr Vater ist Arzt im Krankenhaus. ☐ จริง ☐ ไม่จริง</li>
+        <li>Ihre Mutter ist Englischlehrerin. ☐ จริง ☐ ไม่จริง</li>
+        <li>Pim, ihre Schwester, lernt gerade Französisch. ☐ จริง ☐ ไม่จริง</li>
+        <li>Ihr Bruder Tong ist 15 und sehr ruhig. ☐ จริง ☐ ไม่จริง</li>
+        <li>Ihre Großmutter wohnt mit ihnen zusammen. ☐ จริง ☐ ไม่จริง</li>
+        <li>Sie hat zwei beste Freundinnen, Ann und Bee. ☐ จริง ☐ ไม่จริง</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Lückentext — das richtige Fragewort</h4>
+      <p class="task">Ergänzen Sie mit <span class="thai">ใคร · อะไร · ที่ไหน · เมื่อไหร่ · ทำไม · กี่</span></p>
+      <ol>
+        <li><span class="thai">ครอบครัวของคุณมี</span> <span class="blank"></span> <span class="thai">คน</span> <span class="translit">(Wie viele Familienmitglieder?)</span></li>
+        <li><span class="thai">พ่อทำงาน</span> <span class="blank"></span> <span class="translit">(Was macht der Vater beruflich?)</span></li>
+        <li><span class="thai">บ้านของคุณอยู่</span> <span class="blank"></span> <span class="translit">(Wo ist dein Haus?)</span></li>
+        <li><span class="thai">เธอชื่อ</span> <span class="blank"></span> <span class="translit">(Wer ist sie / Wie heißt sie?)</span></li>
+        <li><span class="thai">น้องสาวจะมา</span> <span class="blank"></span> <span class="translit">(Wann kommt die kleine Schwester?)</span></li>
+        <li><span class="thai">คุณ</span> <span class="blank"></span> <span class="thai">ไม่มาวันนี้</span> <span class="translit">(Warum kommst du heute nicht?)</span></li>
+        <li><span class="thai">พี่ชายของคุณอายุ</span> <span class="blank"></span> <span class="thai">ปี</span> <span class="translit">(Wie alt ist dein älterer Bruder?)</span></li>
+        <li><span class="thai">ยายชอบดื่ม</span> <span class="blank"></span> <span class="translit">(Was trinkt die Großmutter gerne?)</span></li>
+        <li><span class="thai">เพื่อนของคุณเรียน</span> <span class="blank"></span> <span class="translit">(Wo lernt deine Freundin?)</span></li>
+        <li><span class="thai">คุณรัก</span> <span class="blank"></span> <span class="thai">มากที่สุด</span> <span class="translit">(Wen liebst du am meisten?)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Possessivpartikel ของ einsetzen</h4>
+      <p class="task">Bilden Sie die Possessivkonstruktion (von wem?).</p>
+      <ol>
+        <li>Mein Vater &nbsp;➜&nbsp; <span class="thai">พ่อ</span> <span class="blank"></span> <span class="thai">ฉัน</span></li>
+        <li>Deine Mutter &nbsp;➜&nbsp; <span class="thai">แม่</span> <span class="blank"></span> <span class="thai">คุณ</span></li>
+        <li>Seine Schwester &nbsp;➜&nbsp; <span class="thai">พี่สาว</span> <span class="blank"></span> <span class="thai">เขา</span></li>
+        <li>Unsere Familie &nbsp;➜&nbsp; <span class="thai">ครอบครัว</span> <span class="blank"></span> <span class="thai">เรา</span></li>
+        <li>Meiner Großmutter Haus &nbsp;➜&nbsp; <span class="thai">บ้าน</span> <span class="blank"></span> <span class="thai">ยาย</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+      <ol>
+        <li>Mein Vater ist Arzt.<div class="lines"></div></li>
+        <li>Wie viele Personen hat deine Familie?<div class="lines"></div></li>
+        <li>Meine ältere Schwester ist 28 Jahre alt.<div class="lines"></div></li>
+        <li>Mein kleiner Bruder lernt in der Schule.<div class="lines"></div></li>
+        <li>Wer ist diese Person?<div class="lines"></div></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein eigener Text — beschreiben Sie Ihre Familie (5 Sätze)</h4>
+      <p class="task">Verwenden Sie mindestens drei neue Wörter und einmal die Possessivpartikel <span class="thai">ของ</span>.</p>
+      <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache — Familie mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">ตา</div><div class="meaning">taa<br>Großvater (mütt.)</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">ป้า</div><div class="meaning">pâa<br>Tante (älter)</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">พ่อ</div><div class="meaning">phôr<br>Vater</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">น้า</div><div class="meaning">náa<br>Onkel/Tante (jünger)</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">หมอ</div><div class="meaning">mǒr<br>Arzt</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel — sich kennenlernen</h4>
+      <p class="task">Spielen Sie das Gespräch mit einem Partner.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Person A</div>
+          <p class="line"><span class="thai th-mid">สวัสดีครับ ครอบครัวคุณมีกี่คน</span><br>Wie viele Personen hat deine Familie?</p>
+          <p class="line"><span class="thai th-mid">พ่อทำงานอะไรครับ</span><br>Was macht dein Vater?</p>
+          <p class="line"><span class="thai th-mid">คุณมีพี่น้องไหมครับ</span><br>Hast du Geschwister?</p>
+          <p class="line"><span class="thai th-mid">ดีจังเลยครับ</span><br>Schön!</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Person B</div>
+          <p class="line"><span class="thai th-mid">ครอบครัวของฉันมี 4 คนค่ะ</span><br>Meine Familie hat 4 Personen.</p>
+          <p class="line"><span class="thai th-mid">พ่อเป็นครูค่ะ แม่เป็นหมอ</span><br>Vater ist Lehrer, Mutter Ärztin.</p>
+          <p class="line"><span class="thai th-mid">มีค่ะ พี่สาว 1 คน อายุ 25 ปี</span><br>Ja, eine ältere Schwester (25).</p>
+          <p class="line"><span class="thai th-mid">ครอบครัวของคุณล่ะคะ</span><br>Und deine Familie?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei — fünf Fragen über die Familie</h4>
+      <ol>
+        <li><span class="thai">ครอบครัวของคุณมีกี่คน</span> — Wie viele Personen?<div class="lines"></div></li>
+        <li><span class="thai">พ่อแม่ของคุณทำงานอะไร</span> — Was machen die Eltern beruflich?<div class="lines"></div></li>
+        <li><span class="thai">คุณมีพี่น้องกี่คน</span> — Wie viele Geschwister?<div class="lines"></div></li>
+        <li><span class="thai">คุณรักใครมากที่สุด ทำไม</span> — Wen liebst du am meisten? Warum?<div class="lines"></div></li>
+        <li><span class="thai">คุณเจอครอบครัวเมื่อไหร่</span> — Wann triffst du deine Familie?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table red">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Eltern und Geschwister</td><td>Wortschatz A 5× abschreiben</td><td>Wörter laut nachsprechen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B + C lernen</td><td>Übung 3 — Possessivpartikel</td><td>Tonübungen mit Familienwörtern</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Dialog „Über die Familie" lesen</td><td>Übung 2 — Fragewörter</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Lesetext „Meine Familie" + Übung 1</td><td>Übung 4 — Übersetzen</td><td>Übung 7 — fünf Fragen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Grammatik G1 + G2</td><td>Übung 5 — eigener Familientext</td><td>Eigenen Text laut vortragen</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Wortschatz wiederholen</td><td>Stammbaum auf Thai zeichnen</td><td>Übung 6 — Rollenspiel kennenlernen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest</td><td>Antwortschlüssel prüfen</td><td>2-Min-Erzählung „Meine Familie"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 — Wahr / Falsch</h4>
+      <ol>
+        <li>จริง — Napa ist 22 und Studentin</li>
+        <li>ไม่จริง — ihre Familie hat <em>6 Personen</em></li>
+        <li>จริง — Vater ist Arzt</li>
+        <li>จริง — Mutter ist Englischlehrerin</li>
+        <li>ไม่จริง — Pim lernt <em>Deutsch</em>, nicht Französisch</li>
+        <li>ไม่จริง — Tong ist „ซน" (frech), nicht ruhig</li>
+        <li>จริง — die Großmutter wohnt mit der Familie</li>
+        <li>จริง — Ann und Bee</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 — Fragewörter</h4>
+      <ol>
+        <li>กี่</li>
+        <li>อะไร</li>
+        <li>ที่ไหน</li>
+        <li>อะไร <em>(oder ใคร, wenn nach Person)</em></li>
+        <li>เมื่อไหร่</li>
+        <li>ทำไม</li>
+        <li>กี่</li>
+        <li>อะไร</li>
+        <li>ที่ไหน</li>
+        <li>ใคร</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 — Possessivpartikel ของ</h4>
+      <ol>
+        <li>พ่อ <strong>ของ</strong> ฉัน</li>
+        <li>แม่ <strong>ของ</strong> คุณ</li>
+        <li>พี่สาว <strong>ของ</strong> เขา</li>
+        <li>ครอบครัว <strong>ของ</strong> เรา</li>
+        <li>บ้าน <strong>ของ</strong> ยาย</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 — Übersetzung (Modellantworten)</h4>
+      <ol>
+        <li>พ่อของฉันเป็นหมอ <span class="translit">(phôr kŏng chăn pen mǒr)</span></li>
+        <li>ครอบครัวของคุณมีกี่คน <span class="translit">(khrôp-khrua kŏng khun mii gìi kon)</span></li>
+        <li>พี่สาวของฉันอายุ 28 ปี</li>
+        <li>น้องชายของฉันเรียนที่โรงเรียน</li>
+        <li>คนนี้คือใคร <span class="translit">(kon níi kheu khrai)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 — Mustertext</h4>
+      <p class="thai" style="font-size:14px;">ครอบครัวของฉันมี 4 คน พ่อของฉันเป็นวิศวกร แม่ของฉันเป็นครู ฉันมีน้องสาว 1 คน อายุ 18 ปี เธอกำลังเรียนที่มหาวิทยาลัย เรารักกันมาก</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Meine Familie hat 4 Personen. Mein Vater ist Ingenieur, meine Mutter Lehrerin. Ich habe eine kleine Schwester (18), die gerade an der Uni studiert. Wir lieben uns sehr.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== WOCHE 3: EINKAUFEN ==================== -->
+<section id="woche3" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1654435526586-aabe3af3697a?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(16, 185, 129, 0.85); border-color: transparent;">Woche 3 · A2.1</span>
+      <h1>Einkaufen in Thailand</h1>
+      <div class="thai-title thai">การช้อปปิ้งในประเทศไทย</div>
+      <p class="lead">Vom Frischmarkt am Morgen über den Nachtmarkt bis zum Supermarkt: lernen Sie die Wörter, Zahlen und Sätze für jeden Einkaufsort in Thailand — inklusive Feilschen.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 38 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Grammatik</div><div class="v">Demonstrativ · นี่/นั่น/โน่น · เท่าไหร่</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Einkaufen &amp; Feilschen auf Thai</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Frischmarkt · ที่ตลาดสด (thîi tà-làat-sòt)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1758184449358-ac6f5dcd8e04?w=400&q=70&fm=jpg&auto=format" alt="Thailand Frischmarkt"></div>
+        <div class="cap">ตลาดสด · der Frischmarkt</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ตลาด</td><td class="translit">tà-làat</td><td>Markt</td><td>🏪</td></tr>
+          <tr><td class="thai">ตลาดสด</td><td class="translit">tà-làat-sòt</td><td>Frischmarkt</td><td>🍅</td></tr>
+          <tr><td class="thai">แม่ค้า</td><td class="translit">mâe-kháa</td><td>Verkäuferin</td><td>👩</td></tr>
+          <tr><td class="thai">พ่อค้า</td><td class="translit">phôr-kháa</td><td>Verkäufer</td><td>👨</td></tr>
+          <tr><td class="thai">ลูกค้า</td><td class="translit">lûuk-kháa</td><td>Kunde</td><td>🧑</td></tr>
+          <tr><td class="thai">ผลไม้</td><td class="translit">phǒn-lá-máai</td><td>Obst</td><td>🍎</td></tr>
+          <tr><td class="thai">ผัก</td><td class="translit">phàk</td><td>Gemüse</td><td>🥬</td></tr>
+          <tr><td class="thai">เนื้อสัตว์</td><td class="translit">néua-sàt</td><td>Fleisch</td><td>🥩</td></tr>
+          <tr><td class="thai">ปลา</td><td class="translit">plaa</td><td>Fisch</td><td>🐟</td></tr>
+          <tr><td class="thai">ราคา</td><td class="translit">raa-khaa</td><td>Preis</td><td>💰</td></tr>
+          <tr><td class="thai">บาท</td><td class="translit">bàat</td><td>Baht (Währung)</td><td>฿</td></tr>
+          <tr><td class="thai">เท่าไหร่</td><td class="translit">thâo-rài</td><td>wie viel?</td><td>❓</td></tr>
+          <tr><td class="thai">ถูก</td><td class="translit">thùuk</td><td>billig</td><td>👍</td></tr>
+          <tr><td class="thai">แพง</td><td class="translit">phaeng</td><td>teuer</td><td>💸</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Nachtmarkt · ที่ตลาดกลางคืน (thîi tà-làat glaang-kheun)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1565065984462-ba608fda9ae1?w=400&q=70&fm=jpg&auto=format" alt="Nachtmarkt in Bangkok"></div>
+        <div class="cap">ตลาดกลางคืน · der Nachtmarkt</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ตลาดกลางคืน</td><td class="translit">tà-làat glaang-kheun</td><td>Nachtmarkt</td><td>🌃</td></tr>
+          <tr><td class="thai">ของกิน</td><td class="translit">kŏng-gin</td><td>Essen, Lebensmittel</td><td>🍢</td></tr>
+          <tr><td class="thai">ของฝาก</td><td class="translit">kŏng-fàak</td><td>Souvenir, Mitbringsel</td><td>🎁</td></tr>
+          <tr><td class="thai">เสื้อ</td><td class="translit">sêua</td><td>Hemd, T-Shirt</td><td>👕</td></tr>
+          <tr><td class="thai">กางเกง</td><td class="translit">gaang-geng</td><td>Hose</td><td>👖</td></tr>
+          <tr><td class="thai">รองเท้า</td><td class="translit">rong-tháo</td><td>Schuhe</td><td>👟</td></tr>
+          <tr><td class="thai">กระเป๋า</td><td class="translit">krà-pǎo</td><td>Tasche</td><td>👜</td></tr>
+          <tr><td class="thai">ลด</td><td class="translit">lót</td><td>reduzieren</td><td>📉</td></tr>
+          <tr><td class="thai">ลดราคา</td><td class="translit">lót raa-khaa</td><td>Rabatt</td><td>🏷️</td></tr>
+          <tr><td class="thai">ต่อรอง</td><td class="translit">tòr-rong</td><td>feilschen</td><td>🤝</td></tr>
+          <tr><td class="thai">ซื้อ</td><td class="translit">séu</td><td>kaufen</td><td>🛒</td></tr>
+          <tr><td class="thai">ขาย</td><td class="translit">khǎai</td><td>verkaufen</td><td>💵</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · Supermarkt · ที่ซูเปอร์มาร์เก็ต (thîi suu-pôe-maa-két)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1670684684445-a4504dca0bbc?w=400&q=70&fm=jpg&auto=format" alt="Supermarkt"></div>
+        <div class="cap">ซูเปอร์มาร์เก็ต · der Supermarkt</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ซูเปอร์มาร์เก็ต</td><td class="translit">suu-pôe-maa-két</td><td>Supermarkt</td><td>🛒</td></tr>
+          <tr><td class="thai">ห้างสรรพสินค้า</td><td class="translit">hâang-sàp-pá-sǐn-kháa</td><td>Kaufhaus / Mall</td><td>🏬</td></tr>
+          <tr><td class="thai">รถเข็น</td><td class="translit">rót-khěn</td><td>Einkaufswagen</td><td>🛒</td></tr>
+          <tr><td class="thai">ตะกร้า</td><td class="translit">tà-grâa</td><td>Korb</td><td>🧺</td></tr>
+          <tr><td class="thai">แคชเชียร์</td><td class="translit">kháet-chia</td><td>Kassierer/in</td><td>👩‍💼</td></tr>
+          <tr><td class="thai">เงิน</td><td class="translit">ngern</td><td>Geld</td><td>💵</td></tr>
+          <tr><td class="thai">เงินทอน</td><td class="translit">ngern-thon</td><td>Wechselgeld</td><td>🪙</td></tr>
+          <tr><td class="thai">บัตรเครดิต</td><td class="translit">bàt kre-dìt</td><td>Kreditkarte</td><td>💳</td></tr>
+          <tr><td class="thai">ใบเสร็จ</td><td class="translit">bai-sèt</td><td>Quittung</td><td>🧾</td></tr>
+          <tr><td class="thai">ข้าว</td><td class="translit">khâao</td><td>Reis</td><td>🍚</td></tr>
+          <tr><td class="thai">น้ำตาล</td><td class="translit">nám-taan</td><td>Zucker</td><td>🍬</td></tr>
+          <tr><td class="thai">เกลือ</td><td class="translit">gleua</td><td>Salz</td><td>🧂</td></tr>
+          <tr><td class="thai">ขนม</td><td class="translit">khà-nǒm</td><td>Süßigkeit, Snack</td><td>🍪</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Demonstrativpronomen — „dieses / jenes" zeigen</div>
+      <p>Beim Einkaufen zeigt man dauernd auf Dinge: „Was kostet <em>das hier</em>?" — „Ich nehme <em>jenes dort</em>." Auf Thai gibt es drei Demonstrativwörter — je nach Entfernung vom Sprecher:</p>
+      <table class="vocab" style="margin-top:8px;">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th>Entfernung</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">นี่</td><td class="translit">nîi</td><td>das hier · dies</td><td>nah beim Sprecher</td></tr>
+          <tr><td class="thai">นั่น</td><td class="translit">nân</td><td>das da</td><td>etwas weiter weg</td></tr>
+          <tr><td class="thai">โน่น</td><td class="translit">nôon</td><td>das dort drüben</td><td>weit weg</td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:12px;"><strong>Wichtig:</strong> Wenn Sie auf einen konkreten <em>Gegenstand</em> zeigen, kommt der <strong>Klassifikator</strong> vor das Demonstrativwort. So sagt man auf Thai z. B. nicht „dieses T-Shirt", sondern wörtlich „T-Shirt + Stück + dies" = <span class="thai">เสื้อตัวนี้</span>.</p>
+      <div class="formula">Substantiv + Klassifikator + นี้/นั้น/โน้น</div>
+      <p style="font-size:12px; color:#5a6573; margin-top:4px;"><em>Hinweis zur Schreibung:</em> mit Klassifikator → <span class="thai">นี้/นั้น/โน้น</span> (kurzer Vokal); allein → <span class="thai">นี่/นั่น/โน่น</span> (langer Vokal).</p>
+
+      <p class="ex" style="margin-top:10px;"><strong>Beispiele aus dem Markt:</strong></p>
+      <p class="ex"><span class="thai th-mid">เสื้อตัวนี้เท่าไหร่ครับ</span> <span class="translit">(sêua tua níi thâo-rài kráp)</span> — Was kostet dieses T-Shirt?</p>
+      <p class="ex"><span class="thai th-mid">มะม่วงลูกนั้นถูกมาก</span> <span class="translit">(má-mûang lûuk nán thùuk mâak)</span> — Die Mango da ist sehr günstig.</p>
+      <p class="ex"><span class="thai th-mid">กระเป๋าใบโน้นสวยจัง</span> <span class="translit">(krà-pǎo bai nóon sǔai jang)</span> — Die Tasche dort drüben ist toll!</p>
+      <p class="ex"><span class="thai th-mid">เอาอันนี้ค่ะ</span> <span class="translit">(ao an níi khá)</span> — Ich nehme das hier. <span style="font-size:12px; color:#5a6573;">(อัน = allgemeiner Klassifikator „Stück / Ding")</span></p>
+
+      <p style="margin-top:10px;"><strong>Klassifikator-Wiederholung für Einkaufen:</strong></p>
+      <ul>
+        <li><span class="thai th-mid">ตัว</span> <span class="translit">(tua)</span> — Kleidung &nbsp;➜ <span class="thai">เสื้อตัวนี้ · กางเกงตัวนั้น</span></li>
+        <li><span class="thai th-mid">คู่</span> <span class="translit">(khûu)</span> — Paare (Schuhe) &nbsp;➜ <span class="thai">รองเท้าคู่นี้</span></li>
+        <li><span class="thai th-mid">ใบ</span> <span class="translit">(bai)</span> — Taschen, Blätter &nbsp;➜ <span class="thai">กระเป๋าใบนี้</span></li>
+        <li><span class="thai th-mid">ลูก</span> <span class="translit">(lûuk)</span> — Runde Dinge (Obst) &nbsp;➜ <span class="thai">มะม่วงลูกนั้น</span></li>
+        <li><span class="thai th-mid">ขวด</span> <span class="translit">(khùat)</span> — Flaschen &nbsp;➜ <span class="thai">น้ำขวดนี้</span></li>
+        <li><span class="thai th-mid">อัน</span> <span class="translit">(an)</span> — Allzweck-Klassifikator &nbsp;➜ <span class="thai">อันนี้ · อันนั้น</span></li>
+      </ul>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Preis fragen &amp; feilschen — ถามราคาและต่อรอง</div>
+      <p>Diese Sätze brauchen Sie auf jedem Markt in Thailand. Höflichkeitspartikel <span class="thai">ครับ</span> (Mann) oder <span class="thai">ค่ะ</span> (Frau) immer am Ende!</p>
+      <div class="formula">Frage: อันนี้ + เท่าไหร่ + ครับ/คะ</div>
+      <p class="ex"><span class="thai th-mid">อันนี้เท่าไหร่ครับ</span> <span class="translit">(an níi thâo-rài kráp)</span> — Was kostet das?</p>
+      <p class="ex"><span class="thai th-mid">ราคาเท่าไหร่คะ</span> <span class="translit">(raa-khaa thâo-rài khá)</span> — Wie ist der Preis?</p>
+      <p class="ex"><span class="thai th-mid">โลละเท่าไหร่</span> <span class="translit">(loo-lá thâo-rài)</span> — Was kostet das Kilo?</p>
+      <p class="ex"><span class="thai th-mid">ลดได้ไหมครับ</span> <span class="translit">(lót dâi măi kráp)</span> — Können Sie reduzieren?</p>
+      <p class="ex"><span class="thai th-mid">แพงไป ลดหน่อยสิคะ</span> <span class="translit">(phaeng bpai, lót nòi sì khá)</span> — Zu teuer, bitte etwas Rabatt!</p>
+      <p class="ex"><span class="thai th-mid">เอา 2 อันค่ะ</span> <span class="translit">(ao 2 an khá)</span> — Ich nehme 2 Stück.</p>
+      <p style="font-size:12px; color:#5a6573; margin-top:8px;"><em>Auf dem Streetmarket / Nachtmarkt darf man feilschen. Im Supermarkt nicht — dort sind die Preise fest.</em></p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog · Auf dem Markt feilschen · ต่อรองที่ตลาด</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1775217434748-0bd010512413?w=900&q=70&fm=jpg&auto=format" alt="Thai-Verkäuferin am Markt">
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">สวัสดีค่ะ มะม่วงโลละเท่าไหร่คะ</span><span class="translit">sà-wàt-dii khá. má-mûang loo-lá thâo-rài khá?</span><span class="de">Hallo, was kostet das Kilo Mango?</span></div></div>
+      <div class="dialog-row b"><div class="who">V</div><div class="text"><span class="thai th-mid">โลละ 80 บาทค่ะ หวานมาก ๆ</span><span class="translit">loo-lá 80 bàat khá. wǎan mâak mâak.</span><span class="de">80 Baht das Kilo. Sehr süß!</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">แพงไปค่ะ ลดได้ไหมคะ</span><span class="translit">phaeng bpai khá. lót dâi măi khá?</span><span class="de">Das ist zu teuer. Können Sie etwas reduzieren?</span></div></div>
+      <div class="dialog-row b"><div class="who">V</div><div class="text"><span class="thai th-mid">เอา 2 โล ลดให้ 70 บาทต่อโลค่ะ</span><span class="translit">ao 2 loo, lót hâi 70 bàat tòr loo khá.</span><span class="de">Bei 2 Kilo gebe ich Ihnen 70 Baht pro Kilo.</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">ตกลงค่ะ เอา 2 โล ทั้งหมดเท่าไหร่คะ</span><span class="translit">tòk-long khá. ao 2 loo. tháng-mòt thâo-rài khá?</span><span class="de">Einverstanden. Ich nehme 2 Kilo. Wie viel zusammen?</span></div></div>
+      <div class="dialog-row b"><div class="who">V</div><div class="text"><span class="thai th-mid">ทั้งหมด 140 บาทค่ะ ขอบคุณค่ะ</span><span class="translit">tháng-mòt 140 bàat khá. khòp-khun khá.</span><span class="de">Insgesamt 140 Baht. Danke!</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันช้อปปิ้งในกรุงเทพ · „Ein Einkaufstag in Bangkok"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1758184468790-f2b89a28a21d?w=400&q=70&fm=jpg&auto=format" alt="Bananen am Markt"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> สวัสดีค่ะ ฉันชื่อมาลี ฉันชอบช้อปปิ้งมาก โดยเฉพาะที่ตลาดในประเทศไทย เพราะของถูกและสนุก เมื่อวานฉันไปช้อปปิ้ง 3 ที่ในกรุงเทพ</p>
+        <p class="thai th-mid"><strong>2.</strong> ตอนเช้า 7 โมง ฉันไปตลาดสดใกล้บ้าน ที่นั่นมีผัก ผลไม้ ปลา และเนื้อสัตว์สด ๆ ฉันซื้อมะม่วง 2 โล ราคา 140 บาท แม่ค้าใจดีและลดราคาให้ฉัน 20 บาท</p>
+        <p class="thai th-mid"><strong>3.</strong> ตอนบ่าย ฉันไปซูเปอร์มาร์เก็ตที่ห้างสรรพสินค้า ฉันเอารถเข็นและเดินซื้อของ ฉันซื้อข้าว 5 กิโล น้ำตาล 1 ถุง และขนมหลายอย่าง ทั้งหมด 850 บาท ที่ซูเปอร์มาร์เก็ตจ่ายด้วยบัตรเครดิตได้</p>
+        <p class="thai th-mid"><strong>4.</strong> แคชเชียร์ใจดีมาก เขาให้ใบเสร็จและถามว่าต้องการถุงไหม ฉันบอกว่าไม่ต้อง เพราะฉันมีกระเป๋ามาเอง ที่ซูเปอร์มาร์เก็ตไม่สามารถต่อรองได้ ราคาตายตัว</p>
+        <p class="thai th-mid"><strong>5.</strong> ตอนเย็น 6 โมง ฉันไปตลาดกลางคืนที่ถนนข้าวสาร ที่นั่นสนุกมาก มีเสื้อ กางเกง รองเท้า กระเป๋า และของฝากเยอะแยะ ฉันชอบที่นี่เพราะอาหารอร่อยและถูก</p>
+        <p class="thai th-mid"><strong>6.</strong> ฉันต่อรองกับพ่อค้าเสื้อยืด เขาบอกว่าตัวละ 300 บาท ฉันบอกว่าแพงไป ขอ 200 บาท สุดท้ายเขาขายให้ฉัน 250 บาท ฉันซื้อ 2 ตัว ทั้งหมด 500 บาท ฉันมีความสุขมาก</p>
+        <p class="thai th-mid"><strong>7.</strong> หลังจากนั้น ฉันกินของกินที่ตลาด มีผัดไทย ส้มตำ และก๋วยเตี๋ยว ทุกอย่างไม่เกิน 60 บาท ฉันชอบตลาดกลางคืนที่สุด เพราะบรรยากาศดี ของถูก และมีคนเยอะ</p>
+        <p class="thai th-mid"><strong>8.</strong> ถ้าคุณมาเที่ยวประเทศไทย ฉันแนะนำให้ลองทั้ง 3 ที่ ตลาดสดตอนเช้า ซูเปอร์มาร์เก็ตตอนบ่าย และตลาดกลางคืนตอนเย็น คุณจะได้ประสบการณ์ที่น่าจดจำค่ะ</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße Mali. Ich liebe Shopping, besonders auf thailändischen Märkten — günstig und macht Spaß. Gestern war ich an drei Orten in Bangkok einkaufen.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Um 7 Uhr morgens ging ich auf den Frischmarkt in der Nähe — frisches Gemüse, Obst, Fisch und Fleisch. Ich kaufte 2 Kilo Mango für 140 Baht, die Verkäuferin war freundlich und gab mir 20 Baht Rabatt.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Nachmittags ging ich in den Supermarkt im Einkaufszentrum. Ich nahm einen Einkaufswagen und kaufte 5 Kilo Reis, 1 Tüte Zucker und viele Süßigkeiten — insgesamt 850 Baht. Im Supermarkt kann man mit Kreditkarte bezahlen.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Die Kassiererin war sehr nett, gab mir die Quittung und fragte, ob ich eine Tüte brauche. Ich verneinte — ich hatte eine eigene Tasche dabei. Im Supermarkt kann man nicht feilschen, die Preise sind fest.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Abends um 18 Uhr ging ich zum Nachtmarkt in der Khao San Road. Sehr lustig — T-Shirts, Hosen, Schuhe, Taschen und viele Souvenirs. Ich mag es dort, weil das Essen lecker und günstig ist.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Ich feilschte mit einem T-Shirt-Händler. Er wollte 300 Baht pro Stück, ich bot 200, am Ende kaufte ich für 250 Baht — zwei Stück für 500 Baht. Sehr glücklich!</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Danach aß ich am Markt — Pad Thai, Som Tam und Nudelsuppe, alles unter 60 Baht. Ich liebe Nachtmärkte am meisten: tolle Stimmung, günstige Preise und viele Leute.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Wenn ihr nach Thailand reist, probiert alle drei: Frischmarkt morgens, Supermarkt nachmittags und Nachtmarkt abends. Eine unvergessliche Erfahrung!</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+      <ol>
+        <li>Mali ging gestern an drei verschiedene Einkaufsorte. ☐ จริง ☐ ไม่จริง</li>
+        <li>Auf dem Frischmarkt kaufte sie 2 Kilo Mango für 140 Baht. ☐ จริง ☐ ไม่จริง</li>
+        <li>Im Supermarkt kann man auch feilschen. ☐ จริง ☐ ไม่จริง</li>
+        <li>Mali bezahlte im Supermarkt mit Bargeld. ☐ จริง ☐ ไม่จริง</li>
+        <li>Sie kaufte 2 T-Shirts für insgesamt 500 Baht. ☐ จริง ☐ ไม่จริง</li>
+        <li>Auf dem Nachtmarkt waren die T-Shirts ursprünglich 300 Baht. ☐ จริง ☐ ไม่จริง</li>
+        <li>Mali mag den Frischmarkt am meisten. ☐ จริง ☐ ไม่จริง</li>
+        <li>Das Essen am Nachtmarkt kostete mehr als 100 Baht. ☐ จริง ☐ ไม่จริง</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Demonstrativ + Klassifikator einsetzen</h4>
+      <p class="task">Wählen Sie den richtigen Klassifikator (<span class="thai">ตัว · คู่ · ใบ · ลูก · ขวด · อัน</span>) und ergänzen Sie mit <span class="thai">นี้ · นั้น · โน้น</span>.</p>
+      <ol>
+        <li><span class="thai">เสื้อ</span> <span class="blank"></span> <span class="thai">เท่าไหร่ครับ</span> &nbsp; <span class="translit">(Was kostet dieses Hemd hier?)</span></li>
+        <li><span class="thai">กระเป๋า</span> <span class="blank"></span> <span class="thai">สวยมาก</span> &nbsp; <span class="translit">(Die Tasche da ist sehr schön.)</span></li>
+        <li><span class="thai">รองเท้า</span> <span class="blank"></span> <span class="thai">ราคาเท่าไหร่</span> &nbsp; <span class="translit">(Wie viel kosten die Schuhe dort drüben?)</span></li>
+        <li><span class="thai">มะม่วง</span> <span class="blank"></span> <span class="thai">หวานไหม</span> &nbsp; <span class="translit">(Ist diese Mango hier süß?)</span></li>
+        <li><span class="thai">น้ำ</span> <span class="blank"></span> <span class="thai">เย็น</span> &nbsp; <span class="translit">(Diese Wasserflasche hier ist kalt.)</span></li>
+        <li><span class="thai">เอา</span> <span class="blank"></span> <span class="thai">ครับ</span> &nbsp; <span class="translit">(Ich nehme das hier. — Allzweck-Klassifikator)</span></li>
+        <li><span class="thai">กางเกง</span> <span class="blank"></span> <span class="thai">แพงไป</span> &nbsp; <span class="translit">(Die Hose da ist zu teuer.)</span></li>
+        <li><span class="thai">ขนม</span> <span class="blank"></span> <span class="thai">อร่อยมาก</span> &nbsp; <span class="translit">(Diese Süßigkeit hier ist sehr lecker.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Lückentext — Einkaufsfragen</h4>
+      <p class="task">Ergänzen Sie mit <span class="thai">เท่าไหร่ · ลด · ซื้อ · ขาย · แพง · ถูก · ราคา</span></p>
+      <ol>
+        <li><span class="thai">อันนี้</span> <span class="blank"></span> <span class="thai">ครับ</span> <span class="translit">(Was kostet das?)</span></li>
+        <li><span class="thai">ราคา</span> <span class="blank"></span> <span class="thai">ไปค่ะ</span> <span class="translit">(Der Preis ist zu teuer.)</span></li>
+        <li><span class="thai">มะม่วงนี้</span> <span class="blank"></span> <span class="translit">(Diese Mango ist billig.)</span></li>
+        <li><span class="thai">ฉันอยาก</span> <span class="blank"></span> <span class="thai">เสื้อตัวนี้</span> <span class="translit">(Ich möchte dieses T-Shirt kaufen.)</span></li>
+        <li><span class="thai">แม่ค้า</span> <span class="blank"></span> <span class="thai">ผลไม้สด</span> <span class="translit">(Die Verkäuferin verkauft frisches Obst.)</span></li>
+        <li><span class="thai">คุณ</span> <span class="blank"></span> <span class="thai">ได้ไหมคะ</span> <span class="translit">(Können Sie reduzieren?)</span></li>
+        <li><span class="thai">ข้าว 5 โล</span> <span class="blank"></span> <span class="thai">เท่าไหร่</span> <span class="translit">(Wie ist der Preis für 5 Kilo Reis?)</span></li>
+        <li><span class="thai">ที่ซูเปอร์มาร์เก็ต ราคา</span> <span class="blank"></span> <span class="thai">กว่าตลาดสด</span> <span class="translit">(Im Supermarkt teurer als am Frischmarkt.)</span></li>
+        <li><span class="thai">ฉันต้องการ</span> <span class="blank"></span> <span class="thai">ของฝาก</span> <span class="translit">(Ich möchte ein Souvenir kaufen.)</span></li>
+        <li><span class="thai">เสื้อตัวนี้</span> <span class="blank"></span> <span class="thai">มาก ขอ 200 บาท</span> <span class="translit">(Dieses Shirt ist sehr teuer, ich biete 200 Baht.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+      <ol>
+        <li>Wie viel kostet das?<div class="lines"></div></li>
+        <li>Das ist zu teuer.<div class="lines"></div></li>
+        <li>Können Sie 20 Baht reduzieren?<div class="lines"></div></li>
+        <li>Ich kaufe 2 Mangos.<div class="lines"></div></li>
+        <li>Wo ist der Supermarkt?<div class="lines"></div></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein eigener Text — beschreiben Sie Ihren Einkauf (5–7 Sätze)</h4>
+      <p class="task">Wo waren Sie? Was haben Sie gekauft? Wie viel hat es gekostet? Verwenden Sie mindestens 4 neue Wörter.</p>
+      <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache — Geld und Märkte mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">บาท</div><div class="meaning">bàat<br>Baht</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">ถูก</div><div class="meaning">thùuk<br>billig</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ห้า</div><div class="meaning">hâa<br>fünf</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">ซื้อ</div><div class="meaning">séu<br>kaufen</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">ขาย</div><div class="meaning">khǎai<br>verkaufen</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel — Feilschen am Nachtmarkt</h4>
+      <p class="task">Spielen Sie mit einem Partner. Tauschen Sie nach einem Durchgang die Rollen.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Kunde · ลูกค้า</div>
+          <p class="line"><span class="thai th-mid">สวัสดีครับ เสื้อตัวนี้เท่าไหร่</span><br>Was kostet dieses T-Shirt?</p>
+          <p class="line"><span class="thai th-mid">แพงไปครับ ลด 100 ได้ไหม</span><br>Zu teuer, können Sie 100 abziehen?</p>
+          <p class="line"><span class="thai th-mid">เอา 2 ตัว ลดได้ไหมครับ</span><br>Bei 2 Stück — geht ein Rabatt?</p>
+          <p class="line"><span class="thai th-mid">ตกลงครับ ขอบคุณ</span><br>Einverstanden, danke.</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Verkäufer · พ่อค้า</div>
+          <p class="line"><span class="thai th-mid">ตัวละ 350 บาทค่ะ</span><br>350 Baht pro Stück.</p>
+          <p class="line"><span class="thai th-mid">ไม่ได้ค่ะ ลดให้ 50 บาท</span><br>Geht nicht — 50 Baht Rabatt.</p>
+          <p class="line"><span class="thai th-mid">เอา 2 ตัว ลดเหลือตัวละ 280 ค่ะ</span><br>Bei 2 Stück: 280 pro Stück.</p>
+          <p class="line"><span class="thai th-mid">ทั้งหมด 560 บาทค่ะ</span><br>Insgesamt 560 Baht.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei — fünf Fragen über Ihr Einkaufsverhalten</h4>
+      <ol>
+        <li><span class="thai">คุณชอบช้อปปิ้งที่ไหน</span> — Wo gehen Sie gerne einkaufen?<div class="lines"></div></li>
+        <li><span class="thai">คุณซื้อของฝากให้ใครบ้าง</span> — Für wen kaufen Sie Souvenirs?<div class="lines"></div></li>
+        <li><span class="thai">คุณต่อรองได้ไหม</span> — Können Sie feilschen?<div class="lines"></div></li>
+        <li><span class="thai">ที่เยอรมนีมีตลาดกลางคืนไหม</span> — Gibt es in Deutschland Nachtmärkte?<div class="lines"></div></li>
+        <li><span class="thai">คุณซื้ออะไรล่าสุด ราคาเท่าไหร่</span> — Was haben Sie zuletzt gekauft, und wie viel hat es gekostet?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Frischmarkt</td><td>Wortschatz A 5× abschreiben</td><td>Wörter laut sprechen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Nachtmarkt</td><td>Übung 2 — Demonstrativ + Klassifikator</td><td>นี้/นั้น/โน้น laut üben</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C · Supermarkt</td><td>Übung 3 — Lückentext</td><td>Tonübungen mit Marktwörtern</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Dialog „Feilschen" lesen</td><td>Übung 4 — Übersetzen</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Ein Einkaufstag" + Übung 1</td><td>Übung 5 — Eigener Einkaufstext</td><td>Übung 7 — fünf Fragen beantworten</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Grammatik G1 + G2 wiederholen</td><td>Eigene Einkaufsliste auf Thai</td><td>Übung 6 — Rollenspiel feilschen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest Wortschatz A–C</td><td>Antwortschlüssel prüfen</td><td>2-Min-Erzählung „Mein Einkaufstag"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 — Wahr / Falsch</h4>
+      <ol>
+        <li>จริง — Frischmarkt, Supermarkt, Nachtmarkt</li>
+        <li>จริง — 70 Baht × 2 Kilo = 140 Baht</li>
+        <li>ไม่จริง — im Supermarkt sind die Preise <em>fest</em></li>
+        <li>ไม่จริง — sie zahlte mit <em>Kreditkarte</em></li>
+        <li>จริง — 2 Stück × 250 Baht = 500 Baht</li>
+        <li>จริง — ursprünglich 300, Endpreis 250</li>
+        <li>ไม่จริง — sie mag den <em>Nachtmarkt</em> am meisten</li>
+        <li>ไม่จริง — alle Gerichte waren <em>unter 60 Baht</em></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 — Demonstrativ + Klassifikator</h4>
+      <ol>
+        <li>เสื้อ <strong>ตัวนี้</strong> เท่าไหร่ครับ &nbsp; <span class="translit">(tua níi — Kleidung + hier)</span></li>
+        <li>กระเป๋า <strong>ใบนั้น</strong> สวยมาก &nbsp; <span class="translit">(bai nán — Tasche + da)</span></li>
+        <li>รองเท้า <strong>คู่โน้น</strong> ราคาเท่าไหร่ &nbsp; <span class="translit">(khûu nóon — Paar Schuhe + dort drüben)</span></li>
+        <li>มะม่วง <strong>ลูกนี้</strong> หวานไหม &nbsp; <span class="translit">(lûuk níi — runde Frucht + hier)</span></li>
+        <li>น้ำ <strong>ขวดนี้</strong> เย็น &nbsp; <span class="translit">(khùat níi — Flasche + hier)</span></li>
+        <li>เอา <strong>อันนี้</strong> ครับ &nbsp; <span class="translit">(an níi — Allzweck + hier)</span></li>
+        <li>กางเกง <strong>ตัวนั้น</strong> แพงไป &nbsp; <span class="translit">(tua nán — Hose + da)</span></li>
+        <li>ขนม <strong>อันนี้</strong> อร่อยมาก &nbsp; <span class="translit">(an níi — Süßigkeit + hier)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 — Lückentext</h4>
+      <ol>
+        <li>เท่าไหร่</li>
+        <li>แพง</li>
+        <li>ถูก</li>
+        <li>ซื้อ</li>
+        <li>ขาย</li>
+        <li>ลด</li>
+        <li>ราคา</li>
+        <li>แพง</li>
+        <li>ซื้อ</li>
+        <li>แพง</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 — Übersetzung (Modellantworten)</h4>
+      <ol>
+        <li>อันนี้เท่าไหร่ครับ/คะ <span class="translit">(an níi thâo-rài kráp/khá)</span></li>
+        <li>แพงไป <span class="translit">(phaeng bpai)</span></li>
+        <li>ลด 20 บาทได้ไหมครับ/คะ</li>
+        <li>ฉันซื้อมะม่วง 2 ลูก <span class="translit">(chăn séu má-mûang 2 lûuk)</span></li>
+        <li>ซูเปอร์มาร์เก็ตอยู่ที่ไหน <span class="translit">(suu-pôe-maa-két yùu thîi nǎi)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 — Mustertext</h4>
+      <p class="thai" style="font-size:14px;">เมื่อวานฉันไปตลาดกลางคืนกับเพื่อน ฉันซื้อกระเป๋า 1 ใบ ราคา 300 บาท และเสื้อ 2 ตัว ตัวละ 200 บาท พ่อค้าใจดีและลดราคาให้ ทั้งหมด 650 บาท ฉันมีความสุขมาก</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Gestern war ich mit Freunden auf dem Nachtmarkt. Ich kaufte eine Tasche für 300 Baht und zwei T-Shirts für je 200 Baht. Der Verkäufer war freundlich und gab Rabatt — insgesamt 650 Baht. Sehr glücklich!</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== WOCHE 4: FORMEN UND BESCHREIBUNGEN ==================== -->
+<section id="woche4" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1635377090186-036bca445c6b?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(31, 111, 235, 0.85); border-color: transparent;">Woche 4 · A2.1</span>
+      <h1>Formen und Beschreibungen</h1>
+      <div class="thai-title thai">รูปทรงและคำบรรยาย</div>
+      <p class="lead">Lernen Sie, Dinge auf Thai zu beschreiben: ihre Form, Größe, Farbe und ihr Material. Perfekt, um verlorene Gegenstände zu suchen, im Laden nach etwas zu fragen oder einfach genauer zu sprechen.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 40 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Grammatik</div><div class="v">Adjektivstellung · Beschreibungsmuster</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Objekte präzise beschreiben</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Geometrische Formen · รูปทรงเรขาคณิต (rûup-song rê-khǎa-khá-nít)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1605106901227-991bd663255c?w=400&q=70&fm=jpg&auto=format" alt="Bunte Buchstabenblöcke"></div>
+        <div class="cap">รูปทรง · die Formen</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Form</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">รูปทรง</td><td class="translit">rûup-song</td><td>Form, Gestalt</td><td>🔷</td></tr>
+          <tr><td class="thai">วงกลม</td><td class="translit">wong-glom</td><td>Kreis</td><td>⭕</td></tr>
+          <tr><td class="thai">สามเหลี่ยม</td><td class="translit">sǎam-lìam</td><td>Dreieck</td><td>🔺</td></tr>
+          <tr><td class="thai">สี่เหลี่ยมจัตุรัส</td><td class="translit">sìi-lìam jàt-tù-rát</td><td>Quadrat</td><td>🟦</td></tr>
+          <tr><td class="thai">สี่เหลี่ยมผืนผ้า</td><td class="translit">sìi-lìam phěun-phâa</td><td>Rechteck</td><td>▭</td></tr>
+          <tr><td class="thai">วงรี</td><td class="translit">wong-rii</td><td>Oval, Ellipse</td><td>🥚</td></tr>
+          <tr><td class="thai">ดาว</td><td class="translit">daao</td><td>Stern</td><td>⭐</td></tr>
+          <tr><td class="thai">หัวใจ</td><td class="translit">hǔa-jai</td><td>Herz</td><td>❤️</td></tr>
+          <tr><td class="thai">เส้น</td><td class="translit">sên</td><td>Linie, Strich</td><td>➖</td></tr>
+          <tr><td class="thai">มุม</td><td class="translit">mum</td><td>Ecke, Winkel</td><td>📐</td></tr>
+          <tr><td class="thai">กลม</td><td class="translit">glom</td><td>rund (Adjektiv)</td><td>🔵</td></tr>
+          <tr><td class="thai">เหลี่ยม</td><td class="translit">lìam</td><td>eckig (Adjektiv)</td><td>🔶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Größen &amp; Eigenschaften · ขนาดและลักษณะ (khà-nàat láe lák-sà-nà)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1502691876148-a84978e59af8?w=400&q=70&fm=jpg&auto=format" alt="Bunte Wand"></div>
+        <div class="cap">ลักษณะ · die Eigenschaften</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Symbol</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ใหญ่</td><td class="translit">yài</td><td>groß</td><td>🔼</td></tr>
+          <tr><td class="thai">เล็ก</td><td class="translit">lék</td><td>klein</td><td>🔽</td></tr>
+          <tr><td class="thai">ยาว</td><td class="translit">yaao</td><td>lang</td><td>↔️</td></tr>
+          <tr><td class="thai">สั้น</td><td class="translit">sân</td><td>kurz</td><td>·</td></tr>
+          <tr><td class="thai">กว้าง</td><td class="translit">gwâang</td><td>breit, weit</td><td>↔️</td></tr>
+          <tr><td class="thai">แคบ</td><td class="translit">kâep</td><td>schmal, eng</td><td>‖</td></tr>
+          <tr><td class="thai">สูง</td><td class="translit">sǔung</td><td>hoch</td><td>⬆️</td></tr>
+          <tr><td class="thai">ต่ำ</td><td class="translit">tàm</td><td>niedrig, tief</td><td>⬇️</td></tr>
+          <tr><td class="thai">หนา</td><td class="translit">nǎa</td><td>dick</td><td>📚</td></tr>
+          <tr><td class="thai">บาง</td><td class="translit">baang</td><td>dünn</td><td>📄</td></tr>
+          <tr><td class="thai">หนัก</td><td class="translit">nàk</td><td>schwer</td><td>⚖️</td></tr>
+          <tr><td class="thai">เบา</td><td class="translit">bao</td><td>leicht</td><td>🪶</td></tr>
+          <tr><td class="thai">สวย</td><td class="translit">sǔai</td><td>schön, hübsch</td><td>✨</td></tr>
+          <tr><td class="thai">ใหม่</td><td class="translit">mài</td><td>neu</td><td>🆕</td></tr>
+          <tr><td class="thai">เก่า</td><td class="translit">gào</td><td>alt (Sache)</td><td>📜</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · Farben &amp; Materialien · สีและวัสดุ (sǐi láe wát-sà-dù)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1589566983471-a0e73071c282?w=400&q=70&fm=jpg&auto=format" alt="Bunte Schirme"></div>
+        <div class="cap">สี · die Farben</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Farbe</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">สี</td><td class="translit">sǐi</td><td>Farbe</td><td>🎨</td></tr>
+          <tr><td class="thai">สีแดง</td><td class="translit">sǐi daeng</td><td>rot</td><td>🔴</td></tr>
+          <tr><td class="thai">สีน้ำเงิน</td><td class="translit">sǐi nám-ngern</td><td>(dunkel)blau</td><td>🔵</td></tr>
+          <tr><td class="thai">สีฟ้า</td><td class="translit">sǐi fáa</td><td>hellblau, himmelblau</td><td>💧</td></tr>
+          <tr><td class="thai">สีเขียว</td><td class="translit">sǐi khǐao</td><td>grün</td><td>🟢</td></tr>
+          <tr><td class="thai">สีเหลือง</td><td class="translit">sǐi lěuang</td><td>gelb</td><td>🟡</td></tr>
+          <tr><td class="thai">สีส้ม</td><td class="translit">sǐi sôm</td><td>orange</td><td>🟠</td></tr>
+          <tr><td class="thai">สีชมพู</td><td class="translit">sǐi chom-phuu</td><td>rosa</td><td>🌸</td></tr>
+          <tr><td class="thai">สีม่วง</td><td class="translit">sǐi mûang</td><td>lila, violett</td><td>🟣</td></tr>
+          <tr><td class="thai">สีขาว</td><td class="translit">sǐi khǎao</td><td>weiß</td><td>⚪</td></tr>
+          <tr><td class="thai">สีดำ</td><td class="translit">sǐi dam</td><td>schwarz</td><td>⚫</td></tr>
+          <tr><td class="thai">สีเทา</td><td class="translit">sǐi thao</td><td>grau</td><td>◼️</td></tr>
+          <tr><td class="thai">ไม้</td><td class="translit">máai</td><td>Holz</td><td>🪵</td></tr>
+          <tr><td class="thai">เหล็ก</td><td class="translit">lèk</td><td>Metall, Eisen</td><td>⚙️</td></tr>
+          <tr><td class="thai">พลาสติก</td><td class="translit">phláat-sà-tìk</td><td>Plastik</td><td>🥤</td></tr>
+          <tr><td class="thai">แก้ว</td><td class="translit">gâeo</td><td>Glas</td><td>🥛</td></tr>
+          <tr><td class="thai">กระดาษ</td><td class="translit">krà-dàat</td><td>Papier</td><td>📃</td></tr>
+          <tr><td class="thai">ผ้า</td><td class="translit">phâa</td><td>Stoff</td><td>🧵</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Adjektivstellung — Adjektiv steht NACH dem Nomen</div>
+      <p>Das ist der wichtigste Unterschied zum Deutschen: Im Thai steht das Adjektiv <strong>immer nach</strong> dem Nomen, das es beschreibt. Es gibt im Thai keinen Artikel und keine Endungen.</p>
+      <div class="formula">Nomen + Adjektiv</div>
+      <p class="ex" style="margin-top:10px;"><strong>Einfache Beispiele:</strong></p>
+      <p class="ex"><span class="thai th-mid">บ้านใหญ่</span> <span class="translit">(bâan yài)</span> — großes Haus <span style="font-size:11px; color:#5a6573;">(wörtlich: Haus groß)</span></p>
+      <p class="ex"><span class="thai th-mid">รถสีแดง</span> <span class="translit">(rót sǐi daeng)</span> — rotes Auto <span style="font-size:11px; color:#5a6573;">(wörtlich: Auto Farbe rot)</span></p>
+      <p class="ex"><span class="thai th-mid">หนังสือใหม่</span> <span class="translit">(năng-sěu mài)</span> — neues Buch</p>
+      <p class="ex"><span class="thai th-mid">กระเป๋าเล็ก</span> <span class="translit">(krà-pǎo lék)</span> — kleine Tasche</p>
+
+      <p style="margin-top:12px;"><strong>Mehrere Adjektive</strong> werden einfach hintereinander gesetzt — Reihenfolge meist: Größe → Farbe → Material → Eigenschaft.</p>
+      <p class="ex"><span class="thai th-mid">บ้านใหญ่สีขาว</span> <span class="translit">(bâan yài sǐi khǎao)</span> — großes weißes Haus</p>
+      <p class="ex"><span class="thai th-mid">โต๊ะไม้กลม</span> <span class="translit">(tó máai glom)</span> — runder Holztisch</p>
+      <p class="ex"><span class="thai th-mid">กระเป๋าสีดำใบเล็ก</span> <span class="translit">(krà-pǎo sǐi dam bai lék)</span> — kleine schwarze Tasche</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Beschreibungsmuster mit เป็น / มี / เป็นรูป</div>
+      <p>Drei nützliche Muster, mit denen Sie ein Objekt beschreiben können:</p>
+      <div class="formula">X + เป็น + Substantiv &nbsp;|&nbsp; X + มี + Eigenschaft &nbsp;|&nbsp; X + เป็นรูป + Form</div>
+
+      <p style="margin-top:10px;"><strong>1. เป็น</strong> <span class="translit">(pen)</span> — „ist / sein" (für Identität, Kategorie, Form):</p>
+      <p class="ex"><span class="thai th-mid">มันเป็นรูปวงกลม</span> <span class="translit">(man pen rûup wong-glom)</span> — Es ist (in der Form) ein Kreis.</p>
+      <p class="ex"><span class="thai th-mid">กล่องเป็นรูปสี่เหลี่ยม</span> <span class="translit">(glòng pen rûup sìi-lìam)</span> — Die Schachtel ist viereckig.</p>
+
+      <p style="margin-top:10px;"><strong>2. มี</strong> <span class="translit">(mii)</span> — „hat / es gibt" (für Bestandteile oder Eigenschaften):</p>
+      <p class="ex"><span class="thai th-mid">บ้านมีหลังคาสีแดง</span> <span class="translit">(bâan mii lăng-khaa sǐi daeng)</span> — Das Haus hat ein rotes Dach.</p>
+      <p class="ex"><span class="thai th-mid">โต๊ะนี้มี 4 ขา</span> <span class="translit">(tó níi mii 4 khǎa)</span> — Dieser Tisch hat 4 Beine.</p>
+
+      <p style="margin-top:10px;"><strong>3. ทำจาก</strong> <span class="translit">(tham-jàak)</span> — „gemacht aus" (für Material):</p>
+      <p class="ex"><span class="thai th-mid">เก้าอี้ทำจากไม้</span> <span class="translit">(gâo-îi tham-jàak máai)</span> — Der Stuhl ist aus Holz.</p>
+      <p class="ex"><span class="thai th-mid">แก้วทำจากพลาสติก</span> <span class="translit">(gâeo tham-jàak phláat-sà-tìk)</span> — Das Glas ist aus Plastik.</p>
+
+      <p style="font-size:12px; color:#5a6573; margin-top:10px;"><em>Tipp: Wenn Sie ein Wort nicht kennen, beschreiben Sie es! „Es ist klein, rund, schwarz und aus Plastik" — das funktioniert oft besser als ein vergessenes Vokabel.</em></p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog · Ein verlorenes Objekt beschreiben · บรรยายของที่หายไป</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1560088032-d21fe602f4bc?w=900&q=70&fm=jpg&auto=format" alt="Verschiedene Objekte">
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">สวัสดีค่ะ ฉันทำกระเป๋าหายที่นี่</span><span class="translit">sà-wàt-dii khá. chăn tham krà-pǎo hǎai thîi nîi.</span><span class="de">Hallo, ich habe hier meine Tasche verloren.</span></div></div>
+      <div class="dialog-row b"><div class="who">P</div><div class="text"><span class="thai th-mid">กระเป๋าของคุณเป็นแบบไหนคะ</span><span class="translit">krà-pǎo kŏng khun pen bàep nǎi khá?</span><span class="de">Wie sieht Ihre Tasche aus?</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">เป็นกระเป๋าใบเล็ก สีดำ ทำจากผ้า</span><span class="translit">pen krà-pǎo bai lék, sǐi dam, tham-jàak phâa.</span><span class="de">Eine kleine schwarze Tasche aus Stoff.</span></div></div>
+      <div class="dialog-row b"><div class="who">P</div><div class="text"><span class="thai th-mid">รูปทรงเป็นอย่างไรคะ</span><span class="translit">rûup-song pen yàang-rai khá?</span><span class="de">Welche Form hat sie?</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">เป็นรูปสี่เหลี่ยมผืนผ้า มีสายยาว มีดาวสีทองอยู่ข้างหน้า</span><span class="translit">pen rûup sìi-lìam phěun-phâa, mii sǎai yaao, mii daao sǐi thong yùu khâang nâa.</span><span class="de">Sie ist rechteckig, hat einen langen Riemen und vorne ist ein goldener Stern.</span></div></div>
+      <div class="dialog-row b"><div class="who">P</div><div class="text"><span class="thai th-mid">นี่ใช่กระเป๋าของคุณไหมคะ</span><span class="translit">nîi châi krà-pǎo kŏng khun măi khá?</span><span class="de">Ist das Ihre Tasche hier?</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">ใช่ค่ะ ขอบคุณมาก ๆ ค่ะ</span><span class="translit">châi khá. khòp-khun mâak mâak khá.</span><span class="de">Ja! Vielen Dank!</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · ห้องของฉัน · „Mein Zimmer"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1764748661961-a13958151502?w=400&q=70&fm=jpg&auto=format" alt="Objekte im Regal"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> สวัสดีค่ะ ฉันชื่อนุ้ย ฉันอยากเล่าเรื่องห้องนอนของฉัน ห้องของฉันไม่ใหญ่ ไม่เล็ก ขนาดกลาง สีของผนังเป็นสีฟ้าอ่อน เพราะฉันชอบสีนี้มาก</p>
+        <p class="thai th-mid"><strong>2.</strong> ที่กลางห้อง มีเตียงใหญ่สีขาว เตียงทำจากไม้ มีหมอนสีชมพู 2 ใบ และผ้าห่มสีเหลืองหนา ๆ ผ้าห่มหนาเพราะหน้าหนาวที่นี่อากาศเย็น</p>
+        <p class="thai th-mid"><strong>3.</strong> ข้าง ๆ เตียง มีโต๊ะหนังสือเล็ก ๆ รูปทรงเป็นสี่เหลี่ยมผืนผ้า ทำจากไม้สีน้ำตาล บนโต๊ะมีหนังสือหลายเล่ม โคมไฟวงกลมสีดำ และนาฬิกาเล็ก ๆ รูปดาวสีแดง</p>
+        <p class="thai th-mid"><strong>4.</strong> ที่มุมห้อง มีตู้เสื้อผ้าสูงสีขาว ตู้นี้กว้างและหนัก ในตู้มีเสื้อผ้าของฉัน เสื้อยืดสีต่าง ๆ กางเกง 5 ตัว และรองเท้าหลายคู่ ฉันชอบเสื้อตัวสีฟ้าตัวนี้ที่สุด</p>
+        <p class="thai th-mid"><strong>5.</strong> บนผนังห้อง ฉันแขวนภาพ 3 ภาพ ภาพแรกเป็นรูปวงกลม ภาพที่สองเป็นรูปสี่เหลี่ยม ภาพที่สามเป็นรูปหัวใจสีแดง ทุกภาพมีกรอบสีดำเหล็ก</p>
+        <p class="thai th-mid"><strong>6.</strong> ที่หน้าต่าง มีผ้าม่านสีเขียวบาง ๆ เมื่อแสงแดดส่องเข้ามา ห้องของฉันจะดูสวยและสดใส ฉันชอบนั่งใกล้หน้าต่างและอ่านหนังสือ</p>
+        <p class="thai th-mid"><strong>7.</strong> ห้องของฉันมีของเก่าหนึ่งอย่าง คือกล่องไม้เล็ก ๆ รูปสี่เหลี่ยมจัตุรัส กล่องนี้เป็นของยาย เธอให้ฉันตอนฉันอายุ 10 ขวบ ในกล่องมีรูปถ่ายเก่า ๆ ของครอบครัว</p>
+        <p class="thai th-mid"><strong>8.</strong> ฉันรักห้องของฉันมาก แม้จะเล็ก แต่มีทุกอย่างที่ฉันต้องการ และเต็มไปด้วยสีที่ฉันชอบ ถ้าคุณมาเที่ยว ฉันจะพาคุณดูห้องของฉันค่ะ</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße Nui. Ich möchte euch von meinem Schlafzimmer erzählen. Es ist mittelgroß — nicht groß, nicht klein. Die Wände sind hellblau, weil ich diese Farbe sehr mag.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> In der Mitte steht ein großes weißes Bett aus Holz. Darauf liegen zwei rosa Kissen und eine dicke gelbe Decke. Die Decke ist dick, weil es im Winter hier kühl wird.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Neben dem Bett steht ein kleiner Schreibtisch, rechteckig und aus braunem Holz. Darauf liegen mehrere Bücher, eine runde schwarze Lampe und eine kleine sternförmige rote Uhr.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> In der Ecke steht ein hoher weißer Kleiderschrank. Er ist breit und schwer. Darin: meine T-Shirts in verschiedenen Farben, 5 Hosen und viele Paar Schuhe. Mein hellblaues Lieblings-T-Shirt mag ich am liebsten.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> An den Wänden hängen drei Bilder: ein rundes, ein viereckiges und ein herzförmiges rotes. Alle haben einen schwarzen Metallrahmen.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Am Fenster hängen dünne grüne Vorhänge. Wenn die Sonne scheint, sieht mein Zimmer schön und hell aus. Ich sitze gerne am Fenster und lese.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Ein altes Stück habe ich auch: eine kleine quadratische Holzkiste. Sie gehörte meiner Großmutter — ich bekam sie mit 10 Jahren. Darin sind alte Familienfotos.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Ich liebe mein Zimmer sehr. Es ist klein, aber hat alles, was ich brauche — und ist voll mit meinen Lieblingsfarben. Wenn ihr mich besucht, zeige ich es euch!</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+      <ol>
+        <li>Nuis Zimmer ist sehr groß. ☐ จริง ☐ ไม่จริง</li>
+        <li>Die Wände sind hellblau. ☐ จริง ☐ ไม่จริง</li>
+        <li>Das Bett ist weiß und aus Holz. ☐ จริง ☐ ไม่จริง</li>
+        <li>Die Decke ist dünn. ☐ จริง ☐ ไม่จริง</li>
+        <li>Der Schreibtisch hat eine sternförmige Lampe. ☐ จริง ☐ ไม่จริง</li>
+        <li>Sie hat drei Bilder an der Wand: rund, viereckig, herzförmig. ☐ จริง ☐ ไม่จริง</li>
+        <li>Der Kleiderschrank ist niedrig und leicht. ☐ จริง ☐ ไม่จริง</li>
+        <li>Die Holzkiste war ein Geschenk von der Großmutter. ☐ จริง ☐ ไม่จริง</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Adjektivstellung — Nomen + Adjektiv</h4>
+      <p class="task">Schreiben Sie die Wortgruppe in Thai (Adjektiv kommt NACH dem Nomen).</p>
+      <ol>
+        <li>großes Haus → <span class="blank lg"></span></li>
+        <li>rotes Auto → <span class="blank lg"></span></li>
+        <li>kleine Tasche → <span class="blank lg"></span></li>
+        <li>blaues T-Shirt → <span class="blank lg"></span></li>
+        <li>neues Buch → <span class="blank lg"></span></li>
+        <li>schwarze Schuhe → <span class="blank lg"></span></li>
+        <li>langer schmaler Tisch → <span class="blank lg"></span></li>
+        <li>schöne große weiße Blume → <span class="blank lg"></span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Lückentext — Form, Farbe oder Eigenschaft einsetzen</h4>
+      <p class="task">Ergänzen Sie mit dem passenden Wort aus dem Wortschatz.</p>
+      <ol>
+        <li><span class="thai">ดวงอาทิตย์เป็นรูป</span> <span class="blank"></span> <span class="translit">(Die Sonne hat die Form eines Kreises.)</span></li>
+        <li><span class="thai">หิมะมี</span> <span class="blank"></span> <span class="translit">(Schnee ist weiß.)</span></li>
+        <li><span class="thai">หนังสือเล่มนี้</span> <span class="blank"></span> <span class="translit">(Dieses Buch ist dick.)</span></li>
+        <li><span class="thai">ตึกในกรุงเทพ</span> <span class="blank"></span> <span class="translit">(Die Hochhäuser in Bangkok sind hoch.)</span></li>
+        <li><span class="thai">ใบไม้</span> <span class="blank"></span> <span class="translit">(Die Blätter sind grün.)</span></li>
+        <li><span class="thai">ป้ายหยุดรถ</span> <span class="blank"></span> <span class="translit">(Das Stoppschild ist rot.)</span></li>
+        <li><span class="thai">นาฬิกาทำจาก</span> <span class="blank"></span> <span class="translit">(Die Uhr ist aus Metall.)</span></li>
+        <li><span class="thai">หน้าต่างทำจาก</span> <span class="blank"></span> <span class="translit">(Das Fenster ist aus Glas.)</span></li>
+        <li><span class="thai">มะนาวรูปทรง</span> <span class="blank"></span> <span class="translit">(Die Limette hat eine runde Form.)</span></li>
+        <li><span class="thai">ดาวบนท้องฟ้าเป็นรูป</span> <span class="blank"></span> <span class="translit">(Die Sterne am Himmel sind sternförmig.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Beschreibungsmuster — bilden Sie Sätze mit เป็น / มี / ทำจาก</h4>
+      <p class="task">Bilden Sie ganze Sätze auf Thai.</p>
+      <ol>
+        <li>Der Ball ist rund und rot.<div class="lines"></div></li>
+        <li>Mein Auto hat 4 Räder.<div class="lines"></div></li>
+        <li>Der Tisch ist aus Holz und braun.<div class="lines"></div></li>
+        <li>Diese Tasche ist klein und schwarz.<div class="lines"></div></li>
+        <li>Das Glas ist aus Plastik.<div class="lines"></div></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein eigener Text — beschreiben Sie einen Gegenstand bei Ihnen zu Hause (6–8 Sätze)</h4>
+      <p class="task">Wählen Sie einen Gegenstand (Tasse, Buch, Handy, Stuhl, Bild…) und beschreiben Sie ihn: Form, Größe, Farbe, Material, Eigenschaften. Verwenden Sie mindestens 5 neue Wörter.</p>
+      <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache — Farben und Formen mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">ดาว</div><div class="meaning">daao<br>Stern</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">สั้น</div><div class="meaning">sân<br>kurz</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ใหญ่</div><div class="meaning">yài<br>groß</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">ม่วง</div><div class="meaning">mûang<br>lila</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">ขาว</div><div class="meaning">khǎao<br>weiß</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel — verlorenes Objekt im Fundbüro</h4>
+      <p class="task">Spielen Sie das Gespräch mit einem Partner. Eine Person hat etwas verloren, die andere fragt nach der Beschreibung.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Suchende/r · คนที่ทำของหาย</div>
+          <p class="line"><span class="thai th-mid">ฉันทำกระเป๋าหายค่ะ</span><br>Ich habe eine Tasche verloren.</p>
+          <p class="line"><span class="thai th-mid">เป็นกระเป๋าใบเล็ก สีดำ</span><br>Eine kleine, schwarze Tasche.</p>
+          <p class="line"><span class="thai th-mid">รูปทรงสี่เหลี่ยม ทำจากผ้า</span><br>Viereckig, aus Stoff.</p>
+          <p class="line"><span class="thai th-mid">ในกระเป๋ามีหนังสือสีแดง</span><br>Darin liegt ein rotes Buch.</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Fundbüro · คนที่อยู่เคาน์เตอร์</div>
+          <p class="line"><span class="thai th-mid">กระเป๋าของคุณเป็นแบบไหนคะ</span><br>Wie sieht Ihre Tasche aus?</p>
+          <p class="line"><span class="thai th-mid">สีอะไรคะ</span><br>Welche Farbe?</p>
+          <p class="line"><span class="thai th-mid">มีของอะไรในกระเป๋าคะ</span><br>Was ist in der Tasche?</p>
+          <p class="line"><span class="thai th-mid">นี่ใช่กระเป๋าของคุณไหมคะ</span><br>Ist das Ihre Tasche?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei — fünf Beschreibungs-Fragen</h4>
+      <ol>
+        <li><span class="thai">บ้านของคุณเป็นรูปทรงอะไร</span> — Welche Form hat dein Haus?<div class="lines"></div></li>
+        <li><span class="thai">ห้องนอนของคุณสีอะไร</span> — Welche Farbe hat dein Schlafzimmer?<div class="lines"></div></li>
+        <li><span class="thai">โทรศัพท์ของคุณเล็กหรือใหญ่</span> — Ist dein Handy klein oder groß?<div class="lines"></div></li>
+        <li><span class="thai">โต๊ะที่ทำงานของคุณทำจากอะไร</span> — Aus welchem Material ist dein Schreibtisch?<div class="lines"></div></li>
+        <li><span class="thai">รถของคุณสีอะไร รูปทรงอย่างไร</span> — Welche Farbe und Form hat dein Auto?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Formen</td><td>Wortschatz A 5× abschreiben</td><td>Formen laut nachsprechen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Eigenschaften</td><td>Übung 2 — Adjektivstellung</td><td>Eigenschaftswörter laut üben</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C · Farben &amp; Materialien</td><td>Übung 3 — Lückentext</td><td>Farben mit Tönen üben</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Dialog „Verlorenes Objekt" lesen</td><td>Übung 4 — Beschreibungsmuster</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Mein Zimmer" + Übung 1</td><td>Übung 5 — eigene Beschreibung</td><td>Übung 7 — fünf Fragen beantworten</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Grammatik G1 + G2 wiederholen</td><td>Beschreibung 3 weiterer Gegenstände</td><td>Übung 6 — Rollenspiel Fundbüro</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest Wortschatz A–C</td><td>Antwortschlüssel prüfen</td><td>2-Min-Erzählung „Mein Zimmer"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 — Wahr / Falsch</h4>
+      <ol>
+        <li>ไม่จริง — das Zimmer ist <em>mittelgroß</em>, nicht sehr groß</li>
+        <li>จริง — hellblaue Wände (สีฟ้าอ่อน)</li>
+        <li>จริง — weißes Bett aus Holz</li>
+        <li>ไม่จริง — die Decke ist <em>dick</em> (หนา)</li>
+        <li>ไม่จริง — die Lampe ist rund (โคมไฟวงกลม), die Uhr ist sternförmig</li>
+        <li>จริง — Kreis, Viereck, Herz</li>
+        <li>ไม่จริง — der Kleiderschrank ist <em>hoch und schwer</em></li>
+        <li>จริง — von der Großmutter, als sie 10 war</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 — Adjektivstellung</h4>
+      <ol>
+        <li>บ้านใหญ่ <span class="translit">(bâan yài)</span></li>
+        <li>รถสีแดง <span class="translit">(rót sǐi daeng)</span></li>
+        <li>กระเป๋าเล็ก <span class="translit">(krà-pǎo lék)</span></li>
+        <li>เสื้อสีฟ้า <span class="translit">(sêua sǐi fáa)</span></li>
+        <li>หนังสือใหม่ <span class="translit">(năng-sěu mài)</span></li>
+        <li>รองเท้าสีดำ <span class="translit">(rong-tháo sǐi dam)</span></li>
+        <li>โต๊ะยาวแคบ <span class="translit">(tó yaao kâep)</span></li>
+        <li>ดอกไม้สวยใหญ่สีขาว <span class="translit">(dòk-máai sǔai yài sǐi khǎao)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 — Lückentext</h4>
+      <ol>
+        <li>วงกลม <span class="translit">(Kreis — die Sonne ist rund)</span></li>
+        <li>สีขาว <span class="translit">(weiß)</span></li>
+        <li>หนา <span class="translit">(dick)</span></li>
+        <li>สูง <span class="translit">(hoch)</span></li>
+        <li>สีเขียว <span class="translit">(grün)</span></li>
+        <li>สีแดง <span class="translit">(rot)</span></li>
+        <li>เหล็ก <span class="translit">(Metall)</span></li>
+        <li>แก้ว <span class="translit">(Glas)</span></li>
+        <li>กลม <span class="translit">(rund — Adjektiv)</span></li>
+        <li>ดาว <span class="translit">(Stern)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 — Beschreibungsmuster (Modellantworten)</h4>
+      <ol>
+        <li>ลูกบอลกลมและเป็นสีแดง <span class="translit">(lûuk-bon glom láe pen sǐi daeng)</span></li>
+        <li>รถของฉันมี 4 ล้อ <span class="translit">(rót kŏng chăn mii 4 lór)</span></li>
+        <li>โต๊ะทำจากไม้และเป็นสีน้ำตาล <span class="translit">(tó tham-jàak máai láe pen sǐi nám-taan)</span></li>
+        <li>กระเป๋าใบนี้เล็กและสีดำ <span class="translit">(krà-pǎo bai níi lék láe sǐi dam)</span></li>
+        <li>แก้วทำจากพลาสติก <span class="translit">(gâeo tham-jàak phláat-sà-tìk)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 — Mustertext</h4>
+      <p class="thai" style="font-size:14px;">ฉันมีถ้วยกาแฟใบหนึ่ง ถ้วยนี้เล็ก รูปทรงเป็นวงกลม สีของถ้วยเป็นสีฟ้า ทำจากแก้ว ถ้วยนี้เบาและสวย ฉันใช้ทุกเช้าตอนดื่มกาแฟ ถ้วยนี้เก่าแล้ว แต่ฉันยังชอบมาก เพราะแม่ของฉันให้ฉัน</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Ich habe eine Kaffeetasse. Sie ist klein, rund und blau, aus Glas. Sie ist leicht und schön. Ich benutze sie jeden Morgen für meinen Kaffee. Die Tasse ist schon alt, aber ich mag sie sehr, weil meine Mutter sie mir geschenkt hat.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== WOCHE 5: TECHNOLOGIE ==================== -->
+<section id="woche5" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(124, 58, 237, 0.85); border-color: transparent;">Woche 5 · A2.1</span>
+      <h1>Technologie im Alltag und Büro</h1>
+      <div class="thai-title thai">เทคโนโลยีในชีวิตประจำวันและที่ทำงาน</div>
+      <p class="lead">Sprechen Sie über die Technik, die Sie täglich benutzen: Computer, Smartphone und Drucker. Sie lernen, Geräte zu bedienen, Anweisungen zu geben und einfache Probleme im Büro zu lösen.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 37 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Grammatik</div><div class="v">Befehle · Anleitungen (Reihenfolge)</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Geräte erklären &amp; Anweisungen geben</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Computer · คอมพิวเตอร์ (kom-phiu-tôe)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=70&fm=jpg&auto=format" alt="Laptop-Computer"></div>
+        <div class="cap">คอมพิวเตอร์ · der Computer</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">คอมพิวเตอร์</td><td class="translit">kom-phiu-tôe</td><td>Computer</td><td>💻</td></tr>
+          <tr><td class="thai">โน้ตบุ๊ก</td><td class="translit">nóot-búk</td><td>Laptop, Notebook</td><td>💻</td></tr>
+          <tr><td class="thai">หน้าจอ</td><td class="translit">nâa-jor</td><td>Bildschirm, Monitor</td><td>🖥️</td></tr>
+          <tr><td class="thai">แป้นพิมพ์</td><td class="translit">pâen-phim</td><td>Tastatur</td><td>⌨️</td></tr>
+          <tr><td class="thai">เมาส์</td><td class="translit">máo</td><td>Maus</td><td>🖱️</td></tr>
+          <tr><td class="thai">ไฟล์</td><td class="translit">fai</td><td>Datei</td><td>📄</td></tr>
+          <tr><td class="thai">โฟลเดอร์</td><td class="translit">fon-dôe</td><td>Ordner</td><td>📁</td></tr>
+          <tr><td class="thai">บันทึก</td><td class="translit">ban-théuk</td><td>speichern</td><td>💾</td></tr>
+          <tr><td class="thai">ลบ</td><td class="translit">lóp</td><td>löschen</td><td>🗑️</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Smartphone · สมาร์ทโฟน (sà-máat-fohn)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=70&fm=jpg&auto=format" alt="Smartphone in der Hand"></div>
+        <div class="cap">มือถือ · das Smartphone</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">มือถือ</td><td class="translit">meu-thěu</td><td>Handy, Smartphone</td><td>📱</td></tr>
+          <tr><td class="thai">แอป</td><td class="translit">áep</td><td>App</td><td>📲</td></tr>
+          <tr><td class="thai">ชาร์จ</td><td class="translit">cháat</td><td>laden, aufladen</td><td>🔌</td></tr>
+          <tr><td class="thai">แบตเตอรี่</td><td class="translit">bàet-toe-rîi</td><td>Akku, Batterie</td><td>🔋</td></tr>
+          <tr><td class="thai">ข้อความ</td><td class="translit">khôr-khwaam</td><td>Nachricht</td><td>💬</td></tr>
+          <tr><td class="thai">โทร</td><td class="translit">thoo</td><td>anrufen</td><td>📞</td></tr>
+          <tr><td class="thai">ส่ง</td><td class="translit">sòng</td><td>senden, schicken</td><td>📤</td></tr>
+          <tr><td class="thai">รหัสผ่าน</td><td class="translit">rá-hàt-phàan</td><td>Passwort</td><td>🔑</td></tr>
+          <tr><td class="thai">อินเทอร์เน็ต</td><td class="translit">in-thoe-nét</td><td>Internet</td><td>🌐</td></tr>
+          <tr><td class="thai">ไวไฟ</td><td class="translit">wai-fai</td><td>WLAN, WiFi</td><td>📶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · Drucker &amp; Büro · เครื่องพิมพ์และที่ทำงาน</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&q=70&fm=jpg&auto=format" alt="Bürodrucker"></div>
+        <div class="cap">เครื่องพิมพ์ · der Drucker</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">เครื่องพิมพ์</td><td class="translit">khrêuang-phim</td><td>Drucker</td><td>🖨️</td></tr>
+          <tr><td class="thai">พิมพ์</td><td class="translit">phim</td><td>drucken; tippen</td><td>🖨️</td></tr>
+          <tr><td class="thai">กระดาษ</td><td class="translit">grà-dàat</td><td>Papier</td><td>📃</td></tr>
+          <tr><td class="thai">หมึก</td><td class="translit">mèuk</td><td>Tinte, Toner</td><td>🖋️</td></tr>
+          <tr><td class="thai">สแกน</td><td class="translit">sà-gaen</td><td>scannen</td><td>📷</td></tr>
+          <tr><td class="thai">เอกสาร</td><td class="translit">èek-gà-sǎan</td><td>Dokument</td><td>📑</td></tr>
+          <tr><td class="thai">อีเมล</td><td class="translit">ii-meo</td><td>E-Mail</td><td>✉️</td></tr>
+          <tr><td class="thai">สำนักงาน</td><td class="translit">sǎm-nák-ngaan</td><td>Büro</td><td>🏢</td></tr>
+          <tr><td class="thai">ประชุม</td><td class="translit">prà-chum</td><td>Besprechung, Meeting</td><td>👥</td></tr>
+          <tr><td class="thai">เสีย</td><td class="translit">sǐa</td><td>kaputt, defekt</td><td>⚠️</td></tr>
+          <tr><td class="thai">ซ่อม</td><td class="translit">sôm</td><td>reparieren</td><td>🔧</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">D · Wichtige Verben &amp; Befehlswörter · คำกริยาสำคัญ</h4>
+    <table class="vocab">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">เปิด</td><td class="translit">pòet</td><td>einschalten, öffnen</td><td>🔆</td></tr>
+        <tr><td class="thai">ปิด</td><td class="translit">pìt</td><td>ausschalten, schließen</td><td>🌑</td></tr>
+        <tr><td class="thai">กด</td><td class="translit">gòt</td><td>drücken</td><td>👇</td></tr>
+        <tr><td class="thai">ปุ่ม</td><td class="translit">pùm</td><td>Knopf, Taste, Button</td><td>🔘</td></tr>
+        <tr><td class="thai">คลิก</td><td class="translit">khlík</td><td>klicken</td><td>🖱️</td></tr>
+        <tr><td class="thai">ใส่</td><td class="translit">sài</td><td>eingeben, einfügen</td><td>⌨️</td></tr>
+        <tr><td class="thai">เครื่อง</td><td class="translit">khrêuang</td><td>Gerät, Maschine</td><td>🖥️</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Befehle und höfliche Bitten</div>
+      <p>Im Thai ist der <strong>Befehl (Imperativ)</strong> ganz einfach: Man sagt nur das <strong>Verb</strong> — ohne „du" und ohne Endung. „Drücken!" = nur <span class="thai">กด</span>.</p>
+      <div class="formula">Verb (+ Objekt) → เปิดคอมพิวเตอร์ = „Schalte den Computer ein!"</div>
+      <p style="margin-top:8px;">Damit es <strong>höflich</strong> klingt, hängt man eine Partikel an oder benutzt ein Höflichkeitswort:</p>
+      <p class="ex"><span class="thai th-mid">ช่วย … หน่อย</span> <span class="translit">(chûai … nòi)</span> — umrahmt das Verb = „bitte … mal" → <span class="thai">ช่วยเปิดเครื่องหน่อย</span> = „Schalte bitte das Gerät ein."</p>
+      <p class="ex"><span class="thai th-mid">กรุณา</span> <span class="translit">(gà-rú-naa)</span> — formell, vor dem Verb → <span class="thai">กรุณาปิดมือถือ</span> = „Bitte schalten Sie das Handy aus."</p>
+      <p class="ex"><span class="thai th-mid">… ครับ / ค่ะ</span> — Höflichkeitspartikel am Satzende (Mann: <span class="thai">ครับ</span> / Frau: <span class="thai">ค่ะ</span>)</p>
+      <p class="ex"><strong>Verneinter Befehl:</strong> <span class="thai th-mid">อย่า</span> <span class="translit">(yàa)</span> + Verb → <span class="thai">อย่าลบไฟล์นี้</span> <span class="translit">(yàa lóp fai níi)</span> = „Lösch diese Datei nicht!"</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Eine Anleitung geben — die Reihenfolge</div>
+      <p>Um Schritt für Schritt zu erklären, wie etwas funktioniert (z. B. wie man druckt), verbindet man die Schritte mit diesen <strong>Reihenfolge-Wörtern</strong>:</p>
+      <div class="formula">ก่อนอื่น … แล้วก็ … หลังจากนั้น … สุดท้าย …</div>
+      <p class="ex" style="margin-top:10px;"><span class="thai th-mid">ก่อนอื่น</span> <span class="translit">(gòn-èun)</span> — zuerst, zuallererst</p>
+      <p class="ex"><span class="thai th-mid">แล้วก็</span> <span class="translit">(láeo-gôr)</span> — und dann</p>
+      <p class="ex"><span class="thai th-mid">หลังจากนั้น</span> <span class="translit">(lǎng-jàak-nán)</span> — danach</p>
+      <p class="ex"><span class="thai th-mid">สุดท้าย</span> <span class="translit">(sùt-tháai)</span> — zuletzt, schließlich</p>
+      <p style="margin-top:10px;"><strong>Beispiel — drucken:</strong></p>
+      <p class="ex"><span class="thai th-mid">ก่อนอื่นเปิดคอมพิวเตอร์ แล้วก็เปิดไฟล์ หลังจากนั้นกดปุ่มพิมพ์ สุดท้ายเอากระดาษออก</span></p>
+      <p class="ex"><span class="translit">gòn-èun pòet kom-phiu-tôe, láeo-gôr pòet fai, lǎng-jàak-nán gòt pùm phim, sùt-tháai ao grà-dàat òk</span></p>
+      <p class="ex">↳ Zuerst den Computer einschalten, dann die Datei öffnen, danach den Druck-Knopf drücken, zuletzt das Papier herausnehmen.</p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog · Der Drucker ist kaputt · เครื่องพิมพ์เสีย</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=900&q=70&fm=jpg&auto=format" alt="Büro mit Computern">
+      <div class="dialog-row a"><div class="who">M</div><div class="text"><span class="thai th-mid">ขอโทษครับ เครื่องพิมพ์ใช้ไม่ได้ ช่วยดูหน่อยได้ไหมครับ</span><span class="translit">khǒr-thôot kráp, khrêuang-phim chái mâi dâai. chûai duu nòi dâai mǎi kráp?</span><span class="de">Entschuldigung, der Drucker funktioniert nicht. Kannst du bitte mal nachsehen?</span></div></div>
+      <div class="dialog-row b"><div class="who">K</div><div class="text"><span class="thai th-mid">ได้ค่ะ มีกระดาษไหมคะ และหมึกหมดหรือเปล่า</span><span class="translit">dâai khâ. mii grà-dàat mǎi khá? láe mèuk mòt rǔe-plàao?</span><span class="de">Ja, klar. Ist Papier da? Und ist die Tinte leer?</span></div></div>
+      <div class="dialog-row a"><div class="who">M</div><div class="text"><span class="thai th-mid">มีกระดาษครับ แต่ผมไม่แน่ใจเรื่องหมึก</span><span class="translit">mii grà-dàat kráp, tàe phǒm mâi nâe-jai rûeang mèuk.</span><span class="de">Papier ist da, aber bei der Tinte bin ich mir nicht sicher.</span></div></div>
+      <div class="dialog-row b"><div class="who">K</div><div class="text"><span class="thai th-mid">ก่อนอื่นปิดเครื่อง แล้วก็เปิดใหม่ ถ้ายังไม่ได้ เราจะโทรเรียกช่างมาซ่อมค่ะ</span><span class="translit">gòn-èun pìt khrêuang, láeo-gôr pòet mài. thâa yang mâi dâai, rao jà thoo rîak châang maa sôm khâ.</span><span class="de">Schalte zuerst das Gerät aus, dann wieder ein. Wenn es immer noch nicht geht, rufen wir einen Techniker zum Reparieren.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันทำงานกับเทคโนโลยี · „Mein Arbeitstag mit Technik"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=70&fm=jpg&auto=format" alt="Person arbeitet am Laptop"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> สวัสดีครับ ผมชื่อนิว ผมทำงานที่สำนักงานในกรุงเทพ ทุกวันผมใช้เทคโนโลยีหลายอย่าง เช่น คอมพิวเตอร์ มือถือ และเครื่องพิมพ์ เทคโนโลยีช่วยให้งานของผมง่ายและเร็วขึ้นมาก</p>
+        <p class="thai th-mid"><strong>2.</strong> ตอนเช้าผมไปถึงที่ทำงานแปดโมง ก่อนอื่นผมเปิดคอมพิวเตอร์ แล้วก็ใส่รหัสผ่าน หลังจากนั้นผมเปิดอีเมลและอ่านข้อความใหม่ บางวันมีอีเมลมากกว่ายี่สิบฉบับ</p>
+        <p class="thai th-mid"><strong>3.</strong> ตอนสายผมมีประชุมกับเพื่อนร่วมงาน ผมใช้โน้ตบุ๊กและหน้าจอใหญ่ในห้องประชุม ก่อนประชุมผมต้องพิมพ์เอกสารให้ทุกคน แต่เมื่อวานเครื่องพิมพ์เสีย กระดาษติดและหมึกหมด ผมจึงต้องสแกนเอกสารและส่งทางอีเมลแทน</p>
+        <p class="thai th-mid"><strong>4.</strong> ผมใช้มือถือตลอดวัน ผมโทรหาลูกค้า ส่งข้อความ และเปิดแอปสำหรับงาน บางครั้งแบตเตอรี่หมดเร็ว ผมจึงต้องชาร์จที่โต๊ะทำงาน ที่ออฟฟิศมีไวไฟเร็ว ผมจึงทำงานออนไลน์ได้สบาย</p>
+        <p class="thai th-mid"><strong>5.</strong> ตอนเย็นก่อนกลับบ้าน ผมบันทึกไฟล์ทุกไฟล์ แล้วก็ปิดคอมพิวเตอร์ ผมไม่ลบเอกสารสำคัญ เพราะกลัวว่าจะหาไม่เจอ สุดท้ายผมปิดไฟและปิดเครื่องปรับอากาศก่อนออกจากห้อง</p>
+        <p class="thai th-mid"><strong>6.</strong> ผมคิดว่าเทคโนโลยีมีประโยชน์มาก แต่บางครั้งก็มีปัญหา ถ้าอินเทอร์เน็ตช้าหรือเครื่องเสีย งานก็ช้าไปด้วย เพราะฉะนั้นเราต้องเรียนรู้วิธีใช้และวิธีแก้ปัญหาง่าย ๆ ด้วยตัวเอง</p>
+        <p class="thai th-mid"><strong>7.</strong> ทุกวันนี้บริษัทของผมประชุมออนไลน์บ่อยขึ้น บางครั้งผมต้องคุยกับลูกค้าต่างประเทศผ่านวิดีโอคอล ก่อนประชุมผมตรวจสอบไวไฟ เปิดกล้อง แล้วก็ทดสอบเสียงก่อน ถ้าอินเทอร์เน็ตช้า ภาพและเสียงจะไม่ชัด งานก็จะลำบาก</p>
+        <p class="thai th-mid"><strong>8.</strong> เพื่อนร่วมงานบางคนที่อายุมากไม่ค่อยถนัดเทคโนโลยี ผมจึงช่วยสอนพวกเขา เช่น วิธีบันทึกไฟล์ วิธีส่งอีเมล และวิธีสแกนเอกสาร ผมคิดว่าการช่วยเหลือกันทำให้ที่ทำงานมีความสุข และทุกคนทำงานได้เร็วขึ้น</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße New. Ich arbeite in einem Büro in Bangkok. Jeden Tag benutze ich viele Technikgeräte, zum Beispiel Computer, Handy und Drucker. Technik macht meine Arbeit viel leichter und schneller.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Morgens komme ich um acht Uhr zur Arbeit. Zuerst schalte ich den Computer ein, dann gebe ich das Passwort ein. Danach öffne ich die E-Mails und lese die neuen Nachrichten. An manchen Tagen sind es mehr als zwanzig E-Mails.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Am Vormittag habe ich eine Besprechung mit Kollegen. Ich benutze einen Laptop und einen großen Bildschirm im Besprechungsraum. Vor der Besprechung muss ich für alle die Unterlagen drucken, aber gestern war der Drucker kaputt: Das Papier hat sich gestaut und die Tinte war leer. Deshalb musste ich die Dokumente scannen und stattdessen per E-Mail schicken.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Mein Handy benutze ich den ganzen Tag. Ich rufe Kunden an, schicke Nachrichten und öffne Apps für die Arbeit. Manchmal ist der Akku schnell leer, also muss ich am Schreibtisch laden. Im Büro gibt es schnelles WLAN, deshalb kann ich bequem online arbeiten.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Abends, bevor ich nach Hause gehe, speichere ich alle Dateien und schalte dann den Computer aus. Wichtige Dokumente lösche ich nicht, weil ich Angst habe, sie nicht wiederzufinden. Zuletzt mache ich das Licht aus und schalte die Klimaanlage aus, bevor ich den Raum verlasse.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Ich finde, Technik ist sehr nützlich, aber manchmal gibt es auch Probleme. Wenn das Internet langsam ist oder ein Gerät kaputtgeht, wird auch die Arbeit langsam. Deshalb müssen wir lernen, wie man die Geräte benutzt und einfache Probleme selbst löst.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Heutzutage hat meine Firma immer öfter Online-Besprechungen. Manchmal muss ich mit Kunden aus dem Ausland per Videoanruf sprechen. Vor der Besprechung prüfe ich das WLAN, schalte die Kamera ein und teste dann den Ton. Wenn das Internet langsam ist, sind Bild und Ton nicht klar und die Arbeit wird schwierig.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Manche älteren Kollegen sind nicht so gut mit Technik. Deshalb helfe ich ihnen und zeige ihnen zum Beispiel, wie man eine Datei speichert, eine E-Mail verschickt und ein Dokument scannt. Ich finde, einander zu helfen macht das Büro angenehmer — und alle arbeiten schneller.</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+      <ol>
+        <li>New arbeitet in einem Büro in Bangkok. ☐ จริง ☐ ไม่จริง</li>
+        <li>Als Erstes am Morgen öffnet er seine E-Mails. ☐ จริง ☐ ไม่จริง</li>
+        <li>Gestern war der Drucker kaputt. ☐ จริง ☐ ไม่จริง</li>
+        <li>Weil der Drucker defekt war, hat er die Dokumente gescannt und per E-Mail geschickt. ☐ จริง ☐ ไม่จริง</li>
+        <li>Im Büro gibt es kein WLAN. ☐ จริง ☐ ไม่จริง</li>
+        <li>Abends löscht er alle wichtigen Dokumente. ☐ จริง ☐ ไม่จริง</li>
+        <li>Bevor er geht, speichert er die Dateien und schaltet den Computer aus. ☐ จริง ☐ ไม่จริง</li>
+        <li>New findet, dass Technik nie Probleme macht. ☐ จริง ☐ ไม่จริง</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Anleitung ordnen — die richtige Reihenfolge</h4>
+      <p class="task">Ergänzen Sie mit den Reihenfolge-Wörtern: <span class="thai">ก่อนอื่น · แล้วก็ · หลังจากนั้น · สุดท้าย</span> (So drucken Sie ein Dokument.)</p>
+      <ol>
+        <li><span class="blank lg"></span> <span class="thai">เปิดคอมพิวเตอร์</span> <span class="translit">(Zuerst den Computer einschalten.)</span></li>
+        <li><span class="blank lg"></span> <span class="thai">เปิดไฟล์เอกสาร</span> <span class="translit">(Und dann die Dokument-Datei öffnen.)</span></li>
+        <li><span class="blank lg"></span> <span class="thai">กดปุ่มพิมพ์</span> <span class="translit">(Danach den Druck-Knopf drücken.)</span></li>
+        <li><span class="blank lg"></span> <span class="thai">เอากระดาษออกจากเครื่องพิมพ์</span> <span class="translit">(Zuletzt das Papier aus dem Drucker nehmen.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Befehle bilden — höflich mit <span class="thai">ช่วย … หน่อย</span></h4>
+      <p class="task">Schreiben Sie die Bitte höflich um. Beispiel: <span class="thai">เปิดเครื่อง → ช่วยเปิดเครื่องหน่อย</span></p>
+      <ol>
+        <li><span class="thai">ปิดมือถือ</span> → <span class="blank lg"></span> <span class="translit">(Schalte bitte das Handy aus.)</span></li>
+        <li><span class="thai">กดปุ่มนี้</span> → <span class="blank lg"></span> <span class="translit">(Drück bitte diesen Knopf.)</span></li>
+        <li><span class="thai">ส่งอีเมล</span> → <span class="blank lg"></span> <span class="translit">(Schick bitte die E-Mail.)</span></li>
+        <li><span class="thai">ซ่อมเครื่องพิมพ์</span> → <span class="blank lg"></span> <span class="translit">(Repariere bitte den Drucker.)</span></li>
+        <li><span class="thai">บันทึกไฟล์</span> → <span class="blank lg"></span> <span class="translit">(Speichere bitte die Datei.)</span></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+      <p class="task">Schreiben Sie die Sätze auf Thai (mit Schrift, wenn möglich, oder Umschrift).</p>
+      <ol>
+        <li>Der Computer ist kaputt.<div class="lines"></div></li>
+        <li>Schalte bitte den Drucker ein.<div class="lines"></div></li>
+        <li>Mein Akku ist leer.<div class="lines"></div></li>
+        <li>Lösch diese Datei nicht!<div class="lines"></div></li>
+        <li>Ich schicke das Dokument per E-Mail.<div class="lines"></div></li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein eigener Text — schreiben Sie 5 Sätze</h4>
+      <p class="task">Beschreiben Sie, welche Technik Sie im Alltag oder im Büro benutzen. Verwenden Sie mindestens 3 neue Wörter aus Lektion 1 und einmal ein Reihenfolge-Wort (<span class="thai">ก่อนอื่น / แล้วก็ …</span>).</p>
+      <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache — Technik-Wörter mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">พิมพ์</div><div class="meaning">phim<br>drucken</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">กด</div><div class="meaning">gòt<br>drücken</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ส่ง</div><div class="meaning">sòng<br>senden</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">ลบ</div><div class="meaning">lóp<br>löschen</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">เสีย</div><div class="meaning">sǐa<br>kaputt</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel — IT-Hilfe im Büro</h4>
+      <p class="task">Spielen Sie das Gespräch mit einem Partner. Eine Person hat ein Technik-Problem, die andere hilft.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Mitarbeiter · พนักงาน</div>
+          <p class="line"><span class="thai th-mid">คอมพิวเตอร์ของผมเปิดไม่ติดครับ</span><br>Mein Computer geht nicht an.</p>
+          <p class="line"><span class="thai th-mid">ผมกดปุ่มแล้ว แต่หน้าจอมืดครับ</span><br>Ich habe den Knopf gedrückt, aber der Bildschirm bleibt dunkel.</p>
+          <p class="line"><span class="thai th-mid">ขอบคุณมากครับ</span><br>Vielen Dank.</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">IT-Hilfe · ฝ่ายไอที</div>
+          <p class="line"><span class="thai th-mid">ลองเสียบสายไฟดูหน่อยครับ</span><br>Versuchen Sie mal, das Stromkabel einzustecken.</p>
+          <p class="line"><span class="thai th-mid">ช่วยกดปุ่มค้างไว้ห้าวินาทีครับ</span><br>Halten Sie bitte den Knopf fünf Sekunden lang gedrückt.</p>
+          <p class="line"><span class="thai th-mid">ได้แล้วครับ ใช้ได้เลย</span><br>Geschafft, jetzt funktioniert es.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei — drei Fragen, drei Antworten</h4>
+      <ol>
+        <li><span class="thai">คุณใช้เทคโนโลยีอะไรบ้างทุกวัน</span> — Welche Technik benutzt du jeden Tag?<div class="lines"></div></li>
+        <li><span class="thai">เวลาเครื่องพิมพ์เสีย คุณทำอย่างไร</span> — Was machst du, wenn der Drucker kaputt ist?<div class="lines"></div></li>
+        <li><span class="thai">คุณชอบทำงานกับคอมพิวเตอร์หรือมือถือมากกว่ากัน</span> — Arbeitest du lieber mit Computer oder Handy?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Computer</td><td>Wortschatz A 5× abschreiben</td><td>Computer-Wörter laut nachsprechen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Smartphone + C · Drucker</td><td>Übung 2 — Anleitung ordnen</td><td>Wörter B + C laut, Töne üben</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Dialog „Der Drucker ist kaputt"</td><td>Übung 3 — höfliche Befehle</td><td>Dialog in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Lesetext „Mein Arbeitstag" + Übung 1</td><td>Übung 4 — 5 Sätze übersetzen</td><td>Übung 7 — drei Fragen beantworten</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Grammatik G1 + G2 wiederholen</td><td>Übung 5 — eigener Text</td><td>Eigenen Text laut vortragen</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Wortschatz A–D wiederholen</td><td>Anleitung: „Wie lade ich mein Handy?" (4 Schritte)</td><td>Übung 6 — Rollenspiel IT-Hilfe</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest Wortschatz A–D</td><td>Antwortschlüssel prüfen</td><td>2-Min-Erzählung „Technik in meinem Alltag"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 — Wahr / Falsch</h4>
+      <ol>
+        <li>จริง — er arbeitet in einem Büro in Bangkok</li>
+        <li>ไม่จริง — als Erstes schaltet er den <em>Computer ein</em> und gibt das Passwort ein; danach öffnet er die E-Mails</li>
+        <li>จริง — gestern war der Drucker kaputt (Papierstau, Tinte leer)</li>
+        <li>จริง — er hat gescannt und per E-Mail geschickt</li>
+        <li>ไม่จริง — im Büro gibt es <em>schnelles WLAN</em></li>
+        <li>ไม่จริง — wichtige Dokumente löscht er <em>nicht</em></li>
+        <li>จริง — er speichert die Dateien und schaltet den Computer aus</li>
+        <li>ไม่จริง — Technik ist nützlich, macht aber <em>manchmal Probleme</em></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 — Reihenfolge</h4>
+      <ol>
+        <li><strong>ก่อนอื่น</strong> เปิดคอมพิวเตอร์ <span class="translit">(zuerst)</span></li>
+        <li><strong>แล้วก็</strong> เปิดไฟล์เอกสาร <span class="translit">(und dann)</span></li>
+        <li><strong>หลังจากนั้น</strong> กดปุ่มพิมพ์ <span class="translit">(danach)</span></li>
+        <li><strong>สุดท้าย</strong> เอากระดาษออกจากเครื่องพิมพ์ <span class="translit">(zuletzt)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 — Höfliche Befehle</h4>
+      <ol>
+        <li>ช่วย<strong>ปิดมือถือ</strong>หน่อย <span class="translit">(chûai pìt meu-thěu nòi)</span></li>
+        <li>ช่วย<strong>กดปุ่มนี้</strong>หน่อย <span class="translit">(chûai gòt pùm níi nòi)</span></li>
+        <li>ช่วย<strong>ส่งอีเมล</strong>หน่อย <span class="translit">(chûai sòng ii-meo nòi)</span></li>
+        <li>ช่วย<strong>ซ่อมเครื่องพิมพ์</strong>หน่อย <span class="translit">(chûai sôm khrêuang-phim nòi)</span></li>
+        <li>ช่วย<strong>บันทึกไฟล์</strong>หน่อย <span class="translit">(chûai ban-théuk fai nòi)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 — Übersetzung (Modellantworten)</h4>
+      <ol>
+        <li>คอมพิวเตอร์เสีย <span class="translit">(kom-phiu-tôe sǐa)</span></li>
+        <li>ช่วยเปิดเครื่องพิมพ์หน่อย <span class="translit">(chûai pòet khrêuang-phim nòi)</span></li>
+        <li>แบตเตอรี่ของฉันหมด <span class="translit">(bàet-toe-rîi khǒng chǎn mòt)</span></li>
+        <li>อย่าลบไฟล์นี้ <span class="translit">(yàa lóp fai níi)</span></li>
+        <li>ฉันส่งเอกสารทางอีเมล <span class="translit">(chǎn sòng èek-gà-sǎan thaang ii-meo)</span></li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 — Eigener Text (Mustertext)</h4>
+      <p class="thai" style="font-size:14px;">ทุกวันฉันใช้คอมพิวเตอร์และมือถือที่ทำงาน ก่อนอื่นฉันเปิดเครื่องและใส่รหัสผ่าน แล้วก็เปิดอีเมล ฉันพิมพ์เอกสารด้วยเครื่องพิมพ์ ถ้าแบตเตอรี่หมด ฉันชาร์จมือถือที่โต๊ะ</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Jeden Tag benutze ich bei der Arbeit den Computer und das Handy. Zuerst schalte ich das Gerät ein und gebe das Passwort ein, dann öffne ich die E-Mails. Ich drucke Dokumente mit dem Drucker. Wenn der Akku leer ist, lade ich das Handy am Schreibtisch.</p>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 7 — Modellantworten zum Sprechen</h4>
+      <ol>
+        <li><span class="thai">ฉันใช้คอมพิวเตอร์ มือถือ และอินเทอร์เน็ตทุกวัน</span> — Ich benutze jeden Tag Computer, Handy und Internet.</li>
+        <li><span class="thai">ฉันปิดเครื่องแล้วเปิดใหม่ ถ้ายังไม่ได้ ฉันโทรเรียกช่าง</span> — Ich schalte das Gerät aus und wieder ein; wenn es nicht geht, rufe ich einen Techniker.</li>
+        <li><span class="thai">ฉันชอบทำงานกับคอมพิวเตอร์มากกว่า เพราะหน้าจอใหญ่</span> — Ich arbeite lieber mit dem Computer, weil der Bildschirm größer ist.</li>
+      </ol>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== TEST ==================== -->
+<section id="test" class="page">
+
+  <div class="card red">
+    <h2 class="section-title"><span class="accent">📝</span> Großer Test — Wiederholung Woche 1–5</h2>
+    <p class="section-sub">Ein interaktiver Test über alle fünf Themen: Sport &amp; Gesundheit, Familie, Einkaufen, Formen und Technologie. Lesen, Sätze bauen, Wortbedeutung per Ziehen &amp; Ablegen und Schreiben mit einer Thai-Bildschirmtastatur — mit Timer, automatischer Auswertung und voller Lösungsansicht.</p>
+
+    <div class="info-grid">
+      <div class="info-card red"><div class="k">Dauer</div><div class="v">90 Minuten</div></div>
+      <div class="info-card"><div class="k">Aufgaben</div><div class="v">63 + 4 Bonus</div></div>
+      <div class="info-card blue"><div class="k">Bestehen</div><div class="v">ab 60 %</div></div>
+    </div>
+
+    <div class="cta-row" style="margin-top:14px">
+      <button class="btn primary" onclick="window.open('Thai_A2_Grosser_Test.html','_blank')">🖥️ Test im Vollbild öffnen (empfohlen)</button>
+    </div>
+    <p class="section-sub" style="margin-top:10px;font-size:13px;">Tipp: Für die Thai-Tastatur und den Timer funktioniert der Vollbild-Modus am besten. Unten läuft der Test auch direkt eingebettet.</p>
+  </div>
+
+  <div class="card" style="padding:8px; overflow:hidden">
+    <iframe src="Thai_A2_Grosser_Test.html" title="Thai A2 Großer Test"
+      style="width:100%; height:82vh; min-height:560px; border:0; display:block; border-radius:12px;"></iframe>
+  </div>
+
+</section>
+
+<footer class="foot">
+  Thai mit Mac · A2.1 Lernportal — für deutschsprachige Anfänger · 2026<br>
+  Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
+</footer>
+
+</main>
+
+<button class="floating-print" onclick="window.print()" title="Als PDF speichern">⬇</button>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('section.page').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById(name);
+  if (sec) sec.classList.add('active');
+  const btn = document.querySelector('nav.tabs button[data-tab="' + name + '"]');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.querySelectorAll('nav.tabs button').forEach(btn => {
+  btn.addEventListener('click', () => showTab(btn.dataset.tab));
+});
+// Allow direct hash links: e.g. #woche2
+if (location.hash) {
+  const tab = location.hash.replace('#', '');
+  if (document.getElementById(tab)) showTab(tab);
+}
+// Print full course (all sections) — used by "Alles drucken" button
+function printAll() {
+  document.body.classList.add('print-all');
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => document.body.classList.remove('print-all'), 200);
+  }, 50);
+}
+</script>
+
+</body>
+</html>
