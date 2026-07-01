@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Technologie im Alltag und Büro · Thai A2.2</title>
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 14mm 18mm 14mm;
+    @top-center {
+      content: "Thai mit Mac · Technologie im Alltag und Büro";
+      font-size: 11px;
+      font-weight: 600;
+      color: #1a8754;
+      letter-spacing: 0.04em;
+    }
+    @bottom-center {
+      content: "Thai A2.2 · Technologie · Seite " counter(page);
+      font-size: 10px;
+      color: #8a96a6;
+    }
+  }
+  /* Screen branding bar (also visible in print as fallback) */
+  .brand-bar {
+    background: #1a8754;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin: 0 0 14px;
+    border-radius: 4px;
+  }
+  .brand-bar .accent { color: #ffd591; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #1d2733;
+    line-height: 1.55;
+    background: #fff;
+    font-size: 14px;
+  }
+  .th, .thai {
+    font-family: "TH Sarabun New", "TH SarabunPSK", "Sarabun", "Noto Sans Thai", "Sukhumvit Set", "Thonburi", "Silom", sans-serif;
+  }
+  .thai strong {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+  .th-big { font-size: 20px; }
+  .th-mid { font-size: 17px; }
+  .translit { color: #6c7785; font-style: italic; font-size: 0.94em; }
+  .de { color: #1d2733; }
+
+  .print-hint {
+    background: #fff7e6;
+    border: 1px solid #ffd591;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 0 18px;
+    color: #874d00;
+  }
+  @media print { .print-hint { display: none; } }
+
+  /* COVER */
+  header.cover {
+    border-bottom: 4px solid #1a8754;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .cover .row {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .cover .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cover .badge {
+    background: #1a8754; color: #fff;
+    padding: 3px 10px; border-radius: 14px;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cover .badge.alt { background: #c8281c; }
+  .cover .badge.alt2 { background: #1f6feb; }
+  .cover h1 {
+    font-size: 26px; margin: 8px 0 4px; letter-spacing: -0.01em;
+  }
+  .cover .thai-title {
+    font-size: 22px; color: #1a8754; margin-bottom: 4px;
+  }
+  .cover .sub { color: #5a6573; font-size: 13px; }
+
+  /* Hero photo */
+  .hero {
+    width: 200px; height: 150px;
+    flex: 0 0 auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  /* Section headings */
+  h2.lesson {
+    font-size: 18px;
+    margin: 24px 0 8px;
+    padding: 6px 12px;
+    background: #1a8754;
+    color: #fff;
+    border-radius: 4px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  h2.lesson .lab { background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 10px; font-size: 11px; letter-spacing: 0.08em; }
+  h3.sub {
+    font-size: 15px; color: #1a8754;
+    margin: 18px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid #e2e6ec;
+  }
+
+  /* Vocabulary table */
+  table.vocab {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 8px 0 12px;
+    page-break-inside: avoid;
+  }
+  table.vocab th {
+    background: #f0f6f1; color: #1a8754;
+    text-align: left; padding: 6px 10px;
+    border-bottom: 2px solid #1a8754; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  table.vocab td { padding: 7px 10px; border-bottom: 1px solid #eef1f5; vertical-align: top; }
+  table.vocab tr:nth-child(even) td { background: #fafbfd; }
+  table.vocab .col-thai { width: 28%; font-size: 16px; }
+  table.vocab .col-trans { width: 26%; }
+  table.vocab .col-de { width: 36%; }
+  table.vocab .col-icon { width: 10%; text-align: center; font-size: 18px; }
+
+  /* Dialog */
+  .dialog-box {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 14px 16px; background: #fbfdf9;
+    margin: 8px 0 14px;
+    page-break-inside: avoid;
+  }
+  .dialog-row {
+    display: grid; grid-template-columns: 26px 1fr; gap: 10px; margin-bottom: 8px;
+  }
+  .dialog-row .who {
+    background: #1a8754; color: #fff; border-radius: 50%;
+    width: 26px; height: 26px; line-height: 26px;
+    text-align: center; font-weight: 700; font-size: 12px;
+  }
+  .dialog-row.b .who { background: #c8281c; }
+  .dialog-row .text .thai { display: block; font-size: 16px; }
+  .dialog-row .text .translit { display: block; }
+  .dialog-row .text .de { display: block; color: #2c3744; }
+
+  /* Photo card */
+  .photo-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    align-items: start;
+    margin: 12px 0 16px;
+    page-break-inside: avoid;
+  }
+  .photo-card .ph {
+    width: 100%; aspect-ratio: 1; background: #f0f6f1;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .photo-card .ph img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .photo-card .cap {
+    font-size: 11px; color: #6c7785; margin-top: 4px; text-align: center;
+  }
+
+  /* Reading text with side photo */
+  .reading-wrap {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 14px;
+    align-items: stretch;
+    margin: 8px 0 14px;
+    page-break-inside: avoid;
+  }
+  .reading-wrap .side {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .reading-wrap .side img { width: 100%; height: 100%; object-fit: cover; }
+  .reading {
+    background: #f9fbfa; border-left: 4px solid #1a8754;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  .reading .thai { line-height: 1.9; }
+  .reading .de { color: #4a5563; font-style: italic; margin-top: 8px; font-size: 13px; }
+
+  /* Dialog photo */
+  .dialog-photo {
+    width: 100%; max-height: 140px; object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    margin: -14px -16px 12px;
+    width: calc(100% + 32px);
+  }
+
+  /* Grammar box */
+  .grammar {
+    border: 2px solid #1f6feb; border-radius: 8px;
+    padding: 12px 16px; margin: 12px 0 16px;
+    background: #f4f8ff;
+    page-break-inside: avoid;
+  }
+  .grammar .gh {
+    color: #1f6feb; font-weight: 700; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .grammar .formula {
+    background: #fff; padding: 8px 12px; border-radius: 4px;
+    border: 1px dashed #1f6feb; font-family: "Menlo", monospace;
+    font-size: 14px; margin: 6px 0;
+  }
+  .grammar .ex { font-size: 14px; margin: 4px 0; }
+
+  /* Exercises */
+  .exercise {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 12px 16px; margin: 10px 0 14px;
+    page-break-inside: avoid;
+  }
+  .exercise .num {
+    display: inline-block; background: #c8281c; color: #fff;
+    border-radius: 50%; width: 22px; height: 22px; line-height: 22px;
+    text-align: center; font-size: 12px; font-weight: 700; margin-right: 8px;
+  }
+  .exercise h4 { display: inline; font-size: 14px; margin: 0; }
+  .exercise .task { color: #5a6573; font-size: 12px; margin: 4px 0 8px; }
+  .exercise ol { margin: 6px 0 0; padding-left: 22px; }
+  .exercise li { margin-bottom: 6px; line-height: 1.7; }
+  .exercise .blank {
+    display: inline-block; min-width: 80px; border-bottom: 1px solid #888;
+    padding: 0 4px; margin: 0 2px;
+  }
+  .exercise .blank.lg { min-width: 130px; }
+  .exercise .lines {
+    border-bottom: 1px solid #c0c7d2;
+    height: 22px; margin-bottom: 6px;
+  }
+
+  /* Tone box */
+  .tones {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 8px; margin: 10px 0;
+  }
+  .tones .t {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 8px; text-align: center; font-size: 12px;
+  }
+  .tones .t .name { font-weight: 700; color: #1f6feb; font-size: 12px; }
+  .tones .t .word { font-size: 18px; margin: 4px 0; }
+  .tones .t .meaning { color: #6c7785; font-size: 11px; }
+
+  /* 7-day plan */
+  .plan-table {
+    width: 100%; border-collapse: collapse; font-size: 12px;
+    margin: 8px 0;
+  }
+  .plan-table th {
+    background: #1a8754; color: #fff; padding: 6px 8px;
+    text-align: left; font-size: 11px; text-transform: uppercase;
+  }
+  .plan-table td { padding: 7px 8px; border: 1px solid #e2e6ec; vertical-align: top; }
+  .plan-table tr:nth-child(even) td { background: #fafbfd; }
+  .plan-table td.day { background: #f0f6f1; font-weight: 700; color: #1a8754; }
+
+  /* Answer key */
+  .answer-key {
+    background: #fff7e6; border: 2px solid #ffd591;
+    border-radius: 8px; padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .answer-key h2 { color: #874d00; margin-top: 0; background: transparent; padding: 0; display: block; }
+  .answer-key .ak-block { margin-bottom: 12px; }
+  .answer-key h4 { color: #874d00; margin: 10px 0 4px; font-size: 13px; }
+  .answer-key ol li { margin-bottom: 4px; font-size: 13px; }
+
+  /* Speaking practice cards */
+  .speak-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 10px 0;
+  }
+  .speak-card {
+    border: 1px solid #e2e6ec; border-left: 4px solid #c8281c;
+    padding: 10px 12px; border-radius: 4px;
+    page-break-inside: avoid;
+  }
+  .speak-card .role { font-size: 11px; text-transform: uppercase; color: #c8281c; letter-spacing: 0.06em; font-weight: 700; }
+  .speak-card .line { font-size: 13px; margin: 3px 0; }
+
+  .pb { page-break-before: always; }
+  hr.thin { border: 0; border-top: 1px dashed #c0c7d2; margin: 18px 0; }
+  ul, ol { padding-left: 22px; }
+  ul { margin: 6px 0; }
+
+  .info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin: 10px 0 16px;
+  }
+  .info-card {
+    background: #f6f8fb; padding: 10px 12px; border-radius: 4px;
+    border-top: 3px solid #1a8754;
+  }
+  .info-card .k { font-size: 11px; text-transform: uppercase; color: #6c7785; letter-spacing: 0.06em; }
+  .info-card .v { font-size: 13px; font-weight: 600; margin-top: 2px; }
+
+  kbd {
+    background: #fff; border: 1px solid #c0c7d2; border-radius: 3px;
+    padding: 1px 5px; font-size: 11px; font-family: "Menlo", monospace;
+  }
+
+  /* ===== Bildschirm-Optimierung — zentrierte Seite, kein Strecken ===== */
+  @media screen {
+    html { background: #e9edf2; }
+    body {
+      max-width: 820px;
+      margin: 28px auto;
+      padding: 34px 44px 40px;
+      background: #fff;
+      border-top: 5px solid #1a8754;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+      border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: 880px) {
+    body { margin: 0 auto; padding: 20px 16px 30px; border-radius: 0; border-top-width: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  📚 Thai mit Mac <span class="accent">·</span> Lerneinheit zum Selbststudium
+</div>
+
+<div class="print-hint">
+  <strong>Tipp:</strong> Drücken Sie <kbd>⌘ Cmd</kbd> + <kbd>P</kbd> und wählen Sie „Als PDF sichern" — dann erhalten Sie eine PDF-Version dieser Lektion zum Ausdrucken oder Speichern. „Thai mit Mac" erscheint dann automatisch als Kopfzeile auf jeder Seite.
+</div>
+
+<!-- ============= COVER ============= -->
+<header class="cover">
+  <div class="row">
+    <div>
+      <div class="badges">
+        <span class="badge">Technologie</span>
+        <span class="badge alt">Niveau A2.2</span>
+        <span class="badge alt2">7 Tage · 1 Std./Tag</span>
+      </div>
+      <h1>Technologie im Alltag und Büro</h1>
+      <div class="thai-title thai">เทคโนโลยีในชีวิตประจำวันและที่ทำงาน</div>
+      <div class="sub translit">thék-noo-loo-yii nai chii-wít prà-jam-wan láe thîi tham-ngaan</div>
+      <div class="sub" style="margin-top:6px;">Lesen · Schreiben · Sprechen — Computer, Smartphone &amp; Drucker</div>
+    </div>
+    <!-- Hero photo: laptop & smartphone on a desk -->
+    <img class="hero" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=70&fm=jpg&auto=format" alt="Laptop und Technik am Arbeitsplatz">
+  </div>
+</header>
+
+<div class="info-grid">
+  <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 37 neue Wörter</div></div>
+  <div class="info-card"><div class="k">Grammatik</div><div class="v">Befehle · Anleitungen (Reihenfolge)</div></div>
+  <div class="info-card"><div class="k">Lernziel</div><div class="v">Geräte erklären &amp; Anweisungen geben</div></div>
+</div>
+
+<!-- ============= LESSON 1: VOKABULAR ============= -->
+<h2 class="lesson"><span class="lab">Lektion 1</span> Wortschatz · คำศัพท์</h2>
+
+<h3 class="sub">A · Computer · คอมพิวเตอร์ (kom-phiu-tôe)</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=70&fm=jpg&auto=format" alt="Laptop-Computer">
+    </div>
+    <div class="cap">คอมพิวเตอร์ · der Computer</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">คอมพิวเตอร์</td><td class="translit">kom-phiu-tôe</td><td>Computer</td><td>💻</td></tr>
+      <tr><td class="thai">โน้ตบุ๊ก</td><td class="translit">nóot-búk</td><td>Laptop, Notebook</td><td>💻</td></tr>
+      <tr><td class="thai">หน้าจอ</td><td class="translit">nâa-jor</td><td>Bildschirm, Monitor</td><td>🖥️</td></tr>
+      <tr><td class="thai">แป้นพิมพ์</td><td class="translit">pâen-phim</td><td>Tastatur</td><td>⌨️</td></tr>
+      <tr><td class="thai">เมาส์</td><td class="translit">máo</td><td>Maus</td><td>🖱️</td></tr>
+      <tr><td class="thai">ไฟล์</td><td class="translit">fai</td><td>Datei</td><td>📄</td></tr>
+      <tr><td class="thai">โฟลเดอร์</td><td class="translit">fon-dôe</td><td>Ordner</td><td>📁</td></tr>
+      <tr><td class="thai">บันทึก</td><td class="translit">ban-théuk</td><td>speichern</td><td>💾</td></tr>
+      <tr><td class="thai">ลบ</td><td class="translit">lóp</td><td>löschen</td><td>🗑️</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub">B · Smartphone · สมาร์ทโฟน (sà-máat-fohn)</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=70&fm=jpg&auto=format" alt="Smartphone in der Hand">
+    </div>
+    <div class="cap">มือถือ · das Smartphone</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">มือถือ</td><td class="translit">meu-thěu</td><td>Handy, Smartphone</td><td>📱</td></tr>
+      <tr><td class="thai">แอป</td><td class="translit">áep</td><td>App</td><td>📲</td></tr>
+      <tr><td class="thai">ชาร์จ</td><td class="translit">cháat</td><td>laden, aufladen</td><td>🔌</td></tr>
+      <tr><td class="thai">แบตเตอรี่</td><td class="translit">bàet-toe-rîi</td><td>Akku, Batterie</td><td>🔋</td></tr>
+      <tr><td class="thai">ข้อความ</td><td class="translit">khôr-khwaam</td><td>Nachricht</td><td>💬</td></tr>
+      <tr><td class="thai">โทร</td><td class="translit">thoo</td><td>anrufen</td><td>📞</td></tr>
+      <tr><td class="thai">ส่ง</td><td class="translit">sòng</td><td>senden, schicken</td><td>📤</td></tr>
+      <tr><td class="thai">รหัสผ่าน</td><td class="translit">rá-hàt-phàan</td><td>Passwort</td><td>🔑</td></tr>
+      <tr><td class="thai">อินเทอร์เน็ต</td><td class="translit">in-thoe-nét</td><td>Internet</td><td>🌐</td></tr>
+      <tr><td class="thai">ไวไฟ</td><td class="translit">wai-fai</td><td>WLAN, WiFi</td><td>📶</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub">C · Drucker &amp; Büro · เครื่องพิมพ์และที่ทำงาน</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&q=70&fm=jpg&auto=format" alt="Bürodrucker">
+    </div>
+    <div class="cap">เครื่องพิมพ์ · der Drucker</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">เครื่องพิมพ์</td><td class="translit">khrêuang-phim</td><td>Drucker</td><td>🖨️</td></tr>
+      <tr><td class="thai">พิมพ์</td><td class="translit">phim</td><td>drucken; tippen</td><td>🖨️</td></tr>
+      <tr><td class="thai">กระดาษ</td><td class="translit">grà-dàat</td><td>Papier</td><td>📃</td></tr>
+      <tr><td class="thai">หมึก</td><td class="translit">mèuk</td><td>Tinte, Toner</td><td>🖋️</td></tr>
+      <tr><td class="thai">สแกน</td><td class="translit">sà-gaen</td><td>scannen</td><td>📷</td></tr>
+      <tr><td class="thai">เอกสาร</td><td class="translit">èek-gà-sǎan</td><td>Dokument</td><td>📑</td></tr>
+      <tr><td class="thai">อีเมล</td><td class="translit">ii-meo</td><td>E-Mail</td><td>✉️</td></tr>
+      <tr><td class="thai">สำนักงาน</td><td class="translit">sǎm-nák-ngaan</td><td>Büro</td><td>🏢</td></tr>
+      <tr><td class="thai">ประชุม</td><td class="translit">prà-chum</td><td>Besprechung, Meeting</td><td>👥</td></tr>
+      <tr><td class="thai">เสีย</td><td class="translit">sǐa</td><td>kaputt, defekt</td><td>⚠️</td></tr>
+      <tr><td class="thai">ซ่อม</td><td class="translit">sôm</td><td>reparieren</td><td>🔧</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub">D · Wichtige Verben &amp; Befehlswörter · คำกริยาสำคัญ</h3>
+<table class="vocab">
+  <thead>
+    <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="thai">เปิด</td><td class="translit">pòet</td><td>einschalten, öffnen</td><td>🔆</td></tr>
+    <tr><td class="thai">ปิด</td><td class="translit">pìt</td><td>ausschalten, schließen</td><td>🌑</td></tr>
+    <tr><td class="thai">กด</td><td class="translit">gòt</td><td>drücken</td><td>👇</td></tr>
+    <tr><td class="thai">ปุ่ม</td><td class="translit">pùm</td><td>Knopf, Taste, Button</td><td>🔘</td></tr>
+    <tr><td class="thai">คลิก</td><td class="translit">khlík</td><td>klicken</td><td>🖱️</td></tr>
+    <tr><td class="thai">ใส่</td><td class="translit">sài</td><td>eingeben, einfügen</td><td>⌨️</td></tr>
+    <tr><td class="thai">เครื่อง</td><td class="translit">khrêuang</td><td>Gerät, Maschine</td><td>🖥️</td></tr>
+  </tbody>
+</table>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 2: GRAMMATIK ============= -->
+<h2 class="lesson"><span class="lab">Lektion 2</span> Grammatik · ไวยากรณ์</h2>
+
+<div class="grammar">
+  <div class="gh">G1 · Befehle und höfliche Bitten</div>
+  <p>Im Thai ist der <strong>Befehl (Imperativ)</strong> ganz einfach: Man sagt nur das <strong>Verb</strong> — ganz ohne „du" oder Endung. „Drücken!" = nur <span class="thai">กด</span>.</p>
+  <div class="formula">Verb (+ Objekt)  →  เปิดคอมพิวเตอร์ = „Schalte den Computer ein!"</div>
+  <p style="margin-top:8px;">Damit es <strong>höflich</strong> klingt, hängt man eine Partikel an oder benutzt ein Höflichkeitswort:</p>
+  <ul>
+    <li><span class="thai th-mid">ช่วย … หน่อย</span> <span class="translit">(chûai … nòi)</span> — umrahmt das Verb = „bitte … mal" &nbsp;➜&nbsp; <span class="thai">ช่วยเปิดเครื่องหน่อย</span> <span class="translit">(chûai pòet khrêuang nòi)</span> = „Schalte bitte das Gerät ein."</li>
+    <li><span class="thai th-mid">กรุณา</span> <span class="translit">(gà-rú-naa)</span> — formell, vor dem Verb = „Bitte …" &nbsp;➜&nbsp; <span class="thai">กรุณาปิดมือถือ</span> <span class="translit">(gà-rú-naa pìt meu-thěu)</span> = „Bitte schalten Sie das Handy aus."</li>
+    <li><span class="thai th-mid">… ครับ / ค่ะ</span> — Höflichkeitspartikel am Satzende (Mann: <span class="thai">ครับ</span> / Frau: <span class="thai">ค่ะ</span>)</li>
+    <li><strong>Verneinter Befehl:</strong> <span class="thai th-mid">อย่า</span> <span class="translit">(yàa)</span> + Verb = „Tu nicht …" &nbsp;➜&nbsp; <span class="thai">อย่าลบไฟล์นี้</span> <span class="translit">(yàa lóp fai níi)</span> = „Lösch diese Datei nicht!"</li>
+  </ul>
+</div>
+
+<div class="grammar">
+  <div class="gh">G2 · Eine Anleitung geben — die Reihenfolge</div>
+  <p>Um Schritt für Schritt zu erklären, wie etwas funktioniert (z. B. wie man druckt), verbindet man die Schritte mit diesen <strong>Reihenfolge-Wörtern</strong>:</p>
+  <div class="formula">ก่อนอื่น … แล้วก็ … หลังจากนั้น … สุดท้าย …</div>
+  <ul>
+    <li><span class="thai th-mid">ก่อนอื่น</span> <span class="translit">(gòn-èun)</span> — zuerst, zuallererst</li>
+    <li><span class="thai th-mid">แล้วก็</span> <span class="translit">(láeo-gôr)</span> — und dann</li>
+    <li><span class="thai th-mid">หลังจากนั้น</span> <span class="translit">(lǎng-jàak-nán)</span> — danach</li>
+    <li><span class="thai th-mid">สุดท้าย</span> <span class="translit">(sùt-tháai)</span> — zuletzt, schließlich</li>
+  </ul>
+  <p style="margin-top:8px;"><strong>Beispiel — drucken:</strong></p>
+  <p class="ex"><span class="thai th-mid">ก่อนอื่นเปิดคอมพิวเตอร์ แล้วก็เปิดไฟล์ หลังจากนั้นกดปุ่มพิมพ์ สุดท้ายเอากระดาษออก</span><br>
+     <span class="translit">gòn-èun pòet kom-phiu-tôe, láeo-gôr pòet fai, lǎng-jàak-nán gòt pùm phim, sùt-tháai ao grà-dàat òk</span><br>
+     ↳ Zuerst schaltest du den Computer ein, dann öffnest du die Datei, danach drückst du den Druck-Knopf, zuletzt nimmst du das Papier heraus.</p>
+</div>
+
+<!-- ============= LESSON 3: LESEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 3</span> Lesen · การอ่าน</h2>
+
+<h3 class="sub">Dialog 1 · Der Drucker ist kaputt · เครื่องพิมพ์เสีย</h3>
+<div class="dialog-box">
+  <img class="dialog-photo" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=800&q=70&fm=jpg&auto=format" alt="Büro mit Computern">
+  <div class="dialog-row a">
+    <div class="who">A</div>
+    <div class="text">
+      <span class="thai th-mid">ขอโทษครับ เครื่องพิมพ์ใช้ไม่ได้ ช่วยดูหน่อยได้ไหมครับ</span>
+      <span class="translit">khǒr-thôot kráp, khrêuang-phim chái mâi dâai. chûai duu nòi dâai mǎi kráp?</span>
+      <span class="de">Entschuldigung, der Drucker funktioniert nicht. Kannst du bitte mal nachsehen?</span>
+    </div>
+  </div>
+  <div class="dialog-row b">
+    <div class="who">B</div>
+    <div class="text">
+      <span class="thai th-mid">ได้ค่ะ มีกระดาษไหมคะ และหมึกหมดหรือเปล่า</span>
+      <span class="translit">dâai khâ. mii grà-dàat mǎi khá? láe mèuk mòt rǔe-plàao?</span>
+      <span class="de">Ja, klar. Ist Papier da? Und ist die Tinte leer?</span>
+    </div>
+  </div>
+  <div class="dialog-row a">
+    <div class="who">A</div>
+    <div class="text">
+      <span class="thai th-mid">มีกระดาษครับ แต่ผมไม่แน่ใจเรื่องหมึก</span>
+      <span class="translit">mii grà-dàat kráp, tàe phǒm mâi nâe-jai rûeang mèuk.</span>
+      <span class="de">Papier ist da, aber bei der Tinte bin ich mir nicht sicher.</span>
+    </div>
+  </div>
+  <div class="dialog-row b">
+    <div class="who">B</div>
+    <div class="text">
+      <span class="thai th-mid">ก่อนอื่นปิดเครื่อง แล้วก็เปิดใหม่ ถ้ายังไม่ได้ เราจะโทรเรียกช่างมาซ่อมค่ะ</span>
+      <span class="translit">gòn-èun pìt khrêuang, láeo-gôr pòet mài. thâa yang mâi dâai, rao jà thoo rîak châang maa sôm khâ.</span>
+      <span class="de">Schalte zuerst das Gerät aus, dann wieder ein. Wenn es immer noch nicht geht, rufen wir einen Techniker zum Reparieren.</span>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub">Lesetext · วันทำงานกับเทคโนโลยี · „Mein Arbeitstag mit Technik"</h3>
+<div class="reading-wrap">
+  <div class="side"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=70&fm=jpg&auto=format" alt="Person arbeitet am Laptop"></div>
+  <div class="reading">
+    <p class="thai th-mid"><strong>1.</strong> สวัสดีครับ ผมชื่อนิว ผมทำงานที่สำนักงานในกรุงเทพ ทุกวันผมใช้เทคโนโลยีหลายอย่าง เช่น คอมพิวเตอร์ มือถือ และเครื่องพิมพ์ เทคโนโลยีช่วยให้งานของผมง่ายและเร็วขึ้นมาก</p>
+
+    <p class="thai th-mid"><strong>2.</strong> ตอนเช้าผมไปถึงที่ทำงานแปดโมง ก่อนอื่นผมเปิดคอมพิวเตอร์ แล้วก็ใส่รหัสผ่าน หลังจากนั้นผมเปิดอีเมลและอ่านข้อความใหม่ บางวันมีอีเมลมากกว่ายี่สิบฉบับ</p>
+
+    <p class="thai th-mid"><strong>3.</strong> ตอนสายผมมีประชุมกับเพื่อนร่วมงาน ผมใช้โน้ตบุ๊กและหน้าจอใหญ่ในห้องประชุม ก่อนประชุมผมต้องพิมพ์เอกสารให้ทุกคน แต่เมื่อวานเครื่องพิมพ์เสีย กระดาษติดและหมึกหมด ผมจึงต้องสแกนเอกสารและส่งทางอีเมลแทน</p>
+
+    <p class="thai th-mid"><strong>4.</strong> ผมใช้มือถือตลอดวัน ผมโทรหาลูกค้า ส่งข้อความ และเปิดแอปสำหรับงาน บางครั้งแบตเตอรี่หมดเร็ว ผมจึงต้องชาร์จที่โต๊ะทำงาน ที่ออฟฟิศมีไวไฟเร็ว ผมจึงทำงานออนไลน์ได้สบาย</p>
+
+    <p class="thai th-mid"><strong>5.</strong> ตอนเย็นก่อนกลับบ้าน ผมบันทึกไฟล์ทุกไฟล์ แล้วก็ปิดคอมพิวเตอร์ ผมไม่ลบเอกสารสำคัญ เพราะกลัวว่าจะหาไม่เจอ สุดท้ายผมปิดไฟและปิดเครื่องปรับอากาศก่อนออกจากห้อง</p>
+
+    <p class="thai th-mid"><strong>6.</strong> ผมคิดว่าเทคโนโลยีมีประโยชน์มาก แต่บางครั้งก็มีปัญหา ถ้าอินเทอร์เน็ตช้าหรือเครื่องเสีย งานก็ช้าไปด้วย เพราะฉะนั้นเราต้องเรียนรู้วิธีใช้และวิธีแก้ปัญหาง่าย ๆ ด้วยตัวเอง</p>
+
+    <p class="thai th-mid"><strong>7.</strong> ทุกวันนี้บริษัทของผมประชุมออนไลน์บ่อยขึ้น บางครั้งผมต้องคุยกับลูกค้าต่างประเทศผ่านวิดีโอคอล ก่อนประชุมผมตรวจสอบไวไฟ เปิดกล้อง แล้วก็ทดสอบเสียงก่อน ถ้าอินเทอร์เน็ตช้า ภาพและเสียงจะไม่ชัด งานก็จะลำบาก</p>
+
+    <p class="thai th-mid"><strong>8.</strong> เพื่อนร่วมงานบางคนที่อายุมากไม่ค่อยถนัดเทคโนโลยี ผมจึงช่วยสอนพวกเขา เช่น วิธีบันทึกไฟล์ วิธีส่งอีเมล และวิธีสแกนเอกสาร ผมคิดว่าการช่วยเหลือกันทำให้ที่ทำงานมีความสุข และทุกคนทำงานได้เร็วขึ้น</p>
+
+    <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+
+    <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße New. Ich arbeite in einem Büro in Bangkok. Jeden Tag benutze ich viele Technikgeräte, zum Beispiel Computer, Handy und Drucker. Technik macht meine Arbeit viel leichter und schneller.</p>
+    <p class="de" style="font-size:12px;"><strong>2.</strong> Morgens komme ich um acht Uhr zur Arbeit. Zuerst schalte ich den Computer ein, dann gebe ich das Passwort ein. Danach öffne ich die E-Mails und lese die neuen Nachrichten. An manchen Tagen sind es mehr als zwanzig E-Mails.</p>
+    <p class="de" style="font-size:12px;"><strong>3.</strong> Am Vormittag habe ich eine Besprechung mit Kollegen. Ich benutze einen Laptop und einen großen Bildschirm im Besprechungsraum. Vor der Besprechung muss ich für alle die Unterlagen drucken, aber gestern war der Drucker kaputt: Das Papier hat sich gestaut und die Tinte war leer. Deshalb musste ich die Dokumente scannen und stattdessen per E-Mail schicken.</p>
+    <p class="de" style="font-size:12px;"><strong>4.</strong> Mein Handy benutze ich den ganzen Tag. Ich rufe Kunden an, schicke Nachrichten und öffne Apps für die Arbeit. Manchmal ist der Akku schnell leer, also muss ich am Schreibtisch laden. Im Büro gibt es schnelles WLAN, deshalb kann ich bequem online arbeiten.</p>
+    <p class="de" style="font-size:12px;"><strong>5.</strong> Abends, bevor ich nach Hause gehe, speichere ich alle Dateien und schalte dann den Computer aus. Wichtige Dokumente lösche ich nicht, weil ich Angst habe, sie nicht wiederzufinden. Zuletzt mache ich das Licht aus und schalte die Klimaanlage aus, bevor ich den Raum verlasse.</p>
+    <p class="de" style="font-size:12px;"><strong>6.</strong> Ich finde, Technik ist sehr nützlich, aber manchmal gibt es auch Probleme. Wenn das Internet langsam ist oder ein Gerät kaputtgeht, wird auch die Arbeit langsam. Deshalb müssen wir lernen, wie man die Geräte benutzt und einfache Probleme selbst löst.</p>
+    <p class="de" style="font-size:12px;"><strong>7.</strong> Heutzutage hat meine Firma immer öfter Online-Besprechungen. Manchmal muss ich mit Kunden aus dem Ausland per Videoanruf sprechen. Vor der Besprechung prüfe ich das WLAN, schalte die Kamera ein und teste dann den Ton. Wenn das Internet langsam ist, sind Bild und Ton nicht klar und die Arbeit wird schwierig.</p>
+    <p class="de" style="font-size:12px;"><strong>8.</strong> Manche älteren Kollegen sind nicht so gut mit Technik. Deshalb helfe ich ihnen und zeige ihnen zum Beispiel, wie man eine Datei speichert, eine E-Mail verschickt und ein Dokument scannt. Ich finde, einander zu helfen macht das Büro angenehmer — und alle arbeiten schneller.</p>
+  </div>
+</div>
+
+<div class="exercise">
+  <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+  <p class="task">Aufgabe: Lesen Sie den Text oben und kreuzen Sie an.</p>
+  <ol>
+    <li>New arbeitet in einem Büro in Bangkok.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Als Erstes am Morgen öffnet er seine E-Mails.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Gestern war der Drucker kaputt.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Weil der Drucker defekt war, hat er die Dokumente gescannt und per E-Mail geschickt.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Im Büro gibt es kein WLAN.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Abends löscht er alle wichtigen Dokumente.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Bevor er geht, speichert er die Dateien und schaltet den Computer aus.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>New findet, dass Technik nie Probleme macht.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+  </ol>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 4: SCHREIBEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 4</span> Schreiben · การเขียน</h2>
+
+<div class="exercise">
+  <span class="num">2</span><h4>Anleitung ordnen — die richtige Reihenfolge</h4>
+  <p class="task">Ergänzen Sie mit den Reihenfolge-Wörtern: <span class="thai">ก่อนอื่น · แล้วก็ · หลังจากนั้น · สุดท้าย</span> &nbsp;(So drucken Sie ein Dokument.)</p>
+  <ol>
+    <li><span class="blank lg">_____</span> <span class="thai">เปิดคอมพิวเตอร์</span> &nbsp; <span class="translit">(Zuerst den Computer einschalten.)</span></li>
+    <li><span class="blank lg">_____</span> <span class="thai">เปิดไฟล์เอกสาร</span> &nbsp; <span class="translit">(Und dann die Dokument-Datei öffnen.)</span></li>
+    <li><span class="blank lg">_____</span> <span class="thai">กดปุ่มพิมพ์</span> &nbsp; <span class="translit">(Danach den Druck-Knopf drücken.)</span></li>
+    <li><span class="blank lg">_____</span> <span class="thai">เอากระดาษออกจากเครื่องพิมพ์</span> &nbsp; <span class="translit">(Zuletzt das Papier aus dem Drucker nehmen.)</span></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">3</span><h4>Befehle bilden — höflich mit <span class="thai">ช่วย … หน่อย</span></h4>
+  <p class="task">Schreiben Sie die Bitte höflich um. Beispiel: <span class="thai">เปิดเครื่อง → ช่วยเปิดเครื่องหน่อย</span></p>
+  <ol>
+    <li><span class="thai">ปิดมือถือ</span> &nbsp;➜&nbsp; <span class="blank lg">_____________</span> &nbsp; <span class="translit">(Schalte bitte das Handy aus.)</span></li>
+    <li><span class="thai">กดปุ่มนี้</span> &nbsp;➜&nbsp; <span class="blank lg">_____________</span> &nbsp; <span class="translit">(Drück bitte diesen Knopf.)</span></li>
+    <li><span class="thai">ส่งอีเมล</span> &nbsp;➜&nbsp; <span class="blank lg">_____________</span> &nbsp; <span class="translit">(Schick bitte die E-Mail.)</span></li>
+    <li><span class="thai">ซ่อมเครื่องพิมพ์</span> &nbsp;➜&nbsp; <span class="blank lg">_____________</span> &nbsp; <span class="translit">(Repariere bitte den Drucker.)</span></li>
+    <li><span class="thai">บันทึกไฟล์</span> &nbsp;➜&nbsp; <span class="blank lg">_____________</span> &nbsp; <span class="translit">(Speichere bitte die Datei.)</span></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+  <p class="task">Schreiben Sie die Sätze auf Thai (mit Schrift, wenn möglich, oder Umschrift).</p>
+  <ol>
+    <li>Der Computer ist kaputt.<div class="lines"></div></li>
+    <li>Schalte bitte den Drucker ein.<div class="lines"></div></li>
+    <li>Mein Akku ist leer.<div class="lines"></div></li>
+    <li>Lösch diese Datei nicht!<div class="lines"></div></li>
+    <li>Ich schicke das Dokument per E-Mail.<div class="lines"></div></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">5</span><h4>Mein eigener Text — schreiben Sie 5 Sätze</h4>
+  <p class="task">Beschreiben Sie, welche Technik Sie im Alltag oder im Büro benutzen. Verwenden Sie mindestens 3 neue Wörter aus Lektion 1 und einmal ein Reihenfolge-Wort (<span class="thai">ก่อนอื่น / แล้วก็ …</span>).</p>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 5: SPRECHEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 5</span> Sprechen · การพูด</h2>
+
+<h3 class="sub">Aussprache — die 5 Töne mit Technik-Wortschatz</h3>
+<p style="font-size:13px; color:#5a6573;">Im Thai entscheidet die <strong>Tonhöhe</strong> über die Bedeutung. Üben Sie diese fünf Wörter laut, jeweils zehnmal. Hören Sie sich selbst zu (z. B. mit dem Smartphone).</p>
+
+<div class="tones">
+  <div class="t"><div class="name">Mittel</div><div class="word thai">พิมพ์</div><div class="meaning">phim<br>drucken</div></div>
+  <div class="t"><div class="name">Tief</div><div class="word thai">กด</div><div class="meaning">gòt<br>drücken</div></div>
+  <div class="t"><div class="name">Fallend</div><div class="word thai">ส่ง</div><div class="meaning">sòng<br>senden</div></div>
+  <div class="t"><div class="name">Hoch</div><div class="word thai">ลบ</div><div class="meaning">lóp<br>löschen</div></div>
+  <div class="t"><div class="name">Steigend</div><div class="word thai">เสีย</div><div class="meaning">sǐa<br>kaputt</div></div>
+</div>
+<p style="font-size:11px; color:#8a96a6; margin-top:0;">Achten Sie besonders auf den Unterschied zwischen tiefem Ton (<span class="thai">กด</span> gòt) und hohem Ton (<span class="thai">ลบ</span> lóp) — die Tonhöhe verändert die Bedeutung.</p>
+
+<div class="exercise">
+  <span class="num">6</span><h4>Rollenspiel — IT-Hilfe im Büro</h4>
+  <p class="task">Lesen Sie die Rollen laut mit einem Partner oder allein vor einem Spiegel. Tauschen Sie nach einem Durchgang die Rollen.</p>
+  <div class="speak-grid">
+    <div class="speak-card">
+      <div class="role">Mitarbeiter · พนักงาน</div>
+      <p class="line"><span class="thai th-mid">คอมพิวเตอร์ของผมเปิดไม่ติดครับ</span><br><span class="translit">kom-phiu-tôe khǒng phǒm pòet mâi tìt kráp.</span><br>Mein Computer geht nicht an.</p>
+      <p class="line"><span class="thai th-mid">ผมกดปุ่มแล้ว แต่หน้าจอมืดครับ</span><br><span class="translit">phǒm gòt pùm láeo, tàe nâa-jor mêut kráp.</span><br>Ich habe den Knopf gedrückt, aber der Bildschirm bleibt dunkel.</p>
+      <p class="line"><span class="thai th-mid">ขอบคุณมากครับ</span><br><span class="translit">khòp-khun mâak kráp.</span><br>Vielen Dank.</p>
+    </div>
+    <div class="speak-card">
+      <div class="role">IT-Hilfe · ฝ่ายไอที</div>
+      <p class="line"><span class="thai th-mid">ลองเสียบสายไฟดูหน่อยครับ</span><br><span class="translit">long sìap sǎai-fai duu nòi kráp.</span><br>Versuchen Sie mal, das Stromkabel einzustecken.</p>
+      <p class="line"><span class="thai th-mid">ช่วยกดปุ่มค้างไว้ห้าวินาทีครับ</span><br><span class="translit">chûai gòt pùm kháang wái hâa wí-naa-thii kráp.</span><br>Halten Sie bitte den Knopf fünf Sekunden lang gedrückt.</p>
+      <p class="line"><span class="thai th-mid">ได้แล้วครับ ใช้ได้เลย</span><br><span class="translit">dâai láeo kráp, chái dâai loei.</span><br>Geschafft, jetzt funktioniert es.</p>
+    </div>
+  </div>
+</div>
+
+<div class="exercise">
+  <span class="num">7</span><h4>Sprechen frei — drei Fragen, drei Antworten</h4>
+  <p class="task">Antworten Sie laut auf Thai. Schreiben Sie Stichpunkte.</p>
+  <ol>
+    <li><span class="thai">คุณใช้เทคโนโลยีอะไรบ้างทุกวัน</span> <span class="translit">(khun chái thék-noo-loo-yii à-rai bâang thúk-wan?)</span> — Welche Technik benutzt du jeden Tag?<div class="lines"></div></li>
+    <li><span class="thai">เวลาเครื่องพิมพ์เสีย คุณทำอย่างไร</span> <span class="translit">(wee-laa khrêuang-phim sǐa, khun tham yàang-rai?)</span> — Was machst du, wenn der Drucker kaputt ist?<div class="lines"></div></li>
+    <li><span class="thai">คุณชอบทำงานกับคอมพิวเตอร์หรือมือถือมากกว่ากัน</span> — Arbeitest du lieber mit Computer oder Handy?<div class="lines"></div></li>
+  </ol>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= 7-DAY PLAN ============= -->
+<h2 class="lesson"><span class="lab">Plan</span> Ihr 7-Tage-Lernplan · ตารางเรียน 7 วัน</h2>
+<p style="font-size:13px;">So nutzen Sie diese Lektion in einer Woche — 1 Stunde pro Tag, aufgeteilt in <strong>Lesen 20 min · Schreiben 20 min · Sprechen 20 min</strong>.</p>
+
+<table class="plan-table">
+  <thead>
+    <tr>
+      <th>Tag</th><th>📖 Lesen (20 min)</th><th>✍️ Schreiben (20 min)</th><th>🗣 Sprechen (20 min)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="day">Tag 1<br>Mo</td>
+      <td>Lektion 1 — Wortschatz A (Computer): 9 Wörter laut lesen, mit Aussprache</td>
+      <td>Wortschatz A in Schreibheft abschreiben (jedes Wort 5×)</td>
+      <td>Wörter aus Wortschatz A laut nachsprechen, Aussprache aufnehmen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 2<br>Di</td>
+      <td>Wortschatz B (Smartphone) + C (Drucker &amp; Büro) lernen</td>
+      <td>Übung 2 — Anleitung in die richtige Reihenfolge bringen</td>
+      <td>Wörter B + C laut, dazu Tonübungen (Lektion 5)</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 3<br>Mi</td>
+      <td>Dialog 1 „Der Drucker ist kaputt" lesen, neue Wörter markieren</td>
+      <td>Übung 3 — höfliche Befehle mit <span class="thai">ช่วย…หน่อย</span></td>
+      <td>Dialog 1 in 2 Rollen mehrmals laut lesen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 4<br>Do</td>
+      <td>Lesetext „Mein Arbeitstag mit Technik" + Übung 1 (Wahr/Falsch)</td>
+      <td>Übung 4 — 5 Sätze ins Thai übersetzen</td>
+      <td>Übung 7 — drei Fragen beantworten</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 5<br>Fr</td>
+      <td>Grammatik G1 + G2 noch einmal lesen, Beispiele markieren</td>
+      <td>Übung 5 — eigenen Text (5 Sätze) schreiben</td>
+      <td>Eigenen Text laut vortragen, Aussprache aufnehmen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 6<br>Sa</td>
+      <td>Wortschatz A–D wiederholen, schwierige Wörter herauspicken</td>
+      <td>Anleitung schreiben: „Wie lade ich mein Handy?" in 4 Schritten</td>
+      <td>Übung 6 — Rollenspiel IT-Hilfe mit Partner oder Spiegel</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 7<br>So</td>
+      <td>Selbsttest: Können Sie 32 von 37 Wörtern erinnern?</td>
+      <td>Antwortschlüssel prüfen, Fehler korrigieren</td>
+      <td>2-Minuten-Erzählung „Technik in meinem Alltag"</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="thin">
+
+<!-- ============= ANSWER KEY ============= -->
+<div class="answer-key">
+  <h2 style="margin: 0 0 8px;">📋 Antwortschlüssel · เฉลย</h2>
+  <p style="font-size:12px; color:#874d00; margin-top:0;">Vergleichen Sie Ihre Antworten erst, nachdem Sie die Übungen abgeschlossen haben.</p>
+
+  <div class="ak-block">
+    <h4>Übung 1 — Wahr / Falsch</h4>
+    <ol>
+      <li>จริง (wahr) — er arbeitet in einem Büro in Bangkok</li>
+      <li>ไม่จริง (falsch) — als Erstes schaltet er den <em>Computer ein</em> und gibt das Passwort ein; danach öffnet er die E-Mails</li>
+      <li>จริง (wahr) — gestern war der Drucker kaputt (Papierstau, Tinte leer)</li>
+      <li>จริง (wahr) — er hat gescannt und per E-Mail geschickt</li>
+      <li>ไม่จริง (falsch) — im Büro gibt es <em>schnelles WLAN</em></li>
+      <li>ไม่จริง (falsch) — wichtige Dokumente löscht er <em>nicht</em></li>
+      <li>จริง (wahr) — er speichert die Dateien und schaltet den Computer aus</li>
+      <li>ไม่จริง (falsch) — Technik ist nützlich, macht aber <em>manchmal Probleme</em></li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 2 — Reihenfolge</h4>
+    <ol>
+      <li><strong>ก่อนอื่น</strong> เปิดคอมพิวเตอร์ &nbsp; <span class="translit">(gòn-èun … — zuerst)</span></li>
+      <li><strong>แล้วก็</strong> เปิดไฟล์เอกสาร &nbsp; <span class="translit">(láeo-gôr … — und dann)</span></li>
+      <li><strong>หลังจากนั้น</strong> กดปุ่มพิมพ์ &nbsp; <span class="translit">(lǎng-jàak-nán … — danach)</span></li>
+      <li><strong>สุดท้าย</strong> เอากระดาษออกจากเครื่องพิมพ์ &nbsp; <span class="translit">(sùt-tháai … — zuletzt)</span></li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 3 — Höfliche Befehle</h4>
+    <ol>
+      <li>ช่วย<strong>ปิดมือถือ</strong>หน่อย &nbsp; <span class="translit">(chûai pìt meu-thěu nòi)</span></li>
+      <li>ช่วย<strong>กดปุ่มนี้</strong>หน่อย &nbsp; <span class="translit">(chûai gòt pùm níi nòi)</span></li>
+      <li>ช่วย<strong>ส่งอีเมล</strong>หน่อย &nbsp; <span class="translit">(chûai sòng ii-meo nòi)</span></li>
+      <li>ช่วย<strong>ซ่อมเครื่องพิมพ์</strong>หน่อย &nbsp; <span class="translit">(chûai sôm khrêuang-phim nòi)</span></li>
+      <li>ช่วย<strong>บันทึกไฟล์</strong>หน่อย &nbsp; <span class="translit">(chûai ban-théuk fai nòi)</span></li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 4 — Übersetzung (Modellantworten)</h4>
+    <ol>
+      <li>คอมพิวเตอร์เสีย &nbsp; <span class="translit">(kom-phiu-tôe sǐa)</span></li>
+      <li>ช่วยเปิดเครื่องพิมพ์หน่อย &nbsp; <span class="translit">(chûai pòet khrêuang-phim nòi)</span></li>
+      <li>แบตเตอรี่ของฉันหมด &nbsp; <span class="translit">(bàet-toe-rîi khǒng chǎn mòt)</span></li>
+      <li>อย่าลบไฟล์นี้ &nbsp; <span class="translit">(yàa lóp fai níi)</span></li>
+      <li>ฉันส่งเอกสารทางอีเมล &nbsp; <span class="translit">(chǎn sòng èek-gà-sǎan thaang ii-meo)</span></li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 5 — Eigener Text (Mustertext)</h4>
+    <p class="thai" style="font-size:14px;">ทุกวันฉันใช้คอมพิวเตอร์และมือถือที่ทำงาน ก่อนอื่นฉันเปิดเครื่องและใส่รหัสผ่าน แล้วก็เปิดอีเมล ฉันพิมพ์เอกสารด้วยเครื่องพิมพ์ ถ้าแบตเตอรี่หมด ฉันชาร์จมือถือที่โต๊ะ</p>
+    <p style="font-size:12px; font-style:italic; color:#5a6573;">Jeden Tag benutze ich bei der Arbeit den Computer und das Handy. Zuerst schalte ich das Gerät ein und gebe das Passwort ein, dann öffne ich die E-Mails. Ich drucke Dokumente mit dem Drucker. Wenn der Akku leer ist, lade ich das Handy am Schreibtisch.</p>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 7 — Modellantworten zum Sprechen</h4>
+    <ol>
+      <li><span class="thai">ฉันใช้คอมพิวเตอร์ มือถือ และอินเทอร์เน็ตทุกวัน</span> &nbsp; <span class="translit">(chǎn chái kom-phiu-tôe, meu-thěu láe in-thoe-nét thúk-wan)</span> — Ich benutze jeden Tag Computer, Handy und Internet.</li>
+      <li><span class="thai">ฉันปิดเครื่องแล้วเปิดใหม่ ถ้ายังไม่ได้ ฉันโทรเรียกช่าง</span> — Ich schalte das Gerät aus und wieder ein; wenn es nicht geht, rufe ich einen Techniker.</li>
+      <li><span class="thai">ฉันชอบทำงานกับคอมพิวเตอร์มากกว่า เพราะหน้าจอใหญ่</span> — Ich arbeite lieber mit dem Computer, weil der Bildschirm größer ist.</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer style="text-align:center; color:#8a96a6; font-size:11px; margin-top:24px; border-top:1px solid #e2e6ec; padding-top:10px;">
+  Thai A2.2 · Technologie im Alltag und Büro · Lerneinheit für deutschsprachige Anfänger
+</footer>
+
+</body>
+</html>

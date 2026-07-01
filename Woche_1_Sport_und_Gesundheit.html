@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Woche 1 — Sport und Gesundheit · Thai A2.1</title>
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 14mm 18mm 14mm;
+    @top-center {
+      content: "Thai mit Mac · Woche 1 · Sport und Gesundheit";
+      font-size: 11px;
+      font-weight: 600;
+      color: #1a8754;
+      letter-spacing: 0.04em;
+    }
+    @bottom-center {
+      content: "Thai A2.1 · Woche 1 · Seite " counter(page);
+      font-size: 10px;
+      color: #8a96a6;
+    }
+  }
+  /* Screen branding bar (also visible in print as fallback) */
+  .brand-bar {
+    background: #1a8754;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin: 0 0 14px;
+    border-radius: 4px;
+  }
+  .brand-bar .accent { color: #ffd591; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #1d2733;
+    line-height: 1.55;
+    background: #fff;
+    font-size: 14px;
+  }
+  .th, .thai {
+    font-family: "Sukhumvit Set", "Thonburi", "Silom", "Sarabun", "Noto Sans Thai", sans-serif;
+  }
+  .th-big { font-size: 20px; }
+  .th-mid { font-size: 17px; }
+  .translit { color: #6c7785; font-style: italic; font-size: 0.94em; }
+  .de { color: #1d2733; }
+
+  .print-hint {
+    background: #fff7e6;
+    border: 1px solid #ffd591;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 0 18px;
+    color: #874d00;
+  }
+  @media print { .print-hint { display: none; } }
+
+  /* COVER */
+  header.cover {
+    border-bottom: 4px solid #1a8754;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .cover .row {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .cover .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cover .badge {
+    background: #1a8754; color: #fff;
+    padding: 3px 10px; border-radius: 14px;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .cover .badge.alt { background: #c8281c; }
+  .cover .badge.alt2 { background: #1f6feb; }
+  .cover h1 {
+    font-size: 26px; margin: 8px 0 4px; letter-spacing: -0.01em;
+  }
+  .cover .thai-title {
+    font-size: 22px; color: #1a8754; margin-bottom: 4px;
+  }
+  .cover .sub { color: #5a6573; font-size: 13px; }
+
+  /* Hero photo */
+  .hero {
+    width: 200px; height: 150px;
+    flex: 0 0 auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  /* Section headings */
+  h2.lesson {
+    font-size: 18px;
+    margin: 24px 0 8px;
+    padding: 6px 12px;
+    background: #1a8754;
+    color: #fff;
+    border-radius: 4px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  h2.lesson .lab { background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 10px; font-size: 11px; letter-spacing: 0.08em; }
+  h3.sub {
+    font-size: 15px; color: #1a8754;
+    margin: 18px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid #e2e6ec;
+  }
+
+  /* Vocabulary table */
+  table.vocab {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 8px 0 12px;
+    page-break-inside: avoid;
+  }
+  table.vocab th {
+    background: #f0f6f1; color: #1a8754;
+    text-align: left; padding: 6px 10px;
+    border-bottom: 2px solid #1a8754; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  table.vocab td { padding: 7px 10px; border-bottom: 1px solid #eef1f5; vertical-align: top; }
+  table.vocab tr:nth-child(even) td { background: #fafbfd; }
+  table.vocab .col-thai { width: 28%; font-size: 16px; }
+  table.vocab .col-trans { width: 26%; }
+  table.vocab .col-de { width: 36%; }
+  table.vocab .col-icon { width: 10%; text-align: center; font-size: 18px; }
+
+  /* Dialog */
+  .dialog-box {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 14px 16px; background: #fbfdf9;
+    margin: 8px 0 14px;
+    page-break-inside: avoid;
+  }
+  .dialog-row {
+    display: grid; grid-template-columns: 26px 1fr; gap: 10px; margin-bottom: 8px;
+  }
+  .dialog-row .who {
+    background: #1a8754; color: #fff; border-radius: 50%;
+    width: 26px; height: 26px; line-height: 26px;
+    text-align: center; font-weight: 700; font-size: 12px;
+  }
+  .dialog-row.b .who { background: #c8281c; }
+  .dialog-row .text .thai { display: block; font-size: 16px; }
+  .dialog-row .text .translit { display: block; }
+  .dialog-row .text .de { display: block; color: #2c3744; }
+
+  /* Photo card */
+  .photo-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    align-items: start;
+    margin: 12px 0 16px;
+    page-break-inside: avoid;
+  }
+  .photo-card .ph {
+    width: 100%; aspect-ratio: 1; background: #f0f6f1;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .photo-card .ph img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .photo-card .cap {
+    font-size: 11px; color: #6c7785; margin-top: 4px; text-align: center;
+  }
+
+  /* Reading text with side photo */
+  .reading-wrap {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 14px;
+    align-items: stretch;
+    margin: 8px 0 14px;
+    page-break-inside: avoid;
+  }
+  .reading-wrap .side {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .reading-wrap .side img { width: 100%; height: 100%; object-fit: cover; }
+  .reading {
+    background: #f9fbfa; border-left: 4px solid #1a8754;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  .reading .thai { line-height: 1.9; }
+  .reading .de { color: #4a5563; font-style: italic; margin-top: 8px; font-size: 13px; }
+
+  /* Dialog photo */
+  .dialog-photo {
+    width: 100%; max-height: 140px; object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    margin: -14px -16px 12px;
+    width: calc(100% + 32px);
+  }
+
+  /* Grammar box */
+  .grammar {
+    border: 2px solid #1f6feb; border-radius: 8px;
+    padding: 12px 16px; margin: 12px 0 16px;
+    background: #f4f8ff;
+    page-break-inside: avoid;
+  }
+  .grammar .gh {
+    color: #1f6feb; font-weight: 700; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .grammar .formula {
+    background: #fff; padding: 8px 12px; border-radius: 4px;
+    border: 1px dashed #1f6feb; font-family: "Menlo", monospace;
+    font-size: 14px; margin: 6px 0;
+  }
+  .grammar .ex { font-size: 14px; margin: 4px 0; }
+
+  /* Exercises */
+  .exercise {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 12px 16px; margin: 10px 0 14px;
+    page-break-inside: avoid;
+  }
+  .exercise .num {
+    display: inline-block; background: #c8281c; color: #fff;
+    border-radius: 50%; width: 22px; height: 22px; line-height: 22px;
+    text-align: center; font-size: 12px; font-weight: 700; margin-right: 8px;
+  }
+  .exercise h4 { display: inline; font-size: 14px; margin: 0; }
+  .exercise .task { color: #5a6573; font-size: 12px; margin: 4px 0 8px; }
+  .exercise ol { margin: 6px 0 0; padding-left: 22px; }
+  .exercise li { margin-bottom: 6px; line-height: 1.7; }
+  .exercise .blank {
+    display: inline-block; min-width: 80px; border-bottom: 1px solid #888;
+    padding: 0 4px; margin: 0 2px;
+  }
+  .exercise .blank.lg { min-width: 130px; }
+  .exercise .lines {
+    border-bottom: 1px solid #c0c7d2;
+    height: 22px; margin-bottom: 6px;
+  }
+
+  /* Tone box */
+  .tones {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 8px; margin: 10px 0;
+  }
+  .tones .t {
+    border: 1px solid #e2e6ec; border-radius: 6px;
+    padding: 8px; text-align: center; font-size: 12px;
+  }
+  .tones .t .name { font-weight: 700; color: #1f6feb; font-size: 12px; }
+  .tones .t .word { font-size: 18px; margin: 4px 0; }
+  .tones .t .meaning { color: #6c7785; font-size: 11px; }
+
+  /* 7-day plan */
+  .plan-table {
+    width: 100%; border-collapse: collapse; font-size: 12px;
+    margin: 8px 0;
+  }
+  .plan-table th {
+    background: #1a8754; color: #fff; padding: 6px 8px;
+    text-align: left; font-size: 11px; text-transform: uppercase;
+  }
+  .plan-table td { padding: 7px 8px; border: 1px solid #e2e6ec; vertical-align: top; }
+  .plan-table tr:nth-child(even) td { background: #fafbfd; }
+  .plan-table td.day { background: #f0f6f1; font-weight: 700; color: #1a8754; }
+
+  /* Answer key */
+  .answer-key {
+    background: #fff7e6; border: 2px solid #ffd591;
+    border-radius: 8px; padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .answer-key h2 { color: #874d00; margin-top: 0; background: transparent; padding: 0; display: block; }
+  .answer-key .ak-block { margin-bottom: 12px; }
+  .answer-key h4 { color: #874d00; margin: 10px 0 4px; font-size: 13px; }
+  .answer-key ol li { margin-bottom: 4px; font-size: 13px; }
+
+  /* Speaking practice cards */
+  .speak-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 10px 0;
+  }
+  .speak-card {
+    border: 1px solid #e2e6ec; border-left: 4px solid #c8281c;
+    padding: 10px 12px; border-radius: 4px;
+    page-break-inside: avoid;
+  }
+  .speak-card .role { font-size: 11px; text-transform: uppercase; color: #c8281c; letter-spacing: 0.06em; font-weight: 700; }
+  .speak-card .line { font-size: 13px; margin: 3px 0; }
+
+  .pb { page-break-before: always; }
+  hr.thin { border: 0; border-top: 1px dashed #c0c7d2; margin: 18px 0; }
+  ul, ol { padding-left: 22px; }
+  ul { margin: 6px 0; }
+
+  .info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin: 10px 0 16px;
+  }
+  .info-card {
+    background: #f6f8fb; padding: 10px 12px; border-radius: 4px;
+    border-top: 3px solid #1a8754;
+  }
+  .info-card .k { font-size: 11px; text-transform: uppercase; color: #6c7785; letter-spacing: 0.06em; }
+  .info-card .v { font-size: 13px; font-weight: 600; margin-top: 2px; }
+
+  kbd {
+    background: #fff; border: 1px solid #c0c7d2; border-radius: 3px;
+    padding: 1px 5px; font-size: 11px; font-family: "Menlo", monospace;
+  }
+
+  /* ===== Bildschirm-Optimierung — zentrierte Seite, kein Strecken ===== */
+  @media screen {
+    html { background: #e9edf2; }
+    body {
+      max-width: 820px;
+      margin: 28px auto;
+      padding: 34px 44px 40px;
+      background: #fff;
+      border-top: 5px solid #1a8754;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+      border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: 880px) {
+    body { margin: 0 auto; padding: 20px 16px 30px; border-radius: 0; border-top-width: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  📚 Thai mit Mac <span class="accent">·</span> Lerneinheit zum Selbststudium
+</div>
+
+<div class="print-hint">
+  <strong>Tipp:</strong> Drücken Sie <kbd>⌘ Cmd</kbd> + <kbd>P</kbd> und wählen Sie „Als PDF sichern" — dann erhalten Sie eine PDF-Version dieser Lektion zum Ausdrucken oder Speichern. „Thai mit Mac" erscheint dann automatisch als Kopfzeile auf jeder Seite.
+</div>
+
+<!-- ============= COVER ============= -->
+<header class="cover">
+  <div class="row">
+    <div>
+      <div class="badges">
+        <span class="badge">Woche 1</span>
+        <span class="badge alt">Niveau A2.1</span>
+        <span class="badge alt2">7 Tage · 1 Std./Tag</span>
+      </div>
+      <h1>Sport und Gesundheit</h1>
+      <div class="thai-title thai">กีฬาและสุขภาพ</div>
+      <div class="sub translit">gii-laa láe sùk-kà-pâap</div>
+      <div class="sub" style="margin-top:6px;">Lesen · Schreiben · Sprechen — eine ausgewogene Einführung</div>
+    </div>
+    <!-- Hero photo: runners -->
+    <img class="hero" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&q=70&fm=jpg&auto=format" alt="Läufer beim Sport">
+
+  </div>
+</header>
+
+<div class="info-grid">
+  <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 30 neue Wörter</div></div>
+  <div class="info-card"><div class="k">Grammatik</div><div class="v">Klassifikatoren · Verlaufsform</div></div>
+  <div class="info-card"><div class="k">Lernziel</div><div class="v">Über Sport &amp; Gesundheit sprechen</div></div>
+</div>
+
+<!-- ============= LESSON 1: VOKABULAR ============= -->
+<h2 class="lesson"><span class="lab">Lektion 1</span> Wortschatz · คำศัพท์</h2>
+
+<h3 class="sub">A · Sportarten · กีฬา (gii-laa)</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&q=70&fm=jpg&auto=format" alt="Fußball">
+    </div>
+    <div class="cap">ลูกฟุตบอล · der Fußball</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">ฟุตบอล</td><td class="translit">fút-bon</td><td>Fußball</td><td>⚽</td></tr>
+      <tr><td class="thai">วิ่ง</td><td class="translit">wîng</td><td>laufen, rennen</td><td>🏃</td></tr>
+      <tr><td class="thai">ว่ายน้ำ</td><td class="translit">wâai-náam</td><td>schwimmen</td><td>🏊</td></tr>
+      <tr><td class="thai">โยคะ</td><td class="translit">yoo-ká</td><td>Yoga</td><td>🧘</td></tr>
+      <tr><td class="thai">ขี่จักรยาน</td><td class="translit">khìi jàk-grà-yaan</td><td>Fahrrad fahren</td><td>🚴</td></tr>
+      <tr><td class="thai">เทนนิส</td><td class="translit">then-nít</td><td>Tennis</td><td>🎾</td></tr>
+      <tr><td class="thai">บาสเกตบอล</td><td class="translit">báat-gèt-bon</td><td>Basketball</td><td>🏀</td></tr>
+      <tr><td class="thai">ออกกำลังกาย</td><td class="translit">òk-gam-lang-gaai</td><td>Sport treiben</td><td>💪</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub">B · Körperteile · ส่วนของร่างกาย (sùan kŏng râang-gaai)</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70&fm=jpg&auto=format" alt="Körper, Yoga">
+    </div>
+    <div class="cap">ร่างกาย · der Körper</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">หัว</td><td class="translit">hǔa</td><td>Kopf</td><td>🧠</td></tr>
+      <tr><td class="thai">ตา</td><td class="translit">taa</td><td>Auge</td><td>👁️</td></tr>
+      <tr><td class="thai">ปาก</td><td class="translit">pàak</td><td>Mund</td><td>👄</td></tr>
+      <tr><td class="thai">มือ</td><td class="translit">meu</td><td>Hand</td><td>✋</td></tr>
+      <tr><td class="thai">ขา</td><td class="translit">khǎa</td><td>Bein</td><td>🦵</td></tr>
+      <tr><td class="thai">เท้า</td><td class="translit">táo</td><td>Fuß</td><td>🦶</td></tr>
+      <tr><td class="thai">หลัง</td><td class="translit">lǎng</td><td>Rücken</td><td>🔙</td></tr>
+      <tr><td class="thai">ท้อง</td><td class="translit">tóng</td><td>Bauch</td><td>🫃</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub">C · Gesundheit &amp; beim Arzt · สุขภาพและที่หาหมอ</h3>
+
+<div class="photo-card">
+  <div>
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=400&q=70&fm=jpg&auto=format" alt="Arzt mit Stethoskop">
+    </div>
+    <div class="cap">หาหมอ · Den Arzt aufsuchen</div>
+  </div>
+  <table class="vocab">
+    <thead>
+      <tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="thai">หมอ</td><td class="translit">mǒr</td><td>Arzt / Ärztin</td><td>👨‍⚕️</td></tr>
+      <tr><td class="thai">โรงพยาบาล</td><td class="translit">rohng-pá-yaa-baan</td><td>Krankenhaus</td><td>🏥</td></tr>
+      <tr><td class="thai">ยา</td><td class="translit">yaa</td><td>Medikament</td><td>💊</td></tr>
+      <tr><td class="thai">ปวด</td><td class="translit">pùat</td><td>schmerzen (dumpf)</td><td>😣</td></tr>
+      <tr><td class="thai">เจ็บ</td><td class="translit">jèp</td><td>weh tun (akut)</td><td>🤕</td></tr>
+      <tr><td class="thai">ไข้</td><td class="translit">khâi</td><td>Fieber</td><td>🌡️</td></tr>
+      <tr><td class="thai">ป่วย</td><td class="translit">pùai</td><td>krank</td><td>🤒</td></tr>
+      <tr><td class="thai">สุขภาพ</td><td class="translit">sùk-kà-pâap</td><td>Gesundheit</td><td>❤️</td></tr>
+      <tr><td class="thai">แข็งแรง</td><td class="translit">kǎeng-raeng</td><td>stark, gesund</td><td>💪</td></tr>
+      <tr><td class="thai">พักผ่อน</td><td class="translit">pák-pòn</td><td>sich ausruhen</td><td>😴</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 2: GRAMMATIK ============= -->
+<h2 class="lesson"><span class="lab">Lektion 2</span> Grammatik · ไวยากรณ์</h2>
+
+<div class="grammar">
+  <div class="gh">G1 · Klassifikatoren (Zählwörter)</div>
+  <p>Im Thai braucht man bei <strong>Zahlen</strong> und Mengenangaben fast immer einen <strong>Klassifikator</strong> — ein kleines Wort, das angibt, was für eine Sorte Sache man zählt. Im Deutschen wäre das wie „drei <em>Stück</em> Brot" oder „zwei <em>Tassen</em> Tee".</p>
+  <div class="formula">Substantiv + Zahl + Klassifikator</div>
+  <p style="margin-top:8px;"><strong>Wichtige Klassifikatoren in dieser Woche:</strong></p>
+  <ul>
+    <li><span class="thai th-mid">คน</span> <span class="translit">(kon)</span> — für <strong>Menschen</strong> &nbsp;➜&nbsp; <span class="thai">หมอสามคน</span> <span class="translit">(mǒr sǎam kon)</span> = drei Ärzte</li>
+    <li><span class="thai th-mid">ลูก</span> <span class="translit">(lûuk)</span> — für <strong>runde Dinge</strong> (Bälle, Früchte) &nbsp;➜&nbsp; <span class="thai">ฟุตบอลสองลูก</span> <span class="translit">(fút-bon sŏng lûuk)</span> = zwei Fußbälle</li>
+    <li><span class="thai th-mid">ขวด</span> <span class="translit">(khùat)</span> — für <strong>Flaschen</strong> &nbsp;➜&nbsp; <span class="thai">ยาหนึ่งขวด</span> <span class="translit">(yaa nèung khùat)</span> = eine Flasche Medizin</li>
+    <li><span class="thai th-mid">ตัว</span> <span class="translit">(tua)</span> — für <strong>Tiere und Kleidung</strong></li>
+  </ul>
+</div>
+
+<div class="grammar">
+  <div class="gh">G2 · Verlaufsform — gerade etwas tun</div>
+  <p>Um auszudrücken, dass jemand <strong>gerade in diesem Moment</strong> etwas tut (deutsch: „ich bin am Laufen"), umrahmt man das Verb mit <span class="thai th-mid">กำลัง … อยู่</span>.</p>
+  <div class="formula">กำลัง (gam-lang) + Verb + อยู่ (yùu)</div>
+  <p style="margin-top:8px;"><strong>Beispiele:</strong></p>
+  <p class="ex"><span class="thai th-mid">ฉันกำลังวิ่งอยู่</span> &nbsp; <span class="translit">chăn gam-lang wîng yùu</span><br>
+     ↳ Ich bin gerade am Laufen.</p>
+  <p class="ex"><span class="thai th-mid">เขากำลังกินข้าวอยู่</span> &nbsp; <span class="translit">khǎo gam-lang gin khâao yùu</span><br>
+     ↳ Er/Sie isst gerade (Reis = essen).</p>
+  <p class="ex"><span class="thai th-mid">เรากำลังเล่นฟุตบอลอยู่</span> &nbsp; <span class="translit">rao gam-lang lên fút-bon yùu</span><br>
+     ↳ Wir spielen gerade Fußball.</p>
+  <p style="margin-top:8px; font-size:12px; color:#5a6573;"><em>Tipp: Im umgangssprachlichen Thai lässt man</em> <span class="thai">อยู่</span> <em>oft weg —</em> <span class="thai">กำลัง + Verb</span> <em>reicht meistens.</em></p>
+</div>
+
+<!-- ============= LESSON 3: LESEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 3</span> Lesen · การอ่าน</h2>
+
+<h3 class="sub">Dialog 1 · Im Fitnessstudio · ที่ฟิตเนส</h3>
+<div class="dialog-box">
+  <img class="dialog-photo" src="https://images.unsplash.com/photo-1566230555350-59683b1d16e0?w=800&q=70&fm=jpg&auto=format" alt="Schwimmer im Pool">
+  <div class="dialog-row a">
+    <div class="who">A</div>
+    <div class="text">
+      <span class="thai th-mid">สวัสดีครับ คุณกำลังทำอะไรอยู่</span>
+      <span class="translit">sà-wàt-dii kráp, khun gam-lang tham à-rai yùu?</span>
+      <span class="de">Hallo, was machst du gerade?</span>
+    </div>
+  </div>
+  <div class="dialog-row b">
+    <div class="who">B</div>
+    <div class="text">
+      <span class="thai th-mid">ผมกำลังออกกำลังกายอยู่ครับ ผมชอบวิ่งมาก</span>
+      <span class="translit">phǒm gam-lang òk-gam-lang-gaai yùu kráp. phǒm chôp wîng mâak.</span>
+      <span class="de">Ich treibe gerade Sport. Ich laufe sehr gerne.</span>
+    </div>
+  </div>
+  <div class="dialog-row a">
+    <div class="who">A</div>
+    <div class="text">
+      <span class="thai th-mid">คุณวิ่งทุกวันไหมครับ</span>
+      <span class="translit">khun wîng thúk-wan măi kráp?</span>
+      <span class="de">Läufst du jeden Tag?</span>
+    </div>
+  </div>
+  <div class="dialog-row b">
+    <div class="who">B</div>
+    <div class="text">
+      <span class="thai th-mid">ใช่ครับ ผมวิ่งทุกเช้าสามสิบนาที สุขภาพดีมาก</span>
+      <span class="translit">châi kráp. phǒm wîng thúk-cháao sǎam-sìp naa-thii. sùk-kà-pâap dii mâak.</span>
+      <span class="de">Ja. Ich laufe jeden Morgen 30 Minuten. Sehr gut für die Gesundheit.</span>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub">Lesetext · วันสุขภาพดีของฉัน · „Mein gesunder Tag"</h3>
+<div class="reading-wrap">
+  <div class="side"><img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&q=70&fm=jpg&auto=format" alt="Schale mit frischen Früchten"></div>
+  <div class="reading">
+    <p class="thai th-mid"><strong>๑.</strong> สวัสดีครับ ผมชื่อสมชาย อายุยี่สิบห้าปี ผมเป็นคนไทย ผมอยู่ที่กรุงเทพ ผมชอบเล่นกีฬาและรักษาสุขภาพมาก ผมคิดว่าสุขภาพดีคือสิ่งที่สำคัญที่สุดในชีวิต</p>
+
+    <p class="thai th-mid"><strong>๒.</strong> ทุกวันจันทร์ถึงวันศุกร์ ผมตื่นนอนตอนหกโมงเช้า แล้วผมไปวิ่งที่สวนสาธารณะใกล้บ้านสามสิบนาที อากาศตอนเช้าเย็นสบาย หลังจากวิ่งเสร็จ ผมกลับบ้าน อาบน้ำ และกินข้าวเช้า</p>
+
+    <p class="thai th-mid"><strong>๓.</strong> ผมชอบกินอาหารที่มีประโยชน์ ตอนเช้าผมกินขนมปัง ไข่ต้มหนึ่งฟอง และผลไม้ เช่น กล้วยหรือแอปเปิ้ล ผมดื่มน้ำเปล่าวันละแปดแก้ว ผมไม่ดื่มน้ำอัดลม และไม่กินขนมหวานมาก</p>
+
+    <p class="thai th-mid"><strong>๔.</strong> ตอนเที่ยง ผมกินข้าวกับเพื่อนที่ทำงาน ผมชอบกินผัก ปลา และข้าวกล้อง ตอนเย็นหลังเลิกงาน ผมไปฟิตเนสสามครั้งต่อสัปดาห์ ผมว่ายน้ำสามสิบนาที และกำลังเล่นโยคะอีกยี่สิบนาทีอยู่</p>
+
+    <p class="thai th-mid"><strong>๕.</strong> วันเสาร์ ผมเล่นฟุตบอลกับเพื่อนสองคนที่สนามใกล้บ้าน เราเล่นกันสองชั่วโมง สนุกมาก วันอาทิตย์ ผมพักผ่อนอยู่ที่บ้าน อ่านหนังสือ และนอนเร็ว เพราะการพักผ่อนสำคัญต่อสุขภาพ</p>
+
+    <p class="thai th-mid"><strong>๖.</strong> ผมไม่ค่อยป่วย ปีที่แล้วผมไปหาหมอแค่หนึ่งครั้ง เพราะปวดหัวและมีไข้นิดหน่อย หมอบอกว่าผมแข็งแรงดี ถ้าคุณอยากมีสุขภาพดี ต้องออกกำลังกายทุกวัน กินอาหารที่ดี ดื่มน้ำมาก ๆ และนอนให้พอครับ</p>
+
+    <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+
+    <p class="de" style="font-size:12px;"><strong>1.</strong> Hallo, ich heiße Somchai, bin 25 Jahre alt und Thailänder. Ich wohne in Bangkok. Sport und Gesundheit sind mir sehr wichtig — ich glaube, Gesundheit ist das Wichtigste im Leben.</p>
+    <p class="de" style="font-size:12px;"><strong>2.</strong> Von Montag bis Freitag stehe ich um sechs Uhr morgens auf und laufe dann 30 Minuten im Park bei mir um die Ecke. Die Morgenluft ist angenehm kühl. Nach dem Laufen gehe ich nach Hause, dusche und frühstücke.</p>
+    <p class="de" style="font-size:12px;"><strong>3.</strong> Ich esse gerne gesund. Morgens gibt es Brot, ein gekochtes Ei und Obst, zum Beispiel Bananen oder Äpfel. Ich trinke acht Gläser Wasser am Tag, keine Limonade und wenig Süßigkeiten.</p>
+    <p class="de" style="font-size:12px;"><strong>4.</strong> Mittags esse ich mit Kollegen. Ich mag Gemüse, Fisch und Vollkornreis. Abends nach der Arbeit gehe ich dreimal pro Woche ins Fitnessstudio: 30 Minuten schwimmen und gerade jetzt mache ich auch 20 Minuten Yoga.</p>
+    <p class="de" style="font-size:12px;"><strong>5.</strong> Samstags spiele ich mit zwei Freunden auf einem nahegelegenen Platz Fußball — zwei Stunden lang, sehr lustig. Sonntags ruhe ich mich aus, lese und gehe früh schlafen, denn Erholung ist wichtig für die Gesundheit.</p>
+    <p class="de" style="font-size:12px;"><strong>6.</strong> Ich bin selten krank. Letztes Jahr war ich nur einmal beim Arzt, weil ich Kopfschmerzen und etwas Fieber hatte. Der Arzt sagte, ich sei kerngesund. Wenn auch ihr gesund sein möchtet: jeden Tag Sport, gut essen, viel Wasser trinken und genug schlafen!</p>
+  </div>
+</div>
+
+<div class="exercise">
+  <span class="num">1</span><h4>Lesen — wahr (จริง) oder falsch (ไม่จริง)?</h4>
+  <p class="task">Aufgabe: Lesen Sie den Text oben und kreuzen Sie an.</p>
+  <ol>
+    <li>Somchai ist Thailänder und 25 Jahre alt.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Er steht erst um neun Uhr auf.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Morgens isst er Brot, ein Ei und Obst.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Er trinkt drei Gläser Wasser am Tag.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Er geht dreimal pro Woche ins Fitnessstudio.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Samstags spielt er mit zwei Freunden Fußball.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Sonntags geht er auch ins Fitnessstudio.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+    <li>Letztes Jahr war er einmal beim Arzt.&nbsp;&nbsp; ☐ จริง &nbsp; ☐ ไม่จริง</li>
+  </ol>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 4: SCHREIBEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 4</span> Schreiben · การเขียน</h2>
+
+<div class="exercise">
+  <span class="num">2</span><h4>Lückentext — die richtige Verlaufsform</h4>
+  <p class="task">Ergänzen Sie mit <span class="thai">กำลัง … อยู่</span> und dem passenden Verb.</p>
+  <ol>
+    <li><span class="thai">เขา</span> <span class="blank">_____</span> <span class="thai">ว่ายน้ำ</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Er schwimmt gerade.)</span></li>
+    <li><span class="thai">ฉัน</span> <span class="blank">_____</span> <span class="thai">เล่นบาสเกตบอล</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Ich spiele gerade Basketball.)</span></li>
+    <li><span class="thai">หมอ</span> <span class="blank">_____</span> <span class="thai">ทำงาน</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Der Arzt arbeitet gerade.)</span></li>
+    <li><span class="thai">เด็ก ๆ</span> <span class="blank">_____</span> <span class="thai">วิ่ง</span> <span class="blank">_____</span> <span class="thai">ที่สวน</span> &nbsp; <span class="translit">(Die Kinder laufen gerade im Park.)</span></li>
+    <li><span class="thai">สมชาย</span> <span class="blank">_____</span> <span class="thai">เล่นโยคะ</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Somchai macht gerade Yoga.)</span></li>
+    <li><span class="thai">เรา</span> <span class="blank">_____</span> <span class="thai">ขี่จักรยาน</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Wir fahren gerade Fahrrad.)</span></li>
+    <li><span class="thai">เธอ</span> <span class="blank">_____</span> <span class="thai">กินผลไม้</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Sie isst gerade Obst.)</span></li>
+    <li><span class="thai">ผม</span> <span class="blank">_____</span> <span class="thai">ดื่มน้ำ</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Ich trinke gerade Wasser.)</span></li>
+    <li><span class="thai">เพื่อน</span> <span class="blank">_____</span> <span class="thai">เล่นเทนนิส</span> <span class="blank">_____</span> &nbsp; <span class="translit">(Der Freund spielt gerade Tennis.)</span></li>
+    <li><span class="thai">คนไข้</span> <span class="blank">_____</span> <span class="thai">พักผ่อน</span> <span class="blank">_____</span> <span class="thai">ที่บ้าน</span> &nbsp; <span class="translit">(Der Patient ruht sich gerade zu Hause aus.)</span></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">3</span><h4>Klassifikatoren einsetzen</h4>
+  <p class="task">Wählen Sie den richtigen Klassifikator: <span class="thai">คน · ลูก · ขวด</span></p>
+  <ol>
+    <li><span class="thai">หมอสาม</span> <span class="blank">_____</span> &nbsp; <span class="translit">(drei Ärzte)</span></li>
+    <li><span class="thai">ฟุตบอลสอง</span> <span class="blank">_____</span> &nbsp; <span class="translit">(zwei Fußbälle)</span></li>
+    <li><span class="thai">น้ำหนึ่ง</span> <span class="blank">_____</span> &nbsp; <span class="translit">(eine Flasche Wasser)</span></li>
+    <li><span class="thai">เพื่อนห้า</span> <span class="blank">_____</span> &nbsp; <span class="translit">(fünf Freunde)</span></li>
+    <li><span class="thai">ยาสาม</span> <span class="blank">_____</span> &nbsp; <span class="translit">(drei Flaschen Medizin)</span></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">4</span><h4>Übersetzen Sie ins Thai</h4>
+  <p class="task">Schreiben Sie die Sätze auf Thai (mit Schrift, wenn möglich, oder Umschrift).</p>
+  <ol>
+    <li>Ich bin krank.<div class="lines"></div></li>
+    <li>Mein Kopf tut weh.<div class="lines"></div></li>
+    <li>Sie spielt gerade Tennis.<div class="lines"></div></li>
+    <li>Wir sind gesund und stark.<div class="lines"></div></li>
+    <li>Ich habe Fieber.<div class="lines"></div></li>
+  </ol>
+</div>
+
+<div class="exercise">
+  <span class="num">5</span><h4>Mein eigener Text — schreiben Sie 5 Sätze</h4>
+  <p class="task">Beschreiben Sie Ihre eigene Sportroutine. Verwenden Sie mindestens 3 neue Wörter aus Lektion 1 und einmal die Verlaufsform.</p>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+  <div class="lines"></div>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= LESSON 5: SPRECHEN ============= -->
+<h2 class="lesson"><span class="lab">Lektion 5</span> Sprechen · การพูด</h2>
+
+<h3 class="sub">Aussprache — die 5 Töne mit Wochenwortschatz</h3>
+<p style="font-size:13px; color:#5a6573;">Im Thai entscheidet die <strong>Tonhöhe</strong> über die Bedeutung. Üben Sie diese fünf Wörter laut, jeweils zehnmal. Hören Sie sich selbst zu (z. B. mit dem Telefon).</p>
+
+<div class="tones">
+  <div class="t"><div class="name">Mittel</div><div class="word thai">ตา</div><div class="meaning">taa<br>Auge</div></div>
+  <div class="t"><div class="name">Tief</div><div class="word thai">ขา</div><div class="meaning">khàa<br>Bein¹</div></div>
+  <div class="t"><div class="name">Fallend</div><div class="word thai">ไข้</div><div class="meaning">khâi<br>Fieber</div></div>
+  <div class="t"><div class="name">Hoch</div><div class="word thai">น้ำ</div><div class="meaning">náam<br>Wasser</div></div>
+  <div class="t"><div class="name">Steigend</div><div class="word thai">หมอ</div><div class="meaning">mǒr<br>Arzt</div></div>
+</div>
+<p style="font-size:11px; color:#8a96a6; margin-top:0;">¹ <span class="thai">ขา</span> wird in der Vokabelliste als <em>khǎa</em> mit steigendem Ton angegeben — hier wurde der tiefe Ton von <span class="thai">ข่า</span> (Galgant) zur Übung gewählt. Achten Sie auf den Unterschied!</p>
+
+<div class="exercise">
+  <span class="num">6</span><h4>Rollenspiel — beim Arzt</h4>
+  <p class="task">Lesen Sie die Rollen laut mit einem Partner oder allein vor einem Spiegel. Tauschen Sie nach einem Durchgang die Rollen.</p>
+  <div class="speak-grid">
+    <div class="speak-card">
+      <div class="role">Arzt · หมอ</div>
+      <p class="line"><span class="thai th-mid">สวัสดีครับ เป็นอะไรครับ</span><br><span class="translit">sà-wàt-dii kráp, pen à-rai kráp?</span><br>Guten Tag, was fehlt Ihnen?</p>
+      <p class="line"><span class="thai th-mid">มีไข้ไหมครับ</span><br><span class="translit">mii khâi măi kráp?</span><br>Haben Sie Fieber?</p>
+      <p class="line"><span class="thai th-mid">กินยานี้สามวันครับ</span><br><span class="translit">gin yaa níi sǎam-wan kráp.</span><br>Nehmen Sie diese Tablette drei Tage lang.</p>
+    </div>
+    <div class="speak-card">
+      <div class="role">Patient · คนไข้</div>
+      <p class="line"><span class="thai th-mid">ผมปวดหัวครับ</span><br><span class="translit">phǒm pùat hǔa kráp.</span><br>Ich habe Kopfschmerzen.</p>
+      <p class="line"><span class="thai th-mid">ใช่ครับ มีไข้นิดหน่อย</span><br><span class="translit">châi kráp, mii khâi nít-nòi.</span><br>Ja, ich habe etwas Fieber.</p>
+      <p class="line"><span class="thai th-mid">ขอบคุณครับหมอ</span><br><span class="translit">khòp-khun kráp mǒr.</span><br>Danke, Herr Doktor.</p>
+    </div>
+  </div>
+</div>
+
+<div class="exercise">
+  <span class="num">7</span><h4>Sprechen frei — drei Fragen, drei Antworten</h4>
+  <p class="task">Antworten Sie laut auf Thai. Schreiben Sie Stichpunkte.</p>
+  <ol>
+    <li><span class="thai">คุณชอบกีฬาอะไร</span> <span class="translit">(khun chôp gii-laa à-rai?)</span> — Welchen Sport magst du?<div class="lines"></div></li>
+    <li><span class="thai">คุณออกกำลังกายกี่ครั้งต่อสัปดาห์</span> <span class="translit">(… gìi khráng tòr sàp-daa?)</span> — Wie oft pro Woche?<div class="lines"></div></li>
+    <li><span class="thai">คุณมีสุขภาพดีไหม</span> — Bist du gesund?<div class="lines"></div></li>
+  </ol>
+</div>
+
+<div class="pb"></div>
+
+<!-- ============= 7-DAY PLAN ============= -->
+<h2 class="lesson"><span class="lab">Plan</span> Ihr 7-Tage-Trainingsplan · ตารางเรียน 7 วัน</h2>
+<p style="font-size:13px;">So nutzen Sie diese Lektion in einer Woche — 1 Stunde pro Tag, aufgeteilt in <strong>Lesen 20 min · Schreiben 20 min · Sprechen 20 min</strong>.</p>
+
+<table class="plan-table">
+  <thead>
+    <tr>
+      <th>Tag</th><th>📖 Lesen (20 min)</th><th>✍️ Schreiben (20 min)</th><th>🗣 Sprechen (20 min)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="day">Tag 1<br>Mo</td>
+      <td>Lektion 1 — Wortschatz A (Sport): 8 Wörter laut lesen, mit Aussprache</td>
+      <td>Wortschatz A in Schreibheft abschreiben (jedes Wort 5×)</td>
+      <td>Wörter aus Wortschatz A laut nachsprechen, Aussprache aufnehmen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 2<br>Di</td>
+      <td>Wortschatz B (Körperteile) + C (Gesundheit) lernen</td>
+      <td>Übung 3 — Klassifikatoren einsetzen</td>
+      <td>Wörter B + C laut, dazu Tonübungen (Lektion 5)</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 3<br>Mi</td>
+      <td>Dialog 1 „Im Fitnessstudio" lesen, neue Wörter markieren</td>
+      <td>Übung 2 — Verlaufsform <span class="thai">กำลัง…อยู่</span></td>
+      <td>Dialog 1 in 2 Rollen mehrmals laut lesen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 4<br>Do</td>
+      <td>Lesetext „Mein gesunder Tag" + Übung 1 (Wahr/Falsch)</td>
+      <td>Übung 4 — 5 Sätze ins Thai übersetzen</td>
+      <td>Übung 7 — drei Fragen beantworten</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 5<br>Fr</td>
+      <td>Grammatik G1 + G2 noch einmal lesen, Beispiele markieren</td>
+      <td>Übung 5 — eigenen Text (5 Sätze) schreiben</td>
+      <td>Eigenen Text laut vortragen, Aussprache aufnehmen</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 6<br>Sa</td>
+      <td>Wortschatz A–C wiederholen, schwierige Wörter herauspicken</td>
+      <td>Tagebucheintrag: 3 Sätze über Ihren heutigen Tag mit Sport-Wortschatz</td>
+      <td>Übung 6 — Rollenspiel beim Arzt mit Partner oder Spiegel</td>
+    </tr>
+    <tr>
+      <td class="day">Tag 7<br>So</td>
+      <td>Selbsttest: Können Sie 25 von 30 Wörtern erinnern?</td>
+      <td>Antwortschlüssel prüfen, Fehler korrigieren</td>
+      <td>2-Minuten-Erzählung „Mein Sport &amp; meine Gesundheit"</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="thin">
+
+<!-- ============= ANSWER KEY ============= -->
+<div class="answer-key">
+  <h2 style="margin: 0 0 8px;">📋 Antwortschlüssel · เฉลย</h2>
+  <p style="font-size:12px; color:#874d00; margin-top:0;">Vergleichen Sie Ihre Antworten erst, nachdem Sie die Übungen abgeschlossen haben.</p>
+
+  <div class="ak-block">
+    <h4>Übung 1 — Wahr / Falsch</h4>
+    <ol>
+      <li>จริง (wahr) — er ist 25 Jahre alt und Thailänder</li>
+      <li>ไม่จริง (falsch) — er steht um <em>sechs Uhr</em> auf</li>
+      <li>จริง (wahr) — Brot, Ei und Obst (Banane oder Apfel)</li>
+      <li>ไม่จริง (falsch) — er trinkt <em>acht Gläser</em> Wasser am Tag</li>
+      <li>จริง (wahr) — drei Mal pro Woche</li>
+      <li>จริง (wahr) — mit zwei Freunden auf einem Platz</li>
+      <li>ไม่จริง (falsch) — sonntags ruht er sich aus, liest und schläft früh</li>
+      <li>จริง (wahr) — wegen Kopfschmerzen und leichtem Fieber</li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 2 — Verlaufsform</h4>
+    <ol>
+      <li>เขา <strong>กำลัง</strong> ว่ายน้ำ <strong>อยู่</strong></li>
+      <li>ฉัน <strong>กำลัง</strong> เล่นบาสเกตบอล <strong>อยู่</strong></li>
+      <li>หมอ <strong>กำลัง</strong> ทำงาน <strong>อยู่</strong></li>
+      <li>เด็ก ๆ <strong>กำลัง</strong> วิ่ง <strong>อยู่</strong> ที่สวน</li>
+      <li>สมชาย <strong>กำลัง</strong> เล่นโยคะ <strong>อยู่</strong></li>
+      <li>เรา <strong>กำลัง</strong> ขี่จักรยาน <strong>อยู่</strong></li>
+      <li>เธอ <strong>กำลัง</strong> กินผลไม้ <strong>อยู่</strong></li>
+      <li>ผม <strong>กำลัง</strong> ดื่มน้ำ <strong>อยู่</strong></li>
+      <li>เพื่อน <strong>กำลัง</strong> เล่นเทนนิส <strong>อยู่</strong></li>
+      <li>คนไข้ <strong>กำลัง</strong> พักผ่อน <strong>อยู่</strong> ที่บ้าน</li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 3 — Klassifikatoren</h4>
+    <ol>
+      <li>หมอสาม <strong>คน</strong> &nbsp; (Menschen → คน)</li>
+      <li>ฟุตบอลสอง <strong>ลูก</strong> &nbsp; (runde Dinge → ลูก)</li>
+      <li>น้ำหนึ่ง <strong>ขวด</strong> &nbsp; (Flasche → ขวด)</li>
+      <li>เพื่อนห้า <strong>คน</strong> &nbsp; (Menschen → คน)</li>
+      <li>ยาสาม <strong>ขวด</strong> &nbsp; (Medizinflasche → ขวด)</li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 4 — Übersetzung (Modellantworten)</h4>
+    <ol>
+      <li>ฉันป่วย &nbsp; <span class="translit">(chăn pùai)</span></li>
+      <li>ฉันปวดหัว &nbsp; <span class="translit">(chăn pùat hǔa)</span></li>
+      <li>เธอกำลังเล่นเทนนิสอยู่ &nbsp; <span class="translit">(thoe gam-lang lên then-nít yùu)</span></li>
+      <li>เราแข็งแรงและสุขภาพดี &nbsp; <span class="translit">(rao kǎeng-raeng láe sùk-kà-pâap dii)</span></li>
+      <li>ฉันมีไข้ &nbsp; <span class="translit">(chăn mii khâi)</span></li>
+    </ol>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 5 — Eigener Text (Mustertext)</h4>
+    <p class="thai" style="font-size:14px;">ฉันชอบเล่นกีฬามาก ทุกวันฉันออกกำลังกายสามสิบนาที วันจันทร์ฉันกำลังว่ายน้ำอยู่ที่ฟิตเนส วันเสาร์ฉันเล่นฟุตบอลกับเพื่อน ฉันแข็งแรงและสุขภาพดี</p>
+    <p style="font-size:12px; font-style:italic; color:#5a6573;">Ich mag Sport sehr. Jeden Tag treibe ich 30 Minuten Sport. Montags schwimme ich gerade im Fitnessstudio. Samstags spiele ich mit Freunden Fußball. Ich bin stark und gesund.</p>
+  </div>
+
+  <div class="ak-block">
+    <h4>Übung 7 — Modellantworten zum Sprechen</h4>
+    <ol>
+      <li><span class="thai">ฉันชอบวิ่งและว่ายน้ำ</span> &nbsp; <span class="translit">(chăn chôp wîng láe wâai-náam)</span> — Ich mag Laufen und Schwimmen.</li>
+      <li><span class="thai">ฉันออกกำลังกายสามครั้งต่อสัปดาห์</span> — Ich mache dreimal pro Woche Sport.</li>
+      <li><span class="thai">ใช่ ฉันสุขภาพดี / ไม่ ฉันป่วยนิดหน่อย</span> — Ja, ich bin gesund / Nein, ich bin etwas krank.</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer style="text-align:center; color:#8a96a6; font-size:11px; margin-top:24px; border-top:1px solid #e2e6ec; padding-top:10px;">
+  Thai A2.1 · Woche 1 — Sport und Gesundheit · Lerneinheit für deutschsprachige Anfänger
+</footer>
+
+</body>
+</html>

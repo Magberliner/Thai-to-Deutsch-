@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Thai A2.1 — Kursplan für 6 Wochen</title>
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 16mm 18mm;
+    @top-center {
+      content: "Thai mit Mac · Kursplan A2.1 · 6 Wochen";
+      font-size: 11px;
+      font-weight: 600;
+      color: #c8281c;
+      letter-spacing: 0.04em;
+    }
+    @bottom-center {
+      content: "Seite " counter(page);
+      font-size: 10px;
+      color: #8a96a6;
+    }
+  }
+  .brand-bar {
+    background: #c8281c;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin: 0 0 14px;
+    border-radius: 4px;
+  }
+  .brand-bar .accent { color: #ffd591; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #1d2733;
+    line-height: 1.5;
+    background: #fff;
+  }
+  /* Thai text uses Mac system Thai fonts */
+  .th, .thai {
+    font-family: "Sukhumvit Set", "Thonburi", "Silom", "Sarabun", "Noto Sans Thai", sans-serif;
+    font-size: 1.05em;
+  }
+  .print-hint {
+    background: #fff7e6;
+    border: 1px solid #ffd591;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    color: #874d00;
+  }
+  @media print { .print-hint { display: none; } }
+
+  header.cover {
+    position: relative;
+    padding: 0 0 14px;
+    border-bottom: 3px solid #c8281c;
+    margin-bottom: 4px;
+  }
+  header.cover .hero-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  header.cover .titles { text-align: center; }
+  header.cover .badge {
+    display: inline-block;
+    background: #c8281c;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  header.cover h1 {
+    font-size: 30px;
+    margin: 12px 0 4px;
+    letter-spacing: -0.01em;
+  }
+  header.cover .thai-title {
+    font-size: 20px;
+    color: #c8281c;
+  }
+  header.cover .sub {
+    font-size: 14px;
+    color: #5a6573;
+    margin-top: 8px;
+  }
+  /* Week card photos */
+  .wk .photo {
+    width: 100%; height: 90px; object-fit: cover; display: block;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 22px 0 26px;
+  }
+  .meta-card {
+    background: #f6f8fb;
+    border-left: 3px solid #c8281c;
+    padding: 10px 12px;
+  }
+  .meta-card .k {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #6c7785;
+    letter-spacing: 0.08em;
+  }
+  .meta-card .v {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  h2.section {
+    font-size: 18px;
+    margin: 26px 0 10px;
+    border-bottom: 2px solid #1d2733;
+    padding-bottom: 4px;
+  }
+  h2.section .num {
+    color: #c8281c;
+  }
+
+  /* Daily structure block */
+  .daily {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 12px 0 22px;
+  }
+  .daily .seg {
+    border: 1px solid #e2e6ec;
+    border-top: 4px solid #c8281c;
+    padding: 12px 14px;
+    background: #fff;
+  }
+  .daily .seg.b { border-top-color: #1f6feb; }
+  .daily .seg.c { border-top-color: #1a8754; }
+  .daily .seg .t {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .daily .seg .s {
+    font-size: 12px;
+    color: #6c7785;
+    margin-bottom: 6px;
+  }
+  .daily .seg .d {
+    font-size: 13px;
+    color: #2c3744;
+  }
+
+  /* Week cards */
+  .weeks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .wk {
+    border: 1px solid #e2e6ec;
+    border-radius: 6px;
+    overflow: hidden;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    background: #fff;
+  }
+  .wk .head {
+    background: #c8281c;
+    color: #fff;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .wk .head .n { font-size: 12px; opacity: 0.85; letter-spacing: 0.1em; text-transform: uppercase; }
+  .wk .head .t { font-size: 17px; font-weight: 700; }
+  .wk .head .th { font-size: 14px; opacity: 0.95; }
+  .wk .body { padding: 12px 14px; font-size: 13px; }
+  .wk .body p { margin: 4px 0; }
+  .wk .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
+  .wk .body .icon { color: #c8281c; }
+
+  /* Goal grid */
+  .goals {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .goals li {
+    list-style: none;
+    padding: 8px 10px;
+    background: #f6f8fb;
+    border-left: 3px solid #1f6feb;
+    font-size: 13px;
+  }
+  ul, ol { padding-left: 20px; }
+
+  /* Method box */
+  .method {
+    background: #fff7e6;
+    border: 1px solid #ffd591;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .method strong { color: #874d00; }
+
+  footer.foot {
+    text-align: center;
+    color: #8a96a6;
+    font-size: 11px;
+    margin-top: 28px;
+    border-top: 1px solid #e2e6ec;
+    padding-top: 10px;
+  }
+
+  .pb { page-break-before: always; }
+
+  /* ===== Bildschirm-Optimierung — zentrierte Seite, kein Strecken ===== */
+  @media screen {
+    html { background: #e9edf2; }
+    body {
+      max-width: 880px;
+      margin: 28px auto;
+      padding: 34px 44px 40px;
+      background: #fff;
+      border-top: 5px solid #c8281c;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+      border-radius: 10px;
+    }
+  }
+  @media screen and (max-width: 920px) {
+    body { margin: 0 auto; padding: 20px 16px 30px; border-radius: 0; border-top-width: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  📚 Thai mit Mac <span class="accent">·</span> Kursplan zum Selbststudium
+</div>
+
+<div class="print-hint">
+  <strong>Tipp:</strong> Drücken Sie <kbd>⌘ Cmd + P</kbd> und wählen Sie „Als PDF sichern" — dann erhalten Sie eine schöne PDF-Version dieses Kursplans. „Thai mit Mac" erscheint dann automatisch als Kopfzeile auf jeder Seite.
+</div>
+
+<header class="cover">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=1200&q=70&fm=jpg&auto=format" alt="Tempel in Thailand">
+  <div class="titles">
+    <span class="badge">Thai für Deutschsprachige · Stufe A2.1</span>
+    <h1>Thai lernen in 6 Wochen</h1>
+    <div class="thai-title thai">เรียนภาษาไทย ๖ สัปดาห์ — ระดับ A2.1</div>
+    <div class="sub">Ein Kurs zum Lesen, Schreiben und Sprechen — 1 Stunde pro Tag</div>
+  </div>
+</header>
+
+<div class="meta-grid">
+  <div class="meta-card"><div class="k">Niveau</div><div class="v">A2.1 (GER)</div></div>
+  <div class="meta-card"><div class="k">Dauer</div><div class="v">6 Wochen</div></div>
+  <div class="meta-card"><div class="k">Pensum</div><div class="v">1 Std. / Tag</div></div>
+  <div class="meta-card"><div class="k">Gesamt</div><div class="v">~42 Stunden</div></div>
+</div>
+
+<h2 class="section"><span class="num">A.</span> Tagesablauf — die 20–20–20-Methode</h2>
+<div class="daily">
+  <div class="seg a">
+    <div class="t">📖 Lesen — การอ่าน</div>
+    <div class="s">20 Minuten · Wortschatz und Texte</div>
+    <div class="d">Neuen Wortschatz mit Thai-Schrift lernen, kurze Dialoge und A2-Texte lesen, Lückenfragen beantworten.</div>
+  </div>
+  <div class="seg b">
+    <div class="t">✍️ Schreiben — การเขียน</div>
+    <div class="s">20 Minuten · Schrift und Grammatik</div>
+    <div class="d">Thai-Buchstaben üben, Sätze nachschreiben, eigene Sätze und kurze Texte zum Wochenthema bilden.</div>
+  </div>
+  <div class="seg c">
+    <div class="t">🗣 Sprechen — การพูด</div>
+    <div class="s">20 Minuten · Aussprache und Dialog</div>
+    <div class="d">Aussprache mit Tonzeichen üben, Dialoge nachsprechen, Rollenspiele laut durchspielen.</div>
+  </div>
+</div>
+
+<div class="method">
+  <strong>Lerntipp:</strong> Die 20–20–20-Methode hält den Tag abwechslungsreich und sorgt dafür, dass alle drei Fertigkeiten gleichmäßig wachsen. Wer mehr Zeit hat, kann am Wochenende einen vierten Block „Wiederholung" hinzufügen.
+</div>
+
+<h2 class="section"><span class="num">B.</span> Lernziele am Ende des Kurses (A2.1)</h2>
+<ul class="goals">
+  <li>~ 350 neue Wörter aktiv anwenden</li>
+  <li>Einfache Texte zu Alltagsthemen verstehen</li>
+  <li>Kurze Dialoge selbständig führen</li>
+  <li>Eigene Sätze in Thai-Schrift verfassen</li>
+  <li>Grundlegende Grammatik (Klassifikatoren, Fragen, Tempora) sicher nutzen</li>
+  <li>5 Tonhöhen unterscheiden und aussprechen</li>
+</ul>
+
+<h2 class="section"><span class="num">C.</span> Wochenübersicht</h2>
+
+<div class="weeks">
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&q=65&fm=jpg&auto=format" alt="Running">
+    <div class="head">
+      <div><div class="n">Woche 1</div><div class="t">Sport und Gesundheit</div></div>
+      <div class="th thai">กีฬา &amp; สุขภาพ</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Sportarten, Körperteile, Beim Arzt, gesund/krank</p>
+      <p><span class="lab">Grammatik:</span> Klassifikatoren <span class="thai">ตัว / คน</span>, Verlaufsform <span class="thai">กำลัง…อยู่</span></p>
+      <p><span class="lab">Lesen:</span> Dialog im Fitnessstudio, Text „Mein gesunder Tag"</p>
+      <p><span class="lab">Schreiben:</span> Eigene Sportroutine beschreiben</p>
+      <p><span class="lab">Sprechen:</span> Rollenspiel beim Arzt — Schmerzen erklären</p>
+    </div>
+  </div>
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=65&fm=jpg&auto=format" alt="Healthy meal">
+    <div class="head">
+      <div><div class="n">Woche 2</div><div class="t">Essen und Trinken</div></div>
+      <div class="th thai">อาหารและเครื่องดื่ม</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Thai-Gerichte, Geschmack (süß/scharf/sauer), Getränke</p>
+      <p><span class="lab">Grammatik:</span> Adjektivstellung, <span class="thai">อยาก / ต้องการ</span> (möchten/brauchen)</p>
+      <p><span class="lab">Lesen:</span> Speisekarte und Bestelldialog im Restaurant</p>
+      <p><span class="lab">Schreiben:</span> Lieblingsgericht beschreiben, Rezept ordnen</p>
+      <p><span class="lab">Sprechen:</span> Bestellen — „nicht zu scharf, bitte"</p>
+    </div>
+  </div>
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?w=500&q=65&fm=jpg&auto=format" alt="Family">
+    <div class="head">
+      <div><div class="n">Woche 3</div><div class="t">Familie und Freunde</div></div>
+      <div class="th thai">ครอบครัวและเพื่อน</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Verwandtschaft, Alter, Berufe, Beziehungswörter</p>
+      <p><span class="lab">Grammatik:</span> Fragewörter <span class="thai">ใคร / อะไร / ที่ไหน / เมื่อไหร่</span>, Possessivpartikel <span class="thai">ของ</span></p>
+      <p><span class="lab">Lesen:</span> Eine Thai-Familie stellt sich vor</p>
+      <p><span class="lab">Schreiben:</span> Stammbaum auf Thai beschriften, eigenen Stammbaum erstellen</p>
+      <p><span class="lab">Sprechen:</span> Über die Familie erzählen, Freund vorstellen</p>
+    </div>
+  </div>
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=500&q=65&fm=jpg&auto=format" alt="Thai temple">
+    <div class="head">
+      <div><div class="n">Woche 4</div><div class="t">Reisen in Thailand</div></div>
+      <div class="th thai">การเดินทางในประเทศไทย</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Verkehrsmittel, Sehenswürdigkeiten, Provinzen</p>
+      <p><span class="lab">Grammatik:</span> Richtungen, Präpositionen, Vergangenheit mit <span class="thai">…แล้ว</span></p>
+      <p><span class="lab">Lesen:</span> Reisetagebuch aus Chiang Mai</p>
+      <p><span class="lab">Schreiben:</span> Reisebericht in 6 Sätzen</p>
+      <p><span class="lab">Sprechen:</span> Nach dem Weg fragen, Ticket kaufen</p>
+    </div>
+  </div>
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1693400989010-d5ba8cf4d865?w=500&q=65&fm=jpg&auto=format" alt="Asian market">
+    <div class="head">
+      <div><div class="n">Woche 5</div><div class="t">Einkaufen und Markt</div></div>
+      <div class="th thai">การช้อปปิ้งและตลาด</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Zahlen 1–1000, Preise, Klassifikatoren, Marktwaren</p>
+      <p><span class="lab">Grammatik:</span> Klassifikatoren ausführlich, <span class="thai">เท่าไหร่</span> (wie viel?), Vergleiche</p>
+      <p><span class="lab">Lesen:</span> Auf dem Chatuchak-Markt — Verkäuferdialog</p>
+      <p><span class="lab">Schreiben:</span> Einkaufsliste und Preisangaben</p>
+      <p><span class="lab">Sprechen:</span> Feilschen mit Höflichkeit — eigene Preisvorstellung nennen</p>
+    </div>
+  </div>
+
+  <div class="wk">
+    <img class="photo" src="https://images.unsplash.com/photo-1710611229178-4d9015dd1ba0?w=500&q=65&fm=jpg&auto=format" alt="Festival in Thailand">
+    <div class="head">
+      <div><div class="n">Woche 6</div><div class="t">Feste und Traditionen</div></div>
+      <div class="th thai">เทศกาลและประเพณี</div>
+    </div>
+    <div class="body">
+      <p><span class="lab">Wortschatz:</span> Songkran, Loi Krathong, Buddhismus-Grundbegriffe, Monate</p>
+      <p><span class="lab">Grammatik:</span> Zukunft mit <span class="thai">จะ</span>, Sequenzen mit <span class="thai">แล้วก็</span></p>
+      <p><span class="lab">Lesen:</span> Ein Brief über das Songkran-Fest</p>
+      <p><span class="lab">Schreiben:</span> Eigenes Lieblingsfest beschreiben</p>
+      <p><span class="lab">Sprechen:</span> Eine Einladung aussprechen und annehmen</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="pb"></div>
+
+<h2 class="section"><span class="num">D.</span> Aufbau einer typischen Woche</h2>
+<table style="width:100%; border-collapse: collapse; font-size: 13px; margin-top: 6px;">
+  <thead>
+    <tr style="background:#1d2733; color:#fff;">
+      <th style="padding:8px; text-align:left; width:14%;">Tag</th>
+      <th style="padding:8px; text-align:left;">📖 Lesen (20 min)</th>
+      <th style="padding:8px; text-align:left;">✍️ Schreiben (20 min)</th>
+      <th style="padding:8px; text-align:left;">🗣 Sprechen (20 min)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 1 (Mo)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Wochenwortschatz lernen (mit Thai-Schrift)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Wörter abschreiben, in Heft eintragen</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Wörter laut nachsprechen, Tonhöhen üben</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 2 (Di)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Hauptdialog des Themas lesen</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Lückentext zum Dialog ausfüllen</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Dialog in 2 Rollen sprechen</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 3 (Mi)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Lesetext zum Wochenthema</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Sätze umformen, Grammatik anwenden</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Antworten zum Text laut formulieren</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 4 (Do)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Grammatik-Box des Tages</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">10 eigene Sätze schreiben</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Eigene Sätze einem „Spiegel" laut sprechen</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 5 (Fr)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Lesen mit Aufgaben (Wahr/Falsch)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Kurzen Text frei verfassen</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Rollenspiel zum Wochenthema</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 6 (Sa)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Wochenwortschatz wiederholen</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Tagebucheintrag (3–5 Sätze)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Mit echtem Sprecher (App / Tandem) üben</td></tr>
+    <tr><td style="padding:8px; border:1px solid #e2e6ec; font-weight:600;">Tag 7 (So)</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Test &amp; Selbstkontrolle</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Lösungen prüfen, Fehler korrigieren</td>
+        <td style="padding:8px; border:1px solid #e2e6ec;">Freie Erzählung 2 Min. zum Thema</td></tr>
+  </tbody>
+</table>
+
+<h2 class="section"><span class="num">E.</span> Empfohlene Materialien</h2>
+<ul style="font-size:13px; line-height:1.7;">
+  <li>Wochen-PDF mit Wortschatz, Dialog, Übungen und Lösungen (eines pro Woche)</li>
+  <li>Vokabel-App mit Tonaufnahmen (z. B. Anki-Deck Thai A2)</li>
+  <li>Spiegel oder Telefonkamera für Sprechübungen — Aussprache überprüfen</li>
+  <li>Schreibheft für Thai-Schrift (mit Linien, am besten 4-Linien-Heft)</li>
+  <li>Optional: Tandempartner / Sprachaustausch ab Woche 3</li>
+</ul>
+
+<footer class="foot">
+  Thai A2.1 — 6-Wochen-Kurs · Erstellt für deutschsprachige Lernende
+</footer>
+
+</body>
+</html>

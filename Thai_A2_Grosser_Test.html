@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai mit Mac — Großer Test (A2)</title>
+<style>
+  :root{
+    --teal:#0e7c7b; --teal-dark:#0a5d5c; --gold:#e8a531; --gold-dark:#c9871a;
+    --cream:#fbf7ee; --ink:#22303a; --muted:#6b7c86; --line:#e4ddcf;
+    --green:#2f9e57; --green-bg:#e7f6ec; --red:#d64545; --red-bg:#fceaea;
+    --card:#ffffff; --shadow:0 6px 22px rgba(20,60,60,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Thai",sans-serif;
+    background:linear-gradient(180deg,#f4efe2 0%,#fbf7ee 100%);
+    color:var(--ink); line-height:1.55; padding-bottom:80px;
+  }
+  .thai{font-family:"Noto Sans Thai","Leelawadee UI","Thonburi",sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
+
+  /* ---------- Top bar ---------- */
+  #topbar{position:sticky;top:0;z-index:40;background:var(--teal);color:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.15);display:none;}
+  #topbar .inner{max-width:860px;margin:0 auto;padding:10px 18px;display:flex;
+    align-items:center;gap:14px;flex-wrap:wrap;}
+  #topbar .brand{font-weight:700;letter-spacing:.3px}
+  #timer{font-variant-numeric:tabular-nums;font-weight:700;background:rgba(255,255,255,.16);
+    padding:5px 12px;border-radius:20px;font-size:1.05rem}
+  #timer.warn{background:var(--gold);color:#3a2a00}
+  #timer.danger{background:var(--red);animation:pulse 1s infinite}
+  @keyframes pulse{50%{opacity:.55}}
+  .progwrap{flex:1;min-width:120px;height:9px;background:rgba(255,255,255,.25);border-radius:6px;overflow:hidden}
+  .progbar{height:100%;width:0;background:var(--gold);transition:width .3s}
+  #submitTop{margin-left:auto;background:var(--gold);color:#3a2a00;border:none;font-weight:700;
+    padding:8px 16px;border-radius:22px;cursor:pointer;font-size:.9rem}
+  #submitTop:hover{background:var(--gold-dark);color:#fff}
+
+  /* ---------- Start screen ---------- */
+  #start{padding:38px 0 60px}
+  .hero{background:var(--card);border-radius:20px;box-shadow:var(--shadow);
+    padding:34px;border-top:6px solid var(--gold);text-align:center}
+  .hero .kite{font-size:2.6rem}
+  h1{margin:.2em 0 .1em;font-size:1.8rem}
+  .hero .th{font-size:1.5rem;color:var(--teal-dark);margin-bottom:.4em}
+  .sub{color:var(--muted);margin-bottom:1.4em}
+  .infogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .infocard{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .infocard b{display:block;font-size:1.25rem;color:var(--teal)}
+  .infocard span{font-size:.82rem;color:var(--muted)}
+  .rules{text-align:left;background:var(--cream);border-radius:14px;padding:16px 20px;margin:16px 0;border:1px solid var(--line)}
+  .rules li{margin:6px 0}
+  .namebox{margin:20px 0}
+  .namebox input{font-size:1.05rem;padding:12px 16px;border:2px solid var(--line);border-radius:12px;
+    width:100%;max-width:340px;text-align:center;font-family:inherit}
+  .namebox input:focus{outline:none;border-color:var(--teal)}
+  .btn{background:var(--teal);color:#fff;border:none;padding:14px 34px;border-radius:30px;
+    font-size:1.1rem;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s}
+  .btn:hover{background:var(--teal-dark)} .btn:active{transform:scale(.97)}
+  .btn.gold{background:var(--gold);color:#3a2a00}.btn.gold:hover{background:var(--gold-dark);color:#fff}
+
+  /* ---------- Sections ---------- */
+  #test{display:none;padding-top:26px}
+  .part{background:var(--card);border-radius:18px;box-shadow:var(--shadow);margin:22px 0;overflow:hidden}
+  .part-head{background:linear-gradient(120deg,var(--teal),var(--teal-dark));color:#fff;padding:16px 22px}
+  .part-head .tag{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.85}
+  .part-head h2{margin:2px 0 0;font-size:1.35rem}
+  .part-head .desc{font-size:.9rem;opacity:.92;margin-top:3px}
+  .part-body{padding:20px 22px}
+
+  .passage{background:var(--cream);border-left:5px solid var(--gold);border-radius:10px;
+    padding:16px 18px;margin-bottom:18px}
+  .passage .ptitle{font-weight:700;color:var(--teal-dark);margin-bottom:8px}
+  .passage .ptext{font-size:1.28rem;line-height:2.05}
+
+  .q{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .q:last-child{border-bottom:none}
+  .q .qtext{font-weight:600;margin-bottom:9px}
+  .q .qtext .num{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;
+    background:var(--teal);color:#fff;border-radius:50%;font-size:.82rem;margin-right:8px}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  @media(max-width:520px){.opts{grid-template-columns:1fr}}
+  .opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:2px solid var(--line);
+    border-radius:12px;cursor:pointer;background:#fff;transition:.12s}
+  .opt:hover{border-color:var(--teal);background:#f3fbfa}
+  .opt.sel{border-color:var(--teal);background:#e6f5f4}
+  .opt .mk{width:20px;height:20px;border:2px solid var(--muted);border-radius:50%;flex:none}
+  .opt.sel .mk{border-color:var(--teal);background:var(--teal);box-shadow:inset 0 0 0 3px #fff}
+  .opt.correct{border-color:var(--green);background:var(--green-bg)}
+  .opt.wrong{border-color:var(--red);background:var(--red-bg)}
+  .opt .badge{margin-left:auto;font-size:.8rem;font-weight:700}
+  .opt.correct .badge{color:var(--green)} .opt.wrong .badge{color:var(--red)}
+
+  /* ---------- Sentence building ---------- */
+  .sent{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .sent:last-child{border-bottom:none}
+  .sent .hint{font-size:.92rem;color:var(--muted);margin-bottom:8px}
+  .sent .hint b{color:var(--ink)}
+  .answline{min-height:52px;border:2px dashed var(--teal);border-radius:12px;background:#f3fbfa;
+    padding:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+  .answline:empty::before{content:"⬇ Tippen Sie unten die Wörter in der richtigen Reihenfolge an";
+    color:var(--muted);font-size:.85rem;padding:6px}
+  .bank{display:flex;flex-wrap:wrap;gap:8px}
+  .tile{font-family:"Noto Sans Thai",sans-serif;font-size:1.15rem;background:#fff;border:2px solid var(--gold);
+    color:var(--ink);padding:7px 14px;border-radius:12px;cursor:pointer;user-select:none;transition:.1s;box-shadow:0 2px 0 var(--gold-dark)}
+  .tile:hover{background:#fff6e6} .tile:active{transform:translateY(2px);box-shadow:none}
+  .tile.placed{background:var(--teal);color:#fff;border-color:var(--teal-dark);box-shadow:0 2px 0 var(--teal-dark)}
+  .sent .verdict{font-weight:700;margin-top:6px;display:none}
+  .sent .solution{font-size:1.05rem;color:var(--teal-dark);margin-top:4px;display:none}
+
+  /* ---------- Matching ---------- */
+  .mset{margin-bottom:22px}
+  .mset h4{margin:0 0 10px;color:var(--teal-dark)}
+  .mgrid{display:grid;gap:10px}
+  .mrow{display:flex;align-items:center;gap:12px}
+  .mword{flex:none;min-width:150px;font-size:1.3rem;font-family:"Noto Sans Thai",sans-serif;
+    background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+  .slot{flex:1;min-height:46px;border:2px dashed var(--muted);border-radius:10px;display:flex;
+    align-items:center;justify-content:center;padding:4px;color:var(--muted);font-size:.85rem;transition:.12s}
+  .slot.over{border-color:var(--teal);background:#eafaf9}
+  .slot.filled{border-style:solid;color:var(--ink)}
+  .slot.correct{border-color:var(--green);background:var(--green-bg)}
+  .slot.wrong{border-color:var(--red);background:var(--red-bg)}
+  .pool{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px;padding:12px;background:var(--cream);
+    border-radius:12px;border:1px dashed var(--line)}
+  .pool:empty::before{content:"Alle Wörter zugeordnet ✔";color:var(--muted);font-size:.85rem}
+  .chip{background:#fff;border:2px solid var(--teal);color:var(--teal-dark);font-weight:600;
+    padding:8px 14px;border-radius:20px;cursor:grab;user-select:none;transition:.1s}
+  .chip:hover{background:#eafaf9} .chip.sel{background:var(--teal);color:#fff;transform:scale(1.05)}
+  .chip.dragging{opacity:.5}
+  .mhelp{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+
+  /* ---------- Writing + keyboard ---------- */
+  .write{padding:12px 0;border-bottom:1px dashed var(--line)}
+  .write:last-of-type{border-bottom:none}
+  .write .wp{font-weight:600;margin-bottom:6px}
+  .thai-input{width:100%;font-family:"Noto Sans Thai",sans-serif;font-size:1.3rem;padding:10px 12px;
+    border:2px solid var(--line);border-radius:10px;min-height:48px}
+  .thai-input:focus{outline:none;border-color:var(--teal);background:#f3fbfa}
+  .write .model{font-size:1.05rem;color:var(--teal-dark);margin-top:5px;display:none}
+  #keyboard{position:sticky;bottom:0;background:#2c3d47;border-radius:14px 14px 0 0;padding:10px;
+    margin-top:16px;box-shadow:0 -4px 18px rgba(0,0,0,.2)}
+  #keyboard .kbhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  #keyboard .kbtitle{color:#cfe;font-size:.8rem;opacity:.85}
+  #keyboard .kbhide{background:rgba(255,255,255,.14);color:#fff;border:none;border-radius:16px;
+    padding:5px 12px;font-size:.78rem;cursor:pointer}
+  #keyboard .kbhide:hover{background:var(--red)}
+  .krow{display:flex;justify-content:center;gap:5px;margin-bottom:5px;flex-wrap:wrap}
+  .key{background:#3f5560;color:#fff;border:none;border-radius:8px;min-width:34px;height:40px;
+    font-size:1.15rem;font-family:"Noto Sans Thai",sans-serif;cursor:pointer;transition:.08s}
+  .key:hover{background:#4f6a77} .key:active{transform:translateY(2px)}
+  .key.wide{min-width:150px;font-size:.85rem;background:var(--teal)}
+  .key.del{background:var(--gold);color:#3a2a00;font-size:.85rem;min-width:80px}
+  .key.fn{font-size:.85rem;min-width:76px;background:#54707c}
+  .key.shift.active{background:var(--gold);color:#3a2a00}
+
+  /* ---------- Results ---------- */
+  #results{display:none;margin:22px 0}
+  .scorecard{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:30px;text-align:center;border-top:6px solid var(--gold)}
+  .ring{width:150px;height:150px;margin:6px auto 10px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;flex-direction:column;color:#fff;font-weight:700}
+  .ring .pct{font-size:2.3rem;line-height:1} .ring .lbl{font-size:.8rem;opacity:.9}
+  .verdictbig{font-size:1.4rem;font-weight:700;margin:6px 0}
+  .breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0}
+  .bdcard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .bdcard b{display:block;font-size:1.4rem;color:var(--teal)}
+  .bdcard span{font-size:.8rem;color:var(--muted)}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+  .reviewnote{background:#fff8e6;border:1px solid var(--gold);border-radius:12px;padding:12px 16px;
+    margin:18px 0;font-size:.92rem}
+  .hidden{display:none!important}
+  .footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px}
+  @media print{#topbar,#keyboard,.btn,.actions{display:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div id="topbar">
+  <div class="inner">
+    <span class="brand">🪁 Thai mit Mac</span>
+    <span id="timer">90:00</span>
+    <div class="progwrap"><div class="progbar" id="progbar"></div></div>
+    <span id="progtext" style="font-size:.8rem">0 / 63</span>
+    <button id="submitTop" onclick="submitTest()">Test abgeben</button>
+  </div>
+</div>
+
+<!-- ============ START SCREEN ============ -->
+<div id="start" class="wrap">
+  <div class="hero">
+    <div class="kite">🪁</div>
+    <h1>Großer Test · Thai A2</h1>
+    <div class="th thai">ข้อสอบใหญ่ · ภาษาไทย ระดับ A2</div>
+    <p class="sub">Wiederholung aus 5 Wochen — Gesundheit, Familie, Einkaufen, Formen &amp; Technologie</p>
+
+    <div class="infogrid">
+      <div class="infocard"><b>90 Min.</b><span>Bearbeitungszeit</span></div>
+      <div class="infocard"><b>4 Teile</b><span>Lesen · Sätze · Wörter · Schreiben</span></div>
+      <div class="infocard"><b>63 + 4</b><span>Punkte (+ Bonus)</span></div>
+      <div class="infocard"><b>60 %</b><span>zum Bestehen</span></div>
+    </div>
+
+    <div class="rules">
+      <b>So läuft der Test:</b>
+      <ul>
+        <li><b>Teil 1 · Lesen:</b> 3 Thai-Texte mit je 10 Fragen (Antworten auf Deutsch anklicken).</li>
+        <li><b>Teil 2 · Sätze bauen:</b> 15 Sätze — tippen Sie die Thai-Wörter in die richtige Reihenfolge.</li>
+        <li><b>Teil 3 · Wortbedeutung:</b> Ziehen Sie die deutsche Bedeutung auf das passende Thai-Wort.</li>
+        <li><b>Bonus · Schreiben:</b> 4 Aufgaben mit einer Thai-Bildschirmtastatur.</li>
+        <li>Die Zeit läuft ab „Test starten". Bei 0:00 wird automatisch abgegeben.</li>
+      </ul>
+    </div>
+
+    <div class="namebox">
+      <input id="studentName" type="text" placeholder="Ihr Name (für das Zeugnis)" maxlength="40">
+    </div>
+    <button class="btn" onclick="startTest()">Test starten →</button>
+  </div>
+  <div class="footer">Thai mit Mac · A2 Wiederholungstest · Selbstkontrolle mit voller Auswertung</div>
+</div>
+
+<!-- ============ TEST ============ -->
+<div id="test" class="wrap">
+  <div class="part" id="part1">
+    <div class="part-head"><div class="tag">Teil 1 · การอ่าน</div><h2>Lesen &amp; Verstehen</h2>
+      <div class="desc">3 Texte · 30 Fragen · Antwort auf Deutsch anklicken</div></div>
+    <div class="part-body" id="readingBody"></div>
+  </div>
+
+  <div class="part" id="part2">
+    <div class="part-head"><div class="tag">Teil 2 · สร้างประโยค</div><h2>Sätze bauen</h2>
+      <div class="desc">15 Sätze · Wörter in die richtige Reihenfolge tippen</div></div>
+    <div class="part-body" id="sentBody"></div>
+  </div>
+
+  <div class="part" id="part3">
+    <div class="part-head"><div class="tag">Teil 3 · ความหมายของคำ</div><h2>Wortbedeutung — Ziehen &amp; Ablegen</h2>
+      <div class="desc">Ziehen Sie jede deutsche Bedeutung auf das passende Thai-Wort (oder antippen &amp; ablegen)</div></div>
+    <div class="part-body" id="matchBody"></div>
+  </div>
+
+  <div class="part" id="part4">
+    <div class="part-head"><div class="tag">Bonus · การเขียน</div><h2>Schreiben mit Thai-Tastatur</h2>
+      <div class="desc">Nutzen Sie die Bildschirmtastatur unten — bis zu 4 Bonuspunkte</div></div>
+    <div class="part-body" id="writeBody"></div>
+  </div>
+
+  <div style="text-align:center;margin:26px 0">
+    <button class="btn gold" onclick="submitTest()">✔ Test abgeben &amp; auswerten</button>
+  </div>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="results" class="wrap"></div>
+
+<!-- ============ THAI KEYBOARD (shared) ============ -->
+<div id="keyboard" class="wrap hidden">
+  <div class="kbhead">
+    <span class="kbtitle">⌨️ แป้นพิมพ์ไทย · Thai-Tastatur</span>
+    <button class="kbhide" onmousedown="event.preventDefault()" onclick="hideKeyboard()">✕ ausblenden</button>
+  </div>
+  <div id="keys"></div>
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const READINGS = [
+ { title:"Text 1 · สุขภาพของสมชาย (Somchais Gesundheit)",
+   text:"สวัสดีครับ ผมชื่อสมชาย ผมอายุ 35 ปี ผมชอบออกกำลังกายมาก ทุกเช้าผมวิ่งที่สวน 30 นาที วันจันทร์กับวันพุธผมว่ายน้ำ วันเสาร์ผมเล่นฟุตบอลกับเพื่อน เมื่อวานนี้ผมปวดหลัง ผมจึงไปหาหมอที่โรงพยาบาล หมอบอกว่าผมต้องพักผ่อนและกินยา หมอบอกว่าผมแข็งแรงดี แต่ต้องระวังหลังของผม วันนี้ผมรู้สึกดีขึ้นแล้ว",
+   qs:[
+    {q:"Wie alt ist Somchai?",o:["35 Jahre","30 Jahre","45 Jahre","25 Jahre"],a:0},
+    {q:"Was macht Somchai jeden Morgen?",o:["Er läuft im Park","Er schwimmt","Er spielt Fußball","Er macht Yoga"],a:0},
+    {q:"An welchen Tagen schwimmt er?",o:["Montag und Mittwoch","nur Samstag","jeden Tag","Dienstag und Freitag"],a:0},
+    {q:"Was macht er am Samstag?",o:["Fußball mit Freunden","schwimmen","laufen","sich ausruhen"],a:0},
+    {q:"Was tat ihm gestern weh?",o:["der Rücken","der Kopf","der Bauch","das Bein"],a:0},
+    {q:"Wohin ging er?",o:["ins Krankenhaus","auf den Markt","ins Büro","zur Schule"],a:0},
+    {q:"Was soll er laut Arzt tun?",o:["sich ausruhen und Medikamente nehmen","mehr Sport machen","schwimmen gehen","nichts"],a:0},
+    {q:"Wie ist Somchais Gesundheit laut Arzt?",o:["stark und gesund","sehr krank","schwach","schlecht"],a:0},
+    {q:"Worauf muss er achten?",o:["auf seinen Rücken","auf seinen Kopf","auf sein Bein","auf seinen Bauch"],a:0},
+    {q:"Wie fühlt er sich heute?",o:["besser","schlechter","krank","müde"],a:0}
+   ]},
+ { title:"Text 2 · ครอบครัวของมะลิ (Malis Familie & Markt)",
+   text:"ครอบครัวของมะลิมีสี่คน มีพ่อ แม่ พี่สาว และมะลิ พ่อของมะลิเป็นครู แม่เป็นแม่ค้าที่ตลาด ทุกวันเสาร์มะลิไปตลาดกับแม่ แม่ซื้อผัก ผลไม้ และปลา วันนี้ผลไม้ราคาถูก แต่เนื้อสัตว์แพงมาก มะลิอยากได้เสื้อใหม่หนึ่งตัว เสื้อสีแดงราคา 200 บาท แม่ต่อรองกับแม่ค้า สุดท้ายแม่ค้าลดราคาให้ 20 บาท มะลิดีใจมาก",
+   qs:[
+    {q:"Wie viele Personen sind in Malis Familie?",o:["vier","drei","fünf","zwei"],a:0},
+    {q:"Was ist Malis Vater von Beruf?",o:["Lehrer","Verkäufer","Arzt","Schüler"],a:0},
+    {q:"Was ist Malis Mutter von Beruf?",o:["Verkäuferin auf dem Markt","Lehrerin","Ärztin","Köchin"],a:0},
+    {q:"Wann geht Mali mit der Mutter zum Markt?",o:["jeden Samstag","jeden Tag","montags","sonntags"],a:0},
+    {q:"Was kauft die Mutter?",o:["Gemüse, Obst und Fisch","Fleisch und Reis","Kleidung","Süßigkeiten"],a:0},
+    {q:"Wie ist der Preis für Obst heute?",o:["billig","teuer","kostenlos","sehr hoch"],a:0},
+    {q:"Was war sehr teuer?",o:["Fleisch","Obst","Gemüse","Fisch"],a:0},
+    {q:"Was möchte Mali haben?",o:["ein neues Hemd","neue Schuhe","eine Tasche","eine Hose"],a:0},
+    {q:"Welche Farbe hat das Hemd?",o:["rot","blau","grün","gelb"],a:0},
+    {q:"Um wie viel Baht senkte die Verkäuferin den Preis?",o:["20 Baht","200 Baht","100 Baht","2 Baht"],a:0}
+   ]},
+ { title:"Text 3 · นิดาที่สำนักงาน (Nida im Büro)",
+   text:"นิดาทำงานที่สำนักงานแห่งหนึ่ง ทุกเช้าเธอเปิดคอมพิวเตอร์และเช็คอีเมล วันนี้เครื่องพิมพ์เสีย เธอจึงโทรหาช่างมาซ่อม ตอนบ่ายมีประชุมกับหัวหน้า นิดาต้องพิมพ์เอกสารและส่งไฟล์ให้เพื่อนร่วมงาน แต่ไวไฟช้ามาก เธอลืมรหัสผ่านของอีเมลด้วย สุดท้ายเธอใส่รหัสผ่านใหม่และส่งไฟล์สำเร็จ แบตเตอรี่มือถือของเธอเหลือน้อย เธอจึงชาร์จมือถือ",
+   qs:[
+    {q:"Wo arbeitet Nida?",o:["in einem Büro","in einem Krankenhaus","auf dem Markt","in der Schule"],a:0},
+    {q:"Was macht sie jeden Morgen zuerst?",o:["Computer einschalten und E-Mails checken","drucken","telefonieren","ein Meeting halten"],a:0},
+    {q:"Was war heute kaputt?",o:["der Drucker","der Computer","das Handy","die Maus"],a:0},
+    {q:"Wen rief sie an?",o:["einen Techniker zum Reparieren","den Chef","eine Freundin","den Arzt"],a:0},
+    {q:"Was gab es am Nachmittag?",o:["ein Meeting mit dem Chef","eine Pause","einen Kurs","nichts"],a:0},
+    {q:"Was musste Nida tun?",o:["Dokumente drucken und eine Datei senden","kochen","einkaufen","putzen"],a:0},
+    {q:"Wie war das WLAN?",o:["sehr langsam","sehr schnell","kaputt","gut"],a:0},
+    {q:"Was hatte sie vergessen?",o:["ihr Passwort","ihr Handy","ihre Tasche","ihren Namen"],a:0},
+    {q:"Was tat sie am Ende erfolgreich?",o:["die Datei senden","drucken","telefonieren","einkaufen"],a:0},
+    {q:"Warum lud sie ihr Handy auf?",o:["der Akku war fast leer","es war kaputt","es war neu","sie war fertig"],a:0}
+   ]}
+];
+
+const SENTENCES = [
+ {de:"Ich spiele gern Fußball.", w:["ผม","ชอบ","เล่น","ฟุตบอล"]},
+ {de:"Er ging gestern ins Krankenhaus.", w:["เขา","ไป","โรงพยาบาล","เมื่อวานนี้"]},
+ {de:"Die Mutter kauft Obst auf dem Markt.", w:["แม่","ซื้อ","ผลไม้","ที่","ตลาด"]},
+ {de:"Wie viel kostet dieses Obst?", w:["ผลไม้","นี้","ราคา","เท่าไหร่"]},
+ {de:"Meine Familie hat fünf Personen.", w:["ครอบครัว","ของ","ผม","มี","ห้า","คน"]},
+ {de:"Das rote Hemd ist sehr schön.", w:["เสื้อ","สีแดง","สวย","มาก"]},
+ {de:"Ich treibe gerade Sport.", w:["ผม","กำลัง","ออกกำลังกาย","อยู่"]},
+ {de:"Ihr Computer ist schon kaputt.", w:["คอมพิวเตอร์","ของ","เธอ","เสีย","แล้ว"]},
+ {de:"Sie lädt jeden Abend das Handy auf.", w:["เธอ","ชาร์จ","มือถือ","ทุก","คืน"]},
+ {de:"Der Arzt sagt, dass ich gesund bin.", w:["หมอ","บอก","ว่า","ผม","แข็งแรง"]},
+ {de:"Meine jüngere Schwester ist zehn Jahre alt.", w:["น้องสาว","ของ","ฉัน","อายุ","สิบ","ปี"]},
+ {de:"Fleisch ist teurer als Gemüse.", w:["เนื้อสัตว์","แพง","กว่า","ผัก"]},
+ {de:"Er schickt dem Chef eine E-Mail.", w:["เขา","ส่ง","อีเมล","ให้","หัวหน้า"]},
+ {de:"Ich möchte eine neue Tasche.", w:["ฉัน","อยากได้","กระเป๋า","ใหม่"]},
+ {de:"Wir gehen zusammen auf den Markt.", w:["เรา","ไป","ตลาด","ด้วยกัน"]}
+];
+
+const MATCHSETS = [
+ {title:"Gruppe A · Gesundheit & Körper", pairs:[
+   {th:"หัว",de:"Kopf"},{th:"มือ",de:"Hand"},{th:"ขา",de:"Bein"},
+   {th:"ยา",de:"Medikament"},{th:"ไข้",de:"Fieber"},{th:"หมอ",de:"Arzt"} ]},
+ {title:"Gruppe B · Familie & Einkaufen", pairs:[
+   {th:"พ่อ",de:"Vater"},{th:"เพื่อน",de:"Freund"},{th:"ราคา",de:"Preis"},
+   {th:"ถูก",de:"billig"},{th:"แพง",de:"teuer"},{th:"ซื้อ",de:"kaufen"} ]},
+ {title:"Gruppe C · Technologie & Formen", pairs:[
+   {th:"คอมพิวเตอร์",de:"Computer"},{th:"บันทึก",de:"speichern"},{th:"ลบ",de:"löschen"},
+   {th:"วงกลม",de:"Kreis"},{th:"สีแดง",de:"rot"},{th:"ใหญ่",de:"groß"} ]}
+];
+
+const WRITING = [
+ {p:"1. Schreiben Sie das Thai-Wort für „Arzt“.", accept:["หมอ"], model:"หมอ"},
+ {p:"2. Schreiben Sie das Thai-Wort für „kaufen“.", accept:["ซื้อ"], model:"ซื้อ"},
+ {p:"3. Schreiben Sie das Thai-Wort für „Computer“.", accept:["คอมพิวเตอร์"], model:"คอมพิวเตอร์"},
+ {p:"4. Übersetzen Sie: „Ich treibe gern Sport.“", accept:["ออกกำลังกาย"], model:"ผมชอบออกกำลังกาย"}
+];
+
+/* Thai keyboard — echtes Kedmanee-Layout (wie eine physische Thai-Tastatur) */
+const KB_LOWER = [
+ ["ๅ","/","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช"],
+ ["ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล"],
+ ["ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง"],
+ ["ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ"]
+];
+const KB_UPPER = [
+ ["+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙"],
+ ["๐","\"","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ",","],
+ ["ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ","."],
+ ["(",")","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ"]
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const totalCount = 30 + SENTENCES.length + MATCHSETS.reduce((s,m)=>s+m.pairs.length,0); // 63
+let readingAns = {};      // "r{ri}q{qi}" -> optIndex
+let sentState = {};       // si -> {answer:[], bank:[]}
+let matchState = {};      // "m{mi}w{wi}" -> chosen de string
+let selectedChip = null;  // {mi, de, el}
+let activeField = null;
+let timeLeft = 90*60, timerId=null, submitted=false;
+let shiftOn=false, kbHideTimer=null;   // Thai keyboard state
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderReading(){
+  let h='';
+  READINGS.forEach((r,ri)=>{
+    h+=`<div class="passage"><div class="ptitle thai">${esc(r.title)}</div>
+        <div class="ptext thai">${esc(r.text)}</div></div>`;
+    r.qs.forEach((q,qi)=>{
+      const gi=ri*10+qi+1;
+      h+=`<div class="q" id="r${ri}q${qi}"><div class="qtext"><span class="num">${gi}</span>${esc(q.q)}</div><div class="opts">`;
+      q.o.forEach((op,oi)=>{
+        h+=`<div class="opt" data-r="${ri}" data-q="${qi}" data-o="${oi}" onclick="pickOpt(${ri},${qi},${oi})">
+             <span class="mk"></span><span>${esc(op)}</span><span class="badge"></span></div>`;
+      });
+      h+=`</div></div>`;
+    });
+  });
+  readingBody.innerHTML=h;
+}
+function pickOpt(ri,qi,oi){
+  if(submitted)return;
+  readingAns[`r${ri}q${qi}`]=oi;
+  document.querySelectorAll(`.opt[data-r="${ri}"][data-q="${qi}"]`).forEach(e=>e.classList.remove('sel'));
+  document.querySelector(`.opt[data-r="${ri}"][data-q="${qi}"][data-o="${oi}"]`).classList.add('sel');
+  updateProgress();
+}
+
+function renderSentences(){
+  let h='';
+  SENTENCES.forEach((s,si)=>{
+    sentState[si]={answer:[], bank:shuffle(s.w.map((w,i)=>({w,i})))};
+    h+=`<div class="sent" id="sent${si}">
+          <div class="hint">Satz ${si+1}: <b>${esc(s.de)}</b></div>
+          <div class="answline" id="ans${si}"></div>
+          <div class="bank" id="bank${si}"></div>
+          <div class="verdict" id="sv${si}"></div>
+          <div class="solution thai" id="ssol${si}"></div>
+        </div>`;
+  });
+  sentBody.innerHTML=h;
+  SENTENCES.forEach((s,si)=>drawSentence(si));
+}
+function drawSentence(si){
+  const st=sentState[si];
+  const ans=document.getElementById('ans'+si), bank=document.getElementById('bank'+si);
+  ans.innerHTML=''; bank.innerHTML='';
+  st.answer.forEach((tok,pos)=>{
+    const b=document.createElement('button');
+    b.className='tile placed'; b.textContent=tok.w;
+    b.onclick=()=>{if(submitted)return; st.answer.splice(pos,1); st.bank.push(tok); drawSentence(si); updateProgress();};
+    ans.appendChild(b);
+  });
+  st.bank.forEach((tok,pos)=>{
+    const b=document.createElement('button');
+    b.className='tile'; b.textContent=tok.w;
+    b.onclick=()=>{if(submitted)return; st.bank.splice(pos,1); st.answer.push(tok); drawSentence(si); updateProgress();};
+    bank.appendChild(b);
+  });
+}
+
+function renderMatching(){
+  let h='';
+  MATCHSETS.forEach((set,mi)=>{
+    h+=`<div class="mset"><h4>${esc(set.title)}</h4><div class="mgrid">`;
+    set.pairs.forEach((p,wi)=>{
+      h+=`<div class="mrow"><div class="mword thai">${esc(p.th)}</div>
+           <div class="slot" id="slot${mi}_${wi}" data-mi="${mi}" data-wi="${wi}"
+             ondragover="event.preventDefault();this.classList.add('over')"
+             ondragleave="this.classList.remove('over')"
+             ondrop="dropChip(event,${mi},${wi})"
+             onclick="slotClick(${mi},${wi})">hierher ziehen</div></div>`;
+    });
+    h+=`</div><div class="pool" id="pool${mi}"></div></div>`;
+  });
+  matchBody.innerHTML=h;
+  MATCHSETS.forEach((set,mi)=>{
+    const pool=document.getElementById('pool'+mi);
+    shuffle(set.pairs.map(p=>p.de)).forEach(de=>pool.appendChild(makeChip(mi,de)));
+  });
+}
+function makeChip(mi,de){
+  const c=document.createElement('div');
+  c.className='chip'; c.textContent=de; c.draggable=true;
+  c.dataset.mi=mi; c.dataset.de=de;
+  c.addEventListener('dragstart',e=>{selectedChip={mi,de,el:c};c.classList.add('dragging');e.dataTransfer.setData('text',de);});
+  c.addEventListener('dragend',()=>c.classList.remove('dragging'));
+  c.addEventListener('click',()=>{
+    if(submitted)return;
+    if(selectedChip&&selectedChip.el===c){selectedChip=null;c.classList.remove('sel');}
+    else{document.querySelectorAll('.chip.sel').forEach(x=>x.classList.remove('sel'));selectedChip={mi,de,el:c};c.classList.add('sel');}
+  });
+  return c;
+}
+function dropChip(e,mi,wi){e.preventDefault();document.getElementById('slot'+mi+'_'+wi).classList.remove('over');placeChip(mi,wi);}
+function slotClick(mi,wi){
+  if(submitted)return;
+  const slot=document.getElementById('slot'+mi+'_'+wi);
+  if(slot.classList.contains('filled')&&!selectedChip){ // remove chip back to pool
+    const de=matchState['m'+mi+'w'+wi];
+    delete matchState['m'+mi+'w'+wi];
+    slot.classList.remove('filled'); slot.textContent='hierher ziehen';
+    document.getElementById('pool'+mi).appendChild(makeChip(mi,de));
+    updateProgress(); return;
+  }
+  placeChip(mi,wi);
+}
+function placeChip(mi,wi){
+  if(submitted||!selectedChip||selectedChip.mi!=mi)return;
+  const slot=document.getElementById('slot'+mi+'_'+wi);
+  // if slot already filled, return old chip to pool
+  if(slot.classList.contains('filled')){
+    const old=matchState['m'+mi+'w'+wi];
+    document.getElementById('pool'+mi).appendChild(makeChip(mi,old));
+  }
+  matchState['m'+mi+'w'+wi]=selectedChip.de;
+  slot.classList.add('filled'); slot.textContent=selectedChip.de;
+  selectedChip.el.remove(); selectedChip=null;
+  updateProgress();
+}
+
+function renderWriting(){
+  let h='';
+  WRITING.forEach((w,i)=>{
+    h+=`<div class="write"><div class="wp">${esc(w.p)}</div>
+         <input class="thai-input thai" id="wr${i}" autocomplete="off" readonly
+           onfocus="setField(this)" onblur="fieldBlur()" oninput="updateProgress()">
+         <div class="model thai" id="wm${i}"></div></div>`;
+  });
+  writeBody.innerHTML=h;
+}
+function renderKeyboard(){
+  const layout = shiftOn ? KB_UPPER : KB_LOWER;
+  const keys=document.getElementById('keys'); keys.innerHTML='';
+  const mk=(cls,label,fn)=>{const b=document.createElement('button');b.className='key '+cls;
+    b.textContent=label;b.addEventListener('mousedown',e=>e.preventDefault());
+    b.addEventListener('click',fn);return b;};
+  layout.forEach(row=>{
+    const r=document.createElement('div'); r.className='krow';
+    row.forEach(k=>r.appendChild(mk('',k,()=>typeKey(k))));
+    keys.appendChild(r);
+  });
+  const fr=document.createElement('div'); fr.className='krow';
+  fr.appendChild(mk('fn shift'+(shiftOn?' active':''),'⇧ Shift',toggleShift));
+  fr.appendChild(mk('wide','เว้นวรรค · Leerzeichen',()=>typeKey(' ')));
+  fr.appendChild(mk('del','⌫ löschen',backspace));
+  fr.appendChild(mk('fn','✕ ausblenden',hideKeyboard));
+  keys.appendChild(fr);
+}
+function toggleShift(){ shiftOn=!shiftOn; renderKeyboard(); }
+function showKeyboard(){ if(!submitted) document.getElementById('keyboard').classList.remove('hidden'); }
+function hideKeyboard(){ document.getElementById('keyboard').classList.add('hidden'); }
+function setField(el){ activeField=el; clearTimeout(kbHideTimer); showKeyboard(); }
+function fieldBlur(){ kbHideTimer=setTimeout(hideKeyboard,200); }
+function typeKey(ch){
+  if(!activeField){return;}
+  const el=activeField,s=el.selectionStart??el.value.length,e=el.selectionEnd??el.value.length;
+  el.value=el.value.slice(0,s)+ch+el.value.slice(e);
+  const np=s+ch.length; el.focus(); el.setSelectionRange(np,np); updateProgress();
+}
+function backspace(){
+  if(!activeField)return;
+  const el=activeField,s=el.selectionStart,e=el.selectionEnd;
+  if(s!==e){el.value=el.value.slice(0,s)+el.value.slice(e);el.setSelectionRange(s,s);}
+  else if(s>0){el.value=el.value.slice(0,s-1)+el.value.slice(s);el.setSelectionRange(s-1,s-1);}
+  el.focus(); updateProgress();
+}
+
+/* ============================================================
+   PROGRESS + TIMER
+   ============================================================ */
+function answeredCount(){
+  let n=Object.keys(readingAns).length;
+  SENTENCES.forEach((s,si)=>{if(sentState[si].answer.length===s.w.length)n++;});
+  n+=Object.keys(matchState).length;
+  return n;
+}
+function updateProgress(){
+  const n=answeredCount();
+  progbar.style.width=(n/totalCount*100)+'%';
+  progtext.textContent=n+' / '+totalCount;
+}
+function startTimer(){
+  timerId=setInterval(()=>{
+    timeLeft--;
+    const m=String(Math.floor(timeLeft/60)).padStart(2,'0'),s=String(timeLeft%60).padStart(2,'0');
+    const t=document.getElementById('timer'); t.textContent=m+':'+s;
+    t.classList.toggle('warn',timeLeft<=600&&timeLeft>120);
+    t.classList.toggle('danger',timeLeft<=120);
+    if(timeLeft<=0){clearInterval(timerId);submitTest();}
+  },1000);
+}
+
+/* ============================================================
+   FLOW
+   ============================================================ */
+function startTest(){
+  renderReading();renderSentences();renderMatching();renderWriting();renderKeyboard();
+  document.getElementById('start').style.display='none';
+  document.getElementById('topbar').style.display='block';
+  document.getElementById('test').style.display='block';
+  document.getElementById('keyboard').classList.add('hidden'); // erscheint erst bei Fokus auf ein Schreibfeld
+  updateProgress(); startTimer(); window.scrollTo(0,0);
+}
+
+function submitTest(){
+  if(submitted)return;
+  const n=answeredCount();
+  if(timeLeft>0 && n<totalCount){
+    if(!confirm(`Sie haben ${n} von ${totalCount} Aufgaben bearbeitet.\nWirklich abgeben?`))return;
+  }
+  submitted=true; clearInterval(timerId);
+  document.getElementById('keyboard').classList.add('hidden');
+
+  let rP=0, sP=0, mP=0, bP=0;
+  // --- reading
+  READINGS.forEach((r,ri)=>r.qs.forEach((q,qi)=>{
+    const chosen=readingAns[`r${ri}q${qi}`];
+    document.querySelectorAll(`.opt[data-r="${ri}"][data-q="${qi}"]`).forEach(el=>{
+      const oi=+el.dataset.o; el.style.cursor='default';
+      if(oi===q.a){el.classList.add('correct');el.querySelector('.badge').textContent='✔ richtig';}
+      if(chosen===oi&&oi!==q.a){el.classList.add('wrong');el.querySelector('.badge').textContent='✗ Ihre Wahl';}
+    });
+    if(chosen===q.a)rP++;
+  }));
+  // --- sentences
+  SENTENCES.forEach((s,si)=>{
+    const got=sentState[si].answer.map(t=>t.w).join(' ');
+    const correct=s.w.join(' ');
+    const v=document.getElementById('sv'+si), sol=document.getElementById('ssol'+si);
+    v.style.display='block';
+    if(got===correct){sP++;v.style.color='var(--green)';v.textContent='✔ Richtig!';}
+    else{v.style.color='var(--red)';v.textContent='✗ Nicht ganz. Richtige Reihenfolge:';
+         sol.style.display='block';sol.textContent=correct;}
+  });
+  // --- matching
+  MATCHSETS.forEach((set,mi)=>set.pairs.forEach((p,wi)=>{
+    const slot=document.getElementById('slot'+mi+'_'+wi);
+    const chosen=matchState['m'+mi+'w'+wi];
+    if(chosen===p.de){mP++;slot.classList.add('correct');}
+    else{slot.classList.add('wrong');slot.innerHTML=(chosen?esc(chosen):'—')+' → <b>'+esc(p.de)+'</b>';}
+  }));
+  // --- writing (bonus)
+  WRITING.forEach((w,i)=>{
+    const el=document.getElementById('wr'+i);const val=(el.value||'').trim();
+    const ok=w.accept.some(a=>val.includes(a));
+    el.readOnly=true;
+    el.style.borderColor=ok?'var(--green)':'var(--red)';
+    el.style.background=ok?'var(--green-bg)':'var(--red-bg)';
+    const m=document.getElementById('wm'+i);m.style.display='block';
+    m.textContent=(ok?'✔ Korrekt':'✗ Musterlösung: '+w.model);
+    if(ok)bP++;
+  });
+
+  showResults(rP,sP,mP,bP);
+}
+
+function showResults(rP,sP,mP,bP){
+  const core=rP+sP+mP, coreMax=totalCount, pct=Math.round(core/coreMax*100);
+  const pass=pct>=60;
+  const name=(document.getElementById('studentName').value||'').trim();
+  const grade = pct>=90?'Sehr gut (1)':pct>=80?'Gut (2)':pct>=70?'Befriedigend (3)':pct>=60?'Ausreichend (4)':'Nicht bestanden (5)';
+  const ringColor = pass?'linear-gradient(135deg,#2f9e57,#0e7c7b)':'linear-gradient(135deg,#d64545,#e8a531)';
+  const usedMin = Math.floor((90*60-timeLeft)/60);
+  const R=document.getElementById('results');
+  R.style.display='block';
+  R.innerHTML=`
+    <div class="scorecard">
+      <div class="ring" style="background:${ringColor}">
+        <div class="pct">${pct}%</div><div class="lbl">${core} / ${coreMax} Punkte</div>
+      </div>
+      <div class="verdictbig" style="color:${pass?'var(--green)':'var(--red)'}">
+        ${pass?'🎉 Bestanden!':'Weiter üben — fast geschafft!'}</div>
+      <div style="color:var(--muted)">${name?('Kandidat/in: <b>'+esc(name)+'</b> · '):''}Note: <b>${grade}</b> · Zeit: ${usedMin} Min.</div>
+      <div class="breakdown">
+        <div class="bdcard"><b>${rP}/30</b><span>Teil 1 · Lesen</span></div>
+        <div class="bdcard"><b>${sP}/${SENTENCES.length}</b><span>Teil 2 · Sätze</span></div>
+        <div class="bdcard"><b>${mP}/${MATCHSETS.reduce((s,m)=>s+m.pairs.length,0)}</b><span>Teil 3 · Wörter</span></div>
+        <div class="bdcard"><b>+${bP}/4</b><span>Bonus · Schreiben</span></div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="window.scrollTo({top:document.getElementById('test').offsetTop,behavior:'smooth'})">📋 Antworten ansehen</button>
+        <button class="btn gold" onclick="window.print()">🖨️ Als PDF / drucken</button>
+        <button class="btn" style="background:var(--gold);color:#3a2a00" onclick="location.reload()">🔄 Neu starten</button>
+      </div>
+    </div>
+    <div class="reviewnote">Unten sehen Sie jede Aufgabe: <b style="color:var(--green)">grün</b> = richtig,
+      <b style="color:var(--red)">rot</b> = Ihre falsche Wahl bzw. die Musterlösung. Scrollen Sie durch alle vier Teile.</div>`;
+  document.getElementById('submitTop').style.display='none';
+  document.getElementById('timer').textContent='fertig';
+  R.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
