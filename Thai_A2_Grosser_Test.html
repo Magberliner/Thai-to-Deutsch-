@@ -26,7 +26,7 @@
   #topbar{position:sticky;top:0;z-index:40;background:#fff;color:var(--ink);
     border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(20,60,60,.08);display:none;}
   #topbar .inner{max-width:1180px;margin:0 auto;padding:10px 18px;display:grid;
-    grid-template-columns:auto auto minmax(180px,1fr) auto auto;align-items:center;gap:12px;}
+    grid-template-columns:auto auto minmax(180px,1fr) auto auto auto;align-items:center;gap:12px;}
   #topbar .brand{font-weight:700;letter-spacing:.3px}
   #timer{font-variant-numeric:tabular-nums;font-weight:800;background:var(--teal);
     color:#fff;padding:6px 12px;border-radius:8px;font-size:1.05rem}
@@ -40,6 +40,9 @@
   .progwrap{height:9px;background:#edf0ec;border-radius:6px;overflow:hidden}
   .progbar{height:100%;width:0;background:var(--gold);transition:width .3s}
   #progtext{font-size:.8rem;color:var(--muted);white-space:nowrap}
+  .portal-link{display:inline-flex;align-items:center;gap:6px;color:var(--teal-dark);font-weight:700;
+    text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;background:#fff;white-space:nowrap}
+  .portal-link:hover{border-color:var(--teal);background:#f3fbfa}
   #submitTop{background:var(--gold);color:#3a2a00;border:none;font-weight:700;
     padding:9px 14px;border-radius:8px;cursor:pointer;font-size:.9rem;white-space:nowrap}
   #submitTop:hover{background:var(--gold-dark);color:#fff}
@@ -52,6 +55,7 @@
   }
 
   /* ---------- Start screen ---------- */
+  .start-nav{max-width:980px;margin:18px auto 0;padding:0 22px}
   #start{padding:38px 0 60px}
   .hero{background:var(--card);border-radius:20px;box-shadow:var(--shadow);
     padding:34px;border-top:6px solid var(--gold);text-align:center}
@@ -211,11 +215,15 @@
     </nav>
     <div class="progwrap"><div class="progbar" id="progbar"></div></div>
     <span id="progtext">0 / 63</span>
+    <a class="portal-link" href="index.html#test" target="_top">Portal</a>
     <button id="submitTop" onclick="submitTest()">Test abgeben</button>
   </div>
 </div>
 
 <!-- ============ START SCREEN ============ -->
+<div class="start-nav">
+  <a class="portal-link" href="index.html#test" target="_top">← Zurück zum Lernportal</a>
+</div>
 <div id="start" class="wrap">
   <div class="hero">
     <div class="kite">🪁</div>
