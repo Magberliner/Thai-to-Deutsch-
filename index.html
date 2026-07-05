@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Thai mit Mac · Lernportal A2.1</title>
+<title>Thai mit Mac · Lernportal A2.1 / A2.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Sarabun font: covers both Thai and Latin glyphs; loaded from Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
   size: A4;
   margin: 22mm 14mm 18mm;
   @top-center {
-    content: "Thai mit Mac · Lernportal A2.1";
+    content: "Thai mit Mac · Lernportal A2.1 / A2.2";
     font-size: 11px;
     font-weight: 700;
     color: #10b981;
@@ -752,6 +752,125 @@ table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
   border-bottom: 1px solid #c0c7d2;
   height: 24px; margin-bottom: 6px;
 }
+.w6-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+.w6-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 2px solid #e2e6ec;
+  border-radius: 10px;
+  background: #fff;
+  padding: 9px 12px;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+.w6-option:hover, .w6-option.selected { border-color: #0d9488; background: #f0fdfa; }
+.w6-option.correct { border-color: #15803d; background: #ecfdf3; }
+.w6-option.wrong { border-color: #dc2626; background: #fff1f2; }
+.w6-option .mark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #8290a1;
+  border-radius: 50%;
+  flex: none;
+}
+.w6-option.selected .mark { border-color: #0d9488; background: #0d9488; box-shadow: inset 0 0 0 3px #fff; }
+.w6-result { font-weight: 800; margin-top: 8px; color: #0f766e; }
+.w6-check-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0d9488, #047857);
+  color: #fff;
+  padding: 12px 22px;
+  margin-top: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(13, 148, 136, .22);
+}
+.w6-check-pill:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(13, 148, 136, .28); }
+.w6-check-pill:active { transform: translateY(0); }
+.w6-build { border-top: 1px dashed #d4dae3; padding: 14px 0; }
+.w6-build:first-of-type { border-top: 0; }
+.w6-answer {
+  min-height: 46px;
+  border: 2px dashed #0d9488;
+  border-radius: 10px;
+  background: #f0fdfa;
+  padding: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+  margin: 8px 0;
+}
+.w6-answer:empty::before { content: "Wörter in die richtige Reihenfolge tippen"; color: #687586; font-size: 13px; }
+.w6-bank { display: flex; flex-wrap: wrap; gap: 7px; }
+.w6-tile {
+  border: 2px solid #d18c10;
+  border-radius: 10px;
+  background: #fff;
+  padding: 7px 12px;
+  font: inherit;
+  font-family: "Noto Sans Thai", "Leelawadee UI", "Thonburi", sans-serif;
+  cursor: pointer;
+}
+.w6-answer .w6-tile { border-color: #0d9488; background: #0d9488; color: #fff; }
+.w6-build.ok .w6-answer { border-color: #15803d; background: #ecfdf3; }
+.w6-build.bad .w6-answer { border-color: #dc2626; background: #fff1f2; }
+.w6-feedback { font-weight: 800; margin-top: 6px; }
+.w6-thai-input {
+  width: 100%;
+  min-height: 110px;
+  border: 2px solid #d4dae3;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 20px;
+  line-height: 1.7;
+  resize: vertical;
+  font-family: "Noto Sans Thai", "Leelawadee UI", "Thonburi", sans-serif;
+}
+.w6-thai-input:focus { outline: none; border-color: #0d9488; background: #f0fdfa; }
+.w6-keyboard {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  background: #2c3d47;
+  border-radius: 14px 14px 0 0;
+  padding: 10px;
+  margin-top: 14px;
+  box-shadow: 0 -4px 18px rgba(0,0,0,.18);
+}
+.w6-kbhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.w6-kbtitle { color: #d8fff1; font-size: 13px; }
+.w6-krow { display: flex; justify-content: center; gap: 5px; margin-bottom: 5px; flex-wrap: wrap; }
+.w6-key {
+  min-width: 34px;
+  height: 40px;
+  border: 0;
+  border-radius: 8px;
+  background: #3f5560;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Noto Sans Thai", "Leelawadee UI", "Thonburi", sans-serif;
+  cursor: pointer;
+}
+.w6-key:hover { background: #4f6a77; }
+.w6-key.wide { min-width: 150px; font-size: 13px; background: #0d9488; }
+.w6-key.fn { min-width: 78px; font-size: 13px; background: #54707c; }
+.w6-key.del { min-width: 86px; font-size: 13px; background: #d18c10; color: #2d2104; }
+.w6-key.active { background: #d18c10; color: #2d2104; }
+.hidden { display: none !important; }
 
 /* ==================== TONE BOX ==================== */
 .tones {
@@ -933,17 +1052,12 @@ ul, ol { padding-left: 22px; }
   <div class="inner">
     <div class="brand">
       <div class="logo">ท</div>
-      <div>Thai mit Mac<small>Lernportal A2.1</small></div>
+      <div>Thai mit Mac<small>Lernportal A2.1 / A2.2</small></div>
     </div>
     <nav class="tabs">
-      <button data-tab="home" class="active">Start</button>
-      <button data-tab="kursplan">Kursplan</button>
-      <button data-tab="woche1">Woche 1</button>
-      <button data-tab="woche2">Woche 2</button>
-      <button data-tab="woche3">Woche 3</button>
-      <button data-tab="woche4">Woche 4</button>
-      <button data-tab="woche5">Woche 5</button>
-      <button data-tab="test">📝 Test</button>
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="a21">A2.1</button>
+      <button data-tab="a22">A2.2</button>
     </nav>
     <button class="print-cta" onclick="window.print()">⬇ Als PDF speichern</button>
   </div>
@@ -957,13 +1071,13 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 · 6 Wochen · 1 Stunde pro Tag</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 6 Wochen · 1 Stunde pro Tag</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
       <div class="cta-row">
-        <button class="btn primary" onclick="showTab('kursplan')">📋 Kursplan ansehen</button>
-        <button class="btn ghost" onclick="showTab('woche1')">▶ Woche 1 starten</button>
+        <button class="btn primary" onclick="showTab('a21')">A2.1 öffnen</button>
+        <button class="btn ghost" onclick="showTab('a22')">A2.2 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1013,41 +1127,48 @@ ul, ol { padding-left: 22px; }
     </ul>
   </div>
 
-  <div class="card red">
-    <h3 class="h-card red"><span class="pill">Schnellzugriff</span> Direkt zur Lektion</h3>
+  <div class="card">
+    <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
+    <p class="section-sub">Der Kurs ist jetzt in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 startet mit Woche 6 und baut darauf auf.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
-      <div class="week-card green" onclick="showTab('woche1')">
-        <img class="photo" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=70&fm=jpg&auto=format" alt="Sport">
-        <div class="head"><div><div class="n">Woche 1</div><div class="t">Sport und Gesundheit</div></div><div class="th thai">กีฬา &amp; สุขภาพ</div></div>
-        <div class="body"><p>30 Wörter · Klassifikatoren · Verlaufsform · Dialog beim Arzt</p><button class="open-link" onclick="showTab('woche1')">Lektion öffnen →</button></div>
+      <div class="week-card green" onclick="showTab('a21')">
+        <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
+        <div class="head">
+          <div><div class="n">Kursbereich</div><div class="t">Thai A2.1</div></div>
+          <div class="th thai">ระดับ A2.1</div>
+        </div>
+        <div class="body">
+          <p>Woche 1-5 · Alltagsthemen · Grammatikaufbau · großer Test</p>
+          <button class="open-link">A2.1 öffnen →</button>
+        </div>
       </div>
-      <div class="week-card red" onclick="showTab('woche2')">
-        <img class="photo" src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?w=600&q=70&fm=jpg&auto=format" alt="Familie">
-        <div class="head"><div><div class="n">Woche 2</div><div class="t">Familie und Freunde</div></div><div class="th thai">ครอบครัว &amp; เพื่อน</div></div>
-        <div class="body"><p>32 Wörter · Fragewörter · Possessivpartikel · Dialog mit Freund</p><button class="open-link" onclick="showTab('woche2')">Lektion öffnen →</button></div>
+      <div class="week-card teal" onclick="showTab('a22')">
+        <img class="photo" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=70&fm=jpg&auto=format" alt="A2.2 Kursbereich">
+        <div class="head">
+          <div><div class="n">Kursbereich</div><div class="t">Thai A2.2</div></div>
+          <div class="th thai">ระดับ A2.2</div>
+        </div>
+        <div class="body">
+          <p>Woche 6 · Flughafen · Taxi · BTS/MRT · öffentliche Verkehrsmittel</p>
+          <button class="open-link">A2.2 öffnen →</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="card red">
-    <h3 class="h-card red"><span class="pill">Prüfung</span> Großer Test — Woche 1–5</h3>
-    <p class="section-sub">Ein interaktiver 90-Minuten-Test mit Timer, Ziehen-&amp;-Ablegen und Thai-Bildschirmtastatur — automatische Auswertung mit voller Lösungsansicht.</p>
-    <button class="btn primary" onclick="showTab('test')">📝 Zum Test →</button>
-  </div>
-
 </section>
 
-<!-- ==================== KURSPLAN ==================== -->
-<section id="kursplan" class="page">
+<!-- ==================== A2.1 HUB ==================== -->
+<section id="a21" class="page">
 
   <div class="card">
-    <h2 class="section-title"><span class="accent">📋</span> Kursplan — 6 Wochen Thai A2.1</h2>
-    <p class="section-sub">Eine kompakte Übersicht aller Wochen. Jede Woche hat ein Alltagsthema und baut auf der vorigen auf.</p>
+    <h2 class="section-title"><span class="accent">A2.1</span> Wochen 1-5</h2>
+    <p class="section-sub">Der A2.1-Bereich bündelt die ersten fünf Wochen: Sport und Gesundheit, Familie, Einkaufen, Formen und Technologie. Der große Test gehört ebenfalls zu diesem Bereich.</p>
 
     <div class="info-grid">
-      <div class="info-card red"><div class="k">Niveau</div><div class="v">A2.1 (GER)</div></div>
-      <div class="info-card"><div class="k">Dauer</div><div class="v">6 Wochen · 42 Stunden</div></div>
-      <div class="info-card blue"><div class="k">Pensum</div><div class="v">1 Std. / Tag · 7 Tage</div></div>
+      <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.1</div></div>
+      <div class="info-card"><div class="k">Umfang</div><div class="v">5 Wochen · 35 Stunden</div></div>
+      <div class="info-card blue"><div class="k">Abschluss</div><div class="v">Großer Test · Woche 1-5</div></div>
     </div>
   </div>
 
@@ -1064,7 +1185,7 @@ ul, ol { padding-left: 22px; }
   </div>
 
   <div class="card">
-    <h3 class="h-card"><span class="pill">Wochen</span> Themen-Übersicht</h3>
+    <h3 class="h-card"><span class="pill">A2.1</span> Inhalte öffnen</h3>
     <div class="weeks-grid">
 
       <div class="week-card green" onclick="showTab('woche1')">
@@ -1137,21 +1258,25 @@ ul, ol { padding-left: 22px; }
         </div>
       </div>
 
-      <div class="week-card teal">
-        <img class="photo" src="https://images.unsplash.com/photo-1710611229178-4d9015dd1ba0?w=600&q=70&fm=jpg&auto=format" alt="Festival">
-        <div class="head">
-          <div><div class="n">Woche 6</div><div class="t">Feste und Traditionen</div></div>
-          <div class="th thai">เทศกาล &amp; ประเพณี</div>
-        </div>
-        <div class="body">
-          <p><span class="lab">Wortschatz:</span> Songkran, Loi Krathong, Buddhismus</p>
-          <p><span class="lab">Grammatik:</span> Zukunft mit จะ, Sequenzen mit แล้วก็</p>
-          <p><span class="lab">Dialog:</span> Eine Einladung zum Fest</p>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <div class="card red">
+    <h3 class="h-card red"><span class="pill">A2.1 Test</span> Großer Test — Wiederholung Woche 1-5</h3>
+    <p class="section-sub">Ein interaktiver 90-Minuten-Test mit Timer, Ziehen-&amp;-Ablegen und Thai-Bildschirmtastatur — automatische Auswertung mit voller Lösungsansicht.</p>
+    <div class="info-grid">
+      <div class="info-card red"><div class="k">Dauer</div><div class="v">90 Minuten</div></div>
+      <div class="info-card"><div class="k">Aufgaben</div><div class="v">63 + 4 Bonus</div></div>
+      <div class="info-card blue"><div class="k">Bestehen</div><div class="v">ab 60 %</div></div>
+    </div>
+    <div class="cta-row" style="margin-top:14px">
+      <button class="btn primary" onclick="window.open('Thai_A2_Grosser_Test.html','_blank')">Test als eigene Seite öffnen</button>
+    </div>
+    <p class="section-sub" style="margin-top:10px;font-size:13px;">Der Test läuft unten direkt im A2.1-Bereich. Der Button öffnet dieselbe Testseite zusätzlich als eigene Seite.</p>
+  </div>
+
+  <iframe src="Thai_A2_Grosser_Test.html" title="Thai A2.1 Großer Test"
+    style="width:100%; height:92vh; min-height:720px; border:0; display:block; margin-top:18px; background:#fff;"></iframe>
 
   <div class="card">
     <h3 class="h-card"><span class="pill">Wochen-Plan</span> Aufbau einer typischen Woche</h3>
@@ -1169,6 +1294,50 @@ ul, ol { padding-left: 22px; }
         <tr><td class="day">Tag 7 (So)</td><td>Test &amp; Selbstkontrolle</td><td>Lösungen prüfen, Fehler korrigieren</td><td>Freie Erzählung 2 Min. zum Thema</td></tr>
       </tbody>
     </table>
+  </div>
+
+</section>
+
+<!-- ==================== A2.2 HUB ==================== -->
+<section id="a22" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
+      <h1>A2.2 Lernbereich</h1>
+      <div class="thai-title thai">ระดับ A2.2</div>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache in Richtung Reise, Orientierung und echte Situationen in Bangkok. Woche 6 startet mit Flughafen, Taxi, BTS/MRT und öffentlichen Verkehrsmitteln.</p>
+      <div class="cta-row">
+        <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
+        <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
+    <div class="info-card"><div class="k">Aktuell</div><div class="v">Woche 6 · Orientierung</div></div>
+    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Fragen, Routen, Transport</div></div>
+  </div>
+
+  <div class="card">
+    <h3 class="h-card"><span class="pill">A2.2</span> Inhalte öffnen</h3>
+    <div class="weeks-grid" style="grid-template-columns: 1fr;">
+      <div class="week-card teal" onclick="showTab('woche6')">
+        <img class="photo" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=70&fm=jpg&auto=format" alt="Öffentliche Verkehrsmittel in Bangkok">
+        <div class="head">
+          <div><div class="n">Woche 6</div><div class="t">Orientierung und Verkehr</div></div>
+          <div class="th thai">การเดินทาง &amp; การถามทาง</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Flughafen, Taxi, BTS/MRT, Bus, Boot und Wege</p>
+          <p><span class="lab">Grammatik:</span> Richtung, Ziel, Umsteigen, höfliche Fragen</p>
+          <p><span class="lab">Praxis:</span> Multiple Choice, Sätze bauen, Thai-Tastatur</p>
+          <button class="open-link">Woche 6 öffnen →</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -2980,32 +3149,722 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
-<!-- ==================== TEST ==================== -->
-<section id="test" class="page">
+<!-- ==================== WOCHE 6: ORIENTIERUNG UND VERKEHR ==================== -->
+<section id="woche6" class="page">
 
-  <div class="card red">
-    <h2 class="section-title"><span class="accent">📝</span> Großer Test — Wiederholung Woche 1–5</h2>
-    <p class="section-sub">Ein interaktiver Test über alle fünf Themen: Sport &amp; Gesundheit, Familie, Einkaufen, Formen und Technologie. Lesen, Sätze bauen, Wortbedeutung per Ziehen &amp; Ablegen und Schreiben mit einer Thai-Bildschirmtastatur — mit Timer, automatischer Auswertung und voller Lösungsansicht.</p>
-
-    <div class="info-grid">
-      <div class="info-card red"><div class="k">Dauer</div><div class="v">90 Minuten</div></div>
-      <div class="info-card"><div class="k">Aufgaben</div><div class="v">63 + 4 Bonus</div></div>
-      <div class="info-card blue"><div class="k">Bestehen</div><div class="v">ab 60 %</div></div>
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Woche 6 · A2.2</span>
+      <h1>Orientierung am Flughafen und mit öffentlichen Verkehrsmitteln</h1>
+      <div class="thai-title thai">การเดินทาง สนามบิน แท็กซี่ รถไฟฟ้า และขนส่งสาธารณะ</div>
+      <p class="lead">Lernen Sie, sich in Thailand zu orientieren: vom Flughafen zum Hotel, mit Taxi, BTS, MRT, Bus und Boot. Sie üben, nach dem Weg zu fragen, Ziele zu nennen, Preise zu verstehen und einfache Reiserouten zu erklären.</p>
     </div>
-
-    <div class="cta-row" style="margin-top:14px">
-      <button class="btn primary" onclick="window.open('Thai_A2_Grosser_Test.html','_blank')">🖥️ Test öffnen</button>
-    </div>
-    <p class="section-sub" style="margin-top:10px;font-size:13px;">Der Test läuft unten direkt im Lernportal. Der Button öffnet dieselbe Testseite zusätzlich als eigene Seite.</p>
   </div>
 
-  <iframe src="Thai_A2_Grosser_Test.html" title="Thai A2 Großer Test"
-    style="width:100%; height:92vh; min-height:720px; border:0; display:block; margin-top:18px; background:#fff;"></iframe>
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 45 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Niveau</div><div class="v">Thai A2.2 · Routen &amp; Situationen</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Wege fragen und Verkehrsmittel nutzen</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Flughafen · สนามบิน (sà-nǎam-bin)</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=70&fm=jpg&auto=format" alt="Flughafen Terminal"></div>
+        <div class="cap">สนามบิน · der Flughafen</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">สนามบิน</td><td class="translit">sà-nǎam-bin</td><td>Flughafen</td><td>✈️</td></tr>
+          <tr><td class="thai">อาคารผู้โดยสาร</td><td class="translit">aa-khaan phûu-dooi-sǎan</td><td>Terminal</td><td>🏢</td></tr>
+          <tr><td class="thai">ขาเข้า</td><td class="translit">khǎa-khâo</td><td>Ankunft</td><td>🛬</td></tr>
+          <tr><td class="thai">ขาออก</td><td class="translit">khǎa-òok</td><td>Abflug</td><td>🛫</td></tr>
+          <tr><td class="thai">กระเป๋าเดินทาง</td><td class="translit">grà-pǎo doen-thaang</td><td>Reisekoffer</td><td>🧳</td></tr>
+          <tr><td class="thai">รับกระเป๋า</td><td class="translit">ráp grà-pǎo</td><td>Gepäck abholen</td><td>🎒</td></tr>
+          <tr><td class="thai">ทางออก</td><td class="translit">thaang-òok</td><td>Ausgang</td><td>🚪</td></tr>
+          <tr><td class="thai">ชั้น</td><td class="translit">chán</td><td>Etage, Ebene</td><td>↕️</td></tr>
+          <tr><td class="thai">เคาน์เตอร์</td><td class="translit">khao-tôe</td><td>Schalter, Counter</td><td>🎫</td></tr>
+          <tr><td class="thai">ตั๋ว</td><td class="translit">tǔa</td><td>Ticket</td><td>🎟️</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Taxi und Adresse · แท็กซี่และที่อยู่</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="taxi-bangkok.svg" alt="Taxi in Bangkok"></div>
+        <div class="cap">แท็กซี่ · das Taxi</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">แท็กซี่</td><td class="translit">tháek-sîi</td><td>Taxi</td><td>🚕</td></tr>
+          <tr><td class="thai">คนขับ</td><td class="translit">khon-khàp</td><td>Fahrer/in</td><td>🧑‍✈️</td></tr>
+          <tr><td class="thai">มิเตอร์</td><td class="translit">mí-tôe</td><td>Taxameter</td><td>🔢</td></tr>
+          <tr><td class="thai">เปิดมิเตอร์</td><td class="translit">pòet mí-tôe</td><td>Taxameter einschalten</td><td>✅</td></tr>
+          <tr><td class="thai">ที่อยู่</td><td class="translit">thîi-yùu</td><td>Adresse</td><td>📍</td></tr>
+          <tr><td class="thai">โรงแรม</td><td class="translit">roong-raem</td><td>Hotel</td><td>🏨</td></tr>
+          <tr><td class="thai">ซอย</td><td class="translit">soi</td><td>Nebenstraße, Soi</td><td>↪️</td></tr>
+          <tr><td class="thai">ถนน</td><td class="translit">thà-nǒn</td><td>Straße</td><td>🛣️</td></tr>
+          <tr><td class="thai">รถติด</td><td class="translit">rót-tìt</td><td>Stau</td><td>🚗</td></tr>
+          <tr><td class="thai">ค่ารถ</td><td class="translit">khâa-rót</td><td>Fahrpreis</td><td>💵</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · BTS, MRT und öffentliche Verkehrsmittel · ขนส่งสาธารณะ</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1565347878219-552c839f1447?w=400&q=70&fm=jpg&auto=format" alt="Bahnstation in Bangkok"></div>
+        <div class="cap">รถไฟฟ้า · der Skytrain</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">รถไฟฟ้า</td><td class="translit">rót-fai-fáa</td><td>BTS, Skytrain</td><td>🚈</td></tr>
+          <tr><td class="thai">รถไฟใต้ดิน</td><td class="translit">rót-fai tâi-din</td><td>MRT, U-Bahn</td><td>🚇</td></tr>
+          <tr><td class="thai">สถานี</td><td class="translit">sà-thǎa-nii</td><td>Station</td><td>🚉</td></tr>
+          <tr><td class="thai">ชานชาลา</td><td class="translit">chaan-chaa-laa</td><td>Bahnsteig</td><td>🚏</td></tr>
+          <tr><td class="thai">เปลี่ยนสาย</td><td class="translit">plìan sǎai</td><td>umsteigen, Linie wechseln</td><td>🔁</td></tr>
+          <tr><td class="thai">บัตร</td><td class="translit">bàt</td><td>Karte, Ticketkarte</td><td>💳</td></tr>
+          <tr><td class="thai">รถเมล์</td><td class="translit">rót-mee</td><td>Bus</td><td>🚌</td></tr>
+          <tr><td class="thai">เรือ</td><td class="translit">ruea</td><td>Boot</td><td>⛴️</td></tr>
+          <tr><td class="thai">ท่าเรือ</td><td class="translit">thâa-ruea</td><td>Bootsanleger</td><td>⚓</td></tr>
+          <tr><td class="thai">ป้ายรถเมล์</td><td class="translit">pâai rót-mee</td><td>Bushaltestelle</td><td>🚏</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">D · Orientierung · การถามทาง</h4>
+    <table class="vocab">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ไป</td><td class="translit">bpai</td><td>gehen, fahren nach</td><td>➡️</td></tr>
+        <tr><td class="thai">มา</td><td class="translit">maa</td><td>kommen</td><td>⬅️</td></tr>
+        <tr><td class="thai">จาก</td><td class="translit">jàak</td><td>von, aus</td><td>📌</td></tr>
+        <tr><td class="thai">ถึง</td><td class="translit">thěung</td><td>bis, ankommen bei</td><td>🏁</td></tr>
+        <tr><td class="thai">ใกล้</td><td class="translit">glâi</td><td>nah</td><td>📍</td></tr>
+        <tr><td class="thai">ไกล</td><td class="translit">glai</td><td>weit</td><td>🧭</td></tr>
+        <tr><td class="thai">ตรงไป</td><td class="translit">dtrong-bpai</td><td>geradeaus</td><td>⬆️</td></tr>
+        <tr><td class="thai">เลี้ยวซ้าย</td><td class="translit">líao sáai</td><td>links abbiegen</td><td>↰</td></tr>
+        <tr><td class="thai">เลี้ยวขวา</td><td class="translit">líao khwǎa</td><td>rechts abbiegen</td><td>↱</td></tr>
+        <tr><td class="thai">ตรงข้าม</td><td class="translit">dtrong-khâam</td><td>gegenüber</td><td>↔️</td></tr>
+        <tr><td class="thai">ข้างหน้า</td><td class="translit">khâang-nâa</td><td>vorne, vor</td><td>⬆️</td></tr>
+        <tr><td class="thai">ข้างหลัง</td><td class="translit">khâang-lǎng</td><td>hinten, hinter</td><td>⬇️</td></tr>
+        <tr><td class="thai">ใช้เวลา</td><td class="translit">chái wee-laa</td><td>Zeit brauchen</td><td>⏱️</td></tr>
+        <tr><td class="thai">กี่นาที</td><td class="translit">gìi naa-thii</td><td>wie viele Minuten?</td><td>❓</td></tr>
+        <tr><td class="thai">ทางไหน</td><td class="translit">thaang nǎi</td><td>welcher Weg?</td><td>🧭</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Ziel sagen mit ไป + Ort</div>
+      <p>Wenn Sie sagen möchten, wohin Sie fahren, benutzen Sie <strong>ไป</strong> + Ort.</p>
+      <div class="formula">ไป + Ort = nach / zu einem Ort fahren</div>
+      <p class="ex"><span class="thai th-mid">ไปสนามบิน</span> <span class="translit">(bpai sà-nǎam-bin)</span> - zum Flughafen fahren</p>
+      <p class="ex"><span class="thai th-mid">ไปโรงแรมนี้</span> <span class="translit">(bpai roong-raem níi)</span> - zu diesem Hotel fahren</p>
+      <p class="ex"><span class="thai th-mid">ผมจะไปสถานีอโศก</span> <span class="translit">(phǒm jà bpai sà-thǎa-nii A-sòok)</span> - Ich werde zur Station Asok fahren.</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Von ... bis ... mit จาก ... ถึง ...</div>
+      <p>Für Routen und Entfernungen ist <span class="thai">จาก ... ถึง ...</span> sehr praktisch.</p>
+      <div class="formula">จาก + Start + ถึง + Ziel = von ... bis ...</div>
+      <p class="ex"><span class="thai th-mid">จากสนามบินถึงโรงแรมใช้เวลากี่นาที</span><br><span class="translit">jàak sà-nǎam-bin thěung roong-raem chái wee-laa gìi naa-thii?</span><br>Wie viele Minuten dauert es vom Flughafen bis zum Hotel?</p>
+      <p class="ex"><span class="thai th-mid">จากสถานีนี้ถึงสยามไกลไหม</span><br><span class="translit">jàak sà-thǎa-nii níi thěung Sà-yǎam glai mǎi?</span><br>Ist es von dieser Station bis Siam weit?</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G3 · Höflich nach dem Weg fragen</div>
+      <p>Diese Frageformen klingen natürlich und höflich:</p>
+      <p class="ex"><span class="thai th-mid">ไป ... ทางไหนครับ/คะ</span> - Welcher Weg führt nach ...?</p>
+      <p class="ex"><span class="thai th-mid">สถานี ... อยู่ที่ไหนครับ/คะ</span> - Wo ist die Station ...?</p>
+      <p class="ex"><span class="thai th-mid">ต้องเปลี่ยนสายไหมครับ/คะ</span> - Muss ich umsteigen?</p>
+      <p class="ex"><span class="thai th-mid">ขึ้นรถไฟฟ้าสายไหนครับ/คะ</span> - Welche BTS-Linie nehme ich?</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G4 · Richtung erklären</div>
+      <div class="formula">ตรงไป + เลี้ยวซ้าย/ขวา + อยู่...</div>
+      <p class="ex"><span class="thai th-mid">ตรงไป แล้วเลี้ยวซ้าย โรงแรมอยู่ข้างหน้า</span><br>Gehen Sie geradeaus, dann links. Das Hotel ist vorne.</p>
+      <p class="ex"><span class="thai th-mid">สถานีอยู่ตรงข้ามห้าง</span><br>Die Station ist gegenüber dem Einkaufszentrum.</p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog 1 · Vom Flughafen zum Hotel · จากสนามบินไปโรงแรม</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=900&q=70&fm=jpg&auto=format" alt="Flughafen Ankunft">
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">สวัสดีครับ ไปไหนครับ</span><span class="translit">sà-wàt-dii kráp, bpai nǎi kráp?</span><span class="de">Hallo, wohin fahren Sie?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ไปโรงแรมนี้ค่ะ อยู่ซอยสิบเอ็ด ถนนสุขุมวิท</span><span class="translit">bpai roong-raem níi khâ. yùu soi sìp-èt, thà-nǒn Sù-khǔm-wít.</span><span class="de">Zu diesem Hotel bitte. Es ist in Soi 11, Sukhumvit Road.</span></div></div>
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">ได้ครับ จากสนามบินถึงโรงแรมประมาณสี่สิบห้านาที ถ้ารถไม่ติด</span><span class="translit">dâai kráp. jàak sà-nǎam-bin thěung roong-raem bprà-maan sìi-sìp-hâa naa-thii, thâa rót mâi tìt.</span><span class="de">Gerne. Vom Flughafen bis zum Hotel etwa 45 Minuten, wenn kein Stau ist.</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ช่วยเปิดมิเตอร์ด้วยนะคะ</span><span class="translit">chûai pòet mí-tôe dûai ná khá.</span><span class="de">Bitte schalten Sie das Taxameter ein.</span></div></div>
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">ครับ เปิดแล้วครับ</span><span class="translit">kráp, pòet láeo kráp.</span><span class="de">Ja, ist schon eingeschaltet.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Dialog 2 · Mit der BTS fahren · นั่งรถไฟฟ้า</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1581262177000-8139a463e531?w=900&q=70&fm=jpg&auto=format" alt="Bahnhof in der Stadt">
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">ขอโทษครับ สถานีสยามไปทางไหนครับ</span><span class="translit">khǒr-thôot kráp, sà-thǎa-nii Sà-yǎam bpai thaang nǎi kráp?</span><span class="de">Entschuldigung, wie komme ich zur Station Siam?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">ขึ้นรถไฟฟ้าสายสุขุมวิท แล้วไปลงสถานีสยามค่ะ</span><span class="translit">khêun rót-fai-fáa sǎai Sù-khǔm-wít, láeo bpai long sà-thǎa-nii Sà-yǎam khâ.</span><span class="de">Nehmen Sie die Sukhumvit-Linie und steigen Sie an der Station Siam aus.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">ต้องเปลี่ยนสายไหมครับ</span><span class="translit">tông plìan sǎai mǎi kráp?</span><span class="de">Muss ich umsteigen?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">ไม่ต้องค่ะ นั่งไปห้าสถานี ใช้เวลาประมาณสิบห้านาที</span><span class="translit">mâi tông khâ. nâng bpai hâa sà-thǎa-nii, chái wee-laa bprà-maan sìp-hâa naa-thii.</span><span class="de">Nein, nicht nötig. Fahren Sie fünf Stationen. Es dauert ungefähr 15 Minuten.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันแรกในกรุงเทพ · „Erster Tag in Bangkok"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&q=70&fm=jpg&auto=format" alt="Bangkok Verkehr"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> วันนี้เป็นวันแรกของมาร์คในกรุงเทพ เขามาถึงสนามบินสุวรรณภูมิตอนเก้าโมงเช้า หลังจากรับกระเป๋าเดินทางแล้ว เขาเดินไปที่ทางออกและมองหาป้ายแท็กซี่</p>
+        <p class="thai th-mid"><strong>2.</strong> มาร์คต้องการไปโรงแรมที่ถนนสุขุมวิท ซอยสิบเอ็ด เขาเปิดแผนที่ในมือถือและให้ที่อยู่กับคนขับแท็กซี่ เขาพูดอย่างสุภาพว่า “ช่วยเปิดมิเตอร์ด้วยนะครับ”</p>
+        <p class="thai th-mid"><strong>3.</strong> คนขับบอกว่า จากสนามบินถึงโรงแรมใช้เวลาประมาณสี่สิบห้านาที ถ้ารถไม่ติด แต่ตอนเช้ารถบนทางด่วนค่อนข้างเยอะ มาร์คจึงถามว่า “มีทางอื่นที่เร็วกว่าไหมครับ”</p>
+        <p class="thai th-mid"><strong>4.</strong> เมื่อถึงโรงแรม มาร์คจ่ายค่ารถและขอบคุณคนขับ หลังจากเช็คอิน เขาขอแผนที่จากพนักงานโรงแรม เพราะเขาอยากเดินทางเองด้วยรถไฟฟ้าและรถไฟใต้ดิน</p>
+        <p class="thai th-mid"><strong>5.</strong> ตอนบ่ายมาร์คอยากไปสยาม เขาไม่อยากนั่งแท็กซี่ เพราะรถติดมาก พนักงานโรงแรมบอกว่า ให้เดินไปสถานีรถไฟฟ้านานา แล้วขึ้นสายสุขุมวิทไปลงสถานีสยาม</p>
+        <p class="thai th-mid"><strong>6.</strong> ที่สถานี มาร์คซื้อตั๋วจากเครื่องขายตั๋ว เขาไม่เข้าใจทุกอย่าง จึงถามพนักงานว่า “ไปสยามต้องเปลี่ยนสายไหมครับ” พนักงานตอบว่า “ไม่ต้องค่ะ นั่งไปห้าสถานี”</p>
+        <p class="thai th-mid"><strong>7.</strong> ตอนเย็นมาร์คอยากไปตลาดใกล้แม่น้ำ เขานั่งรถไฟฟ้าไปสถานีสะพานตากสิน แล้วต่อเรือที่ท่าเรือ เขาชอบเรือ เพราะเห็นวิวแม่น้ำและไม่ต้องเจอรถติด</p>
+        <p class="thai th-mid"><strong>8.</strong> ก่อนกลับโรงแรม มาร์คจดชื่อสถานี ทางออก และเวลาที่ใช้ในมือถือ เขาคิดว่าขนส่งสาธารณะในกรุงเทพมีหลายแบบ และสะดวกมากถ้ารู้ทางและถามเป็นภาษาไทยได้</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Heute ist Marks erster Tag in Bangkok. Er kommt um 9 Uhr morgens am Flughafen Suvarnabhumi an. Nachdem er seinen Koffer abgeholt hat, geht er zum Ausgang und sucht nach dem Taxi-Schild.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Mark möchte zu einem Hotel in der Sukhumvit Road, Soi 11. Er öffnet die Karte auf seinem Handy, gibt dem Fahrer die Adresse und bittet höflich darum, das Taxameter einzuschalten.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Der Fahrer sagt, dass es vom Flughafen bis zum Hotel ungefähr 45 Minuten dauert, wenn kein Stau ist. Weil morgens viele Autos auf der Schnellstraße sind, fragt Mark nach einer schnelleren Alternative.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Am Hotel bezahlt Mark den Fahrpreis und bedankt sich. Nach dem Check-in bittet er die Hotelangestellte um eine Karte, weil er allein mit BTS und MRT fahren möchte.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Am Nachmittag möchte Mark nach Siam. Er möchte kein Taxi nehmen, weil der Verkehr sehr dicht ist. Die Hotelangestellte sagt, er soll zur BTS-Station Nana gehen und mit der Sukhumvit-Linie bis Siam fahren.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> An der Station kauft Mark ein Ticket am Automaten. Er versteht nicht alles und fragt deshalb eine Mitarbeiterin: „Muss ich nach Siam umsteigen?" Sie antwortet: „Nein, fahren Sie fünf Stationen."</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Am Abend möchte Mark zu einem Markt in der Nähe des Flusses. Er fährt mit der BTS bis Saphan Taksin und nimmt dort ein Boot. Er mag das Boot, weil er den Fluss sieht und keinen Stau hat.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Bevor er zum Hotel zurückkehrt, notiert Mark die Stationsnamen, Ausgänge und Fahrzeiten im Handy. Er findet Bangkoks öffentliche Verkehrsmittel praktisch, wenn man den Weg kennt und auf Thai fragen kann.</p>
+      </div>
+    </div>
+
+    <div class="exercise" id="w6-reading-quiz">
+      <span class="num">1</span><h4>Lesen - 10 Fragen mit 4 Antworten</h4>
+      <p class="task">Wählen Sie die beste Antwort. Danach klicken Sie auf „Antworten prüfen".</p>
+
+      <div class="w6-mc" data-answer="b">
+        <p><strong>1.</strong> Wann kommt Mark am Flughafen an?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>um sieben Uhr abends</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>um neun Uhr morgens</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>um elf Uhr nachts</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>um sechs Uhr morgens</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="c">
+        <p><strong>2.</strong> Was macht Mark direkt nach der Gepäckabholung?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Er kauft eine SIM-Karte.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Er fährt sofort mit der BTS.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Er sucht den Ausgang und das Taxi-Schild.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Er nimmt ein Boot.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="a">
+        <p><strong>3.</strong> Wo liegt Marks Hotel?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sukhumvit Road, Soi 11</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>am Flughafen</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>direkt am Fluss</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>neben dem Markt</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="d">
+        <p><strong>4.</strong> Was sagt Mark höflich zum Taxifahrer?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Bitte fahren Sie langsamer.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Bitte halten Sie am Bus.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Bitte kaufen Sie ein Ticket.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Bitte schalten Sie das Taxameter ein.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="b">
+        <p><strong>5.</strong> Wie lange dauert die Fahrt zum Hotel ungefähr, wenn kein Stau ist?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>15 Minuten</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>45 Minuten</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>2 Stunden</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>5 Minuten</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="a">
+        <p><strong>6.</strong> Warum bittet Mark die Hotelangestellte um eine Karte?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Er möchte selbst mit BTS und MRT fahren.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Er sucht seinen Koffer.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Er möchte das Hotel wechseln.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Er möchte zum Flughafen zurück.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="c">
+        <p><strong>7.</strong> Warum nimmt Mark am Nachmittag kein Taxi nach Siam?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Er hat kein Geld.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Er mag keine Taxis.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Es gibt sehr viel Stau.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Das Hotel verbietet Taxis.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="d">
+        <p><strong>8.</strong> Muss Mark nach Siam umsteigen?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Ja, zweimal.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ja, an jeder Station.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ja, am Flughafen.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Nein, er fährt fünf Stationen.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="b">
+        <p><strong>9.</strong> Warum mag Mark das Boot am Abend?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Es fährt direkt zum Flughafen.</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Er sieht den Fluss und hat keinen Stau.</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Es ist im Hotel.</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Es kostet immer nichts.</button>
+        </div>
+      </div>
+      <div class="w6-mc" data-answer="a">
+        <p><strong>10.</strong> Was notiert Mark vor der Rückfahrt?</p>
+        <div class="w6-options">
+          <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Stationsnamen, Ausgänge und Fahrzeiten</button>
+          <button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nur Restaurantnamen</button>
+          <button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>alle Taxifahrer-Namen</button>
+          <button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>seine Flugnummer</button>
+        </div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckMC()">✓ Antworten prüfen</button>
+      <div id="w6-mc-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Sätze bauen - Route und Zeit</h4>
+      <p class="task">Tippen Sie die Thai-Wörter in die richtige Reihenfolge. Tippen Sie ein gesetztes Wort erneut, um es zurückzulegen.</p>
+      <div class="w6-build-set" id="w6-build-routes">
+        <div class="w6-build" data-answer="จาก สนามบิน ถึง โรงแรม ใช้เวลา กี่นาที">
+          <div class="task">1. Wie viele Minuten dauert es vom Flughafen bis zum Hotel?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จาก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">กี่นาที</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สนามบิน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใช้เวลา</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถึง</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ผม จะ ไป สถานี สยาม">
+          <div class="task">2. Ich werde zur Station Siam fahren.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สยาม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สถานี</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผม</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="โรงแรม อยู่ ที่ ถนนสุขุมวิท ซอย สิบเอ็ด">
+          <div class="task">3. Das Hotel ist in der Sukhumvit Road, Soi 11.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สุขุมวิท</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ซอย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถนน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สิบเอ็ด</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="จาก สถานี นี้ ถึง ตลาด ไกล ไหม">
+          <div class="task">4. Ist es von dieser Station bis zum Markt weit?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไกล</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สถานี</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตลาด</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จาก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถึง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ฉัน จะ นั่ง รถไฟฟ้า ไป สยาม">
+          <div class="task">5. Ich werde mit der BTS nach Siam fahren.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สยาม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถไฟฟ้า</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">นั่ง</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ต้อง เปลี่ยน สาย ที่ สถานี อโศก">
+          <div class="task">6. Man muss an der Station Asok umsteigen.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">อโศก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต้อง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สถานี</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สาย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เปลี่ยน</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ป้าย รถเมล์ อยู่ ตรงข้าม โรงแรม">
+          <div class="task">7. Die Bushaltestelle ist gegenüber dem Hotel.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตรงข้าม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถเมล์</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ป้าย</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="เดิน ตรงไป แล้ว เลี้ยวซ้าย">
+          <div class="task">8. Gehen Sie geradeaus und dann links.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">แล้ว</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เลี้ยวซ้าย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เดิน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตรงไป</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="จาก โรงแรม ถึง ท่าเรือ ใช้เวลา สิบนาที">
+          <div class="task">9. Vom Hotel bis zum Pier dauert es zehn Minuten.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ท่าเรือ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จาก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สิบนาที</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถึง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใช้เวลา</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ถ้า รถติด ฉัน จะ นั่ง รถไฟฟ้า">
+          <div class="task">10. Wenn Stau ist, werde ich mit der BTS fahren.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถติด</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">นั่ง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถ้า</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถไฟฟ้า</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w6-build-routes')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Sätze bauen - höfliche Fragen</h4>
+      <p class="task">Bauen Sie die höflichen Reise-Fragen. Die Partikel <span class="thai">ครับ/คะ</span> kann je nach Sprecher/in angepasst werden.</p>
+      <div class="w6-build-set" id="w6-build-questions">
+        <div class="w6-build" data-answer="สถานี รถไฟฟ้า อยู่ ที่ไหน ครับ">
+          <div class="task">1. Wo ist die BTS-Station?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่ไหน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สถานี</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถไฟฟ้า</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ไป สนามบิน ทางไหน ครับ">
+          <div class="task">2. Welcher Weg führt zum Flughafen?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สนามบิน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทางไหน</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ต้อง เปลี่ยน สาย ไหม ครับ">
+          <div class="task">3. Muss ich umsteigen?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เปลี่ยน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต้อง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สาย</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ถึง โรงแรม ใช้เวลา กี่นาที ครับ">
+          <div class="task">4. Wie viele Minuten dauert es bis zum Hotel?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">กี่นาที</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถึง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใช้เวลา</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ช่วย เปิด มิเตอร์ ด้วย นะ ครับ">
+          <div class="task">5. Bitte schalten Sie das Taxameter ein.</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ด้วย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เปิด</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">มิเตอร์</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ช่วย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">นะ</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ขึ้น รถไฟฟ้า สาย ไหน ครับ">
+          <div class="task">6. Welche BTS-Linie nehme ich?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">สาย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ขึ้น</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">รถไฟฟ้า</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ตั๋ว ราคา เท่าไหร่ ครับ">
+          <div class="task">7. Wie viel kostet das Ticket?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เท่าไหร่</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตั๋ว</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ราคา</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ทางออก อยู่ ชั้น ไหน ครับ">
+          <div class="task">8. Auf welcher Etage ist der Ausgang?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชั้น</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทางออก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหน</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ไป ตลาด ต้อง นั่ง เรือ ไหม ครับ">
+          <div class="task">9. Muss ich zum Markt mit dem Boot fahren?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต้อง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">นั่ง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตลาด</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรือ</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+        <div class="w6-build" data-answer="ช่วย บอก ทาง ไป โรงแรม หน่อย ครับ">
+          <div class="task">10. Können Sie mir bitte den Weg zum Hotel sagen?</div>
+          <div class="w6-answer"></div>
+          <div class="w6-bank">
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">โรงแรม</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทาง</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ช่วย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">หน่อย</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">บอก</button>
+            <button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button>
+          </div>
+          <div class="w6-feedback"></div>
+        </div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w6-build-questions')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Wegbeschreibung schreiben</h4>
+      <p class="task">Schreiben Sie 4 Thai-Sätze: vom Flughafen zum Hotel oder von Ihrem Hotel zur BTS/MRT-Station. Benutzen Sie mindestens 3 Wörter aus Lektion 1.</p>
+      <textarea class="w6-thai-input thai" rows="4" placeholder="พิมพ์ภาษาไทยที่นี่..." onfocus="w6SetField(this)"></textarea>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mini-Text - Mein Weg in Bangkok</h4>
+      <p class="task">Schreiben Sie 5 Sätze auf Thai oder mit Umschrift: Wo starten Sie? Wohin fahren Sie? Welches Verkehrsmittel nehmen Sie? Wie lange dauert es?</p>
+      <textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: วันนี้ฉันไปสยามจากโรงแรม..." onfocus="w6SetField(this)"></textarea>
+    </div>
+
+    <div id="w6Keyboard" class="w6-keyboard hidden">
+      <div class="w6-kbhead">
+        <span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 6</span>
+        <button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button>
+      </div>
+      <div id="w6Keys"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache - Verkehrswörter mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">ไป</div><div class="meaning">bpai<br>gehen/fahren</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">บัตร</div><div class="meaning">bàt<br>Karte</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ที่</div><div class="meaning">thîi<br>bei/an</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">รถ</div><div class="meaning">rót<br>Fahrzeug</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">สาย</div><div class="meaning">sǎai<br>Linie</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel - Taxi vom Flughafen</h4>
+      <p class="task">Eine Person ist Tourist/in, eine Person ist Taxifahrer/in. Wechseln Sie danach die Rollen.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Tourist/in · นักท่องเที่ยว</div>
+          <p class="line"><span class="thai th-mid">ไปโรงแรมนี้ค่ะ</span><br>Zu diesem Hotel bitte.</p>
+          <p class="line"><span class="thai th-mid">ช่วยเปิดมิเตอร์ด้วยนะคะ</span><br>Bitte schalten Sie das Taxameter ein.</p>
+          <p class="line"><span class="thai th-mid">จากสนามบินถึงโรงแรมใช้เวลากี่นาทีคะ</span><br>Wie lange dauert es vom Flughafen bis zum Hotel?</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Taxifahrer/in · คนขับแท็กซี่</div>
+          <p class="line"><span class="thai th-mid">ได้ครับ โรงแรมอยู่ถนนไหนครับ</span><br>Gerne. In welcher Straße ist das Hotel?</p>
+          <p class="line"><span class="thai th-mid">เปิดแล้วครับ</span><br>Das Taxameter ist an.</p>
+          <p class="line"><span class="thai th-mid">ประมาณสี่สิบห้านาที ถ้ารถไม่ติดครับ</span><br>Ungefähr 45 Minuten, wenn kein Stau ist.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei - fünf Reisefragen</h4>
+      <ol>
+        <li><span class="thai">คุณเดินทางจากสนามบินไปโรงแรมอย่างไร</span> - Wie fahren Sie vom Flughafen zum Hotel?<div class="lines"></div></li>
+        <li><span class="thai">คุณชอบนั่งแท็กซี่หรือรถไฟฟ้ามากกว่า</span> - Fahren Sie lieber Taxi oder BTS?<div class="lines"></div></li>
+        <li><span class="thai">สถานีรถไฟฟ้าที่ใกล้บ้านคุณชื่ออะไร</span> - Wie heißt die BTS/MRT-Station in Ihrer Nähe?<div class="lines"></div></li>
+        <li><span class="thai">เวลาไปตลาด คุณใช้ขนส่งสาธารณะไหม</span> - Nutzen Sie öffentliche Verkehrsmittel, wenn Sie zum Markt fahren?<div class="lines"></div></li>
+        <li><span class="thai">ถ้ารถติด คุณทำอย่างไร</span> - Was machen Sie, wenn Stau ist?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Flughafen</td><td>10 Flughafen-Wörter abschreiben</td><td>Wörter A laut mit Tönen üben</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Taxi</td><td>3 Taxi-Sätze schreiben</td><td>Rollenspiel Taxi kurz sprechen</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C · BTS/MRT/Bus</td><td>Route mit จาก...ถึง... schreiben</td><td>Stationen und Linien laut sagen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Dialoge 1 und 2 lesen</td><td>Übung 2 und 3</td><td>Dialoge in 2 Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Erster Tag in Bangkok"</td><td>Übung 4 - Wegbeschreibung</td><td>5 Reisefragen beantworten</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Alle Vokabeln wiederholen</td><td>Mini-Text „Mein Weg in Bangkok"</td><td>2-Minuten-Erzählung aufnehmen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Taxi + BTS Rollenspiel wiederholen</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block">
+      <h4>Übung 1 - Multiple Choice</h4>
+      <ol>
+        <li>b - um neun Uhr morgens</li>
+        <li>c - Er sucht den Ausgang und das Taxi-Schild.</li>
+        <li>a - Sukhumvit Road, Soi 11</li>
+        <li>d - Bitte schalten Sie das Taxameter ein.</li>
+        <li>b - 45 Minuten</li>
+        <li>a - Er möchte selbst mit BTS und MRT fahren.</li>
+        <li>c - Es gibt sehr viel Stau.</li>
+        <li>d - Nein, er fährt fünf Stationen.</li>
+        <li>b - Er sieht den Fluss und hat keinen Stau.</li>
+        <li>a - Stationsnamen, Ausgänge und Fahrzeiten</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 2 - Sätze bauen</h4>
+      <ol>
+        <li><strong>จาก</strong> สนามบิน <strong>ถึง</strong> โรงแรม ใช้เวลา <strong>กี่นาที</strong></li>
+        <li>ผมจะไปสถานีสยาม</li>
+        <li>โรงแรมอยู่ <strong>ที่</strong> ถนนสุขุมวิท ซอยสิบเอ็ด</li>
+        <li><strong>จาก</strong> สถานีนี้ <strong>ถึง</strong> ตลาดไกลไหม</li>
+        <li>ฉันจะนั่งรถไฟฟ้าไปสยาม</li>
+        <li>ต้องเปลี่ยนสายที่สถานีอโศก</li>
+        <li>ป้ายรถเมล์อยู่ตรงข้ามโรงแรม</li>
+        <li>เดินตรงไปแล้วเลี้ยวซ้าย</li>
+        <li>จากโรงแรมถึงท่าเรือใช้เวลาสิบนาที</li>
+        <li>ถ้ารถติด ฉันจะนั่งรถไฟฟ้า</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 3 - Sätze bauen</h4>
+      <ol>
+        <li>สถานีรถไฟฟ้าอยู่ที่ไหนครับ/คะ</li>
+        <li>ไปสนามบินทางไหนครับ/คะ</li>
+        <li>ต้องเปลี่ยนสายไหมครับ/คะ</li>
+        <li>ถึงโรงแรมใช้เวลากี่นาทีครับ/คะ</li>
+        <li>ช่วยเปิดมิเตอร์ด้วยนะครับ/คะ</li>
+        <li>ขึ้นรถไฟฟ้าสายไหนครับ/คะ</li>
+        <li>ตั๋วราคาเท่าไหร่ครับ/คะ</li>
+        <li>ทางออกอยู่ชั้นไหนครับ/คะ</li>
+        <li>ไปตลาดต้องนั่งเรือไหมครับ/คะ</li>
+        <li>ช่วยบอกทางไปโรงแรมหน่อยครับ/คะ</li>
+      </ol>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 4 - Wegbeschreibung (Muster)</h4>
+      <p class="thai" style="font-size:14px;">จากสนามบินไปโรงแรม ฉันนั่งแท็กซี่ โรงแรมอยู่ที่ถนนสุขุมวิท ซอยสิบเอ็ด ถ้ารถไม่ติด ใช้เวลาประมาณสี่สิบห้านาที</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Vom Flughafen zum Hotel nehme ich ein Taxi. Das Hotel ist in der Sukhumvit Road, Soi 11. Wenn kein Stau ist, dauert es ungefähr 45 Minuten.</p>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 - Mini-Text (Muster)</h4>
+      <p class="thai" style="font-size:14px;">วันนี้ฉันไปสยามจากโรงแรม ก่อนอื่นฉันเดินไปสถานีรถไฟฟ้านานา แล้วซื้อตั๋ว หลังจากนั้นฉันขึ้นสายสุขุมวิทและลงที่สถานีสยาม ใช้เวลาประมาณสิบห้านาที</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Heute fahre ich vom Hotel nach Siam. Zuerst gehe ich zur BTS-Station Nana und kaufe ein Ticket. Danach nehme ich die Sukhumvit-Linie und steige an der Station Siam aus. Es dauert ungefähr 15 Minuten.</p>
+    </div>
+  </div>
 
 </section>
 
 <footer class="foot">
-  Thai mit Mac · A2.1 Lernportal — für deutschsprachige Anfänger · 2026<br>
+  Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
 </footer>
 
@@ -3014,12 +3873,163 @@ ul, ol { padding-left: 22px; }
 <button class="floating-print" onclick="window.print()" title="Als PDF speichern">⬇</button>
 
 <script>
+function w6PickChoice(btn) {
+  const group = btn.closest('.w6-mc');
+  group.querySelectorAll('.w6-option').forEach(o => o.classList.remove('selected', 'correct', 'wrong'));
+  btn.classList.add('selected');
+}
+
+function w6CheckMC() {
+  const questions = document.querySelectorAll('#w6-reading-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w6-mc-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 7 ? '#15803d' : '#dc2626';
+}
+
+function w6MoveTile(tile) {
+  const build = tile.closest('.w6-build');
+  const answer = build.querySelector('.w6-answer');
+  const bank = build.querySelector('.w6-bank');
+  build.classList.remove('ok', 'bad');
+  build.querySelector('.w6-feedback').textContent = '';
+  if (tile.parentElement === answer) bank.appendChild(tile);
+  else answer.appendChild(tile);
+}
+
+function w6Normalize(text) {
+  return text.replace(/\s+/g, ' ').trim();
+}
+
+function w6CheckBuildSet(id) {
+  const set = document.getElementById(id);
+  let score = 0;
+  const items = set.querySelectorAll('.w6-build');
+  items.forEach(item => {
+    const answer = w6Normalize([...item.querySelectorAll('.w6-answer .w6-tile')].map(t => t.textContent).join(' '));
+    const correct = w6Normalize(item.dataset.answer);
+    const feedback = item.querySelector('.w6-feedback');
+    item.classList.remove('ok', 'bad');
+    if (answer === correct) {
+      item.classList.add('ok');
+      feedback.style.color = '#15803d';
+      feedback.textContent = 'Richtig';
+      score++;
+    } else {
+      item.classList.add('bad');
+      feedback.style.color = '#dc2626';
+      feedback.textContent = `Noch nicht. Lösung: ${correct}`;
+    }
+  });
+  const old = set.querySelector('.w6-result');
+  if (old) old.remove();
+  const result = document.createElement('div');
+  result.className = 'w6-result';
+  result.textContent = `Ergebnis: ${score} / ${items.length} richtig`;
+  result.style.color = score === items.length ? '#15803d' : '#dc2626';
+  set.appendChild(result);
+}
+
+const W6_KB_LOWER = [
+  ["ๅ","/","-","ภ","ถ","ุ","ึ","ค","ต","จ","ข","ช"],
+  ["ๆ","ไ","ำ","พ","ะ","ั","ี","ร","น","ย","บ","ล"],
+  ["ฟ","ห","ก","ด","เ","้","่","า","ส","ว","ง"],
+  ["ผ","ป","แ","อ","ิ","ื","ท","ม","ใ","ฝ"]
+];
+const W6_KB_UPPER = [
+  ["+","๑","๒","๓","๔","ู","฿","๕","๖","๗","๘","๙"],
+  ["๐","\"","ฎ","ฑ","ธ","ํ","๊","ณ","ฯ","ญ","ฐ",","],
+  ["ฤ","ฆ","ฏ","โ","ฌ","็","๋","ษ","ศ","ซ","."],
+  ["(",")","ฉ","ฮ","ฺ","์","?","ฒ","ฬ","ฦ"]
+];
+let w6ActiveField = null;
+let w6ShiftOn = false;
+
+function w6SetField(field) {
+  w6ActiveField = field;
+  w6RenderKeyboard();
+  document.getElementById('w6Keyboard').classList.remove('hidden');
+}
+
+function w6HideKeyboard() {
+  document.getElementById('w6Keyboard').classList.add('hidden');
+}
+
+function w6RenderKeyboard() {
+  const keys = document.getElementById('w6Keys');
+  if (!keys) return;
+  keys.innerHTML = '';
+  const layout = w6ShiftOn ? W6_KB_UPPER : W6_KB_LOWER;
+  layout.forEach(row => {
+    const r = document.createElement('div');
+    r.className = 'w6-krow';
+    row.forEach(key => r.appendChild(w6MakeKey('', key, () => w6TypeKey(key))));
+    keys.appendChild(r);
+  });
+  const controls = document.createElement('div');
+  controls.className = 'w6-krow';
+  controls.appendChild(w6MakeKey('fn' + (w6ShiftOn ? ' active' : ''), 'Shift', () => { w6ShiftOn = !w6ShiftOn; w6RenderKeyboard(); }));
+  controls.appendChild(w6MakeKey('wide', 'เว้นวรรค · Leerzeichen', () => w6TypeKey(' ')));
+  controls.appendChild(w6MakeKey('del', 'löschen', w6Backspace));
+  controls.appendChild(w6MakeKey('fn', 'ausblenden', w6HideKeyboard));
+  keys.appendChild(controls);
+}
+
+function w6MakeKey(cls, label, fn) {
+  const btn = document.createElement('button');
+  btn.className = `w6-key ${cls}`;
+  btn.type = 'button';
+  btn.textContent = label;
+  btn.addEventListener('mousedown', e => e.preventDefault());
+  btn.addEventListener('click', fn);
+  return btn;
+}
+
+function w6TypeKey(char) {
+  if (!w6ActiveField) return;
+  const start = w6ActiveField.selectionStart ?? w6ActiveField.value.length;
+  const end = w6ActiveField.selectionEnd ?? w6ActiveField.value.length;
+  w6ActiveField.value = w6ActiveField.value.slice(0, start) + char + w6ActiveField.value.slice(end);
+  w6ActiveField.focus();
+  w6ActiveField.selectionStart = w6ActiveField.selectionEnd = start + char.length;
+}
+
+function w6Backspace() {
+  if (!w6ActiveField) return;
+  const start = w6ActiveField.selectionStart ?? w6ActiveField.value.length;
+  const end = w6ActiveField.selectionEnd ?? w6ActiveField.value.length;
+  if (start !== end) {
+    w6ActiveField.value = w6ActiveField.value.slice(0, start) + w6ActiveField.value.slice(end);
+    w6ActiveField.selectionStart = w6ActiveField.selectionEnd = start;
+  } else if (start > 0) {
+    w6ActiveField.value = w6ActiveField.value.slice(0, start - 1) + w6ActiveField.value.slice(start);
+    w6ActiveField.selectionStart = w6ActiveField.selectionEnd = start - 1;
+  }
+  w6ActiveField.focus();
+}
+
 function showTab(name) {
+  if (document.getElementById('w6Keyboard')) w6HideKeyboard();
+  const aliases = { kursplan: 'home', test: 'a21' };
+  name = aliases[name] || name;
   document.querySelectorAll('section.page').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
   const sec = document.getElementById(name);
   if (sec) sec.classList.add('active');
-  const btn = document.querySelector('nav.tabs button[data-tab="' + name + '"]');
+  let navName = name;
+  if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
+  if (name === 'woche6') navName = 'a22';
+  const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
