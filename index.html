@@ -1037,8 +1037,18 @@ ul, ol { padding-left: 22px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .weeks-grid { grid-template-columns: 1fr; }
   .daily { grid-template-columns: 1fr; }
-  .photo-card, .reading-wrap { grid-template-columns: 1fr; }
+  .photo-card, .reading-wrap { grid-template-columns: minmax(0, 1fr); }
+  .photo-card > *, .reading-wrap > * { min-width: 0; }
+  table.vocab { table-layout: fixed; font-size: 12px; }
+  table.vocab th, table.vocab td { padding: 6px 4px; overflow-wrap: anywhere; }
+  table.vocab th { font-size: 10px; letter-spacing: 0; }
   .speak-grid { grid-template-columns: 1fr; }
+  .tones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tones .t { min-width: 0; padding: 8px 4px; }
+  table.plan-table { table-layout: fixed; font-size: 10px; }
+  .plan-table th, .plan-table td { padding: 5px 3px; overflow-wrap: anywhere; }
+  .plan-table th { font-size: 9px; letter-spacing: 0; }
+  .plan-table th:first-child, .plan-table td:first-child { width: 16%; }
   .hero-block .content { padding: 32px 24px; }
   .hero-block h1 { font-size: 30px; }
   nav.tabs { flex-wrap: wrap; }
@@ -1071,7 +1081,7 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 6 Wochen · 1 Stunde pro Tag</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 7 Wochen · 1 Stunde pro Tag</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
@@ -1084,9 +1094,9 @@ ul, ol { padding-left: 22px; }
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">6</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">42</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~350</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">7</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">49</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~400</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1129,7 +1139,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist jetzt in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 startet mit Woche 6 und baut darauf auf.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 und 7 mit Reise-, Orientierungs- und Urlaubssituationen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1149,7 +1159,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6 · Flughafen · Taxi · BTS/MRT · öffentliche Verkehrsmittel</p>
+          <p>Woche 6-7 · Verkehr und Orientierung · Urlaub in Thailand</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1307,9 +1317,10 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache in Richtung Reise, Orientierung und echte Situationen in Bangkok. Woche 6 startet mit Flughafen, Taxi, BTS/MRT und öffentlichen Verkehrsmitteln.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen in Thailand. Woche 6 behandelt Orientierung und Verkehr; Woche 7 führt durch Hotel, Ausflüge, Strand und Urlaubsplanung.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1317,13 +1328,13 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Aktuell</div><div class="v">Woche 6 · Orientierung</div></div>
-    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Fragen, Routen, Transport</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-7 · 14 Stunden</div></div>
+    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Verkehr, Hotel, Ausflüge, Urlaub</div></div>
   </div>
 
   <div class="card">
     <h3 class="h-card"><span class="pill">A2.2</span> Inhalte öffnen</h3>
-    <div class="weeks-grid" style="grid-template-columns: 1fr;">
+    <div class="weeks-grid">
       <div class="week-card teal" onclick="showTab('woche6')">
         <img class="photo" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=70&fm=jpg&auto=format" alt="Öffentliche Verkehrsmittel in Bangkok">
         <div class="head">
@@ -1335,6 +1346,19 @@ ul, ol { padding-left: 22px; }
           <p><span class="lab">Grammatik:</span> Richtung, Ziel, Umsteigen, höfliche Fragen</p>
           <p><span class="lab">Praxis:</span> Multiple Choice, Sätze bauen, Thai-Tastatur</p>
           <button class="open-link">Woche 6 öffnen →</button>
+        </div>
+      </div>
+      <div class="week-card amber" onclick="showTab('woche7')">
+        <img class="photo" src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&q=70&fm=jpg&auto=format" alt="Tempel und Urlaub in Thailand">
+        <div class="head">
+          <div><div class="n">Woche 7</div><div class="t">Urlaub in Thailand</div></div>
+          <div class="th thai">วันหยุดในประเทศไทย</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Hotel, Sehenswürdigkeiten, Strand, Wetter und Ausflüge</p>
+          <p><span class="lab">Grammatik:</span> Wünsche, Zukunftspläne, Gründe und Bedingungen</p>
+          <p><span class="lab">Praxis:</span> Reiseplanung, Buchung, Satzbau und Thai-Tastatur</p>
+          <button class="open-link">Woche 7 öffnen →</button>
         </div>
       </div>
     </div>
@@ -3863,6 +3887,377 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 7: URLAUB IN THAILAND ==================== -->
+<section id="woche7" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(209, 140, 16, 0.9); border-color: transparent;">Woche 7 · A2.2</span>
+      <h1>Urlaub in Thailand</h1>
+      <div class="thai-title thai">วันหยุดในประเทศไทย</div>
+      <p class="lead">Planen Sie einen Urlaub in Thailand: ein Hotel buchen, Sehenswürdigkeiten besuchen, einen Ausflug organisieren und über Strand, Wetter und Reisepläne sprechen.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 42 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Niveau</div><div class="v">Thai A2.2 · Urlaub &amp; Planung</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Urlaub planen und Wünsche ausdrücken</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Hotel und Unterkunft · โรงแรมและที่พัก</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=70&fm=jpg&auto=format" alt="Ferienhotel in Thailand"></div>
+        <div class="cap">ที่พัก · die Unterkunft</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ที่พัก</td><td class="translit">thîi-phák</td><td>Unterkunft</td><td>🏨</td></tr>
+          <tr><td class="thai">ห้องพัก</td><td class="translit">hông-phák</td><td>Hotelzimmer</td><td>🛏️</td></tr>
+          <tr><td class="thai">จอง</td><td class="translit">joong</td><td>buchen, reservieren</td><td>📝</td></tr>
+          <tr><td class="thai">เช็คอิน</td><td class="translit">chék-in</td><td>einchecken</td><td>🔑</td></tr>
+          <tr><td class="thai">เช็คเอาท์</td><td class="translit">chék-ao</td><td>auschecken</td><td>🧾</td></tr>
+          <tr><td class="thai">ห้องเดี่ยว</td><td class="translit">hông-dìao</td><td>Einzelzimmer</td><td>🛌</td></tr>
+          <tr><td class="thai">ห้องคู่</td><td class="translit">hông-khûu</td><td>Doppelzimmer</td><td>🛏️</td></tr>
+          <tr><td class="thai">รวมอาหารเช้า</td><td class="translit">ruam aa-hǎan-cháao</td><td>inklusive Frühstück</td><td>🥣</td></tr>
+          <tr><td class="thai">คืน</td><td class="translit">kheun</td><td>Nacht</td><td>🌙</td></tr>
+          <tr><td class="thai">ว่าง</td><td class="translit">wâang</td><td>frei, verfügbar</td><td>✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Sehenswürdigkeiten und Aktivitäten · สถานที่ท่องเที่ยวและกิจกรรม</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400&q=70&fm=jpg&auto=format" alt="Thailändischer Tempel"></div>
+        <div class="cap">สถานที่ท่องเที่ยว · die Sehenswürdigkeit</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">สถานที่ท่องเที่ยว</td><td class="translit">sà-thǎan-thîi thông-thîao</td><td>Sehenswürdigkeit</td><td>📍</td></tr>
+          <tr><td class="thai">วัด</td><td class="translit">wát</td><td>Tempel</td><td>🛕</td></tr>
+          <tr><td class="thai">พระราชวัง</td><td class="translit">phrá-râat-chá-wang</td><td>Palast</td><td>🏯</td></tr>
+          <tr><td class="thai">พิพิธภัณฑ์</td><td class="translit">phí-phít-thá-phan</td><td>Museum</td><td>🏛️</td></tr>
+          <tr><td class="thai">ตลาดกลางคืน</td><td class="translit">dtà-làat glaang-kheun</td><td>Nachtmarkt</td><td>🏮</td></tr>
+          <tr><td class="thai">เที่ยว</td><td class="translit">thîao</td><td>reisen, besichtigen</td><td>🧭</td></tr>
+          <tr><td class="thai">ถ่ายรูป</td><td class="translit">thàai-rûup</td><td>fotografieren</td><td>📷</td></tr>
+          <tr><td class="thai">ไกด์</td><td class="translit">gái</td><td>Reiseführer/in</td><td>🧑‍🏫</td></tr>
+          <tr><td class="thai">ทัวร์</td><td class="translit">thua</td><td>Tour, Ausflug</td><td>🚌</td></tr>
+          <tr><td class="thai">ค่าเข้า</td><td class="translit">khâa-khâo</td><td>Eintrittspreis</td><td>🎟️</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · Strand und Wetter · ชายหาดและอากาศ</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=70&fm=jpg&auto=format" alt="Tropischer Strand"></div>
+        <div class="cap">ชายหาด · der Strand</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ชายหาด</td><td class="translit">chaai-hàat</td><td>Strand</td><td>🏖️</td></tr>
+          <tr><td class="thai">ทะเล</td><td class="translit">thá-lee</td><td>Meer</td><td>🌊</td></tr>
+          <tr><td class="thai">เกาะ</td><td class="translit">gò</td><td>Insel</td><td>🏝️</td></tr>
+          <tr><td class="thai">ว่ายน้ำ</td><td class="translit">wâai-nám</td><td>schwimmen</td><td>🏊</td></tr>
+          <tr><td class="thai">ดำน้ำ</td><td class="translit">dam-nám</td><td>tauchen, schnorcheln</td><td>🤿</td></tr>
+          <tr><td class="thai">อากาศ</td><td class="translit">aa-gàat</td><td>Wetter</td><td>🌤️</td></tr>
+          <tr><td class="thai">แดดออก</td><td class="translit">dàet-òok</td><td>sonnig</td><td>☀️</td></tr>
+          <tr><td class="thai">ฝนตก</td><td class="translit">fǒn-dtòk</td><td>es regnet</td><td>🌧️</td></tr>
+          <tr><td class="thai">ร้อน</td><td class="translit">rón</td><td>heiß</td><td>🌡️</td></tr>
+          <tr><td class="thai">ครีมกันแดด</td><td class="translit">khriim gan-dàet</td><td>Sonnencreme</td><td>🧴</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">D · Reiseplanung · การวางแผนเดินทาง</h4>
+    <table class="vocab">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">วันหยุด</td><td class="translit">wan-yùt</td><td>Urlaub, Feiertag</td><td>🗓️</td></tr>
+        <tr><td class="thai">แผนการเดินทาง</td><td class="translit">phǎen gaan-doen-thaang</td><td>Reiseplan</td><td>🗺️</td></tr>
+        <tr><td class="thai">เดินทาง</td><td class="translit">doen-thaang</td><td>reisen</td><td>🧳</td></tr>
+        <tr><td class="thai">พัก</td><td class="translit">phák</td><td>übernachten, sich ausruhen</td><td>😴</td></tr>
+        <tr><td class="thai">อยาก</td><td class="translit">yàak</td><td>möchten</td><td>💭</td></tr>
+        <tr><td class="thai">จะ</td><td class="translit">jà</td><td>werden, wollen</td><td>➡️</td></tr>
+        <tr><td class="thai">กี่วัน</td><td class="translit">gìi-wan</td><td>wie viele Tage?</td><td>❓</td></tr>
+        <tr><td class="thai">พรุ่งนี้</td><td class="translit">phrûng-níi</td><td>morgen</td><td>🌅</td></tr>
+        <tr><td class="thai">สัปดาห์หน้า</td><td class="translit">sàp-daa nâa</td><td>nächste Woche</td><td>📅</td></tr>
+        <tr><td class="thai">เพราะ</td><td class="translit">phró</td><td>weil</td><td>💡</td></tr>
+        <tr><td class="thai">ถ้า</td><td class="translit">thâa</td><td>wenn, falls</td><td>🔀</td></tr>
+        <tr><td class="thai">แนะนำ</td><td class="translit">náe-nam</td><td>empfehlen</td><td>👍</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Wünsche ausdrücken mit อยาก</div>
+      <p><span class="thai">อยาก</span> steht vor dem Verb und bedeutet „möchten" oder „Lust haben".</p>
+      <div class="formula">อยาก + Verb (+ Objekt) = etwas tun möchten</div>
+      <p class="ex"><span class="thai th-mid">ฉันอยากไปทะเล</span> <span class="translit">(chǎn yàak bpai thá-lee)</span> - Ich möchte ans Meer fahren.</p>
+      <p class="ex"><span class="thai th-mid">เราอยากเที่ยวเชียงใหม่</span> <span class="translit">(rao yàak thîao Chiiang-Mài)</span> - Wir möchten Chiang Mai besuchen.</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Zukunft und feste Pläne mit จะ</div>
+      <p><span class="thai">จะ</span> steht vor dem Verb und zeigt einen Plan oder eine Handlung in der Zukunft.</p>
+      <div class="formula">Zeit + Subjekt + จะ + Verb + Ort</div>
+      <p class="ex"><span class="thai th-mid">พรุ่งนี้เราจะไปวัด</span> <span class="translit">(phrûng-níi rao jà bpai wát)</span> - Morgen werden wir zum Tempel gehen.</p>
+      <p class="ex"><span class="thai th-mid">สัปดาห์หน้าฉันจะพักที่ภูเก็ต</span> <span class="translit">(sàp-daa nâa chǎn jà phák thîi Phuu-gèt)</span> - Nächste Woche werde ich in Phuket übernachten.</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G3 · Einen Grund nennen mit เพราะ</div>
+      <p>Mit <span class="thai">เพราะ</span> erklären Sie, warum Sie etwas tun oder mögen.</p>
+      <div class="formula">Aussage + เพราะ + Grund</div>
+      <p class="ex"><span class="thai th-mid">ฉันชอบกระบี่ เพราะทะเลสวย</span><br><span class="translit">chǎn chôop Grà-bìi, phró thá-lee sǔai</span><br>Ich mag Krabi, weil das Meer schön ist.</p>
+      <p class="ex"><span class="thai th-mid">เราอยู่โรงแรมนี้ เพราะใกล้ชายหาด</span><br>Wir wohnen in diesem Hotel, weil es nah am Strand ist.</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G4 · Bedingungen mit ถ้า ... จะ ...</div>
+      <p>Für einen Plan, der vom Wetter oder einer Situation abhängt, benutzen Sie <span class="thai">ถ้า</span> und oft <span class="thai">จะ</span>.</p>
+      <div class="formula">ถ้า + Bedingung, (Subjekt) + จะ + Handlung</div>
+      <p class="ex"><span class="thai th-mid">ถ้าแดดออก เราจะไปชายหาด</span><br>Wenn es sonnig ist, fahren wir zum Strand.</p>
+      <p class="ex"><span class="thai th-mid">ถ้าฝนตก ฉันจะไปพิพิธภัณฑ์</span><br>Wenn es regnet, gehe ich ins Museum.</p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog 1 · Im Hotel einchecken · เช็คอินที่โรงแรม</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=70&fm=jpg&auto=format" alt="Rezeption eines Ferienhotels">
+      <div class="dialog-row a"><div class="who">G</div><div class="text"><span class="thai th-mid">สวัสดีค่ะ ฉันจองห้องพักไว้สองคืนค่ะ</span><span class="translit">sà-wàt-dii khâ, chǎn joong hông-phák wái sǒng kheun khâ.</span><span class="de">Hallo, ich habe ein Zimmer für zwei Nächte reserviert.</span></div></div>
+      <div class="dialog-row b"><div class="who">R</div><div class="text"><span class="thai th-mid">ขอชื่อและพาสปอร์ตด้วยค่ะ</span><span class="translit">khǒr chêu láe pháat-sà-bpòot dûai khâ.</span><span class="de">Darf ich bitte Ihren Namen und Reisepass haben?</span></div></div>
+      <div class="dialog-row a"><div class="who">G</div><div class="text"><span class="thai th-mid">ได้ค่ะ ห้องนี้รวมอาหารเช้าไหมคะ</span><span class="translit">dâai khâ. hông níi ruam aa-hǎan-cháao mǎi khá?</span><span class="de">Gerne. Ist bei diesem Zimmer Frühstück inklusive?</span></div></div>
+      <div class="dialog-row b"><div class="who">R</div><div class="text"><span class="thai th-mid">รวมค่ะ อาหารเช้าเริ่มเจ็ดโมง ห้องของคุณอยู่ชั้นสามค่ะ</span><span class="translit">ruam khâ. aa-hǎan-cháao rôem jèt moong. hông khǒng khun yùu chán sǎam khâ.</span><span class="de">Ja. Das Frühstück beginnt um sieben Uhr. Ihr Zimmer ist im dritten Stock.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Dialog 2 · Einen Inselausflug buchen · จองทัวร์เกาะ</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=70&fm=jpg&auto=format" alt="Strand und Meer bei einem Inselausflug">
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">พรุ่งนี้มีทัวร์เกาะไหมครับ</span><span class="translit">phrûng-níi mii thua gò mǎi kráp?</span><span class="de">Gibt es morgen eine Inseltour?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">มีค่ะ ออกแปดโมงเช้าและกลับห้าโมงเย็นค่ะ</span><span class="translit">mii khâ. òok bpàet moong cháao láe glàp hâa moong yen khâ.</span><span class="de">Ja. Sie startet um acht Uhr morgens und kommt um fünf Uhr abends zurück.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">ราคาเท่าไหร่ครับ และรวมอาหารกลางวันไหมครับ</span><span class="translit">raa-khaa thâo-rài kráp, láe ruam aa-hǎan glaang-wan mǎi kráp?</span><span class="de">Wie viel kostet sie, und ist Mittagessen inklusive?</span></div></div>
+      <div class="dialog-row b"><div class="who">B</div><div class="text"><span class="thai th-mid">หนึ่งพันสองร้อยบาทค่ะ รวมอาหารและอุปกรณ์ดำน้ำค่ะ</span><span class="translit">nèung phan sǒng rói bàat khâ. ruam aa-hǎan láe ù-bpà-gon dam-nám khâ.</span><span class="de">1.200 Baht. Essen und Schnorchelausrüstung sind inklusive.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันหยุดหนึ่งสัปดาห์ในประเทศไทย · „Eine Woche Urlaub in Thailand"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400&q=70&fm=jpg&auto=format" alt="Urlaubsreise durch Thailand"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> แอนนามาจากเยอรมนีและมีวันหยุดหนึ่งสัปดาห์ในประเทศไทย เธอวางแผนไปกรุงเทพ เชียงใหม่ และกระบี่ เพราะอยากเห็นทั้งเมือง วัด ภูเขา และทะเล</p>
+        <p class="thai th-mid"><strong>2.</strong> สองคืนแรกแอนนาพักที่โรงแรมเล็ก ๆ ในกรุงเทพ โรงแรมอยู่ใกล้รถไฟฟ้าและรวมอาหารเช้า ตอนเช้าเธอไปพระราชวังและวัด ตอนเย็นเธอเดินเที่ยวตลาดกลางคืน</p>
+        <p class="thai th-mid"><strong>3.</strong> วันที่สามเธอบินไปเชียงใหม่ ที่นั่นอากาศเย็นกว่ากรุงเทพ เธอจองทัวร์กับไกด์หนึ่งวัน เพื่อไปวัดบนภูเขาและเรียนทำอาหารไทย</p>
+        <p class="thai th-mid"><strong>4.</strong> แอนนาชอบเชียงใหม่ เพราะเมืองสงบและอาหารอร่อย เธอถ่ายรูปหลายรูปและซื้อของฝากให้ครอบครัว แต่เธอพักที่นั่นเพียงสองคืน</p>
+        <p class="thai th-mid"><strong>5.</strong> หลังจากนั้นเธอบินไปกระบี่และพักที่โรงแรมใกล้ชายหาด พนักงานแนะนำทัวร์เกาะ แอนนาจึงจองทัวร์สำหรับวันถัดไป ราคา 1,200 บาท รวมอาหารกลางวันและอุปกรณ์ดำน้ำ</p>
+        <p class="thai th-mid"><strong>6.</strong> ตอนเช้าวันทัวร์แดดออกและทะเลสวยมาก เธอนั่งเรือไปสองเกาะ ว่ายน้ำและดำน้ำกับนักท่องเที่ยวคนอื่น เธอทาครีมกันแดด เพราะอากาศร้อนมาก</p>
+        <p class="thai th-mid"><strong>7.</strong> วันสุดท้ายฝนตก แอนนาจึงไม่ไปชายหาด เธอไปพิพิธภัณฑ์เล็ก ๆ และนวดไทยแทน ตอนเย็นเธอเช็คเอาท์และเดินทางไปสนามบิน</p>
+        <p class="thai th-mid"><strong>8.</strong> แอนนาคิดว่าหนึ่งสัปดาห์สั้นเกินไป ครั้งหน้าเธอจะอยู่ประเทศไทยสองสัปดาห์ เพราะยังมีสถานที่ท่องเที่ยวอีกหลายแห่งที่เธออยากไป</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Anna kommt aus Deutschland und hat eine Woche Urlaub in Thailand. Sie plant Bangkok, Chiang Mai und Krabi, weil sie Stadt, Tempel, Berge und Meer erleben möchte.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Die ersten zwei Nächte wohnt Anna in einem kleinen Hotel in Bangkok. Es liegt nahe der BTS und das Frühstück ist inklusive. Morgens besucht sie Palast und Tempel, abends einen Nachtmarkt.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Am dritten Tag fliegt sie nach Chiang Mai. Dort ist es kühler als in Bangkok. Sie bucht eine Tagestour mit Guide zu einem Bergtempel und nimmt an einem Thai-Kochkurs teil.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Anna mag Chiang Mai, weil die Stadt ruhig und das Essen lecker ist. Sie macht viele Fotos und kauft Souvenirs für ihre Familie, bleibt aber nur zwei Nächte.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Danach fliegt sie nach Krabi und wohnt nahe am Strand. Eine Mitarbeiterin empfiehlt eine Inseltour. Anna bucht sie für den nächsten Tag; 1.200 Baht inklusive Mittagessen und Schnorchelausrüstung.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Am Ausflugstag scheint die Sonne und das Meer ist sehr schön. Sie fährt zu zwei Inseln, schwimmt und schnorchelt. Wegen der Hitze benutzt sie Sonnencreme.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Am letzten Tag regnet es. Anna fährt deshalb nicht zum Strand, sondern besucht ein kleines Museum und lässt sich massieren. Abends checkt sie aus und fährt zum Flughafen.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Anna findet eine Woche zu kurz. Beim nächsten Mal möchte sie zwei Wochen bleiben, weil es noch viele Orte gibt, die sie besuchen möchte.</p>
+      </div>
+    </div>
+
+    <div class="exercise" id="w7-reading-quiz">
+      <span class="num">1</span><h4>Lesen - 10 Fragen mit 4 Antworten</h4>
+      <p class="task">Wählen Sie die beste Antwort. Danach klicken Sie auf „Antworten prüfen".</p>
+
+      <div class="w6-mc" data-answer="c"><p><strong>1.</strong> Wie lange ist Anna in Thailand?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>drei Tage</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>einen Monat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>eine Woche</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>zwei Wochen</button>
+      </div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>2.</strong> Welche drei Orte besucht sie?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Bangkok, Chiang Mai und Krabi</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Phuket, Pattaya und Hua Hin</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Berlin, Wien und Bangkok</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>nur Bangkok</button>
+      </div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>3.</strong> Was ist im Hotel in Bangkok inklusive?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>eine Inseltour</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>ein Mietwagen</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Abendessen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Frühstück</button>
+      </div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>4.</strong> Was macht Anna in Chiang Mai?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie taucht im Meer.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie besucht einen Bergtempel und kocht Thai.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Sie bleibt am Flughafen.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sie arbeitet im Hotel.</button>
+      </div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>5.</strong> Warum mag Anna Chiang Mai?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Weil dort viel Stau ist.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Weil es direkt am Meer liegt.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Weil die Stadt ruhig und das Essen lecker ist.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Weil alles kostenlos ist.</button>
+      </div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>6.</strong> Wie viel kostet die Inseltour?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>1.200 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>120 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>12.000 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sie ist kostenlos.</button>
+      </div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>7.</strong> Was ist bei der Inseltour dabei?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>nur das Hotelzimmer</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>ein Flug nach Deutschland</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nur Sonnencreme</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Mittagessen und Schnorchelausrüstung</button>
+      </div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>8.</strong> Warum benutzt Anna Sonnencreme?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Weil es kalt ist.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Weil es sehr heiß ist.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Weil es schneit.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Weil sie im Museum ist.</button>
+      </div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>9.</strong> Was macht Anna am Regentag?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie fährt zur Insel.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie bleibt nur im Flugzeug.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Sie besucht ein Museum und bekommt eine Massage.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sie geht schnorcheln.</button>
+      </div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>10.</strong> Was plant Anna für die nächste Reise?</p><div class="w6-options">
+        <button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>zwei Wochen in Thailand</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nur einen Tag in Bangkok</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nie wieder Urlaub</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>vier Monate im Hotel</button>
+      </div></div>
+      <button class="w6-check-pill" type="button" onclick="w7CheckMC()">✓ Antworten prüfen</button>
+      <div id="w7-mc-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Sätze bauen - Urlaubswünsche und Pläne</h4>
+      <p class="task">Klicken Sie die Thai-Bausteine in der richtigen Reihenfolge an.</p>
+      <div class="w6-build-set" id="w7-build-plans">
+        <div class="w6-build" data-answer="ฉัน อยาก ไป ทะเล"><div class="task">1. Ich möchte ans Meer fahren.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทะเล</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยาก</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="พรุ่งนี้ เรา จะ ไป วัด"><div class="task">2. Morgen werden wir zum Tempel gehen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัด</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">พรุ่งนี้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรา</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ฉัน ชอบ กระบี่ เพราะ ทะเล สวย"><div class="task">3. Ich mag Krabi, weil das Meer schön ist.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เพราะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สวย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กระบี่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชอบ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทะเล</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ถ้า ฝนตก ฉัน จะ ไป พิพิธภัณฑ์"><div class="task">4. Wenn es regnet, gehe ich ins Museum.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">พิพิธภัณฑ์</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถ้า</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฝนตก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="เรา จะ พัก ที่นี่ สาม คืน"><div class="task">5. Wir werden hier drei Nächte bleiben.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สาม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">พัก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คืน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่นี่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="เธอ อยาก ถ่ายรูป ที่ ตลาดกลางคืน"><div class="task">6. Sie möchte auf dem Nachtmarkt fotografieren.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถ่ายรูป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตลาดกลางคืน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยาก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เธอ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่</button></div><div class="w6-feedback"></div></div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w7-build-plans')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Sätze bauen - Fragen im Urlaub</h4>
+      <p class="task">Bauen Sie höfliche Fragen für Hotel, Ausflug und Reiseplanung.</p>
+      <div class="w6-build-set" id="w7-build-questions">
+        <div class="w6-build" data-answer="มี ห้องคู่ ว่าง ไหม คะ"><div class="task">1. Ist ein Doppelzimmer frei?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ว่าง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ห้องคู่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ห้อง นี้ รวม อาหารเช้า ไหม คะ"><div class="task">2. Ist bei diesem Zimmer Frühstück inklusive?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">รวม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ห้อง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อาหารเช้า</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="พรุ่งนี้ มี ทัวร์ เกาะ ไหม ครับ"><div class="task">3. Gibt es morgen eine Inseltour?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เกาะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">พรุ่งนี้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทัวร์</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ทัวร์ ราคา เท่าไหร่ ครับ"><div class="task">4. Wie viel kostet die Tour?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เท่าไหร่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทัวร์</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ราคา</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="คุณ แนะนำ ที่ไหน คะ"><div class="task">5. Welchen Ort empfehlen Sie?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่ไหน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คุณ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แนะนำ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="เรา จะ ไป เที่ยว กี่วัน ครับ"><div class="task">6. Wie viele Tage werden wir reisen?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กี่วัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เที่ยว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button></div><div class="w6-feedback"></div></div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w7-build-questions')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Reiseplan schreiben</h4>
+      <p class="task">Schreiben Sie 4 Thai-Sätze über zwei Urlaubstage. Benutzen Sie mindestens einmal <span class="thai">อยาก</span>, <span class="thai">จะ</span> und <span class="thai">เพราะ</span>.</p>
+      <textarea class="w6-thai-input thai" rows="4" placeholder="พิมพ์ภาษาไทยที่นี่..." onfocus="w6SetField(this, 'w7')"></textarea>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mini-Text - Mein Urlaub in Thailand</h4>
+      <p class="task">Schreiben Sie 5-6 Sätze: Wohin fahren Sie? Wie lange bleiben Sie? Was möchten Sie machen? Was tun Sie, wenn es regnet?</p>
+      <textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: สัปดาห์หน้าฉันจะไปเที่ยวประเทศไทย..." onfocus="w6SetField(this, 'w7')"></textarea>
+    </div>
+
+    <div id="w7Keyboard" class="w6-keyboard hidden">
+      <div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 7</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div>
+      <div id="w7Keys"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+
+    <h4 style="color:#1f6feb;">Aussprache - Urlaubswörter mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">จอง</div><div class="meaning">joong<br>buchen</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">เกาะ</div><div class="meaning">gò<br>Insel</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">เที่ยว</div><div class="meaning">thîao<br>reisen</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">พัก</div><div class="meaning">phák<br>übernachten</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">ห้อง</div><div class="meaning">hông<br>Zimmer</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel - Hotel und Ausflug</h4>
+      <p class="task">Eine Person ist Gast, eine Person arbeitet an der Rezeption. Fragen Sie nach Zimmer und Ausflug; wechseln Sie danach die Rollen.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Gast · แขก</div>
+          <p class="line"><span class="thai th-mid">มีห้องคู่ว่างสองคืนไหมคะ</span><br>Ist ein Doppelzimmer für zwei Nächte frei?</p>
+          <p class="line"><span class="thai th-mid">ห้องนี้รวมอาหารเช้าไหมคะ</span><br>Ist Frühstück inklusive?</p>
+          <p class="line"><span class="thai th-mid">พรุ่งนี้มีทัวร์เกาะไหมคะ</span><br>Gibt es morgen eine Inseltour?</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Rezeption · พนักงานต้อนรับ</div>
+          <p class="line"><span class="thai th-mid">มีค่ะ คืนละสองพันบาทค่ะ</span><br>Ja, für 2.000 Baht pro Nacht.</p>
+          <p class="line"><span class="thai th-mid">รวมค่ะ อาหารเช้าเริ่มเจ็ดโมงค่ะ</span><br>Ja, Frühstück beginnt um sieben Uhr.</p>
+          <p class="line"><span class="thai th-mid">มีค่ะ ออกแปดโมงเช้า ราคา 1,200 บาทค่ะ</span><br>Ja, Start um acht Uhr, Preis 1.200 Baht.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei - fünf Urlaubsfragen</h4>
+      <ol>
+        <li><span class="thai">คุณอยากไปเที่ยวที่ไหนในประเทศไทย</span> - Wohin möchten Sie in Thailand reisen?<div class="lines"></div></li>
+        <li><span class="thai">คุณจะพักกี่คืน</span> - Wie viele Nächte werden Sie bleiben?<div class="lines"></div></li>
+        <li><span class="thai">คุณชอบเที่ยวเมืองหรือทะเลมากกว่า เพราะอะไร</span> - Mögen Sie Stadt oder Meer lieber, und warum?<div class="lines"></div></li>
+        <li><span class="thai">ถ้าฝนตก คุณจะทำอะไร</span> - Was werden Sie tun, wenn es regnet?<div class="lines"></div></li>
+        <li><span class="thai">คุณอยากลองกิจกรรมอะไรในวันหยุด</span> - Welche Aktivität möchten Sie im Urlaub ausprobieren?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Hotel</td><td>10 Hotel-Wörter abschreiben</td><td>Check-in-Sätze laut üben</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Sehenswürdigkeiten</td><td>3 Wünsche mit อยาก schreiben</td><td>Lieblingsorte nennen</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C · Strand und Wetter</td><td>3 Wenn-Sätze mit ถ้า schreiben</td><td>Über Wetter und Aktivitäten sprechen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Dialoge 1 und 2 lesen</td><td>Übung 2 und 3</td><td>Dialoge in zwei Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Eine Woche Urlaub"</td><td>Übung 4 · Reiseplan</td><td>Fünf Urlaubsfragen beantworten</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Alle Vokabeln wiederholen</td><td>Mini-Text „Mein Urlaub"</td><td>2-Minuten-Reiseplan aufnehmen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Hotel-Rollenspiel wiederholen</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol>
+      <li>c - eine Woche</li><li>a - Bangkok, Chiang Mai und Krabi</li><li>d - Frühstück</li><li>b - Sie besucht einen Bergtempel und kocht Thai.</li><li>c - Die Stadt ist ruhig und das Essen lecker.</li><li>a - 1.200 Baht</li><li>d - Mittagessen und Schnorchelausrüstung</li><li>b - weil es sehr heiß ist</li><li>c - Museum und Thai-Massage</li><li>a - zwei Wochen in Thailand</li>
+    </ol></div>
+    <div class="ak-block"><h4>Übung 2 - Urlaubswünsche und Pläne</h4><ol>
+      <li>ฉันอยากไปทะเล</li><li>พรุ่งนี้เราจะไปวัด</li><li>ฉันชอบกระบี่ เพราะทะเลสวย</li><li>ถ้าฝนตก ฉันจะไปพิพิธภัณฑ์</li><li>เราจะพักที่นี่สามคืน</li><li>เธออยากถ่ายรูปที่ตลาดกลางคืน</li>
+    </ol></div>
+    <div class="ak-block"><h4>Übung 3 - Fragen im Urlaub</h4><ol>
+      <li>มีห้องคู่ว่างไหมคะ/ครับ</li><li>ห้องนี้รวมอาหารเช้าไหมคะ/ครับ</li><li>พรุ่งนี้มีทัวร์เกาะไหมคะ/ครับ</li><li>ทัวร์ราคาเท่าไหร่คะ/ครับ</li><li>คุณแนะนำที่ไหนคะ/ครับ</li><li>เราจะไปเที่ยวกี่วันคะ/ครับ</li>
+    </ol></div>
+    <div class="ak-block">
+      <h4>Übung 4 - Reiseplan (Muster)</h4>
+      <p class="thai" style="font-size:14px;">พรุ่งนี้ฉันจะไปเที่ยวเชียงใหม่ ฉันอยากไปวัดและตลาดกลางคืน ฉันจะพักสองคืน เพราะเมืองนี้สวยและอาหารอร่อย ถ้าฝนตก ฉันจะไปพิพิธภัณฑ์</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Morgen reise ich nach Chiang Mai. Ich möchte einen Tempel und den Nachtmarkt besuchen. Ich bleibe zwei Nächte, weil die Stadt schön und das Essen lecker ist. Wenn es regnet, gehe ich ins Museum.</p>
+    </div>
+    <div class="ak-block">
+      <h4>Übung 5 - Mini-Text (Muster)</h4>
+      <p class="thai" style="font-size:14px;">สัปดาห์หน้าฉันจะไปเที่ยวประเทศไทย ฉันจะพักที่กระบี่ห้าคืน โรงแรมอยู่ใกล้ชายหาด ฉันอยากว่ายน้ำ ดำน้ำ และเที่ยวเกาะ เพราะฉันชอบทะเล ถ้าฝนตก ฉันจะนวดไทยและไปพิพิธภัณฑ์</p>
+      <p style="font-size:12px; font-style:italic; color:#5a6573;">Nächste Woche reise ich nach Thailand. Ich bleibe fünf Nächte in Krabi. Das Hotel liegt nahe am Strand. Ich möchte schwimmen, schnorcheln und Inseln besuchen, weil ich das Meer mag. Wenn es regnet, gehe ich zur Thai-Massage und ins Museum.</p>
+    </div>
+  </div>
+
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -3893,6 +4288,24 @@ function w6CheckMC() {
     if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
   });
   const result = document.getElementById('w6-mc-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 7 ? '#15803d' : '#dc2626';
+}
+
+function w7CheckMC() {
+  const questions = document.querySelectorAll('#w7-reading-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w7-mc-result');
   result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
   result.style.color = score >= 7 ? '#15803d' : '#dc2626';
 }
@@ -3954,19 +4367,24 @@ const W6_KB_UPPER = [
 ];
 let w6ActiveField = null;
 let w6ShiftOn = false;
+let w6KeyboardWeek = 'w6';
 
-function w6SetField(field) {
+function w6SetField(field, week = 'w6') {
   w6ActiveField = field;
+  w6KeyboardWeek = week;
   w6RenderKeyboard();
-  document.getElementById('w6Keyboard').classList.remove('hidden');
+  document.getElementById(`${week}Keyboard`).classList.remove('hidden');
 }
 
 function w6HideKeyboard() {
-  document.getElementById('w6Keyboard').classList.add('hidden');
+  ['w6Keyboard', 'w7Keyboard'].forEach(id => {
+    const keyboard = document.getElementById(id);
+    if (keyboard) keyboard.classList.add('hidden');
+  });
 }
 
 function w6RenderKeyboard() {
-  const keys = document.getElementById('w6Keys');
+  const keys = document.getElementById(`${w6KeyboardWeek}Keys`);
   if (!keys) return;
   keys.innerHTML = '';
   const layout = w6ShiftOn ? W6_KB_UPPER : W6_KB_LOWER;
@@ -4028,7 +4446,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (name === 'woche6') navName = 'a22';
+  if (['woche6', 'woche7'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
