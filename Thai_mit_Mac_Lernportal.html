@@ -580,6 +580,7 @@ h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
 .week-card.amber .head { background: #d18c10; }
 .week-card.purple .head { background: #6b3fa0; }
 .week-card.teal .head { background: #0d9488; }
+.week-card.red .head { background: #dc2626; }
 .week-card .body { padding: 16px 18px; font-size: 13px; }
 .week-card .body p { margin: 4px 0; }
 .week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
@@ -1081,7 +1082,7 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 7 Wochen · 1 Stunde pro Tag</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 8 Wochen · 1 Stunde pro Tag</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
@@ -1094,9 +1095,9 @@ ul, ol { padding-left: 22px; }
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">7</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">49</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~400</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">8</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">56</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~450</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1139,7 +1140,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 und 7 mit Reise-, Orientierungs- und Urlaubssituationen.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 8 mit Reise-, Urlaubs- und Küchensituationen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1159,7 +1160,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6-7 · Verkehr und Orientierung · Urlaub in Thailand</p>
+          <p>Woche 6-8 · Verkehr · Urlaub in Thailand · Kochen in der Küche</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1317,10 +1318,11 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen in Thailand. Woche 6 behandelt Orientierung und Verkehr; Woche 7 führt durch Hotel, Ausflüge, Strand und Urlaubsplanung.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 6 behandelt Orientierung und Verkehr, Woche 7 den Urlaub und Woche 8 das Kochen in einer thailändischen Küche.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche8')">Woche 8 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1328,8 +1330,8 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-7 · 14 Stunden</div></div>
-    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Verkehr, Hotel, Ausflüge, Urlaub</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-8 · 21 Stunden</div></div>
+    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Urlaub, Küche und Kochen</div></div>
   </div>
 
   <div class="card">
@@ -1359,6 +1361,19 @@ ul, ol { padding-left: 22px; }
           <p><span class="lab">Grammatik:</span> Wünsche, Zukunftspläne, Gründe und Bedingungen</p>
           <p><span class="lab">Praxis:</span> Reiseplanung, Buchung, Satzbau und Thai-Tastatur</p>
           <button class="open-link">Woche 7 öffnen →</button>
+        </div>
+      </div>
+      <div class="week-card red" onclick="showTab('woche8')">
+        <img class="photo" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=900&q=70&fm=jpg&auto=format" alt="Gemeinsames Kochen in einer Küche">
+        <div class="head">
+          <div><div class="n">Woche 8</div><div class="t">Kochen in der thailändischen Küche</div></div>
+          <div class="th thai">ทำอาหารในครัวไทย</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Zutaten, Küchenwerkzeuge, Mengen und Kochverben</p>
+          <p><span class="lab">Grammatik:</span> Arbeitsfolge, Anweisungen, Mengen und Garzustände</p>
+          <p><span class="lab">Praxis:</span> Rezept lesen, Gericht erklären, Satzbau und Thai-Tastatur</p>
+          <button class="open-link">Woche 8 öffnen →</button>
         </div>
       </div>
     </div>
@@ -4258,6 +4273,347 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 8: KOCHEN IN DER KUECHE ==================== -->
+<section id="woche8" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1400&q=70&fm=jpg&auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(220, 38, 38, 0.88); border-color: transparent;">Woche 8 · A2.2</span>
+      <h1>Kochen in der thailändischen Küche</h1>
+      <div class="thai-title thai">ทำอาหารในครัวไทย</div>
+      <p class="lead">Lernen Sie die wichtigsten Zutaten, Küchenwerkzeuge und Kochverben. Sie lesen ein einfaches Thai-Rezept, geben Anweisungen und erklären Schritt für Schritt, wie ein Gericht zubereitet wird.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 45 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Niveau</div><div class="v">Thai A2.2 · Küche &amp; Rezepte</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Ein Gericht zubereiten und erklären</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+
+    <h4 style="color:#047857; margin-top: 14px;">A · Grundzutaten · วัตถุดิบหลัก</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=70&fm=jpg&auto=format" alt="Frische Zutaten und Gemüse"></div>
+        <div class="cap">วัตถุดิบ · die Zutaten</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">วัตถุดิบ</td><td class="translit">wát-thù-dìp</td><td>Zutat</td><td>🧺</td></tr>
+          <tr><td class="thai">ข้าว</td><td class="translit">khâao</td><td>Reis</td><td>🍚</td></tr>
+          <tr><td class="thai">เนื้อหมู</td><td class="translit">nuea-mǔu</td><td>Schweinefleisch</td><td>🥩</td></tr>
+          <tr><td class="thai">เนื้อไก่</td><td class="translit">nuea-gài</td><td>Hühnerfleisch</td><td>🍗</td></tr>
+          <tr><td class="thai">ปลา</td><td class="translit">bplaa</td><td>Fisch</td><td>🐟</td></tr>
+          <tr><td class="thai">กุ้ง</td><td class="translit">gûng</td><td>Garnele</td><td>🍤</td></tr>
+          <tr><td class="thai">ไข่</td><td class="translit">khài</td><td>Ei</td><td>🥚</td></tr>
+          <tr><td class="thai">ผัก</td><td class="translit">phàk</td><td>Gemüse</td><td>🥬</td></tr>
+          <tr><td class="thai">เต้าหู้</td><td class="translit">dtâo-hûu</td><td>Tofu</td><td>⬜</td></tr>
+          <tr><td class="thai">กะทิ</td><td class="translit">gà-thí</td><td>Kokosmilch</td><td>🥥</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">B · Gemüse, Kräuter und Gewürze · ผัก สมุนไพร และเครื่องปรุง</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=70&fm=jpg&auto=format" alt="Gemüse und Kräuter auf einem Markt"></div>
+        <div class="cap">เครื่องปรุง · die Gewürze</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">กระเทียม</td><td class="translit">grà-thiam</td><td>Knoblauch</td><td>🧄</td></tr>
+          <tr><td class="thai">หอมใหญ่</td><td class="translit">hǒm-yài</td><td>Zwiebel</td><td>🧅</td></tr>
+          <tr><td class="thai">พริก</td><td class="translit">phrík</td><td>Chili</td><td>🌶️</td></tr>
+          <tr><td class="thai">มะนาว</td><td class="translit">má-naao</td><td>Limette</td><td>🍋</td></tr>
+          <tr><td class="thai">มะเขือเทศ</td><td class="translit">má-khǔea-thêet</td><td>Tomate</td><td>🍅</td></tr>
+          <tr><td class="thai">เห็ด</td><td class="translit">hèt</td><td>Pilz</td><td>🍄</td></tr>
+          <tr><td class="thai">ใบกะเพรา</td><td class="translit">bai gà-phrao</td><td>Thai-Basilikum</td><td>🌿</td></tr>
+          <tr><td class="thai">น้ำปลา</td><td class="translit">nám-bplaa</td><td>Fischsauce</td><td>🫙</td></tr>
+          <tr><td class="thai">น้ำตาล</td><td class="translit">nám-dtaan</td><td>Zucker</td><td>🥄</td></tr>
+          <tr><td class="thai">เกลือ</td><td class="translit">gluea</td><td>Salz</td><td>🧂</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">C · Küchenwerkzeuge · อุปกรณ์ครัว</h4>
+    <div class="photo-card">
+      <div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&q=70&fm=jpg&auto=format" alt="Werkzeuge in einer Küche"></div>
+        <div class="cap">อุปกรณ์ครัว · Küchenwerkzeuge</div>
+      </div>
+      <table class="vocab">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">มีด</td><td class="translit">mîit</td><td>Messer</td><td>🔪</td></tr>
+          <tr><td class="thai">เขียง</td><td class="translit">khǐang</td><td>Schneidebrett</td><td>🟫</td></tr>
+          <tr><td class="thai">กระทะ</td><td class="translit">grà-thá</td><td>Pfanne, Wok</td><td>🍳</td></tr>
+          <tr><td class="thai">หม้อ</td><td class="translit">môr</td><td>Topf</td><td>🥘</td></tr>
+          <tr><td class="thai">เตา</td><td class="translit">dtao</td><td>Herd</td><td>🔥</td></tr>
+          <tr><td class="thai">ตะหลิว</td><td class="translit">dtà-lǐu</td><td>Pfannenwender</td><td>🥄</td></tr>
+          <tr><td class="thai">ช้อน</td><td class="translit">chón</td><td>Löffel</td><td>🥄</td></tr>
+          <tr><td class="thai">ถ้วย</td><td class="translit">thûai</td><td>Schüssel, Tasse</td><td>🥣</td></tr>
+          <tr><td class="thai">จาน</td><td class="translit">jaan</td><td>Teller</td><td>🍽️</td></tr>
+          <tr><td class="thai">ตู้เย็น</td><td class="translit">dtûu-yen</td><td>Kühlschrank</td><td>🧊</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 18px;">D · Kochverben · คำกริยาทำอาหาร</h4>
+    <table class="vocab">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ล้าง</td><td class="translit">láang</td><td>waschen</td><td>🚿</td></tr>
+        <tr><td class="thai">หั่น</td><td class="translit">hàn</td><td>schneiden</td><td>🔪</td></tr>
+        <tr><td class="thai">สับ</td><td class="translit">sàp</td><td>hacken</td><td>🔪</td></tr>
+        <tr><td class="thai">ปอก</td><td class="translit">bpòok</td><td>schälen</td><td>🥕</td></tr>
+        <tr><td class="thai">ใส่</td><td class="translit">sài</td><td>hineingeben</td><td>➕</td></tr>
+        <tr><td class="thai">เท</td><td class="translit">thee</td><td>gießen</td><td>🫗</td></tr>
+        <tr><td class="thai">คน</td><td class="translit">khon</td><td>umrühren</td><td>🥄</td></tr>
+        <tr><td class="thai">ต้ม</td><td class="translit">dtôm</td><td>kochen</td><td>🍲</td></tr>
+        <tr><td class="thai">ผัด</td><td class="translit">phàt</td><td>im Wok braten</td><td>🍳</td></tr>
+        <tr><td class="thai">ทอด</td><td class="translit">thôt</td><td>frittieren, braten</td><td>🥘</td></tr>
+        <tr><td class="thai">ย่าง</td><td class="translit">yâang</td><td>grillen</td><td>♨️</td></tr>
+        <tr><td class="thai">นึ่ง</td><td class="translit">nêung</td><td>dämpfen</td><td>♨️</td></tr>
+        <tr><td class="thai">ชิม</td><td class="translit">chim</td><td>probieren, abschmecken</td><td>😋</td></tr>
+        <tr><td class="thai">ปรุง</td><td class="translit">bprung</td><td>würzen, zubereiten</td><td>🧂</td></tr>
+        <tr><td class="thai">เสิร์ฟ</td><td class="translit">sòep</td><td>servieren</td><td>🍽️</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+
+    <div class="grammar">
+      <div class="gh">G1 · Kochanweisungen: Verb + Zutat</div>
+      <p>Thai-Anweisungen beginnen meist direkt mit dem Verb. Das Objekt steht danach.</p>
+      <div class="formula">Kochverb + Zutat = Arbeitsschritt</div>
+      <p class="ex"><span class="thai th-mid">ล้างผัก</span> <span class="translit">(láang phàk)</span> - das Gemüse waschen</p>
+      <p class="ex"><span class="thai th-mid">หั่นเนื้อไก่</span> <span class="translit">(hàn nuea-gài)</span> - das Hühnerfleisch schneiden</p>
+      <p class="ex"><span class="thai th-mid">สับกระเทียม</span> <span class="translit">(sàp grà-thiam)</span> - den Knoblauch hacken</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G2 · Ein Rezept ordnen</div>
+      <p>Mit Reihenfolge-Wörtern wird aus einzelnen Arbeitsschritten ein verständliches Rezept.</p>
+      <div class="formula">ก่อนอื่น ... ต่อไป ... แล้ว ... สุดท้าย ...</div>
+      <p class="ex"><span class="thai th-mid">ก่อนอื่นล้างผัก ต่อไปหั่นผัก แล้วใส่ลงในกระทะ สุดท้ายปรุงด้วยน้ำปลา</span></p>
+      <p class="ex">Zuerst das Gemüse waschen, als Nächstes schneiden, dann in die Pfanne geben und zuletzt mit Fischsauce würzen.</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G3 · Mengen in der Küche</div>
+      <p>Die Menge steht nach der Zutat. Häufige Maße sind <span class="thai">ช้อนโต๊ะ</span> (Esslöffel), <span class="thai">ช้อนชา</span> (Teelöffel), <span class="thai">ถ้วย</span> (Tasse) und <span class="thai">นิดหน่อย</span> (ein wenig).</p>
+      <div class="formula">Zutat + Zahl + Maßeinheit</div>
+      <p class="ex"><span class="thai th-mid">น้ำปลาหนึ่งช้อนโต๊ะ</span> - ein Esslöffel Fischsauce</p>
+      <p class="ex"><span class="thai th-mid">น้ำตาลหนึ่งช้อนชา</span> - ein Teelöffel Zucker</p>
+      <p class="ex"><span class="thai th-mid">ใส่เกลือนิดหน่อย</span> - etwas Salz hinzufügen</p>
+    </div>
+
+    <div class="grammar">
+      <div class="gh">G4 · Kochen bis etwas fertig ist: จน + Zustand</div>
+      <p><span class="thai">จน</span> bedeutet „bis". Es verbindet eine Kochhandlung mit dem gewünschten Ergebnis.</p>
+      <div class="formula">Kochverb + จน + Zustand</div>
+      <p class="ex"><span class="thai th-mid">ผัดจนสุก</span> <span class="translit">(phàt jon sùk)</span> - braten, bis es gar ist</p>
+      <p class="ex"><span class="thai th-mid">ต้มจนน้ำเดือด</span> <span class="translit">(dtôm jon nám dèuat)</span> - kochen, bis das Wasser siedet</p>
+      <p class="ex"><span class="thai th-mid">ทอดจนเหลือง</span> <span class="translit">(thôt jon lǔeang)</span> - braten, bis es goldgelb ist</p>
+    </div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+
+    <h4 style="color:#047857;">Dialog 1 · Vor dem Kochen · ก่อนทำอาหาร</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=900&q=70&fm=jpg&auto=format" alt="Menschen bereiten gemeinsam Essen zu">
+      <div class="dialog-row a"><div class="who">M</div><div class="text"><span class="thai th-mid">วันนี้เราจะทำผัดกะเพรา ต้องใช้วัตถุดิบอะไรบ้างครับ</span><span class="translit">wan-níi rao jà tham phàt-gà-phrao. dtông chái wát-thù-dìp à-rai bâang kráp?</span><span class="de">Heute machen wir Pad Krapao. Welche Zutaten brauchen wir?</span></div></div>
+      <div class="dialog-row b"><div class="who">K</div><div class="text"><span class="thai th-mid">มีหมู ใบกะเพรา กระเทียม พริก และน้ำปลาค่ะ</span><span class="translit">mii mǔu, bai gà-phrao, grà-thiam, phrík láe nám-bplaa khâ.</span><span class="de">Wir haben Schweinefleisch, Thai-Basilikum, Knoblauch, Chili und Fischsauce.</span></div></div>
+      <div class="dialog-row a"><div class="who">M</div><div class="text"><span class="thai th-mid">ผมต้องทำอะไรก่อนครับ</span><span class="translit">phǒm dtông tham à-rai gòn kráp?</span><span class="de">Was soll ich zuerst machen?</span></div></div>
+      <div class="dialog-row b"><div class="who">K</div><div class="text"><span class="thai th-mid">ช่วยล้างใบกะเพรา แล้วสับกระเทียมกับพริกค่ะ</span><span class="translit">chûai láang bai gà-phrao, láeo sàp grà-thiam gàp phrík khâ.</span><span class="de">Bitte waschen Sie das Basilikum und hacken Sie dann Knoblauch und Chili.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Dialog 2 · Am Herd · ที่เตา</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=900&q=70&fm=jpg&auto=format" alt="Koch arbeitet am Herd">
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">ก่อนอื่นใส่น้ำมันลงในกระทะ แล้วใส่กระเทียมกับพริกค่ะ</span><span class="translit">gòn-èun sài nám-man long nai grà-thá, láeo sài grà-thiam gàp phrík khâ.</span><span class="de">Zuerst Öl in die Pfanne geben, dann Knoblauch und Chili hinzufügen.</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ต่อไปใส่หมูใช่ไหมครับ</span><span class="translit">dtòr-bpai sài mǔu châi mǎi kráp?</span><span class="de">Als Nächstes kommt das Schweinefleisch hinein, richtig?</span></div></div>
+      <div class="dialog-row a"><div class="who">K</div><div class="text"><span class="thai th-mid">ใช่ค่ะ ผัดจนหมูสุก แล้วปรุงด้วยน้ำปลากับน้ำตาลค่ะ</span><span class="translit">châi khâ. phàt jon mǔu sùk, láeo bprung dûai nám-bplaa gàp nám-dtaan khâ.</span><span class="de">Ja. Braten Sie, bis das Fleisch gar ist, und würzen Sie dann mit Fischsauce und Zucker.</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">สุดท้ายใส่ใบกะเพรา ชิม แล้วเสิร์ฟกับข้าวครับ</span><span class="translit">sùt-tháai sài bai gà-phrao, chim, láeo sòep gàp khâao kráp.</span><span class="de">Zuletzt Basilikum hinzufügen, abschmecken und mit Reis servieren.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top: 22px;">Lesetext · เรียนทำอาหารไทย · „Thai kochen lernen"</h4>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=70&fm=jpg&auto=format" alt="Kochkurs in einer Küche"></div>
+      <div class="reading">
+        <p class="thai th-mid"><strong>1.</strong> วันนี้มาร์คไปเรียนทำอาหารไทยที่โรงเรียนสอนทำอาหารในเชียงใหม่ เขาชอบกินอาหารไทย แต่ยังทำเองไม่เป็น เมนูวันนี้คือผัดกะเพราหมูและต้มข่าไก่</p>
+        <p class="thai th-mid"><strong>2.</strong> ก่อนเริ่มเรียน ครูพานักเรียนไปดูวัตถุดิบ บนโต๊ะมีเนื้อหมู เนื้อไก่ ผัก เห็ด พริก กระเทียม ใบกะเพรา มะนาว กะทิ น้ำปลา และน้ำตาล</p>
+        <p class="thai th-mid"><strong>3.</strong> ครูแนะนำอุปกรณ์ครัว มีมีด เขียง กระทะ หม้อ เตา ตะหลิว ช้อน ถ้วย และจาน ครูบอกให้ทุกคนระวังมีดและล้างมือก่อนทำอาหาร</p>
+        <p class="thai th-mid"><strong>4.</strong> เมนูแรกคือผัดกะเพราหมู ก่อนอื่นมาร์คล้างใบกะเพรา แล้วสับกระเทียมกับพริก ต่อไปเขาหั่นหมูเป็นชิ้นเล็ก ๆ และตั้งกระทะบนเตา</p>
+        <p class="thai th-mid"><strong>5.</strong> เขาใส่น้ำมัน กระเทียม และพริกลงในกระทะ แล้วใส่หมู เขาผัดจนหมูสุก จากนั้นปรุงด้วยน้ำปลาหนึ่งช้อนโต๊ะและน้ำตาลหนึ่งช้อนชา</p>
+        <p class="thai th-mid"><strong>6.</strong> สุดท้ายเขาใส่ใบกะเพรา คนเร็ว ๆ แล้วปิดเตา เขาชิมอาหารและคิดว่าเผ็ดไปนิดหน่อย แต่ครูบอกว่ารสชาติดีมาก</p>
+        <p class="thai th-mid"><strong>7.</strong> เมนูที่สองคือต้มข่าไก่ มาร์คต้มกะทิในหม้อ ใส่เนื้อไก่ เห็ด และเครื่องปรุง เขาต้มจนไก่สุก แล้วใส่น้ำมะนาวหลังปิดเตา</p>
+        <p class="thai th-mid"><strong>8.</strong> ตอนเที่ยงนักเรียนทุกคนนั่งกินอาหารด้วยกัน มาร์ครู้สึกภูมิใจ เพราะเขาทำอาหารไทยสองอย่างได้แล้ว เขาจดสูตรไว้และจะทำให้เพื่อนกินเมื่อกลับเยอรมนี</p>
+        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Heute besucht Mark eine Thai-Kochschule in Chiang Mai. Er isst gern thailändisch, kann die Gerichte aber noch nicht selbst kochen. Heute stehen Pad Krapao mit Schweinefleisch und Tom Kha Gai auf dem Plan.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Vor dem Unterricht zeigt die Lehrerin die Zutaten. Auf dem Tisch liegen Schwein, Huhn, Gemüse, Pilze, Chili, Knoblauch, Thai-Basilikum, Limette, Kokosmilch, Fischsauce und Zucker.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Danach erklärt sie die Küchenwerkzeuge: Messer, Schneidebrett, Pfanne, Topf, Herd, Pfannenwender, Löffel, Schüsseln und Teller. Alle sollen mit dem Messer vorsichtig sein und zuerst die Hände waschen.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> Das erste Gericht ist Pad Krapao. Mark wäscht das Basilikum, hackt Knoblauch und Chili, schneidet das Fleisch klein und stellt die Pfanne auf den Herd.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Er gibt Öl, Knoblauch und Chili in die Pfanne, fügt das Fleisch hinzu und brät es gar. Dann würzt er mit einem Esslöffel Fischsauce und einem Teelöffel Zucker.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Zuletzt gibt er Basilikum hinzu, rührt schnell um und schaltet den Herd aus. Das Gericht ist etwas zu scharf, aber die Lehrerin findet den Geschmack sehr gut.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Für Tom Kha Gai kocht Mark Kokosmilch im Topf, fügt Huhn, Pilze und Gewürze hinzu und kocht alles, bis das Huhn gar ist. Limettensaft kommt erst nach dem Ausschalten des Herds hinein.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Mittags essen alle gemeinsam. Mark ist stolz, weil er nun zwei Thai-Gerichte kochen kann. Er notiert die Rezepte und möchte sie später für seine Freunde in Deutschland kochen.</p>
+      </div>
+    </div>
+
+    <div class="exercise" id="w8-reading-quiz">
+      <span class="num">1</span><h4>Lesen - 10 Fragen mit 4 Antworten</h4>
+      <p class="task">Wählen Sie die beste Antwort. Danach klicken Sie auf „Antworten prüfen".</p>
+      <div class="w6-mc" data-answer="b"><p><strong>1.</strong> Wo besucht Mark den Kochkurs?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>in Berlin</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>in Chiang Mai</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>am Flughafen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>am Strand</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>2.</strong> Welche zwei Gerichte kocht die Gruppe?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Pizza und Suppe</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Pad Thai und Curry</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Reis und Salat</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Pad Krapao und Tom Kha Gai</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>3.</strong> Was sollen alle vor dem Kochen tun?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>die Hände waschen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>den Herd ausschalten</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>das Essen servieren</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>nach Hause gehen</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> Was hackt Mark für Pad Krapao?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Reis und Ei</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Pilze und Huhn</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Knoblauch und Chili</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Limette und Zucker</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> Wie lange brät Mark das Fleisch?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>bis es kalt ist</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>bis es gar ist</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>genau eine Stunde</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>gar nicht</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>6.</strong> Wie viel Fischsauce verwendet er?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>einen Esslöffel</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>eine Tasse</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>einen Liter</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>keine</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>7.</strong> Wie schmeckt Marks Pad Krapao?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>zu süß</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>zu salzig</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>zu kalt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>etwas zu scharf</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>8.</strong> Worin kocht Mark die Kokosmilch?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>auf einem Teller</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>in einer Tasse</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>in einem Topf</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>im Kühlschrank</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>9.</strong> Wann gibt er Limettensaft in die Suppe?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>vor dem Waschen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nach dem Ausschalten des Herds</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>am nächsten Tag</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>überhaupt nicht</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>10.</strong> Warum ist Mark stolz?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Er kann jetzt zwei Thai-Gerichte kochen.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Er hat ein Restaurant gekauft.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Er muss nie wieder kochen.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Er hat kein Gemüse benutzt.</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w8CheckMC()">✓ Antworten prüfen</button>
+      <div id="w8-mc-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+
+    <div class="exercise">
+      <span class="num">2</span><h4>Sätze bauen - Arbeitsschritte</h4>
+      <p class="task">Klicken Sie die Thai-Bausteine in der richtigen Reihenfolge an.</p>
+      <div class="w6-build-set" id="w8-build-steps">
+        <div class="w6-build" data-answer="ก่อนอื่น ล้าง ผัก"><div class="task">1. Zuerst das Gemüse waschen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผัก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ก่อนอื่น</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ล้าง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ต่อไป หั่น เนื้อไก่"><div class="task">2. Als Nächstes das Hühnerfleisch schneiden.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เนื้อไก่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หั่น</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต่อไป</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ใส่ น้ำมัน ลงใน กระทะ"><div class="task">3. Öl in die Pfanne geben.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กระทะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใส่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ลงใน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำมัน</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ผัด หมู จน สุก"><div class="task">4. Das Schweinefleisch braten, bis es gar ist.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สุก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หมู</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผัด</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จน</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ปรุง ด้วย น้ำปลา และ น้ำตาล"><div class="task">5. Mit Fischsauce und Zucker würzen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำตาล</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ด้วย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ปรุง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">และ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำปลา</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="สุดท้าย ชิม แล้ว เสิร์ฟ กับ ข้าว"><div class="task">6. Zuletzt abschmecken und mit Reis servieren.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ข้าว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แล้ว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชิม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สุดท้าย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เสิร์ฟ</button></div><div class="w6-feedback"></div></div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w8-build-steps')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">3</span><h4>Sätze bauen - Fragen und Bitten in der Küche</h4>
+      <p class="task">Bauen Sie natürliche Fragen und höfliche Bitten.</p>
+      <div class="w6-build-set" id="w8-build-questions">
+        <div class="w6-build" data-answer="ต้อง ใช้ วัตถุดิบ อะไร บ้าง ครับ"><div class="task">1. Welche Zutaten brauchen wir?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อะไร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัตถุดิบ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใช้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">บ้าง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต้อง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ช่วย ล้าง ผัก หน่อย ค่ะ"><div class="task">2. Bitte waschen Sie das Gemüse.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หน่อย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผัก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ช่วย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ค่ะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ล้าง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="มี มีด กับ เขียง ไหม ครับ"><div class="task">3. Gibt es ein Messer und ein Schneidebrett?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เขียง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มีด</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ใส่ น้ำปลา กี่ ช้อนโต๊ะ คะ"><div class="task">4. Wie viele Esslöffel Fischsauce kommen hinein?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ช้อนโต๊ะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำปลา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กี่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใส่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ต้อง ผัด นาน เท่าไหร่ ครับ"><div class="task">5. Wie lange muss man braten?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เท่าไหร่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผัด</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นาน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต้อง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ช่วย ชิม ให้ หน่อย ค่ะ"><div class="task">6. Bitte probieren Sie einmal.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หน่อย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ช่วย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ให้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ค่ะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชิม</button></div><div class="w6-feedback"></div></div>
+      </div>
+      <button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w8-build-questions')">✓ Sätze prüfen</button>
+    </div>
+
+    <div class="exercise">
+      <span class="num">4</span><h4>Ein Mini-Rezept schreiben</h4>
+      <p class="task">Schreiben Sie 4 Thai-Sätze. Benutzen Sie mindestens drei Kochverben und zwei Reihenfolge-Wörter.</p>
+      <textarea class="w6-thai-input thai" rows="4" placeholder="พิมพ์สูตรอาหารภาษาไทยที่นี่..." onfocus="w6SetField(this, 'w8')"></textarea>
+    </div>
+
+    <div class="exercise">
+      <span class="num">5</span><h4>Mein Lieblingsgericht</h4>
+      <p class="task">Schreiben Sie 5-6 Sätze: Wie heißt das Gericht? Welche Zutaten und Werkzeuge brauchen Sie? Wie bereiten Sie es zu? Wie schmeckt es?</p>
+      <textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: อาหารที่ฉันชอบคือ..." onfocus="w6SetField(this, 'w8')"></textarea>
+    </div>
+
+    <div id="w8Keyboard" class="w6-keyboard hidden">
+      <div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 8</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div>
+      <div id="w8Keys"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+    <h4 style="color:#1f6feb;">Aussprache - Kochverben mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">ชิม</div><div class="meaning">chim<br>probieren</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">ผัด</div><div class="meaning">phàt<br>im Wok braten</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">นึ่ง</div><div class="meaning">nêung<br>dämpfen</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">ล้าง</div><div class="meaning">láang<br>waschen</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">เขียง</div><div class="meaning">khǐang<br>Schneidebrett</div></div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">6</span><h4>Rollenspiel - Gemeinsam kochen</h4>
+      <p class="task">Eine Person ist Kochlehrer/in, die andere lernt. Wechseln Sie anschließend die Rollen.</p>
+      <div class="speak-grid">
+        <div class="speak-card">
+          <div class="role">Lernende Person · นักเรียน</div>
+          <p class="line"><span class="thai th-mid">วันนี้เราจะทำเมนูอะไรครับ</span><br>Welches Gericht kochen wir heute?</p>
+          <p class="line"><span class="thai th-mid">ผมต้องทำอะไรก่อนครับ</span><br>Was soll ich zuerst tun?</p>
+          <p class="line"><span class="thai th-mid">ใส่น้ำปลากี่ช้อนโต๊ะครับ</span><br>Wie viele Esslöffel Fischsauce kommen hinein?</p>
+        </div>
+        <div class="speak-card green">
+          <div class="role">Kochlehrer/in · ครูสอนทำอาหาร</div>
+          <p class="line"><span class="thai th-mid">วันนี้เราจะทำผัดกะเพราค่ะ</span><br>Heute kochen wir Pad Krapao.</p>
+          <p class="line"><span class="thai th-mid">ก่อนอื่นล้างผัก แล้วสับกระเทียมค่ะ</span><br>Waschen Sie zuerst das Gemüse und hacken Sie dann Knoblauch.</p>
+          <p class="line"><span class="thai th-mid">ใส่หนึ่งช้อนโต๊ะ แล้วชิมก่อนค่ะ</span><br>Geben Sie einen Esslöffel hinein und probieren Sie dann.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="num">7</span><h4>Sprechen frei - fünf Küchenfragen</h4>
+      <ol>
+        <li><span class="thai">คุณชอบทำอาหารอะไร</span> - Was kochen Sie gern?<div class="lines"></div></li>
+        <li><span class="thai">ในตู้เย็นของคุณมีวัตถุดิบอะไรบ้าง</span> - Welche Zutaten sind in Ihrem Kühlschrank?<div class="lines"></div></li>
+        <li><span class="thai">คุณใช้มีดและกระทะทำอะไร</span> - Wofür benutzen Sie Messer und Pfanne?<div class="lines"></div></li>
+        <li><span class="thai">คุณชอบอาหารต้ม ผัด ทอด หรือย่างมากที่สุด</span> - Mögen Sie gekochte, gebratene, frittierte oder gegrillte Gerichte am liebsten?<div class="lines"></div></li>
+        <li><span class="thai">อาหารไทยเมนูไหนที่คุณอยากทำเป็น</span> - Welches Thai-Gericht möchten Sie kochen können?<div class="lines"></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7-DAY PLAN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3>
+    <table class="plan-table">
+      <thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Grundzutaten</td><td>10 Zutaten abschreiben</td><td>Zutaten laut benennen</td></tr>
+        <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Gewürze</td><td>Eigene Einkaufsliste schreiben</td><td>Geschmack und Gewürze nennen</td></tr>
+        <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C + D · Werkzeuge und Verben</td><td>6 Verb-Objekt-Sätze bilden</td><td>Kochbewegungen mit Verben sprechen</td></tr>
+        <tr><td class="day">Tag 4<br>Do</td><td>Dialoge 1 und 2 lesen</td><td>Übung 2 und 3</td><td>Dialoge in zwei Rollen sprechen</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Thai kochen lernen"</td><td>Übung 4 · Mini-Rezept</td><td>Fünf Küchenfragen beantworten</td></tr>
+        <tr><td class="day">Tag 6<br>Sa</td><td>Alle Vokabeln wiederholen</td><td>Lieblingsgericht beschreiben</td><td>2-Minuten-Rezept aufnehmen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Koch-Rollenspiel wiederholen</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANSWER KEY -->
+  <div class="answer-key">
+    <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol><li>b - in Chiang Mai</li><li>d - Pad Krapao und Tom Kha Gai</li><li>a - die Hände waschen</li><li>c - Knoblauch und Chili</li><li>b - bis es gar ist</li><li>a - einen Esslöffel</li><li>d - etwas zu scharf</li><li>c - in einem Topf</li><li>b - nach dem Ausschalten des Herds</li><li>a - Er kann jetzt zwei Thai-Gerichte kochen.</li></ol></div>
+    <div class="ak-block"><h4>Übung 2 - Arbeitsschritte</h4><ol><li>ก่อนอื่นล้างผัก</li><li>ต่อไปหั่นเนื้อไก่</li><li>ใส่น้ำมันลงในกระทะ</li><li>ผัดหมูจนสุก</li><li>ปรุงด้วยน้ำปลาและน้ำตาล</li><li>สุดท้ายชิมแล้วเสิร์ฟกับข้าว</li></ol></div>
+    <div class="ak-block"><h4>Übung 3 - Fragen und Bitten</h4><ol><li>ต้องใช้วัตถุดิบอะไรบ้างครับ/คะ</li><li>ช่วยล้างผักหน่อยครับ/ค่ะ</li><li>มีมีดกับเขียงไหมครับ/คะ</li><li>ใส่น้ำปลากี่ช้อนโต๊ะครับ/คะ</li><li>ต้องผัดนานเท่าไหร่ครับ/คะ</li><li>ช่วยชิมให้หน่อยครับ/ค่ะ</li></ol></div>
+    <div class="ak-block"><h4>Übung 4 - Mini-Rezept (Muster)</h4><p class="thai" style="font-size:14px;">ก่อนอื่นล้างผักและหั่นเนื้อไก่ ต่อไปใส่น้ำมันลงในกระทะ แล้วผัดไก่จนสุก สุดท้ายใส่ผัก ปรุงด้วยน้ำปลา และเสิร์ฟกับข้าว</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Zuerst Gemüse waschen und Huhn schneiden. Als Nächstes Öl in die Pfanne geben und das Huhn gar braten. Zuletzt Gemüse hinzufügen, mit Fischsauce würzen und mit Reis servieren.</p></div>
+    <div class="ak-block"><h4>Übung 5 - Lieblingsgericht (Muster)</h4><p class="thai" style="font-size:14px;">อาหารที่ฉันชอบคือข้าวผัด ฉันใช้ข้าว ไข่ ผัก กระเทียม และน้ำปลา ฉันต้องใช้มีด เขียง และกระทะ ก่อนอื่นฉันหั่นผัก แล้วผัดกระเทียมกับไข่ ต่อไปใส่ข้าวและผัก ปรุงด้วยน้ำปลา รสชาติอร่อยและไม่เผ็ดมาก</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Mein Lieblingsgericht ist gebratener Reis. Ich verwende Reis, Ei, Gemüse, Knoblauch und Fischsauce sowie Messer, Brett und Pfanne. Zuerst schneide ich das Gemüse und brate Knoblauch mit Ei. Dann kommen Reis und Gemüse dazu. Mit Fischsauce würzen; es schmeckt lecker und ist nicht sehr scharf.</p></div>
+  </div>
+
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -4306,6 +4662,24 @@ function w7CheckMC() {
     if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
   });
   const result = document.getElementById('w7-mc-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 7 ? '#15803d' : '#dc2626';
+}
+
+function w8CheckMC() {
+  const questions = document.querySelectorAll('#w8-reading-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w8-mc-result');
   result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
   result.style.color = score >= 7 ? '#15803d' : '#dc2626';
 }
@@ -4377,7 +4751,7 @@ function w6SetField(field, week = 'w6') {
 }
 
 function w6HideKeyboard() {
-  ['w6Keyboard', 'w7Keyboard'].forEach(id => {
+  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard'].forEach(id => {
     const keyboard = document.getElementById(id);
     if (keyboard) keyboard.classList.add('hidden');
   });
@@ -4446,7 +4820,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (['woche6', 'woche7'].includes(name)) navName = 'a22';
+  if (['woche6', 'woche7', 'woche8'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
