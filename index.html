@@ -700,6 +700,75 @@ table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
 .reading .thai { line-height: 1.95; }
 .reading .de { color: #4a5563; font-style: italic; margin-top: 8px; font-size: 13px; }
 
+/* ==================== WORD FUNCTION FILTER ==================== */
+.role-tools {
+  background: #f8fafc;
+  border: 1px solid #d8dee8;
+  border-left: 4px solid #0369a1;
+  border-radius: 0 8px 8px 0;
+  padding: 13px 14px;
+  margin: 10px 0 14px;
+}
+.role-filter-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.role-filter-head strong { font-size: 14px; color: #1d2733; }
+.role-filter-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.role-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 9px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.role-toggle:hover, .role-toggle:focus-within { border-color: var(--role-color); }
+.role-toggle.active { background: var(--role-bg); border-color: var(--role-color); color: #172033; }
+.role-toggle input { width: 15px; height: 15px; margin: 0; accent-color: var(--role-color); }
+.role-swatch { width: 11px; height: 11px; border-radius: 2px; background: var(--role-color); flex: 0 0 auto; }
+.role-clear {
+  border: 0;
+  background: transparent;
+  color: #475569;
+  padding: 5px 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.role-clear:hover, .role-clear:focus-visible { color: #b91c1c; text-decoration: underline; }
+.role-reader .word-role {
+  border-radius: 3px;
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+.role-reader.show-subject .role-subject { background: #dbeafe; color: #1e3a8a; box-shadow: inset 0 -2px #2563eb; }
+.role-reader.show-verb .role-verb { background: #fee2e2; color: #7f1d1d; box-shadow: inset 0 -2px #dc2626; }
+.role-reader.show-object .role-object { background: #dcfce7; color: #14532d; box-shadow: inset 0 -2px #16a34a; }
+.role-reader.show-adjective .role-adjective { background: #f3e8ff; color: #581c87; box-shadow: inset 0 -2px #9333ea; }
+.role-reader.show-context .role-context { background: #fef3c7; color: #78350f; box-shadow: inset 0 -2px #d97706; }
+.role-reader.show-connector .role-connector { background: #cffafe; color: #164e63; box-shadow: inset 0 -2px #0891b2; }
+@media (max-width: 560px) {
+  .role-filter-head { align-items: flex-start; }
+  .role-toggle { flex: 1 1 calc(50% - 7px); }
+}
+@media print {
+  .role-tools { display: none !important; }
+  .role-reader .word-role { background: transparent !important; color: inherit !important; box-shadow: none !important; padding: 0 !important; }
+}
+
 /* ==================== GRAMMAR ==================== */
 .grammar {
   border: 2px solid #1f6feb;
@@ -4802,17 +4871,31 @@ ul, ol { padding-left: 22px; }
     </div>
 
     <h4 style="color:#047857; margin-top: 22px;">Lesetext · Ein Wochenende zwischen Wald und Meer</h4>
+    <div class="role-tools" id="w9-role-tools">
+      <div class="role-filter-head">
+        <strong>Wortfunktionen filtern · หน้าที่ของคำ</strong>
+        <button class="role-clear" type="button" onclick="clearWordRoles('w9-role-reader', 'w9-role-tools')">× Markierungen aus</button>
+      </div>
+      <div class="role-filter-options">
+        <label class="role-toggle" style="--role-color:#2563eb; --role-bg:#dbeafe;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'subject', this)"><span class="role-swatch"></span>Subjekt · ประธาน</label>
+        <label class="role-toggle" style="--role-color:#dc2626; --role-bg:#fee2e2;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'verb', this)"><span class="role-swatch"></span>Verb · กริยา</label>
+        <label class="role-toggle" style="--role-color:#16a34a; --role-bg:#dcfce7;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'object', this)"><span class="role-swatch"></span>Objekt · กรรม</label>
+        <label class="role-toggle" style="--role-color:#9333ea; --role-bg:#f3e8ff;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'adjective', this)"><span class="role-swatch"></span>Adjektiv · คำคุณศัพท์</label>
+        <label class="role-toggle" style="--role-color:#d97706; --role-bg:#fef3c7;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'context', this)"><span class="role-swatch"></span>Ort / Zeit · สถานที่ / เวลา</label>
+        <label class="role-toggle" style="--role-color:#0891b2; --role-bg:#cffafe;"><input type="checkbox" onchange="toggleWordRole('w9-role-reader', 'connector', this)"><span class="role-swatch"></span>Konnektor · คำเชื่อม</label>
+      </div>
+    </div>
     <div class="reading-wrap">
       <div class="side"><img src="https://images.unsplash.com/photo-1538475711279-0373b6bc754e?w=700&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Thailändische Insel zwischen Wald und Meer"></div>
-      <div class="reading">
-        <p class="thai th-mid"><strong>1.</strong> สุดสัปดาห์นี้เลนาเที่ยวธรรมชาติในประเทศไทย วันแรกเธอไปอุทยานแห่งชาติเขาใหญ่ และวันที่สองเธอเดินทางไปเกาะเล็ก ๆ ทางใต้</p>
-        <p class="thai th-mid"><strong>2.</strong> ก่อนไปเดินป่า เลนาเตรียมน้ำดื่ม เสื้อกันฝน หมวก และรองเท้าเดินป่า เจ้าหน้าที่บอกว่าเส้นทางยาวหกกิโลเมตรและบางช่วงลื่น</p>
-        <p class="thai th-mid"><strong>3.</strong> ตอนเช้าป่าเงียบและอากาศเย็น เธอได้ยินเสียงชะนีและเห็นนกเงือกสองตัวบนต้นไม้สูง ไกด์บอกว่าไม่ควรส่งเสียงดัง</p>
-        <p class="thai th-mid"><strong>4.</strong> ต่อมากลุ่มเห็นช้างหนึ่งตัวอยู่ไกล ๆ ทุกคนหยุดเดินและฟังเจ้าหน้าที่ ไม่มีใครเข้าใกล้หรือให้อาหารช้าง</p>
-        <p class="thai th-mid"><strong>5.</strong> ตอนบ่ายพวกเขาไปถึงน้ำตก น้ำสวยแต่ไหลแรง เจ้าหน้าที่จึงห้ามว่ายน้ำ เลนาถ่ายรูปและเก็บขยะชิ้นหนึ่งที่อยู่ใกล้ทางเดิน</p>
-        <p class="thai th-mid"><strong>6.</strong> วันต่อมาเลนานั่งเรือไปอุทยานแห่งชาติทางทะเล ทะเลใสและคลื่นสงบ ไกด์ให้เสื้อชูชีพและอธิบายกฎก่อนดำน้ำตื้น</p>
-        <p class="thai th-mid"><strong>7.</strong> ในน้ำเลนาเห็นปลา ปะการัง และเต่าทะเลหนึ่งตัว เธออยู่ห่างจากเต่า ไม่จับปะการัง และไม่ทิ้งอะไรลงในทะเล</p>
-        <p class="thai th-mid"><strong>8.</strong> เลนาชอบทั้งป่าและทะเล เธอคิดว่าการเที่ยวธรรมชาติสนุกมาก แต่เราทุกคนต้องช่วยกันอนุรักษ์สัตว์และสถานที่เหล่านี้</p>
+      <div class="reading role-reader" id="w9-role-reader">
+        <p class="thai th-mid"><strong>1.</strong> <span class="word-role role-context">สุดสัปดาห์นี้</span><span class="word-role role-subject">เลนา</span><span class="word-role role-verb">เที่ยว</span><span class="word-role role-object">ธรรมชาติ</span><span class="word-role role-context">ในประเทศไทย</span> <span class="word-role role-context">วันแรก</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ไป</span><span class="word-role role-context">อุทยานแห่งชาติเขาใหญ่</span> <span class="word-role role-connector">และ</span><span class="word-role role-context">วันที่สอง</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">เดินทางไป</span><span class="word-role role-context">เกาะ</span><span class="word-role role-adjective">เล็ก ๆ</span><span class="word-role role-context">ทางใต้</span></p>
+        <p class="thai th-mid"><strong>2.</strong> <span class="word-role role-context">ก่อนไปเดินป่า</span> <span class="word-role role-subject">เลนา</span><span class="word-role role-verb">เตรียม</span><span class="word-role role-object">น้ำดื่ม เสื้อกันฝน หมวก และรองเท้าเดินป่า</span> <span class="word-role role-subject">เจ้าหน้าที่</span><span class="word-role role-verb">บอก</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">เส้นทาง</span><span class="word-role role-adjective">ยาว</span><span class="word-role role-object">หกกิโลเมตร</span><span class="word-role role-connector">และ</span><span class="word-role role-context">บางช่วง</span><span class="word-role role-adjective">ลื่น</span></p>
+        <p class="thai th-mid"><strong>3.</strong> <span class="word-role role-context">ตอนเช้า</span><span class="word-role role-subject">ป่า</span><span class="word-role role-adjective">เงียบ</span><span class="word-role role-connector">และ</span><span class="word-role role-subject">อากาศ</span><span class="word-role role-adjective">เย็น</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ได้ยิน</span><span class="word-role role-object">เสียงชะนี</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">เห็น</span><span class="word-role role-object">นกเงือกสองตัว</span><span class="word-role role-context">บนต้นไม้</span><span class="word-role role-adjective">สูง</span> <span class="word-role role-subject">ไกด์</span><span class="word-role role-verb">บอก</span><span class="word-role role-connector">ว่า</span><span class="word-role role-verb">ไม่ควรส่งเสียง</span><span class="word-role role-adjective">ดัง</span></p>
+        <p class="thai th-mid"><strong>4.</strong> <span class="word-role role-context">ต่อมา</span><span class="word-role role-subject">กลุ่ม</span><span class="word-role role-verb">เห็น</span><span class="word-role role-object">ช้างหนึ่งตัว</span><span class="word-role role-verb">อยู่</span><span class="word-role role-context">ไกล ๆ</span> <span class="word-role role-subject">ทุกคน</span><span class="word-role role-verb">หยุดเดิน</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ฟัง</span><span class="word-role role-object">เจ้าหน้าที่</span> <span class="word-role role-subject">ไม่มีใคร</span><span class="word-role role-verb">เข้าใกล้</span><span class="word-role role-connector">หรือ</span><span class="word-role role-verb">ให้อาหาร</span><span class="word-role role-object">ช้าง</span></p>
+        <p class="thai th-mid"><strong>5.</strong> <span class="word-role role-context">ตอนบ่าย</span><span class="word-role role-subject">พวกเขา</span><span class="word-role role-verb">ไปถึง</span><span class="word-role role-context">น้ำตก</span> <span class="word-role role-subject">น้ำ</span><span class="word-role role-adjective">สวย</span><span class="word-role role-connector">แต่</span><span class="word-role role-verb">ไหล</span><span class="word-role role-adjective">แรง</span> <span class="word-role role-subject">เจ้าหน้าที่</span><span class="word-role role-connector">จึง</span><span class="word-role role-verb">ห้ามว่ายน้ำ</span> <span class="word-role role-subject">เลนา</span><span class="word-role role-verb">ถ่ายรูป</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">เก็บ</span><span class="word-role role-object">ขยะชิ้นหนึ่ง</span><span class="word-role role-connector">ที่</span><span class="word-role role-verb">อยู่</span><span class="word-role role-context">ใกล้ทางเดิน</span></p>
+        <p class="thai th-mid"><strong>6.</strong> <span class="word-role role-context">วันต่อมา</span><span class="word-role role-subject">เลนา</span><span class="word-role role-verb">นั่งเรือไป</span><span class="word-role role-context">อุทยานแห่งชาติทางทะเล</span> <span class="word-role role-subject">ทะเล</span><span class="word-role role-adjective">ใส</span><span class="word-role role-connector">และ</span><span class="word-role role-subject">คลื่น</span><span class="word-role role-adjective">สงบ</span> <span class="word-role role-subject">ไกด์</span><span class="word-role role-verb">ให้</span><span class="word-role role-object">เสื้อชูชีพ</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">อธิบาย</span><span class="word-role role-object">กฎ</span><span class="word-role role-context">ก่อนดำน้ำตื้น</span></p>
+        <p class="thai th-mid"><strong>7.</strong> <span class="word-role role-context">ในน้ำ</span><span class="word-role role-subject">เลนา</span><span class="word-role role-verb">เห็น</span><span class="word-role role-object">ปลา ปะการัง และเต่าทะเลหนึ่งตัว</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">อยู่</span><span class="word-role role-context">ห่างจากเต่า</span> <span class="word-role role-verb">ไม่จับ</span><span class="word-role role-object">ปะการัง</span> <span class="word-role role-connector">และ</span><span class="word-role role-verb">ไม่ทิ้ง</span><span class="word-role role-object">อะไร</span><span class="word-role role-context">ลงในทะเล</span></p>
+        <p class="thai th-mid"><strong>8.</strong> <span class="word-role role-subject">เลนา</span><span class="word-role role-verb">ชอบ</span><span class="word-role role-object">ทั้งป่าและทะเล</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">คิด</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">การเที่ยวธรรมชาติ</span><span class="word-role role-adjective">สนุกมาก</span> <span class="word-role role-connector">แต่</span><span class="word-role role-subject">เราทุกคน</span><span class="word-role role-verb">ต้องช่วยกันอนุรักษ์</span><span class="word-role role-object">สัตว์และสถานที่เหล่านี้</span></p>
         <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
         <p class="de" style="font-size:12px;"><strong>1.</strong> Lena verbringt ein Wochenende in Thailands Natur: zuerst im Khao-Yai-Nationalpark, danach auf einer kleinen Insel im Süden.</p>
         <p class="de" style="font-size:12px;"><strong>2.</strong> Für die sechs Kilometer lange Wanderung nimmt sie Wasser, Regenjacke, Hut und Wanderschuhe mit. Manche Abschnitte sind rutschig.</p>
@@ -4823,6 +4906,21 @@ ul, ol { padding-left: 22px; }
         <p class="de" style="font-size:12px;"><strong>7.</strong> Lena sieht Fische, Korallen und eine Meeresschildkröte. Sie hält Abstand, berührt nichts und lässt keinen Müll zurück.</p>
         <p class="de" style="font-size:12px;"><strong>8.</strong> Wald und Meer gefallen ihr gleichermaßen. Naturreisen machen Spaß, aber alle müssen Tiere und Orte schützen.</p>
       </div>
+    </div>
+
+    <div class="exercise" id="w9-role-quiz">
+      <h4>Wortfunktionen · Multiple Choice</h4>
+      <p class="task">Welche Funktion hat der markierte Ausdruck im Satz?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">เลนา</span>เที่ยวธรรมชาติ - Welche Funktion hat <span class="thai">เลนา</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> เลนา<span class="thai">เตรียม</span>น้ำดื่ม - Welche Funktion hat <span class="thai">เตรียม</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> เลนาเตรียม<span class="thai">น้ำดื่ม เสื้อกันฝน หมวก และรองเท้าเดินป่า</span> - Welche Funktion hat die Liste?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">ตอนเช้า</span>ป่าเงียบ - Welche Funktion hat <span class="thai">ตอนเช้า</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeitangabe</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>5.</strong> ป่า<span class="thai">เงียบ</span> - Welche Funktion hat <span class="thai">เงียบ</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv / Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> ป่าเงียบ<span class="thai">และ</span>อากาศเย็น - Welche Funktion hat <span class="thai">และ</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>7.</strong> กลุ่มเห็น<span class="thai">ช้างหนึ่งตัว</span> - Welche Funktion hat <span class="thai">ช้างหนึ่งตัว</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>8.</strong> ตอนบ่าย<span class="thai">พวกเขา</span>ไปถึงน้ำตก - Welche Funktion hat <span class="thai">พวกเขา</span>?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w9CheckRoleQuiz()">✓ Wortfunktionen prüfen</button>
+      <div id="w9-role-result" class="w6-result"></div>
     </div>
 
     <div class="exercise" id="w9-reading-quiz">
@@ -4951,6 +5049,7 @@ ul, ol { padding-left: 22px; }
   <!-- ANSWER KEY -->
   <div class="answer-key">
     <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Wortfunktionen - Multiple Choice</h4><ol><li>a - Subjekt</li><li>b - Verb</li><li>c - Objekt</li><li>d - Zeitangabe</li><li>d - Adjektiv / Beschreibung</li><li>c - Konnektor</li><li>b - Objekt</li><li>a - Subjekt</li></ol></div>
     <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol><li>b - Khao-Yai-Nationalpark</li><li>d - sechs Kilometer</li><li>a - zwei Nashornvögel</li><li>c - stehen bleiben und auf den Ranger hören</li><li>b - das Wasser fließt zu stark</li><li>a - ein Stück Müll</li><li>d - klar und ruhig</li><li>c - eine Schwimmweste</li><li>b - sie hält Abstand</li><li>a - Natur und Tiere schützen</li></ol></div>
     <div class="ak-block"><h4>Übung 2 - Natur beobachten</h4><ol><li>ในป่ามีน้ำตกสวย</li><li>เราเห็นช้างสองตัว</li><li>นกเงือกอยู่บนต้นไม้</li><li>ทะเลวันนี้ใสและสงบ</li><li>ฉันอยากไปเดินป่า</li><li>พรุ่งนี้เราจะไปเกาะ</li></ol></div>
     <div class="ak-block"><h4>Übung 3 - Regeln und Sicherheit</h4><ol><li>ห้ามให้อาหารสัตว์</li><li>ห้ามทิ้งขยะในป่า</li><li>ควรใส่รองเท้าเดินป่า</li><li>ต้องฟังเจ้าหน้าที่อุทยาน</li><li>ถ้าฝนตก เส้นทางก็ลื่น</li><li>อย่าจับปะการังนะคะ/ครับ</li></ol></div>
@@ -5046,6 +5145,46 @@ function w9CheckMC() {
   const result = document.getElementById('w9-mc-result');
   result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
   result.style.color = score >= 7 ? '#15803d' : '#dc2626';
+}
+
+function toggleWordRole(readerId, role, input) {
+  const reader = document.getElementById(readerId);
+  if (!reader) return;
+  reader.classList.toggle(`show-${role}`, input.checked);
+  const toggle = input.closest('.role-toggle');
+  if (toggle) toggle.classList.toggle('active', input.checked);
+}
+
+function clearWordRoles(readerId, toolsId) {
+  const reader = document.getElementById(readerId);
+  const tools = document.getElementById(toolsId);
+  if (reader) {
+    ['subject', 'verb', 'object', 'adjective', 'context', 'connector'].forEach(role => {
+      reader.classList.remove(`show-${role}`);
+    });
+  }
+  if (tools) {
+    tools.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = false; });
+    tools.querySelectorAll('.role-toggle').forEach(toggle => toggle.classList.remove('active'));
+  }
+}
+
+function w9CheckRoleQuiz() {
+  const questions = document.querySelectorAll('#w9-role-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w9-role-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 6 ? '#15803d' : '#dc2626';
 }
 
 function w6MoveTile(tile) {
