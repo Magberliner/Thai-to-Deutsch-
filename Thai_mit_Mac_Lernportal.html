@@ -582,6 +582,7 @@ h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
 .week-card.teal .head { background: #0d9488; }
 .week-card.red .head { background: #dc2626; }
 .week-card.ocean .head { background: #0369a1; }
+.week-card.gold .head { background: #a16207; }
 .week-card .body { padding: 16px 18px; font-size: 13px; }
 .week-card .body p { margin: 4px 0; }
 .week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
@@ -619,6 +620,37 @@ table.vocab .col-thai { width: 28%; font-size: 16px; }
 table.vocab .col-trans { width: 25%; }
 table.vocab .col-de { width: 38%; }
 table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
+table.vocab.has-types .col-thai { width: 20%; }
+table.vocab.has-types .col-trans { width: 20%; }
+table.vocab.has-types .col-de { width: 32%; }
+table.vocab.has-types .col-type { width: 20%; }
+table.vocab.has-types .col-icon { width: 8%; }
+.vocab-type-note {
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 8px 0 14px;
+}
+.word-type {
+  display: inline-block;
+  max-width: 100%;
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.word-type.noun { background: #dbeafe; border-color: #93c5fd; color: #1e3a8a; }
+.word-type.verb { background: #fee2e2; border-color: #fca5a5; color: #7f1d1d; }
+.word-type.phrase { background: #ffedd5; border-color: #fdba74; color: #7c2d12; }
+.word-type.adjective { background: #f3e8ff; border-color: #d8b4fe; color: #581c87; }
+.word-type.name { background: #fef3c7; border-color: #fcd34d; color: #78350f; }
+.word-type.expression { background: #ccfbf1; border-color: #5eead4; color: #134e4a; }
+.word-type.time { background: #fef3c7; border-color: #fcd34d; color: #78350f; }
+.word-type.connector { background: #cffafe; border-color: #67e8f9; color: #164e63; }
+.word-type.particle { background: #e2e8f0; border-color: #94a3b8; color: #334155; }
 
 /* ==================== PHOTO CARD ==================== */
 .photo-card {
@@ -717,7 +749,10 @@ table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
   margin-bottom: 10px;
 }
 .role-filter-head strong { font-size: 14px; color: #1d2733; }
-.role-filter-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.role-filter-options { display: grid; gap: 10px; }
+.role-filter-group { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 10px; align-items: start; }
+.role-filter-label { color: #334155; font-size: 11px; font-weight: 800; line-height: 34px; }
+.role-filter-items { display: flex; flex-wrap: wrap; gap: 7px; min-width: 0; }
 .role-toggle {
   display: inline-flex;
   align-items: center;
@@ -754,19 +789,30 @@ table.vocab .col-icon { width: 9%; text-align: center; font-size: 18px; }
   -webkit-box-decoration-break: clone;
   transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
 }
-.role-reader.show-subject .role-subject { background: #dbeafe; color: #1e3a8a; box-shadow: inset 0 -2px #2563eb; }
-.role-reader.show-verb .role-verb { background: #fee2e2; color: #7f1d1d; box-shadow: inset 0 -2px #dc2626; }
-.role-reader.show-object .role-object { background: #dcfce7; color: #14532d; box-shadow: inset 0 -2px #16a34a; }
-.role-reader.show-adjective .role-adjective { background: #f3e8ff; color: #581c87; box-shadow: inset 0 -2px #9333ea; }
-.role-reader.show-context .role-context { background: #fef3c7; color: #78350f; box-shadow: inset 0 -2px #d97706; }
-.role-reader.show-connector .role-connector { background: #cffafe; color: #164e63; box-shadow: inset 0 -2px #0891b2; }
+.role-reader.show-type-noun .type-noun { background: #dbeafe; color: #1e3a8a; box-shadow: inset 0 -2px #2563eb; }
+.role-reader.show-type-name .type-name { background: #fef9c3; color: #713f12; box-shadow: inset 0 -2px #ca8a04; }
+.role-reader.show-type-verb .type-verb { background: #fee2e2; color: #7f1d1d; box-shadow: inset 0 -2px #dc2626; }
+.role-reader.show-type-phrase .type-phrase { background: #ffedd5; color: #7c2d12; box-shadow: inset 0 -2px #ea580c; }
+.role-reader.show-type-adjective .type-adjective { background: #f3e8ff; color: #581c87; box-shadow: inset 0 -2px #9333ea; }
+.role-reader.show-type-context .type-context { background: #fef3c7; color: #78350f; box-shadow: inset 0 -2px #d97706; }
+.role-reader.show-type-connector .type-connector { background: #cffafe; color: #164e63; box-shadow: inset 0 -2px #0891b2; }
+.role-reader.show-type-particle .type-particle { background: #e2e8f0; color: #334155; box-shadow: inset 0 -2px #64748b; }
+.role-reader.show-type-expression .type-expression { background: #ccfbf1; color: #134e4a; box-shadow: inset 0 -2px #0f766e; }
+.role-reader.show-subject .role-subject { outline: 1px solid #4f46e5; box-shadow: inset 0 -3px #4f46e5; }
+.role-reader.show-verb .role-verb { outline: 1px solid #be123c; box-shadow: inset 0 -3px #be123c; }
+.role-reader.show-object .role-object { outline: 1px solid #16a34a; box-shadow: inset 0 -3px #16a34a; }
+.role-reader.show-adjective .role-adjective { outline: 1px solid #7e22ce; box-shadow: inset 0 -3px #7e22ce; }
+.role-reader.show-context .role-context { outline: 1px solid #b45309; box-shadow: inset 0 -3px #b45309; }
+.role-reader.show-connector .role-connector { outline: 1px solid #0e7490; box-shadow: inset 0 -3px #0e7490; }
 @media (max-width: 560px) {
   .role-filter-head { align-items: flex-start; }
-  .role-toggle { flex: 1 1 calc(50% - 7px); }
+  .role-filter-group { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .role-filter-label { line-height: 1.4; }
+  .role-toggle { flex: 1 1 calc(50% - 7px); min-width: 0; }
 }
 @media print {
   .role-tools { display: none !important; }
-  .role-reader .word-role { background: transparent !important; color: inherit !important; box-shadow: none !important; padding: 0 !important; }
+  .role-reader .word-role { background: transparent !important; color: inherit !important; box-shadow: none !important; outline: 0 !important; padding: 0 !important; }
 }
 
 /* ==================== GRAMMAR ==================== */
@@ -1113,6 +1159,7 @@ ul, ol { padding-left: 22px; }
   table.vocab { table-layout: fixed; font-size: 12px; }
   table.vocab th, table.vocab td { padding: 6px 4px; overflow-wrap: anywhere; }
   table.vocab th { font-size: 10px; letter-spacing: 0; }
+  table.vocab.has-types .word-type { padding: 2px 4px; font-size: 9px; }
   .speak-grid { grid-template-columns: 1fr; }
   .tones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tones .t { min-width: 0; padding: 8px 4px; }
@@ -1152,7 +1199,7 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 9 Wochen · 1 Stunde pro Tag</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 10 Wochen · 1 Stunde pro Tag</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
@@ -1165,9 +1212,9 @@ ul, ol { padding-left: 22px; }
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">9</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">63</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~500</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">10</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">70</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~550</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1199,7 +1246,7 @@ ul, ol { padding-left: 22px; }
   <div class="card amber">
     <h3 class="h-card amber"><span class="pill">Lernziele</span> Was Sie am Ende des Kurses können</h3>
     <ul class="goals">
-      <li>~ 350 neue Wörter aktiv anwenden</li>
+      <li>~ 550 neue Wörter aktiv anwenden</li>
       <li>Einfache Texte zu Alltagsthemen verstehen</li>
       <li>Kurze Dialoge selbständig führen</li>
       <li>Eigene Sätze in Thai-Schrift verfassen</li>
@@ -1210,7 +1257,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 9 mit Reise-, Urlaubs-, Küchen- und Natursituationen.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 10 mit Reise-, Urlaubs-, Küchen-, Natur- und Kultursituationen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1230,7 +1277,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6-9 · Verkehr · Urlaub · Küche · Natur in Thailand</p>
+          <p>Woche 6-10 · Verkehr · Urlaub · Küche · Natur · Traditionen</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1388,12 +1435,13 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Nach Verkehr, Urlaub und Küche führt Woche 9 hinaus in Landschaften, Tierwelt und Meeresnatur.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 10 ergänzt die Themen um Buddhismus, Tempelbesuche und thailändische Traditionen.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche8')">Woche 8 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche9')">Woche 9 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche10')">Woche 10 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1401,8 +1449,8 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-9 · 28 Stunden</div></div>
-    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Urlaub, Küche und Natur</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-10 · 35 Stunden</div></div>
+    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Alltag, Natur und Kultur</div></div>
   </div>
 
   <div class="card">
@@ -1460,6 +1508,19 @@ ul, ol { padding-left: 22px; }
           <button class="open-link">Woche 9 öffnen →</button>
         </div>
       </div>
+      <div class="week-card gold" onclick="showTab('woche10')">
+        <img class="photo" src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Buddhistischer Tempel in Thailand">
+        <div class="head">
+          <div><div class="n">Woche 10</div><div class="t">Buddhismus und Traditionen</div></div>
+          <div class="th thai">พุทธศาสนาและประเพณีไทย</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Wortschatz:</span> Tempel, Buddhismus, Respekt, Feste und Bräuche</p>
+          <p><span class="lab">Grammatik:</span> Erfahrungen, Bedeutungen, Unterschiede und Bräuche</p>
+          <p><span class="lab">Praxis:</span> Tempelbesuch, Loi Krathong, Wortfilter und Thai-Tastatur</p>
+          <button class="open-link">Woche 10 öffnen →</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1487,7 +1548,6 @@ ul, ol { padding-left: 22px; }
   <!-- LEKTION 1: VOKABULAR -->
   <div class="card green">
     <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
-
     <h4 style="color:#047857; margin-top: 14px;">A · Sportarten · กีฬา (gii-laa)</h4>
     <div class="photo-card">
       <div>
@@ -4158,17 +4218,28 @@ ul, ol { padding-left: 22px; }
     </div>
 
     <h4 style="color:#047857; margin-top: 22px;">Lesetext · วันหยุดหนึ่งสัปดาห์ในประเทศไทย · „Eine Woche Urlaub in Thailand"</h4>
+    <div class="role-tools" id="w7-role-tools">
+      <div class="role-filter-head"><strong>Wortfunktionen filtern · หน้าที่ของคำ</strong><button class="role-clear" type="button" onclick="clearWordRoles('w7-role-reader', 'w7-role-tools')">× Markierungen aus</button></div>
+      <div class="role-filter-options">
+        <label class="role-toggle" style="--role-color:#2563eb; --role-bg:#dbeafe;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'subject', this)"><span class="role-swatch"></span>Subjekt · ประธาน</label>
+        <label class="role-toggle" style="--role-color:#dc2626; --role-bg:#fee2e2;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'verb', this)"><span class="role-swatch"></span>Verb · กริยา</label>
+        <label class="role-toggle" style="--role-color:#16a34a; --role-bg:#dcfce7;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'object', this)"><span class="role-swatch"></span>Objekt · กรรม</label>
+        <label class="role-toggle" style="--role-color:#9333ea; --role-bg:#f3e8ff;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'adjective', this)"><span class="role-swatch"></span>Adjektiv · คำคุณศัพท์</label>
+        <label class="role-toggle" style="--role-color:#d97706; --role-bg:#fef3c7;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'context', this)"><span class="role-swatch"></span>Ort / Zeit · สถานที่ / เวลา</label>
+        <label class="role-toggle" style="--role-color:#0891b2; --role-bg:#cffafe;"><input type="checkbox" onchange="toggleWordRole('w7-role-reader', 'connector', this)"><span class="role-swatch"></span>Konnektor · คำเชื่อม</label>
+      </div>
+    </div>
     <div class="reading-wrap">
       <div class="side"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400&q=70&fm=jpg&auto=format" alt="Urlaubsreise durch Thailand"></div>
-      <div class="reading">
-        <p class="thai th-mid"><strong>1.</strong> แอนนามาจากเยอรมนีและมีวันหยุดหนึ่งสัปดาห์ในประเทศไทย เธอวางแผนไปกรุงเทพ เชียงใหม่ และกระบี่ เพราะอยากเห็นทั้งเมือง วัด ภูเขา และทะเล</p>
-        <p class="thai th-mid"><strong>2.</strong> สองคืนแรกแอนนาพักที่โรงแรมเล็ก ๆ ในกรุงเทพ โรงแรมอยู่ใกล้รถไฟฟ้าและรวมอาหารเช้า ตอนเช้าเธอไปพระราชวังและวัด ตอนเย็นเธอเดินเที่ยวตลาดกลางคืน</p>
-        <p class="thai th-mid"><strong>3.</strong> วันที่สามเธอบินไปเชียงใหม่ ที่นั่นอากาศเย็นกว่ากรุงเทพ เธอจองทัวร์กับไกด์หนึ่งวัน เพื่อไปวัดบนภูเขาและเรียนทำอาหารไทย</p>
-        <p class="thai th-mid"><strong>4.</strong> แอนนาชอบเชียงใหม่ เพราะเมืองสงบและอาหารอร่อย เธอถ่ายรูปหลายรูปและซื้อของฝากให้ครอบครัว แต่เธอพักที่นั่นเพียงสองคืน</p>
-        <p class="thai th-mid"><strong>5.</strong> หลังจากนั้นเธอบินไปกระบี่และพักที่โรงแรมใกล้ชายหาด พนักงานแนะนำทัวร์เกาะ แอนนาจึงจองทัวร์สำหรับวันถัดไป ราคา 1,200 บาท รวมอาหารกลางวันและอุปกรณ์ดำน้ำ</p>
-        <p class="thai th-mid"><strong>6.</strong> ตอนเช้าวันทัวร์แดดออกและทะเลสวยมาก เธอนั่งเรือไปสองเกาะ ว่ายน้ำและดำน้ำกับนักท่องเที่ยวคนอื่น เธอทาครีมกันแดด เพราะอากาศร้อนมาก</p>
-        <p class="thai th-mid"><strong>7.</strong> วันสุดท้ายฝนตก แอนนาจึงไม่ไปชายหาด เธอไปพิพิธภัณฑ์เล็ก ๆ และนวดไทยแทน ตอนเย็นเธอเช็คเอาท์และเดินทางไปสนามบิน</p>
-        <p class="thai th-mid"><strong>8.</strong> แอนนาคิดว่าหนึ่งสัปดาห์สั้นเกินไป ครั้งหน้าเธอจะอยู่ประเทศไทยสองสัปดาห์ เพราะยังมีสถานที่ท่องเที่ยวอีกหลายแห่งที่เธออยากไป</p>
+      <div class="reading role-reader" id="w7-role-reader">
+        <p class="thai th-mid"><strong>1.</strong> <span class="word-role role-subject">แอนนา</span><span class="word-role role-verb">มาจาก</span><span class="word-role role-context">เยอรมนี</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">มี</span><span class="word-role role-object">วันหยุดหนึ่งสัปดาห์</span><span class="word-role role-context">ในประเทศไทย</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">วางแผนไป</span><span class="word-role role-object">กรุงเทพ เชียงใหม่ และกระบี่</span> <span class="word-role role-connector">เพราะ</span><span class="word-role role-verb">อยากเห็น</span><span class="word-role role-object">ทั้งเมือง วัด ภูเขา และทะเล</span></p>
+        <p class="thai th-mid"><strong>2.</strong> <span class="word-role role-context">สองคืนแรก</span><span class="word-role role-subject">แอนนา</span><span class="word-role role-verb">พัก</span><span class="word-role role-context">ที่โรงแรม</span><span class="word-role role-adjective">เล็ก ๆ</span> <span class="word-role role-context">ในกรุงเทพ</span> <span class="word-role role-subject">โรงแรม</span><span class="word-role role-verb">อยู่</span><span class="word-role role-context">ใกล้รถไฟฟ้า</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">รวม</span><span class="word-role role-object">อาหารเช้า</span> <span class="word-role role-context">ตอนเช้า</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ไป</span><span class="word-role role-object">พระราชวังและวัด</span> <span class="word-role role-context">ตอนเย็น</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">เดินเที่ยว</span><span class="word-role role-object">ตลาดกลางคืน</span></p>
+        <p class="thai th-mid"><strong>3.</strong> <span class="word-role role-context">วันที่สาม</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">บินไป</span><span class="word-role role-context">เชียงใหม่</span> <span class="word-role role-context">ที่นั่น</span><span class="word-role role-subject">อากาศ</span><span class="word-role role-adjective">เย็นกว่ากรุงเทพ</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">จอง</span><span class="word-role role-object">ทัวร์กับไกด์หนึ่งวัน</span> <span class="word-role role-connector">เพื่อ</span><span class="word-role role-verb">ไป</span><span class="word-role role-context">วัดบนภูเขา</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">เรียนทำ</span><span class="word-role role-object">อาหารไทย</span></p>
+        <p class="thai th-mid"><strong>4.</strong> <span class="word-role role-subject">แอนนา</span><span class="word-role role-verb">ชอบ</span><span class="word-role role-object">เชียงใหม่</span> <span class="word-role role-connector">เพราะ</span><span class="word-role role-subject">เมือง</span><span class="word-role role-adjective">สงบ</span><span class="word-role role-connector">และ</span><span class="word-role role-subject">อาหาร</span><span class="word-role role-adjective">อร่อย</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ถ่าย</span><span class="word-role role-object">รูปหลายรูป</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ซื้อ</span><span class="word-role role-object">ของฝากให้ครอบครัว</span> <span class="word-role role-connector">แต่</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">พัก</span><span class="word-role role-context">ที่นั่นเพียงสองคืน</span></p>
+        <p class="thai th-mid"><strong>5.</strong> <span class="word-role role-context">หลังจากนั้น</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">บินไป</span><span class="word-role role-context">กระบี่</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">พัก</span><span class="word-role role-context">ที่โรงแรมใกล้ชายหาด</span> <span class="word-role role-subject">พนักงาน</span><span class="word-role role-verb">แนะนำ</span><span class="word-role role-object">ทัวร์เกาะ</span> <span class="word-role role-subject">แอนนา</span><span class="word-role role-connector">จึง</span><span class="word-role role-verb">จอง</span><span class="word-role role-object">ทัวร์</span><span class="word-role role-context">สำหรับวันถัดไป</span> <span class="word-role role-subject">ราคา</span> <span class="word-role role-object">1,200 บาท</span> <span class="word-role role-verb">รวม</span><span class="word-role role-object">อาหารกลางวันและอุปกรณ์ดำน้ำ</span></p>
+        <p class="thai th-mid"><strong>6.</strong> <span class="word-role role-context">ตอนเช้าวันทัวร์</span><span class="word-role role-subject">แดด</span><span class="word-role role-verb">ออก</span><span class="word-role role-connector">และ</span><span class="word-role role-subject">ทะเล</span><span class="word-role role-adjective">สวยมาก</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">นั่งเรือไป</span><span class="word-role role-object">สองเกาะ</span> <span class="word-role role-verb">ว่ายน้ำ</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ดำน้ำ</span><span class="word-role role-context">กับนักท่องเที่ยวคนอื่น</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ทา</span><span class="word-role role-object">ครีมกันแดด</span> <span class="word-role role-connector">เพราะ</span><span class="word-role role-subject">อากาศ</span><span class="word-role role-adjective">ร้อนมาก</span></p>
+        <p class="thai th-mid"><strong>7.</strong> <span class="word-role role-context">วันสุดท้าย</span><span class="word-role role-subject">ฝน</span><span class="word-role role-verb">ตก</span> <span class="word-role role-subject">แอนนา</span><span class="word-role role-connector">จึง</span><span class="word-role role-verb">ไม่ไป</span><span class="word-role role-context">ชายหาด</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">ไป</span><span class="word-role role-object">พิพิธภัณฑ์</span><span class="word-role role-adjective">เล็ก ๆ</span> <span class="word-role role-connector">และ</span><span class="word-role role-verb">นวด</span><span class="word-role role-object">ไทย</span><span class="word-role role-adjective">แทน</span> <span class="word-role role-context">ตอนเย็น</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">เช็คเอาท์</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">เดินทางไป</span><span class="word-role role-context">สนามบิน</span></p>
+        <p class="thai th-mid"><strong>8.</strong> <span class="word-role role-subject">แอนนา</span><span class="word-role role-verb">คิด</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">หนึ่งสัปดาห์</span><span class="word-role role-adjective">สั้นเกินไป</span> <span class="word-role role-context">ครั้งหน้า</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">จะอยู่</span><span class="word-role role-context">ประเทศไทยสองสัปดาห์</span> <span class="word-role role-connector">เพราะ</span><span class="word-role role-verb">ยังมี</span><span class="word-role role-subject">สถานที่ท่องเที่ยวอีกหลายแห่ง</span><span class="word-role role-connector">ที่</span><span class="word-role role-subject">เธอ</span><span class="word-role role-verb">อยากไป</span></p>
         <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
         <p class="de" style="font-size:12px;"><strong>1.</strong> Anna kommt aus Deutschland und hat eine Woche Urlaub in Thailand. Sie plant Bangkok, Chiang Mai und Krabi, weil sie Stadt, Tempel, Berge und Meer erleben möchte.</p>
         <p class="de" style="font-size:12px;"><strong>2.</strong> Die ersten zwei Nächte wohnt Anna in einem kleinen Hotel in Bangkok. Es liegt nahe der BTS und das Frühstück ist inklusive. Morgens besucht sie Palast und Tempel, abends einen Nachtmarkt.</p>
@@ -4179,6 +4250,19 @@ ul, ol { padding-left: 22px; }
         <p class="de" style="font-size:12px;"><strong>7.</strong> Am letzten Tag regnet es. Anna fährt deshalb nicht zum Strand, sondern besucht ein kleines Museum und lässt sich massieren. Abends checkt sie aus und fährt zum Flughafen.</p>
         <p class="de" style="font-size:12px;"><strong>8.</strong> Anna findet eine Woche zu kurz. Beim nächsten Mal möchte sie zwei Wochen bleiben, weil es noch viele Orte gibt, die sie besuchen möchte.</p>
       </div>
+    </div>
+
+    <div class="exercise" id="w7-role-quiz">
+      <h4>Wortfunktionen · Multiple Choice</h4><p class="task">Welche Funktion hat der markierte Ausdruck im Satz?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">แอนนา</span>มาจากเยอรมนี</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> เธอ<span class="thai">วางแผนไป</span>กรุงเทพ</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> แอนนามี<span class="thai">วันหยุดหนึ่งสัปดาห์</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">สองคืนแรก</span>แอนนาพักในกรุงเทพ</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeitangabe</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>5.</strong> โรงแรม<span class="thai">เล็ก ๆ</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv / Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> แอนนาชอบเชียงใหม่<span class="thai">เพราะ</span>เมืองสงบ</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>7.</strong> พนักงานแนะนำ<span class="thai">ทัวร์เกาะ</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>8.</strong> <span class="thai">พนักงาน</span>แนะนำทัวร์เกาะ</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w7CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w7-role-result" class="w6-result"></div>
     </div>
 
     <div class="exercise" id="w7-reading-quiz">
@@ -4324,9 +4408,9 @@ ul, ol { padding-left: 22px; }
         <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Sehenswürdigkeiten</td><td>3 Wünsche mit อยาก schreiben</td><td>Lieblingsorte nennen</td></tr>
         <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C · Strand und Wetter</td><td>3 Wenn-Sätze mit ถ้า schreiben</td><td>Über Wetter und Aktivitäten sprechen</td></tr>
         <tr><td class="day">Tag 4<br>Do</td><td>Dialoge 1 und 2 lesen</td><td>Übung 2 und 3</td><td>Dialoge in zwei Rollen sprechen</td></tr>
-        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Eine Woche Urlaub"</td><td>Übung 4 · Reiseplan</td><td>Fünf Urlaubsfragen beantworten</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext mit Wortfiltern</td><td>Übung 4 · Reiseplan</td><td>Fünf Urlaubsfragen beantworten</td></tr>
         <tr><td class="day">Tag 6<br>Sa</td><td>Alle Vokabeln wiederholen</td><td>Mini-Text „Mein Urlaub"</td><td>2-Minuten-Reiseplan aufnehmen</td></tr>
-        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Hotel-Rollenspiel wiederholen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Beide Multiple-Choice-Tests</td><td>Fehler korrigieren</td><td>Hotel-Rollenspiel wiederholen</td></tr>
       </tbody>
     </table>
   </div>
@@ -4334,6 +4418,7 @@ ul, ol { padding-left: 22px; }
   <!-- ANSWER KEY -->
   <div class="answer-key">
     <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Wortfunktionen - Multiple Choice</h4><ol><li>a - Subjekt</li><li>b - Verb</li><li>c - Objekt</li><li>d - Zeitangabe</li><li>d - Adjektiv / Beschreibung</li><li>c - Konnektor</li><li>b - Objekt</li><li>a - Subjekt</li></ol></div>
     <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol>
       <li>c - eine Woche</li><li>a - Bangkok, Chiang Mai und Krabi</li><li>d - Frühstück</li><li>b - Sie besucht einen Bergtempel und kocht Thai.</li><li>c - Die Stadt ist ruhig und das Essen lecker.</li><li>a - 1.200 Baht</li><li>d - Mittagessen und Schnorchelausrüstung</li><li>b - weil es sehr heiß ist</li><li>c - Museum und Thai-Massage</li><li>a - zwei Wochen in Thailand</li>
     </ol></div>
@@ -4535,17 +4620,28 @@ ul, ol { padding-left: 22px; }
     </div>
 
     <h4 style="color:#047857; margin-top: 22px;">Lesetext · เรียนทำอาหารไทย · „Thai kochen lernen"</h4>
+    <div class="role-tools" id="w8-role-tools">
+      <div class="role-filter-head"><strong>Wortfunktionen filtern · หน้าที่ของคำ</strong><button class="role-clear" type="button" onclick="clearWordRoles('w8-role-reader', 'w8-role-tools')">× Markierungen aus</button></div>
+      <div class="role-filter-options">
+        <label class="role-toggle" style="--role-color:#2563eb; --role-bg:#dbeafe;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'subject', this)"><span class="role-swatch"></span>Subjekt · ประธาน</label>
+        <label class="role-toggle" style="--role-color:#dc2626; --role-bg:#fee2e2;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'verb', this)"><span class="role-swatch"></span>Verb · กริยา</label>
+        <label class="role-toggle" style="--role-color:#16a34a; --role-bg:#dcfce7;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'object', this)"><span class="role-swatch"></span>Objekt · กรรม</label>
+        <label class="role-toggle" style="--role-color:#9333ea; --role-bg:#f3e8ff;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'adjective', this)"><span class="role-swatch"></span>Adjektiv · คำคุณศัพท์</label>
+        <label class="role-toggle" style="--role-color:#d97706; --role-bg:#fef3c7;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'context', this)"><span class="role-swatch"></span>Ort / Zeit · สถานที่ / เวลา</label>
+        <label class="role-toggle" style="--role-color:#0891b2; --role-bg:#cffafe;"><input type="checkbox" onchange="toggleWordRole('w8-role-reader', 'connector', this)"><span class="role-swatch"></span>Konnektor · คำเชื่อม</label>
+      </div>
+    </div>
     <div class="reading-wrap">
       <div class="side"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=70&fm=jpg&auto=format" alt="Kochkurs in einer Küche"></div>
-      <div class="reading">
-        <p class="thai th-mid"><strong>1.</strong> วันนี้มาร์คไปเรียนทำอาหารไทยที่โรงเรียนสอนทำอาหารในเชียงใหม่ เขาชอบกินอาหารไทย แต่ยังทำเองไม่เป็น เมนูวันนี้คือผัดกะเพราหมูและต้มข่าไก่</p>
-        <p class="thai th-mid"><strong>2.</strong> ก่อนเริ่มเรียน ครูพานักเรียนไปดูวัตถุดิบ บนโต๊ะมีเนื้อหมู เนื้อไก่ ผัก เห็ด พริก กระเทียม ใบกะเพรา มะนาว กะทิ น้ำปลา และน้ำตาล</p>
-        <p class="thai th-mid"><strong>3.</strong> ครูแนะนำอุปกรณ์ครัว มีมีด เขียง กระทะ หม้อ เตา ตะหลิว ช้อน ถ้วย และจาน ครูบอกให้ทุกคนระวังมีดและล้างมือก่อนทำอาหาร</p>
-        <p class="thai th-mid"><strong>4.</strong> เมนูแรกคือผัดกะเพราหมู ก่อนอื่นมาร์คล้างใบกะเพรา แล้วสับกระเทียมกับพริก ต่อไปเขาหั่นหมูเป็นชิ้นเล็ก ๆ และตั้งกระทะบนเตา</p>
-        <p class="thai th-mid"><strong>5.</strong> เขาใส่น้ำมัน กระเทียม และพริกลงในกระทะ แล้วใส่หมู เขาผัดจนหมูสุก จากนั้นปรุงด้วยน้ำปลาหนึ่งช้อนโต๊ะและน้ำตาลหนึ่งช้อนชา</p>
-        <p class="thai th-mid"><strong>6.</strong> สุดท้ายเขาใส่ใบกะเพรา คนเร็ว ๆ แล้วปิดเตา เขาชิมอาหารและคิดว่าเผ็ดไปนิดหน่อย แต่ครูบอกว่ารสชาติดีมาก</p>
-        <p class="thai th-mid"><strong>7.</strong> เมนูที่สองคือต้มข่าไก่ มาร์คต้มกะทิในหม้อ ใส่เนื้อไก่ เห็ด และเครื่องปรุง เขาต้มจนไก่สุก แล้วใส่น้ำมะนาวหลังปิดเตา</p>
-        <p class="thai th-mid"><strong>8.</strong> ตอนเที่ยงนักเรียนทุกคนนั่งกินอาหารด้วยกัน มาร์ครู้สึกภูมิใจ เพราะเขาทำอาหารไทยสองอย่างได้แล้ว เขาจดสูตรไว้และจะทำให้เพื่อนกินเมื่อกลับเยอรมนี</p>
+      <div class="reading role-reader" id="w8-role-reader">
+        <p class="thai th-mid"><strong>1.</strong> <span class="word-role role-context">วันนี้</span><span class="word-role role-subject">มาร์ค</span><span class="word-role role-verb">ไปเรียนทำ</span><span class="word-role role-object">อาหารไทย</span><span class="word-role role-context">ที่โรงเรียนสอนทำอาหารในเชียงใหม่</span> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">ชอบกิน</span><span class="word-role role-object">อาหารไทย</span> <span class="word-role role-connector">แต่</span><span class="word-role role-verb">ยังทำเองไม่เป็น</span> <span class="word-role role-subject">เมนูวันนี้</span><span class="word-role role-verb">คือ</span><span class="word-role role-object">ผัดกะเพราหมูและต้มข่าไก่</span></p>
+        <p class="thai th-mid"><strong>2.</strong> <span class="word-role role-context">ก่อนเริ่มเรียน</span> <span class="word-role role-subject">ครู</span><span class="word-role role-verb">พา</span><span class="word-role role-object">นักเรียน</span><span class="word-role role-verb">ไปดู</span><span class="word-role role-object">วัตถุดิบ</span> <span class="word-role role-context">บนโต๊ะ</span><span class="word-role role-verb">มี</span><span class="word-role role-object">เนื้อหมู เนื้อไก่ ผัก เห็ด พริก กระเทียม ใบกะเพรา มะนาว กะทิ น้ำปลา และน้ำตาล</span></p>
+        <p class="thai th-mid"><strong>3.</strong> <span class="word-role role-subject">ครู</span><span class="word-role role-verb">แนะนำ</span><span class="word-role role-object">อุปกรณ์ครัว</span> <span class="word-role role-verb">มี</span><span class="word-role role-object">มีด เขียง กระทะ หม้อ เตา ตะหลิว ช้อน ถ้วย และจาน</span> <span class="word-role role-subject">ครู</span><span class="word-role role-verb">บอก</span><span class="word-role role-connector">ให้</span><span class="word-role role-subject">ทุกคน</span><span class="word-role role-verb">ระวัง</span><span class="word-role role-object">มีด</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ล้าง</span><span class="word-role role-object">มือ</span><span class="word-role role-context">ก่อนทำอาหาร</span></p>
+        <p class="thai th-mid"><strong>4.</strong> <span class="word-role role-subject">เมนูแรก</span><span class="word-role role-verb">คือ</span><span class="word-role role-object">ผัดกะเพราหมู</span> <span class="word-role role-context">ก่อนอื่น</span><span class="word-role role-subject">มาร์ค</span><span class="word-role role-verb">ล้าง</span><span class="word-role role-object">ใบกะเพรา</span> <span class="word-role role-connector">แล้ว</span><span class="word-role role-verb">สับ</span><span class="word-role role-object">กระเทียมกับพริก</span> <span class="word-role role-context">ต่อไป</span><span class="word-role role-subject">เขา</span><span class="word-role role-verb">หั่น</span><span class="word-role role-object">หมู</span><span class="word-role role-adjective">เป็นชิ้นเล็ก ๆ</span> <span class="word-role role-connector">และ</span><span class="word-role role-verb">ตั้ง</span><span class="word-role role-object">กระทะ</span><span class="word-role role-context">บนเตา</span></p>
+        <p class="thai th-mid"><strong>5.</strong> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">ใส่</span><span class="word-role role-object">น้ำมัน กระเทียม และพริก</span><span class="word-role role-context">ลงในกระทะ</span> <span class="word-role role-connector">แล้ว</span><span class="word-role role-verb">ใส่</span><span class="word-role role-object">หมู</span> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">ผัด</span><span class="word-role role-connector">จน</span><span class="word-role role-subject">หมู</span><span class="word-role role-adjective">สุก</span> <span class="word-role role-context">จากนั้น</span><span class="word-role role-verb">ปรุง</span><span class="word-role role-object">ด้วยน้ำปลาหนึ่งช้อนโต๊ะและน้ำตาลหนึ่งช้อนชา</span></p>
+        <p class="thai th-mid"><strong>6.</strong> <span class="word-role role-context">สุดท้าย</span><span class="word-role role-subject">เขา</span><span class="word-role role-verb">ใส่</span><span class="word-role role-object">ใบกะเพรา</span> <span class="word-role role-verb">คน</span><span class="word-role role-adjective">เร็ว ๆ</span> <span class="word-role role-connector">แล้ว</span><span class="word-role role-verb">ปิด</span><span class="word-role role-object">เตา</span> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">ชิม</span><span class="word-role role-object">อาหาร</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">คิด</span><span class="word-role role-connector">ว่า</span><span class="word-role role-adjective">เผ็ดไปนิดหน่อย</span> <span class="word-role role-connector">แต่</span><span class="word-role role-subject">ครู</span><span class="word-role role-verb">บอก</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">รสชาติ</span><span class="word-role role-adjective">ดีมาก</span></p>
+        <p class="thai th-mid"><strong>7.</strong> <span class="word-role role-subject">เมนูที่สอง</span><span class="word-role role-verb">คือ</span><span class="word-role role-object">ต้มข่าไก่</span> <span class="word-role role-subject">มาร์ค</span><span class="word-role role-verb">ต้ม</span><span class="word-role role-object">กะทิ</span><span class="word-role role-context">ในหม้อ</span> <span class="word-role role-verb">ใส่</span><span class="word-role role-object">เนื้อไก่ เห็ด และเครื่องปรุง</span> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">ต้ม</span><span class="word-role role-connector">จน</span><span class="word-role role-subject">ไก่</span><span class="word-role role-adjective">สุก</span> <span class="word-role role-connector">แล้ว</span><span class="word-role role-verb">ใส่</span><span class="word-role role-object">น้ำมะนาว</span><span class="word-role role-context">หลังปิดเตา</span></p>
+        <p class="thai th-mid"><strong>8.</strong> <span class="word-role role-context">ตอนเที่ยง</span><span class="word-role role-subject">นักเรียนทุกคน</span><span class="word-role role-verb">นั่งกิน</span><span class="word-role role-object">อาหาร</span><span class="word-role role-context">ด้วยกัน</span> <span class="word-role role-subject">มาร์ค</span><span class="word-role role-verb">รู้สึก</span><span class="word-role role-adjective">ภูมิใจ</span> <span class="word-role role-connector">เพราะ</span><span class="word-role role-subject">เขา</span><span class="word-role role-verb">ทำ</span><span class="word-role role-object">อาหารไทยสองอย่าง</span><span class="word-role role-verb">ได้แล้ว</span> <span class="word-role role-subject">เขา</span><span class="word-role role-verb">จด</span><span class="word-role role-object">สูตรไว้</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">จะทำให้</span><span class="word-role role-object">เพื่อน</span><span class="word-role role-verb">กิน</span><span class="word-role role-context">เมื่อกลับเยอรมนี</span></p>
         <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #c0c7d2;">
         <p class="de" style="font-size:12px;"><strong>1.</strong> Heute besucht Mark eine Thai-Kochschule in Chiang Mai. Er isst gern thailändisch, kann die Gerichte aber noch nicht selbst kochen. Heute stehen Pad Krapao mit Schweinefleisch und Tom Kha Gai auf dem Plan.</p>
         <p class="de" style="font-size:12px;"><strong>2.</strong> Vor dem Unterricht zeigt die Lehrerin die Zutaten. Auf dem Tisch liegen Schwein, Huhn, Gemüse, Pilze, Chili, Knoblauch, Thai-Basilikum, Limette, Kokosmilch, Fischsauce und Zucker.</p>
@@ -4556,6 +4652,19 @@ ul, ol { padding-left: 22px; }
         <p class="de" style="font-size:12px;"><strong>7.</strong> Für Tom Kha Gai kocht Mark Kokosmilch im Topf, fügt Huhn, Pilze und Gewürze hinzu und kocht alles, bis das Huhn gar ist. Limettensaft kommt erst nach dem Ausschalten des Herds hinein.</p>
         <p class="de" style="font-size:12px;"><strong>8.</strong> Mittags essen alle gemeinsam. Mark ist stolz, weil er nun zwei Thai-Gerichte kochen kann. Er notiert die Rezepte und möchte sie später für seine Freunde in Deutschland kochen.</p>
       </div>
+    </div>
+
+    <div class="exercise" id="w8-role-quiz">
+      <h4>Wortfunktionen · Multiple Choice</h4><p class="task">Welche Funktion hat der markierte Ausdruck im Satz?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> วันนี้<span class="thai">มาร์ค</span>ไปเรียนทำอาหารไทย</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> มาร์ค<span class="thai">ไปเรียนทำ</span>อาหารไทย</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> มาร์คชอบกิน<span class="thai">อาหารไทย</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">วันนี้</span>มาร์คไปโรงเรียนสอนทำอาหาร</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeitangabe</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>5.</strong> มาร์คหั่นหมูเป็นชิ้น<span class="thai">เล็ก ๆ</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv / Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> เขาชอบอาหารไทย<span class="thai">แต่</span>ยังทำเองไม่เป็น</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>7.</strong> ครูแนะนำ<span class="thai">อุปกรณ์ครัว</span></p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>8.</strong> <span class="thai">ครู</span>แนะนำอุปกรณ์ครัว</p><div class="w6-options"><button class="w6-option" type="button" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" type="button" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" type="button" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" type="button" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w8CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w8-role-result" class="w6-result"></div>
     </div>
 
     <div class="exercise" id="w8-reading-quiz">
@@ -4679,9 +4788,9 @@ ul, ol { padding-left: 22px; }
         <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Gewürze</td><td>Eigene Einkaufsliste schreiben</td><td>Geschmack und Gewürze nennen</td></tr>
         <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C + D · Werkzeuge und Verben</td><td>6 Verb-Objekt-Sätze bilden</td><td>Kochbewegungen mit Verben sprechen</td></tr>
         <tr><td class="day">Tag 4<br>Do</td><td>Dialoge 1 und 2 lesen</td><td>Übung 2 und 3</td><td>Dialoge in zwei Rollen sprechen</td></tr>
-        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Thai kochen lernen"</td><td>Übung 4 · Mini-Rezept</td><td>Fünf Küchenfragen beantworten</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext mit Wortfiltern</td><td>Übung 4 · Mini-Rezept</td><td>Fünf Küchenfragen beantworten</td></tr>
         <tr><td class="day">Tag 6<br>Sa</td><td>Alle Vokabeln wiederholen</td><td>Lieblingsgericht beschreiben</td><td>2-Minuten-Rezept aufnehmen</td></tr>
-        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Koch-Rollenspiel wiederholen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Beide Multiple-Choice-Tests</td><td>Fehler korrigieren</td><td>Koch-Rollenspiel wiederholen</td></tr>
       </tbody>
     </table>
   </div>
@@ -4689,6 +4798,7 @@ ul, ol { padding-left: 22px; }
   <!-- ANSWER KEY -->
   <div class="answer-key">
     <h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Wortfunktionen - Multiple Choice</h4><ol><li>a - Subjekt</li><li>b - Verb</li><li>c - Objekt</li><li>d - Zeitangabe</li><li>d - Adjektiv / Beschreibung</li><li>c - Konnektor</li><li>b - Objekt</li><li>a - Subjekt</li></ol></div>
     <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol><li>b - in Chiang Mai</li><li>d - Pad Krapao und Tom Kha Gai</li><li>a - die Hände waschen</li><li>c - Knoblauch und Chili</li><li>b - bis es gar ist</li><li>a - einen Esslöffel</li><li>d - etwas zu scharf</li><li>c - in einem Topf</li><li>b - nach dem Ausschalten des Herds</li><li>a - Er kann jetzt zwei Thai-Gerichte kochen.</li></ol></div>
     <div class="ak-block"><h4>Übung 2 - Arbeitsschritte</h4><ol><li>ก่อนอื่นล้างผัก</li><li>ต่อไปหั่นเนื้อไก่</li><li>ใส่น้ำมันลงในกระทะ</li><li>ผัดหมูจนสุก</li><li>ปรุงด้วยน้ำปลาและน้ำตาล</li><li>สุดท้ายชิมแล้วเสิร์ฟกับข้าว</li></ol></div>
     <div class="ak-block"><h4>Übung 3 - Fragen und Bitten</h4><ol><li>ต้องใช้วัตถุดิบอะไรบ้างครับ/คะ</li><li>ช่วยล้างผักหน่อยครับ/ค่ะ</li><li>มีมีดกับเขียงไหมครับ/คะ</li><li>ใส่น้ำปลากี่ช้อนโต๊ะครับ/คะ</li><li>ต้องผัดนานเท่าไหร่ครับ/คะ</li><li>ช่วยชิมให้หน่อยครับ/ค่ะ</li></ol></div>
@@ -5039,9 +5149,9 @@ ul, ol { padding-left: 22px; }
         <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Meer und Küste</td><td>Fünf Meeressätze bilden</td><td>Strand und Meer vergleichen</td></tr>
         <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C + D · Tiere und Aktivitäten</td><td>Tierliste mit Zähleinheit ตัว</td><td>Tiere und Aktivitäten nennen</td></tr>
         <tr><td class="day">Tag 4<br>Do</td><td>Grammatik + Dialoge</td><td>Übung 2 und 3</td><td>Dialoge in zwei Rollen sprechen</td></tr>
-        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext „Wald und Meer"</td><td>Übung 4 · Naturtag</td><td>Fünf Naturfragen beantworten</td></tr>
+        <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext mit Wortfiltern</td><td>Übung 4 · Naturtag</td><td>Fünf Naturfragen beantworten</td></tr>
         <tr><td class="day">Tag 6<br>Sa</td><td>Alle Naturregeln wiederholen</td><td>Lieblingslandschaft beschreiben</td><td>Ranger-Rollenspiel aufnehmen</td></tr>
-        <tr><td class="day">Tag 7<br>So</td><td>Selbsttest + Antwortschlüssel</td><td>Fehler korrigieren</td><td>Zwei Minuten frei über Natur sprechen</td></tr>
+        <tr><td class="day">Tag 7<br>So</td><td>Beide Multiple-Choice-Tests</td><td>Fehler korrigieren</td><td>Zwei Minuten frei über Natur sprechen</td></tr>
       </tbody>
     </table>
   </div>
@@ -5059,6 +5169,284 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 10: BUDDHISMUS UND TRADITIONEN ==================== -->
+<section id="woche10" class="page">
+
+  <div class="hero-block" style="min-height: 280px;">
+    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&amp;q=70&amp;fm=jpg&amp;auto=format');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(161, 98, 7, 0.9); border-color: transparent;">Woche 10 · A2.2</span>
+      <h1>Buddhismus und Traditionen in Thailand</h1>
+      <div class="thai-title thai">พุทธศาสนาและประเพณีไทย</div>
+      <p class="lead">Lernen Sie Wörter und Redemittel für einen respektvollen Tempelbesuch, religiöse Bräuche und thailändische Feste. Sie sprechen über angemessenes Verhalten und erleben Loi Krathong mit einer thailändischen Familie.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Wortschatz</div><div class="v">~ 45 neue Wörter</div></div>
+    <div class="info-card blue"><div class="k">Niveau</div><div class="v">Thai A2.2 · Kultur &amp; Tradition</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Respektvoll fragen und teilnehmen</div></div>
+  </div>
+
+  <!-- LEKTION 1: VOKABULAR -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz · คำศัพท์</h3>
+    <p class="vocab-type-note"><strong>Worttyp · ชนิดคำ:</strong> Das Label zeigt, was ein Wort oder Ausdruck grundsätzlich ist. Seine Satzfunktion, zum Beispiel Subjekt oder Objekt, hängt vom jeweiligen Satz ab.</p>
+
+    <h4 style="color:#047857; margin-top:14px;">A · Buddhismus und Tempel · พุทธศาสนาและวัด</h4>
+    <div class="photo-card">
+      <div><div class="ph"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=500&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Buddhistischer Tempel in Thailand"></div><div class="cap">วัด · der Tempel</div></div>
+      <table class="vocab has-types">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">พุทธศาสนา</td><td class="translit">phút-thá-sàat-sà-nǎa</td><td>Buddhismus</td><td><span class="word-type noun">Nomen</span></td><td>☸️</td></tr>
+          <tr><td class="thai">วัด</td><td class="translit">wát</td><td>Tempel</td><td><span class="word-type noun">Nomen</span></td><td>🛕</td></tr>
+          <tr><td class="thai">พระพุทธรูป</td><td class="translit">phrá-phút-thá-rûup</td><td>Buddhafigur</td><td><span class="word-type noun">Nomen</span></td><td>🙏</td></tr>
+          <tr><td class="thai">พระสงฆ์</td><td class="translit">phrá-sǒng</td><td>buddhistischer Mönch</td><td><span class="word-type noun">Nomen</span></td><td>🟧</td></tr>
+          <tr><td class="thai">สามเณร</td><td class="translit">sǎam-má-neen</td><td>Novize</td><td><span class="word-type noun">Nomen</span></td><td>🧘</td></tr>
+          <tr><td class="thai">อุโบสถ</td><td class="translit">ù-boo-sòt</td><td>Ordinationshalle</td><td><span class="word-type noun">Nomen</span></td><td>🏛️</td></tr>
+          <tr><td class="thai">บุญ</td><td class="translit">bun</td><td>Verdienst, gutes Werk</td><td><span class="word-type noun">Nomen</span></td><td>✨</td></tr>
+          <tr><td class="thai">ธูป</td><td class="translit">thûup</td><td>Räucherstäbchen</td><td><span class="word-type noun">Nomen</span></td><td>♨️</td></tr>
+          <tr><td class="thai">เทียน</td><td class="translit">thian</td><td>Kerze</td><td><span class="word-type noun">Nomen</span></td><td>🕯️</td></tr>
+          <tr><td class="thai">ดอกบัว</td><td class="translit">dòk-bua</td><td>Lotusblume</td><td><span class="word-type noun">Nomen</span></td><td>🪷</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top:18px;">B · Respekt und Verhalten · ความเคารพและมารยาท</h4>
+    <div class="photo-card">
+      <div><div class="ph"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Buddhistischer Mönch in ruhiger Umgebung"></div><div class="cap">ความเคารพ · der Respekt</div></div>
+      <table class="vocab has-types">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ความเคารพ</td><td class="translit">khwaam-khao-róp</td><td>Respekt</td><td><span class="word-type noun">Nomen</span></td><td>🙏</td></tr>
+          <tr><td class="thai">ไหว้</td><td class="translit">wâi</td><td>einen Wai machen</td><td><span class="word-type verb">Verb</span></td><td>🙏</td></tr>
+          <tr><td class="thai">ถอดรองเท้า</td><td class="translit">thòt-rong-tháao</td><td>Schuhe ausziehen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>👟</td></tr>
+          <tr><td class="thai">แต่งกายสุภาพ</td><td class="translit">dtàeng-gaai sù-phâap</td><td>sich angemessen kleiden</td><td><span class="word-type phrase">Verbgruppe</span></td><td>👔</td></tr>
+          <tr><td class="thai">พูดเบา ๆ</td><td class="translit">phûut bao-bao</td><td>leise sprechen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🤫</td></tr>
+          <tr><td class="thai">ขออนุญาต</td><td class="translit">khǒr à-nú-yâat</td><td>um Erlaubnis bitten</td><td><span class="word-type expression">Redemittel</span></td><td>🙋</td></tr>
+          <tr><td class="thai">ศีรษะ</td><td class="translit">sǐi-sà</td><td>Kopf</td><td><span class="word-type noun">Nomen</span></td><td>🙂</td></tr>
+          <tr><td class="thai">เท้า</td><td class="translit">tháao</td><td>Fuß</td><td><span class="word-type noun">Nomen</span></td><td>🦶</td></tr>
+          <tr><td class="thai">ของถวาย</td><td class="translit">khǒng-thà-wǎai</td><td>Opfergabe</td><td><span class="word-type noun">Nomen</span></td><td>🎁</td></tr>
+          <tr><td class="thai">ใส่บาตร</td><td class="translit">sài-bàat</td><td>Mönchen Essen geben</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🍚</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top:18px;">C · Feste und Traditionen · เทศกาลและประเพณี</h4>
+    <div class="photo-card">
+      <div><div class="ph"><img src="https://www.gothaibefree.com/wp-content/uploads/2012/11/LoyKrathong1940x1300.jpg" alt="Loi-Krathong-Lichter auf dem Wasser"></div><div class="cap">ลอยกระทง · Loi Krathong</div></div>
+      <table class="vocab has-types">
+        <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+        <tbody>
+          <tr><td class="thai">ประเพณี</td><td class="translit">bprà-phee-nii</td><td>Tradition, Brauch</td><td><span class="word-type noun">Nomen</span></td><td>🎎</td></tr>
+          <tr><td class="thai">วัฒนธรรม</td><td class="translit">wát-thá-ná-tham</td><td>Kultur</td><td><span class="word-type noun">Nomen</span></td><td>🇹🇭</td></tr>
+          <tr><td class="thai">สงกรานต์</td><td class="translit">sǒng-graan</td><td>Songkran</td><td><span class="word-type name">Eigenname</span></td><td>💦</td></tr>
+          <tr><td class="thai">ลอยกระทง</td><td class="translit">loi-grà-thong</td><td>Loi Krathong</td><td><span class="word-type name">Eigenname</span></td><td>🪷</td></tr>
+          <tr><td class="thai">วันวิสาขบูชา</td><td class="translit">wan wí-sǎa-khà-buu-chaa</td><td>Visakha Bucha</td><td><span class="word-type name">Eigenname</span></td><td>🌕</td></tr>
+          <tr><td class="thai">เวียนเทียน</td><td class="translit">wian-thian</td><td>an einer Kerzenprozession teilnehmen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🕯️</td></tr>
+          <tr><td class="thai">รดน้ำดำหัว</td><td class="translit">rót-nám-dam-hǔa</td><td>ein Segensritual mit Wasser vollziehen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>💧</td></tr>
+          <tr><td class="thai">งานวัด</td><td class="translit">ngaan-wát</td><td>Tempelfest</td><td><span class="word-type noun">Nomen</span></td><td>🎪</td></tr>
+          <tr><td class="thai">ขบวนแห่</td><td class="translit">khà-buan-hàe</td><td>Festumzug</td><td><span class="word-type noun">Nomen</span></td><td>🎊</td></tr>
+          <tr><td class="thai">ครอบครัว</td><td class="translit">khrôp-khrua</td><td>Familie</td><td><span class="word-type noun">Nomen</span></td><td>👨‍👩‍👧</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="color:#047857; margin-top:18px;">D · Handlungen und Beschreibungen · การกระทำและคำบรรยาย</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ทำบุญ</td><td class="translit">tham-bun</td><td>Verdienst erwerben</td><td><span class="word-type phrase">Verbgruppe</span></td><td>✨</td></tr>
+        <tr><td class="thai">ถวาย</td><td class="translit">thà-wǎai</td><td>religiös überreichen</td><td><span class="word-type verb">Verb</span></td><td>🎁</td></tr>
+        <tr><td class="thai">ไหว้พระ</td><td class="translit">wâi-phrá</td><td>vor Buddha Respekt zeigen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🙏</td></tr>
+        <tr><td class="thai">นั่งสมาธิ</td><td class="translit">nâng-sà-maa-thí</td><td>meditieren</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🧘</td></tr>
+        <tr><td class="thai">รับพร</td><td class="translit">ráp-phon</td><td>einen Segen empfangen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🙌</td></tr>
+        <tr><td class="thai">เชื่อ</td><td class="translit">chûea</td><td>glauben</td><td><span class="word-type verb">Verb</span></td><td>💭</td></tr>
+        <tr><td class="thai">เคารพ</td><td class="translit">khao-róp</td><td>respektieren</td><td><span class="word-type verb">Verb</span></td><td>🙏</td></tr>
+        <tr><td class="thai">ฉลอง</td><td class="translit">chà-lǒng</td><td>feiern</td><td><span class="word-type verb">Verb</span></td><td>🎉</td></tr>
+        <tr><td class="thai">เข้าร่วม</td><td class="translit">khâo-rûam</td><td>teilnehmen</td><td><span class="word-type verb">Verb</span></td><td>👥</td></tr>
+        <tr><td class="thai">รักษา</td><td class="translit">rák-sǎa</td><td>bewahren</td><td><span class="word-type verb">Verb</span></td><td>🤲</td></tr>
+        <tr><td class="thai">ศักดิ์สิทธิ์</td><td class="translit">sàk-sìt</td><td>heilig</td><td><span class="word-type adjective">Adjektiv</span></td><td>✨</td></tr>
+        <tr><td class="thai">สุภาพ</td><td class="translit">sù-phâap</td><td>höflich, angemessen</td><td><span class="word-type adjective">Adjektiv</span></td><td>🙂</td></tr>
+        <tr><td class="thai">สงบ</td><td class="translit">sà-ngòp</td><td>ruhig, friedlich</td><td><span class="word-type adjective">Adjektiv</span></td><td>🤫</td></tr>
+        <tr><td class="thai">สำคัญ</td><td class="translit">sǎm-khan</td><td>wichtig</td><td><span class="word-type adjective">Adjektiv</span></td><td>❗</td></tr>
+        <tr><td class="thai">เหมาะสม</td><td class="translit">mòr-sǒm</td><td>angemessen</td><td><span class="word-type adjective">Adjektiv</span></td><td>✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEKTION 2: GRAMMATIK -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 2</span> Grammatik · ไวยากรณ์</h3>
+    <div class="grammar"><div class="gh">G1 · Über Erfahrungen sprechen: เคย ... ไหม</div><p><span class="thai">เคย</span> fragt oder erzählt, ob jemand eine Erfahrung schon einmal gemacht hat. Für „noch nie" verwendet man <span class="thai">ยังไม่เคย</span>.</p><div class="formula">Frage: Subjekt + เคย + Verb + ไหม · Antwort: เคย + Verb / ยังไม่เคย + Verb</div><p class="ex"><span class="thai th-mid">คุณเคยไปวัดไทยไหม</span> - Waren Sie schon einmal in einem thailändischen Tempel?</p><p class="ex"><span class="thai th-mid">ฉันยังไม่เคยเข้าร่วมเวียนเทียน</span> - Ich habe noch nie an einer Kerzenprozession teilgenommen.</p></div>
+    <div class="grammar"><div class="gh">G2 · Namen und Bedeutung erklären: เรียกว่า / หมายถึง</div><p><span class="thai">เรียกว่า</span> nennt den Namen einer Sache. <span class="thai">หมายถึง</span> erklärt, was ein Wort, Zeichen oder Brauch bedeutet.</p><div class="formula">Sache + เรียกว่า + Name · Wort / Brauch + หมายถึง + Bedeutung</div><p class="ex"><span class="thai th-mid">เทศกาลนี้เรียกว่าลอยกระทง</span> - Dieses Fest heißt Loi Krathong.</p><p class="ex"><span class="thai th-mid">การไหว้หมายถึงการแสดงความเคารพ</span> - Der Wai bedeutet, Respekt zu zeigen.</p></div>
+    <div class="grammar"><div class="gh">G3 · Unterschiede ausdrücken: แต่ละ</div><p><span class="thai">แต่ละ</span> bedeutet „jede/jeder/jedes einzeln". Damit beschreibt man, dass Familien, Tempel oder Regionen etwas unterschiedlich machen.</p><div class="formula">แต่ละ + Nomen + ... + ต่างกัน / ไม่เหมือนกัน</div><p class="ex"><span class="thai th-mid">แต่ละครอบครัวมีประเพณีต่างกัน</span> - Jede Familie hat unterschiedliche Traditionen.</p><p class="ex"><span class="thai th-mid">แต่ละวัดมีกฎไม่เหมือนกัน</span> - Jeder Tempel hat andere Regeln.</p></div>
+    <div class="grammar"><div class="gh">G4 · Bräuchen und Hinweisen folgen: ตาม</div><p><span class="thai">ตาม</span> steht nach einem Handlungsverb und bedeutet „gemäß", „entsprechend" oder „folgen".</p><div class="formula">Verb + ตาม + Brauch / Regel / Empfehlung</div><p class="ex"><span class="thai th-mid">กรุณาแต่งกายตามกฎของวัด</span> - Bitte kleiden Sie sich entsprechend den Tempelregeln.</p><p class="ex"><span class="thai th-mid">เราทำตามคำแนะนำของพระสงฆ์</span> - Wir folgen den Hinweisen der Mönche.</p></div>
+  </div>
+
+  <!-- LEKTION 3: LESEN -->
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 3</span> Lesen · การอ่าน</h3>
+    <h4 style="color:#047857;">Dialog 1 · Vor dem Tempelbesuch · ก่อนไปวัด</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Tempelanlage in Thailand">
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">พรุ่งนี้เราไปวัด ฉันควรแต่งตัวอย่างไรคะ</span><span class="translit">phrûng-níi rao bpai wát. chǎn khuan dtàeng-dtua yàang-rai khá?</span><span class="de">Morgen gehen wir zum Tempel. Wie sollte ich mich kleiden?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ควรใส่เสื้อปิดไหล่และกางเกงหรือกระโปรงยาวค่ะ</span><span class="translit">khuan sài sûea bpìt lài láe gaang-geeng rǔe grà-bproong yaao khâ.</span><span class="de">Sie sollten ein Oberteil mit bedeckten Schultern und eine lange Hose oder einen langen Rock tragen.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">ก่อนเข้าอุโบสถต้องทำอะไรคะ</span><span class="translit">gòn khâo ù-boo-sòt dtông tham à-rai khá?</span><span class="de">Was muss ich vor dem Betreten der Halle tun?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ต้องถอดรองเท้า พูดเบา ๆ และไม่ควรชี้เท้าไปทางพระพุทธรูปค่ะ</span><span class="translit">dtông thòt rong-tháao, phûut bao-bao láe mâi khuan chíi tháao bpai thaang phrá-phút-thá-rûup khâ.</span><span class="de">Schuhe ausziehen, leise sprechen und die Füße nicht zur Buddhafigur richten.</span></div></div>
+      <div class="dialog-row a"><div class="who">A</div><div class="text"><span class="thai th-mid">ถ่ายรูปได้ไหมคะ</span><span class="translit">thàai-rûup dâai mǎi khá?</span><span class="de">Darf ich fotografieren?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ควรถามก่อนค่ะ เพราะบางสถานที่ห้ามถ่ายรูป</span><span class="translit">khuan thǎam gòn khâ, phrór baang sà-thǎan-thîi hâam thàai-rûup.</span><span class="de">Fragen Sie vorher, denn an manchen Orten ist Fotografieren verboten.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top:22px;">Dialog 2 · Loi Krathong mit der Familie · ลอยกระทงกับครอบครัว</h4>
+    <div class="dialog-box">
+      <img class="dialog-photo" src="https://www.frasershospitality.com/en/locations/thailand/bangkok/fraser-suites-sukhumvit/city-guide/loy-krathong-festival.thumb.800.480.png?ck=1756297328" alt="Familie lässt einen Krathong zu Wasser">
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">เย็นนี้ครอบครัวของคุณจะไปไหนครับ</span><span class="translit">yen-níi khrôp-khrua khǒng khun jà bpai nǎi kráp?</span><span class="de">Wohin geht Ihre Familie heute Abend?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">เราจะไปลอยกระทงที่แม่น้ำค่ะ แต่ก่อนอื่นเราจะทำกระทงด้วยกัน</span><span class="translit">rao jà bpai loi-grà-thong thîi mâe-nám khâ. dtàe gòn-èun rao jà tham grà-thong dûai-gan.</span><span class="de">Wir gehen zum Fluss, um Krathongs schwimmen zu lassen. Zuerst basteln wir sie zusammen.</span></div></div>
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">กระทงทำจากอะไรครับ</span><span class="translit">grà-thong tham jàak à-rai kráp?</span><span class="de">Woraus besteht der Krathong?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">ทำจากใบตอง ดอกไม้ และเทียน เราไม่ใช้พลาสติกค่ะ</span><span class="translit">tham jàak bai-dtong, dòk-máai láe thian. rao mâi chái phlát-dtìk khâ.</span><span class="de">Aus Bananenblättern, Blumen und einer Kerze. Wir verwenden kein Plastik.</span></div></div>
+      <div class="dialog-row a"><div class="who">T</div><div class="text"><span class="thai th-mid">ทำไมเราถึงลอยกระทงครับ</span><span class="translit">tham-mai rao thěung loi-grà-thong kráp?</span><span class="de">Warum lassen wir einen Krathong schwimmen?</span></div></div>
+      <div class="dialog-row b"><div class="who">M</div><div class="text"><span class="thai th-mid">หลายคนทำเพื่อขอบคุณน้ำและขอพร แต่แต่ละครอบครัวอาจให้ความหมายต่างกันค่ะ</span><span class="translit">lǎai khon tham phûea khòp-khun nám láe khǒr-phon, dtàe dtàe-lá khrôp-khrua àat hâi khwaam-mǎai dtàang-gan khâ.</span><span class="de">Viele tun es aus Dankbarkeit gegenüber dem Wasser und wünschen sich Segen. Familien können es unterschiedlich deuten.</span></div></div>
+    </div>
+
+    <h4 style="color:#047857; margin-top:22px;">Lesetext · Ein respektvoller Tag zwischen Tempel und Lichterfest</h4>
+    <div class="role-tools" id="w10-role-tools">
+      <div class="role-filter-head"><strong>Wortfunktionen filtern · หน้าที่ของคำ</strong><button class="role-clear" type="button" onclick="clearWordRoles('w10-role-reader', 'w10-role-tools')">× Markierungen aus</button></div>
+      <div class="role-filter-options">
+        <label class="role-toggle" style="--role-color:#2563eb; --role-bg:#dbeafe;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'subject', this)"><span class="role-swatch"></span>Subjekt · ประธาน</label>
+        <label class="role-toggle" style="--role-color:#dc2626; --role-bg:#fee2e2;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'verb', this)"><span class="role-swatch"></span>Verb · กริยา</label>
+        <label class="role-toggle" style="--role-color:#16a34a; --role-bg:#dcfce7;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'object', this)"><span class="role-swatch"></span>Objekt · กรรม</label>
+        <label class="role-toggle" style="--role-color:#9333ea; --role-bg:#f3e8ff;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'adjective', this)"><span class="role-swatch"></span>Adjektiv · คำคุณศัพท์</label>
+        <label class="role-toggle" style="--role-color:#d97706; --role-bg:#fef3c7;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'context', this)"><span class="role-swatch"></span>Ort / Zeit · สถานที่ / เวลา</label>
+        <label class="role-toggle" style="--role-color:#0891b2; --role-bg:#cffafe;"><input type="checkbox" onchange="toggleWordRole('w10-role-reader', 'connector', this)"><span class="role-swatch"></span>Konnektor · คำเชื่อม</label>
+      </div>
+    </div>
+    <div class="reading-wrap">
+      <div class="side"><img src="https://images.unsplash.com/photo-1552550049-db097c9480d1?w=700&amp;q=70&amp;fm=jpg&amp;auto=format" alt="Goldener Tempel in Thailand"></div>
+      <div class="reading role-reader" id="w10-role-reader">
+        <p class="thai th-mid"><strong>1.</strong> <span class="word-role role-context">สัปดาห์นี้</span><span class="word-role role-subject">อันนา</span><span class="word-role role-verb">มาเที่ยว</span><span class="word-role role-context">เชียงใหม่</span><span class="word-role role-context">ช่วงเทศกาลลอยกระทง</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">พัก</span><span class="word-role role-context">กับครอบครัวของมะลิ</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">อยากเรียนรู้</span><span class="word-role role-object">ประเพณีไทย</span><span class="word-role role-adjective">อย่างสุภาพ</span></p>
+        <p class="thai th-mid"><strong>2.</strong> <span class="word-role role-context">ตอนเช้า</span><span class="word-role role-subject">มะลิและอันนา</span><span class="word-role role-verb">ไป</span><span class="word-role role-context">วัดใกล้บ้าน</span> <span class="word-role role-context">ก่อนเข้าอุโบสถ</span><span class="word-role role-subject">ทั้งสองคน</span><span class="word-role role-verb">ถอด</span><span class="word-role role-object">รองเท้า</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ปิดเสียง</span><span class="word-role role-object">โทรศัพท์</span></p>
+        <p class="thai th-mid"><strong>3.</strong> <span class="word-role role-subject">ครอบครัวของมะลิ</span><span class="word-role role-verb">เตรียม</span><span class="word-role role-object">อาหาร</span><span class="word-role role-connector">เพื่อ</span><span class="word-role role-verb">ใส่บาตร</span> <span class="word-role role-subject">อันนา</span><span class="word-role role-verb">ทำตาม</span><span class="word-role role-object">คำแนะนำของมะลิ</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">พูด</span><span class="word-role role-adjective">เบา ๆ</span></p>
+        <p class="thai th-mid"><strong>4.</strong> <span class="word-role role-context">ในอุโบสถ</span><span class="word-role role-subject">อันนา</span><span class="word-role role-verb">เห็น</span><span class="word-role role-object">พระพุทธรูป ดอกบัว และเทียน</span> <span class="word-role role-subject">เธอ</span><span class="word-role role-verb">นั่ง</span><span class="word-role role-adjective">สงบ</span><span class="word-role role-connector">และ</span><span class="word-role role-verb">ไม่ชี้</span><span class="word-role role-object">เท้า</span><span class="word-role role-context">ไปทางพระพุทธรูป</span></p>
+        <p class="thai th-mid"><strong>5.</strong> <span class="word-role role-context">ตอนบ่าย</span><span class="word-role role-subject">คุณยายของมะลิ</span><span class="word-role role-verb">อธิบาย</span><span class="word-role role-object">ความหมายของประเพณี</span> <span class="word-role role-subject">คุณยาย</span><span class="word-role role-verb">บอก</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">แต่ละครอบครัว</span><span class="word-role role-verb">อาจปฏิบัติ</span><span class="word-role role-object">ประเพณี</span><span class="word-role role-adjective">ต่างกัน</span></p>
+        <p class="thai th-mid"><strong>6.</strong> <span class="word-role role-context">ก่อนเย็น</span><span class="word-role role-subject">ทุกคน</span><span class="word-role role-verb">ช่วยกันทำ</span><span class="word-role role-object">กระทง</span> <span class="word-role role-subject">พวกเขา</span><span class="word-role role-verb">ใช้</span><span class="word-role role-object">ใบตอง ดอกไม้ และเทียน</span><span class="word-role role-connector">เพราะ</span><span class="word-role role-subject">วัสดุธรรมชาติ</span><span class="word-role role-adjective">เหมาะสมกว่า</span><span class="word-role role-object">พลาสติก</span></p>
+        <p class="thai th-mid"><strong>7.</strong> <span class="word-role role-context">ตอนค่ำ</span><span class="word-role role-subject">ครอบครัว</span><span class="word-role role-verb">เดินไป</span><span class="word-role role-context">ที่แม่น้ำ</span> <span class="word-role role-subject">อันนา</span><span class="word-role role-verb">จุด</span><span class="word-role role-object">เทียน</span><span class="word-role role-verb">ขอ</span><span class="word-role role-object">พร</span><span class="word-role role-connector">แล้ว</span><span class="word-role role-verb">ลอย</span><span class="word-role role-object">กระทง</span><span class="word-role role-adjective">อย่างระมัดระวัง</span></p>
+        <p class="thai th-mid"><strong>8.</strong> <span class="word-role role-subject">อันนา</span><span class="word-role role-verb">เรียนรู้</span><span class="word-role role-connector">ว่า</span><span class="word-role role-subject">พุทธศาสนาและประเพณี</span><span class="word-role role-adjective">สำคัญ</span><span class="word-role role-context">ในชีวิตของหลายครอบครัว</span> <span class="word-role role-subject">ผู้มาเยือน</span><span class="word-role role-verb">ควรถาม ฟัง และเคารพ</span><span class="word-role role-object">คนและสถานที่</span></p>
+        <hr style="margin:10px 0; border:0; border-top:1px dashed #c0c7d2;">
+        <p class="de" style="font-size:12px;"><strong>1.</strong> Anna besucht Chiang Mai während Loi Krathong. Sie wohnt bei Malis Familie und möchte thailändische Traditionen respektvoll kennenlernen.</p>
+        <p class="de" style="font-size:12px;"><strong>2.</strong> Morgens gehen Mali und Anna zu einem Tempel in der Nähe. Vor der Halle ziehen beide die Schuhe aus und schalten ihre Telefone lautlos.</p>
+        <p class="de" style="font-size:12px;"><strong>3.</strong> Malis Familie bereitet Essen für die Almosengabe vor. Anna folgt Malis Hinweisen und spricht leise.</p>
+        <p class="de" style="font-size:12px;"><strong>4.</strong> In der Halle sieht Anna eine Buddhafigur, Lotusblumen und Kerzen. Sie sitzt ruhig und richtet ihre Füße nicht zur Figur.</p>
+        <p class="de" style="font-size:12px;"><strong>5.</strong> Nachmittags erklärt Malis Großmutter die Traditionen. Jede Familie kann Bräuche etwas anders praktizieren.</p>
+        <p class="de" style="font-size:12px;"><strong>6.</strong> Vor dem Abend basteln alle Krathongs aus Bananenblättern, Blumen und Kerzen. Naturmaterialien sind geeigneter als Plastik.</p>
+        <p class="de" style="font-size:12px;"><strong>7.</strong> Abends geht die Familie zum Fluss. Anna zündet eine Kerze an, wünscht sich Segen und setzt ihren Krathong vorsichtig aufs Wasser.</p>
+        <p class="de" style="font-size:12px;"><strong>8.</strong> Anna lernt, dass Buddhismus und Traditionen für viele Familien wichtig sind. Gäste sollten fragen, zuhören und Menschen sowie Orte respektieren.</p>
+      </div>
+    </div>
+
+    <div class="exercise" id="w10-role-quiz">
+      <h4>Wortfunktionen · Multiple Choice</h4><p class="task">Welche Funktion hat der markierte Ausdruck im Satz?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">อันนา</span>มาเที่ยวเชียงใหม่</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> ครอบครัว<span class="thai">เตรียม</span>อาหาร</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> อันนาเห็น<span class="thai">พระพุทธรูป ดอกบัว และเทียน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">ตอนบ่าย</span>คุณยายอธิบายประเพณี</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeitangabe</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>5.</strong> วัสดุธรรมชาติ<span class="thai">เหมาะสมกว่า</span>พลาสติก</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv / Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> เธอพักกับครอบครัว<span class="thai">และ</span>อยากเรียนรู้ประเพณี</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>7.</strong> อันนาจุด<span class="thai">เทียน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verb</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Adjektiv</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>8.</strong> <span class="thai">ผู้มาเยือน</span>ควรถามและฟัง</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ort / Zeit</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w10CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w10-role-result" class="w6-result"></div>
+    </div>
+
+    <div class="exercise" id="w10-reading-quiz">
+      <span class="num">1</span><h4>Lesen - 10 Fragen mit 4 Antworten</h4><p class="task">Wählen Sie die beste Antwort.</p>
+      <div class="w6-mc" data-answer="b"><p><strong>1.</strong> Warum ist Anna in Chiang Mai?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>für einen Kochkurs</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>während Loi Krathong</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>für einen Arzttermin</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>zum Tauchen</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>2.</strong> Was tun beide vor der Tempelhalle?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie essen.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie fotografieren.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Sie telefonieren.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sie ziehen die Schuhe aus.</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>3.</strong> Wofür bereitet die Familie Essen vor?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>für die Almosengabe</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>für ein Restaurant</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>für die Reise</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>für den Markt</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> Was sieht Anna in der Halle?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>einen Bus</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>einen Wasserfall</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Buddhafigur, Lotus und Kerzen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Küchengeräte</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> Was erklärt Malis Großmutter?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>einen Fahrplan</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>die Bedeutung der Traditionen</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>ein Rezept</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>die Hotelregeln</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>6.</strong> Woraus besteht der Krathong?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Bananenblätter, Blumen und Kerze</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nur Plastik</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Metall und Glas</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Papier und Farbe</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>7.</strong> Wohin geht die Familie am Abend?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>zum Flughafen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>zum Berg</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>zum Hotel</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>zum Fluss</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>8.</strong> Was macht Anna vor dem Schwimmenlassen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie zieht Schuhe an.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie kauft Plastik.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Sie zündet die Kerze an und wünscht sich Segen.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sie füttert Tiere.</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>9.</strong> Praktizieren alle Familien Traditionen gleich?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Ja, immer.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Nein, es kann Unterschiede geben.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Nur Touristen feiern.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Im Text steht nichts.</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>10.</strong> Wie sollten sich Gäste verhalten?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>fragen, zuhören und respektieren</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>laut sprechen</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>alles fotografieren</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Regeln ignorieren</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w10CheckMC()">✓ Antworten prüfen</button><div id="w10-mc-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <!-- LEKTION 4: SCHREIBEN -->
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben · การเขียน</h3>
+    <div class="exercise"><span class="num">2</span><h4>Sätze bauen - Erfahrungen, Namen und Bedeutung</h4><p class="task">Üben Sie เคย ... ไหม, เรียกว่า und หมายถึง.</p>
+      <div class="w6-build-set" id="w10-build-customs">
+        <div class="w6-build" data-answer="คุณ เคย ไป วัด ไทย ไหม"><div class="task">1. Waren Sie schon einmal in einem thailändischen Tempel?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัด</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เคย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไทย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คุณ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ฉัน ยัง ไม่เคย เข้าร่วม เวียนเทียน"><div class="task">2. Ich habe noch nie an einer Kerzenprozession teilgenommen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เวียนเทียน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ยัง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เข้าร่วม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไม่เคย</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="เทศกาล นี้ เรียกว่า ลอยกระทง"><div class="task">3. Dieses Fest heißt Loi Krathong.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ลอยกระทง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เทศกาล</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรียกว่า</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="การไหว้ หมายถึง การแสดง ความเคารพ"><div class="task">4. Der Wai bedeutet, Respekt zu zeigen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ความเคารพ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หมายถึง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">การไหว้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">การแสดง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ประเพณี นี้ เรียกว่า สงกรานต์"><div class="task">5. Diese Tradition heißt Songkran.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สงกรานต์</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ประเพณี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรียกว่า</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="คุณ เคย ใส่บาตร ไหม"><div class="task">6. Haben Sie schon einmal Mönchen Essen gegeben?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใส่บาตร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คุณ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เคย</button></div><div class="w6-feedback"></div></div>
+      </div><button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w10-build-customs')">✓ Sätze prüfen</button>
+    </div>
+    <div class="exercise"><span class="num">3</span><h4>Sätze bauen - Unterschiede und Regeln</h4><p class="task">Üben Sie แต่ละ und ตาม in praktischen Kultursituationen.</p>
+      <div class="w6-build-set" id="w10-build-respect">
+        <div class="w6-build" data-answer="แต่ละ ครอบครัว มี ประเพณี ต่างกัน"><div class="task">1. Jede Familie hat unterschiedliche Traditionen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต่างกัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครอบครัว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แต่ละ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ประเพณี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="แต่ละ วัด มี กฎ ไม่เหมือนกัน"><div class="task">2. Jeder Tempel hat andere Regeln.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กฎ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไม่เหมือนกัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แต่ละ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัด</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="กรุณา แต่งกาย ตาม กฎ ของ วัด"><div class="task">3. Bitte kleiden Sie sich entsprechend den Tempelregeln.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัด</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตาม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กรุณา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">กฎ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แต่งกาย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ของ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="เรา ทำ ตาม คำแนะนำ ของ พระสงฆ์"><div class="task">4. Wir folgen den Hinweisen der Mönche.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">พระสงฆ์</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เรา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตาม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คำแนะนำ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทำ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ของ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="แต่ละ ภาค ฉลอง สงกรานต์ ต่างกัน"><div class="task">5. Jede Region feiert Songkran anders.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สงกรานต์</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ต่างกัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ภาค</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ฉลอง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แต่ละ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ผู้มาเยือน ปฏิบัติ ตาม มารยาท ไทย"><div class="task">6. Besucher folgen der thailändischen Etikette.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไทย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ตาม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผู้มาเยือน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มารยาท</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ปฏิบัติ</button></div><div class="w6-feedback"></div></div>
+      </div><button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w10-build-respect')">✓ Sätze prüfen</button>
+    </div>
+    <div class="exercise"><span class="num">4</span><h4>Einen ersten Tempelbesuch vorbereiten</h4><p class="task">Schreiben Sie vier Thai-Sätze. Verwenden Sie ยังไม่เคย für Ihre Erfahrung und ตาม für Regeln oder Hinweise.</p><textarea class="w6-thai-input thai" rows="4" placeholder="ตัวอย่าง: ฉันยังไม่เคยไปวัดไทย..." onfocus="w6SetField(this, 'w10')"></textarea></div>
+    <div class="exercise"><span class="num">5</span><h4>Eine Tradition erklären</h4><p class="task">Schreiben Sie 5-6 Sätze über eine Tradition. Verwenden Sie เรียกว่า, หมายถึง und แต่ละ, um Name, Bedeutung und Unterschiede zu erklären.</p><textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: ประเพณีนี้เรียกว่า..." onfocus="w6SetField(this, 'w10')"></textarea></div>
+    <div id="w10Keyboard" class="w6-keyboard hidden"><div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 10</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div><div id="w10Keys"></div></div>
+  </div>
+
+  <!-- LEKTION 5: SPRECHEN -->
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 5</span> Sprechen · การพูด</h3>
+    <h4 style="color:#1f6feb;">Aussprache - Kulturwörter mit den 5 Tönen</h4>
+    <div class="tones">
+      <div class="t"><div class="name">Mittel</div><div class="word thai">บุญ</div><div class="meaning">bun<br>Verdienst</div></div>
+      <div class="t"><div class="name">Tief</div><div class="word thai">ก่อน</div><div class="meaning">gòn<br>vorher</div></div>
+      <div class="t"><div class="name">Fallend</div><div class="word thai">ไหว้</div><div class="meaning">wâi<br>Wai-Gruß</div></div>
+      <div class="t"><div class="name">Hoch</div><div class="word thai">วัด</div><div class="meaning">wát<br>Tempel</div></div>
+      <div class="t"><div class="name">Steigend</div><div class="word thai">ขอ</div><div class="meaning">khǒr<br>bitten</div></div>
+    </div>
+    <div class="exercise"><span class="num">6</span><h4>Rollenspiel - Erster Tempelbesuch</h4><p class="task">Sprechen Sie über Erfahrung, den Namen einer Zeremonie und die Regeln vor Ort.</p><div class="speak-grid">
+      <div class="speak-card"><div class="role">Gast · ผู้มาเยือน</div><p class="line"><span class="thai th-mid">ฉันยังไม่เคยมาวัดไทยค่ะ</span><br>Ich war noch nie in einem thailändischen Tempel.</p><p class="line"><span class="thai th-mid">พิธีนี้เรียกว่าอะไรคะ</span><br>Wie heißt diese Zeremonie?</p><p class="line"><span class="thai th-mid">ฉันต้องทำตามกฎอะไรบ้างคะ</span><br>Welche Regeln muss ich befolgen?</p></div>
+      <div class="speak-card green"><div class="role">Begleitung · ผู้แนะนำ</div><p class="line"><span class="thai th-mid">ไม่เป็นไรค่ะ ฉันจะอธิบายให้ฟัง</span><br>Kein Problem, ich erkläre es Ihnen.</p><p class="line"><span class="thai th-mid">พิธีนี้เรียกว่าเวียนเทียนค่ะ</span><br>Diese Zeremonie heißt Wian Thian.</p><p class="line"><span class="thai th-mid">กรุณาถอดรองเท้าและทำตามคำแนะนำค่ะ</span><br>Bitte ziehen Sie die Schuhe aus und folgen Sie den Hinweisen.</p></div>
+    </div></div>
+    <div class="exercise"><span class="num">7</span><h4>Sprechen frei - fünf Kulturfragen</h4><ol>
+      <li><span class="thai">คุณเคยไปวัดไทยไหม</span> - Waren Sie schon einmal in einem thailändischen Tempel?<div class="lines"></div></li>
+      <li><span class="thai">พิธีนี้เรียกว่าอะไร</span> - Wie heißt diese Zeremonie?<div class="lines"></div></li>
+      <li><span class="thai">การไหว้หมายถึงอะไร</span> - Was bedeutet der Wai?<div class="lines"></div></li>
+      <li><span class="thai">แต่ละครอบครัวฉลองเหมือนกันไหม</span> - Feiern alle Familien auf dieselbe Weise?<div class="lines"></div></li>
+      <li><span class="thai">ผู้มาเยือนควรทำตามกฎอะไรบ้าง</span> - Welche Regeln sollten Besucher befolgen?<div class="lines"></div></li>
+    </ol></div>
+  </div>
+
+  <div class="card green"><h3 class="h-card"><span class="pill">7-Tage-Plan</span> Ihr Trainingsplan</h3><table class="plan-table"><thead><tr><th>Tag</th><th>📖 Lesen</th><th>✍️ Schreiben</th><th>🗣 Sprechen</th></tr></thead><tbody>
+    <tr><td class="day">Tag 1<br>Mo</td><td>Wortschatz A · Buddhismus</td><td>10 Tempelwörter abschreiben</td><td>Wörter und Töne sprechen</td></tr>
+    <tr><td class="day">Tag 2<br>Di</td><td>Wortschatz B · Respekt</td><td>Vier Verhaltensregeln</td><td>Regeln höflich sagen</td></tr>
+    <tr><td class="day">Tag 3<br>Mi</td><td>Wortschatz C + D · Traditionen</td><td>Eigenes Fest-Wortnetz</td><td>Eine Tradition beschreiben</td></tr>
+    <tr><td class="day">Tag 4<br>Do</td><td>Grammatik + Dialoge</td><td>Übung 2 und 3</td><td>Dialoge in Rollen sprechen</td></tr>
+    <tr><td class="day">Tag 5<br>Fr</td><td>Lesetext mit Wortfiltern</td><td>Übung 4 · Tempelbesuch</td><td>Fünf Kulturfragen beantworten</td></tr>
+    <tr><td class="day">Tag 6<br>Sa</td><td>Loi-Krathong-Text wiederholen</td><td>Tradition vorstellen</td><td>Rollenspiel aufnehmen</td></tr>
+    <tr><td class="day">Tag 7<br>So</td><td>Beide Multiple-Choice-Tests</td><td>Fehler korrigieren</td><td>Zwei Minuten frei sprechen</td></tr>
+  </tbody></table></div>
+
+  <div class="answer-key"><h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Wortfunktionen - Multiple Choice</h4><ol><li>a - Subjekt</li><li>b - Verb</li><li>c - Objekt</li><li>d - Zeitangabe</li><li>d - Adjektiv / Beschreibung</li><li>c - Konnektor</li><li>b - Objekt</li><li>a - Subjekt</li></ol></div>
+    <div class="ak-block"><h4>Übung 1 - Multiple Choice</h4><ol><li>b - während Loi Krathong</li><li>d - Schuhe ausziehen</li><li>a - für die Almosengabe</li><li>c - Buddhafigur, Lotus und Kerzen</li><li>b - Bedeutung der Traditionen</li><li>a - Bananenblätter, Blumen und Kerze</li><li>d - zum Fluss</li><li>c - Kerze anzünden und Segen wünschen</li><li>b - Familien können Bräuche unterschiedlich praktizieren</li><li>a - fragen, zuhören und respektieren</li></ol></div>
+    <div class="ak-block"><h4>Übung 2 - Erfahrungen, Namen und Bedeutung</h4><ol><li>คุณเคยไปวัดไทยไหม</li><li>ฉันยังไม่เคยเข้าร่วมเวียนเทียน</li><li>เทศกาลนี้เรียกว่าลอยกระทง</li><li>การไหว้หมายถึงการแสดงความเคารพ</li><li>ประเพณีนี้เรียกว่าสงกรานต์</li><li>คุณเคยใส่บาตรไหม</li></ol></div>
+    <div class="ak-block"><h4>Übung 3 - Unterschiede und Regeln</h4><ol><li>แต่ละครอบครัวมีประเพณีต่างกัน</li><li>แต่ละวัดมีกฎไม่เหมือนกัน</li><li>กรุณาแต่งกายตามกฎของวัด</li><li>เราทำตามคำแนะนำของพระสงฆ์</li><li>แต่ละภาคฉลองสงกรานต์ต่างกัน</li><li>ผู้มาเยือนปฏิบัติตามมารยาทไทย</li></ol></div>
+    <div class="ak-block"><h4>Übung 4 - Erster Tempelbesuch (Muster)</h4><p class="thai" style="font-size:14px;">ฉันยังไม่เคยไปวัดไทย พรุ่งนี้ฉันจะไปกับมะลิ ฉันจะทำตามกฎของวัดและคำแนะนำของมะลิ ก่อนถ่ายรูปฉันจะขออนุญาต</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Ich war noch nie in einem thailändischen Tempel. Morgen gehe ich mit Mali. Ich werde die Tempelregeln und Malis Hinweise befolgen. Vor dem Fotografieren bitte ich um Erlaubnis.</p></div>
+    <div class="ak-block"><h4>Übung 5 - Tradition erklären (Muster)</h4><p class="thai" style="font-size:14px;">ประเพณีนี้เรียกว่าลอยกระทง การลอยกระทงหมายถึงการขอบคุณน้ำ หลายครอบครัวทำกระทงด้วยใบตอง ดอกไม้ และเทียน ตอนค่ำทุกคนไปที่แม่น้ำ แต่ละครอบครัวอาจฉลองต่างกัน เราควรทำตามกฎเพื่อรักษาแม่น้ำ</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Diese Tradition heißt Loi Krathong. Sie drückt Dankbarkeit gegenüber dem Wasser aus. Viele Familien basteln Krathongs aus Bananenblättern, Blumen und Kerzen. Abends gehen alle zum Fluss, wobei jede Familie etwas anders feiern kann. Regeln helfen, den Fluss zu schützen.</p></div>
+  </div>
+
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -5069,6 +5457,162 @@ ul, ol { padding-left: 22px; }
 <button class="floating-print" onclick="window.print()" title="Als PDF speichern">⬇</button>
 
 <script>
+function enhanceVocabularyTypes() {
+  const noun = ['noun', 'Nomen'];
+  const weekTypes = {
+    woche7: {
+      จอง: ['verb', 'Verb'], เช็คอิน: ['verb', 'Verb'], เช็คเอาท์: ['verb', 'Verb'],
+      เที่ยว: ['verb', 'Verb'], เดินทาง: ['verb', 'Verb'], พัก: ['verb', 'Verb'],
+      อยาก: ['verb', 'Verb'], แนะนำ: ['verb', 'Verb'],
+      รวมอาหารเช้า: ['phrase', 'Verbgruppe'], ถ่ายรูป: ['phrase', 'Verbgruppe'],
+      ว่ายน้ำ: ['phrase', 'Verbgruppe'], ดำน้ำ: ['phrase', 'Verbgruppe'],
+      แดดออก: ['phrase', 'Verbgruppe'], ฝนตก: ['phrase', 'Verbgruppe'],
+      ว่าง: ['adjective', 'Adjektiv'], ร้อน: ['adjective', 'Adjektiv'],
+      จะ: ['particle', 'Partikel'], กี่วัน: ['expression', 'Redemittel'],
+      พรุ่งนี้: ['time', 'Zeitangabe'], สัปดาห์หน้า: ['time', 'Zeitangabe'],
+      เพราะ: ['connector', 'Konnektor'], ถ้า: ['connector', 'Konnektor']
+    },
+    woche8: {
+      ล้าง: ['verb', 'Verb'], หั่น: ['verb', 'Verb'], สับ: ['verb', 'Verb'],
+      ปอก: ['verb', 'Verb'], ใส่: ['verb', 'Verb'], เท: ['verb', 'Verb'],
+      คน: ['verb', 'Verb'], ต้ม: ['verb', 'Verb'], ผัด: ['verb', 'Verb'],
+      ทอด: ['verb', 'Verb'], ย่าง: ['verb', 'Verb'], นึ่ง: ['verb', 'Verb'],
+      ชิม: ['verb', 'Verb'], ปรุง: ['verb', 'Verb'], เสิร์ฟ: ['verb', 'Verb']
+    },
+    woche9: {
+      เดินป่า: ['phrase', 'Verbgruppe'], ตั้งแคมป์: ['phrase', 'Verbgruppe'],
+      ปีนเขา: ['phrase', 'Verbgruppe'], ว่ายน้ำ: ['phrase', 'Verbgruppe'],
+      ดำน้ำ: ['phrase', 'Verbgruppe'], ดำน้ำตื้น: ['phrase', 'Verbgruppe'],
+      ดูสัตว์: ['phrase', 'Verbgruppe'], ให้อาหาร: ['phrase', 'Verbgruppe'],
+      ทิ้งขยะ: ['phrase', 'Verbgruppe'], อนุรักษ์: ['verb', 'Verb'],
+      อันตราย: ['adjective', 'Adjektiv'], ลื่น: ['adjective', 'Adjektiv'],
+      ลึก: ['adjective', 'Adjektiv'], สะอาด: ['adjective', 'Adjektiv'],
+      สงบ: ['adjective', 'Adjektiv']
+    }
+  };
+
+  Object.entries(weekTypes).forEach(([weekId, types]) => {
+    const section = document.getElementById(weekId);
+    if (!section) return;
+    const vocabHeading = section.querySelector('.card.green .h-card');
+    if (vocabHeading && !section.querySelector('.vocab-type-note')) {
+      const note = document.createElement('p');
+      note.className = 'vocab-type-note';
+      note.innerHTML = '<strong>Worttyp · ชนิดคำ:</strong> Das Label zeigt, was ein Wort oder Ausdruck grundsätzlich ist. Seine Satzfunktion, zum Beispiel Subjekt oder Objekt, hängt vom jeweiligen Satz ab.';
+      vocabHeading.insertAdjacentElement('afterend', note);
+    }
+
+    section.querySelectorAll('table.vocab').forEach(table => {
+      if (table.classList.contains('has-types')) return;
+      table.classList.add('has-types');
+      const iconHead = table.querySelector('th.col-icon');
+      if (iconHead) {
+        const typeHead = document.createElement('th');
+        typeHead.className = 'col-type';
+        typeHead.textContent = 'Worttyp';
+        iconHead.before(typeHead);
+      }
+      table.querySelectorAll('tbody tr').forEach(row => {
+        const thai = row.querySelector('td.thai')?.textContent.trim();
+        const iconCell = row.lastElementChild;
+        if (!thai || !iconCell) return;
+        const [typeClass, label] = types[thai] || noun;
+        const typeCell = document.createElement('td');
+        typeCell.innerHTML = `<span class="word-type ${typeClass}">${label}</span>`;
+        iconCell.before(typeCell);
+      });
+    });
+  });
+}
+
+function enhanceReadingAnalysis() {
+  const names = new Set([
+    'แอนนา', 'อันนา', 'มาร์ค', 'เลนา', 'เยอรมนี', 'เชียงใหม่', 'กระบี่',
+    'กรุงเทพ เชียงใหม่ และกระบี่', 'อุทยานแห่งชาติเขาใหญ่',
+    'มะลิและอันนา', 'ช่วงเทศกาลลอยกระทง'
+  ]);
+  const particles = new Set(['ว่า', 'ที่', 'ให้', 'ได้แล้ว']);
+  const expressions = new Set([
+    'อยากเห็น', 'ยังทำเองไม่เป็น', 'ไม่ควรส่งเสียง', 'ห้ามว่ายน้ำ',
+    'ควรถาม ฟัง และเคารพ', 'ต้องช่วยกันอนุรักษ์'
+  ]);
+  const verbPhrases = new Set([
+    'เข้าใกล้', 'จะทำให้', 'จะอยู่', 'ช่วยกันทำ', 'ชอบกิน', 'เช็คเอาท์',
+    'เดินทางไป', 'เดินเที่ยว', 'เดินไป', 'นั่งกิน', 'นั่งเรือไป', 'บินไป',
+    'ปิดเสียง', 'ไปดู', 'ไปถึง', 'ไปเรียนทำ', 'มาจาก', 'มาเที่ยว',
+    'ไม่จับ', 'ไม่ชี้', 'ไม่ทิ้ง', 'ไม่ไป', 'ยังมี', 'เรียนทำ', 'ทำตาม',
+    'วางแผนไป', 'หยุดเดิน', 'อยากไป', 'อยากเรียนรู้', 'อาจปฏิบัติ',
+    'ใส่บาตร', 'ให้อาหาร'
+  ]);
+  const groups = [
+    {
+      label: 'Worttyp · ชนิดคำ',
+      filters: [
+        ['type-noun', 'Nomen · คำนาม', '#2563eb', '#dbeafe'],
+        ['type-name', 'Eigenname · ชื่อเฉพาะ', '#ca8a04', '#fef9c3'],
+        ['type-verb', 'Verb · คำกริยา', '#dc2626', '#fee2e2'],
+        ['type-phrase', 'Verbgruppe · กลุ่มคำกริยา', '#ea580c', '#ffedd5'],
+        ['type-adjective', 'Adjektiv · คำคุณศัพท์', '#9333ea', '#f3e8ff']
+      ]
+    },
+    {
+      label: 'Kleine Wörter · คำเล็ก',
+      filters: [
+        ['type-context', 'Zeit / Ort · เวลา / สถานที่', '#d97706', '#fef3c7'],
+        ['type-connector', 'Konnektor · คำเชื่อม', '#0891b2', '#cffafe'],
+        ['type-particle', 'Partikel · คำช่วย', '#64748b', '#e2e8f0'],
+        ['type-expression', 'Redemittel · สำนวน', '#0f766e', '#ccfbf1']
+      ]
+    },
+    {
+      label: 'Satzfunktion · หน้าที่ในประโยค',
+      filters: [
+        ['subject', 'Subjekt · ประธาน', '#4f46e5', '#e0e7ff'],
+        ['verb', 'Prädikat · ภาคแสดง', '#be123c', '#ffe4e6'],
+        ['object', 'Objekt · กรรม', '#16a34a', '#dcfce7'],
+        ['adjective', 'Beschreibung · ส่วนขยาย', '#7e22ce', '#fae8ff'],
+        ['context', 'Zeit / Ort · เวลา / สถานที่', '#b45309', '#fff7ed'],
+        ['connector', 'Verknüpfung · คำเชื่อม', '#0e7490', '#ecfeff']
+      ]
+    }
+  ];
+
+  document.querySelectorAll('.role-reader').forEach(reader => {
+    reader.querySelectorAll('.word-role').forEach(span => {
+      const text = span.textContent.trim();
+      let type = 'type-noun';
+      if (names.has(text)) type = 'type-name';
+      else if (particles.has(text)) type = 'type-particle';
+      else if (expressions.has(text)) type = 'type-expression';
+      else if (span.classList.contains('role-verb')) type = verbPhrases.has(text) ? 'type-phrase' : 'type-verb';
+      else if (span.classList.contains('role-adjective')) type = 'type-adjective';
+      else if (span.classList.contains('role-context')) type = 'type-context';
+      else if (span.classList.contains('role-connector')) type = 'type-connector';
+      span.classList.add(type);
+    });
+
+    const tools = reader.closest('.card')?.querySelector(`#${reader.id.replace('reader', 'tools')}`);
+    if (!tools) return;
+    const title = tools.querySelector('.role-filter-head strong');
+    if (title) title.textContent = 'Worttyp und Satzfunktion filtern · ชนิดคำและหน้าที่ในประโยค';
+    const options = tools.querySelector('.role-filter-options');
+    if (!options) return;
+    options.innerHTML = groups.map(group => `
+      <div class="role-filter-group">
+        <div class="role-filter-label">${group.label}</div>
+        <div class="role-filter-items">
+          ${group.filters.map(([filter, label, color, bg]) => `
+            <label class="role-toggle" style="--role-color:${color}; --role-bg:${bg};">
+              <input type="checkbox" data-filter="${filter}"><span class="role-swatch"></span>${label}
+            </label>`).join('')}
+        </div>
+      </div>`).join('');
+    options.querySelectorAll('input[data-filter]').forEach(input => {
+      input.addEventListener('change', () => toggleWordRole(reader.id, input.dataset.filter, input));
+    });
+  });
+}
+
 function w6PickChoice(btn) {
   const group = btn.closest('.w6-mc');
   group.querySelectorAll('.w6-option').forEach(o => o.classList.remove('selected', 'correct', 'wrong'));
@@ -5147,6 +5691,24 @@ function w9CheckMC() {
   result.style.color = score >= 7 ? '#15803d' : '#dc2626';
 }
 
+function w10CheckMC() {
+  const questions = document.querySelectorAll('#w10-reading-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w10-mc-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 7 ? '#15803d' : '#dc2626';
+}
+
 function toggleWordRole(readerId, role, input) {
   const reader = document.getElementById(readerId);
   if (!reader) return;
@@ -5159,8 +5721,8 @@ function clearWordRoles(readerId, toolsId) {
   const reader = document.getElementById(readerId);
   const tools = document.getElementById(toolsId);
   if (reader) {
-    ['subject', 'verb', 'object', 'adjective', 'context', 'connector'].forEach(role => {
-      reader.classList.remove(`show-${role}`);
+    [...reader.classList].forEach(className => {
+      if (className.startsWith('show-')) reader.classList.remove(className);
     });
   }
   if (tools) {
@@ -5168,6 +5730,27 @@ function clearWordRoles(readerId, toolsId) {
     tools.querySelectorAll('.role-toggle').forEach(toggle => toggle.classList.remove('active'));
   }
 }
+
+function checkRoleQuiz(week) {
+  const questions = document.querySelectorAll(`#w${week}-role-quiz .w6-mc`);
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById(`w${week}-role-result`);
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 6 ? '#15803d' : '#dc2626';
+}
+
+function w7CheckRoleQuiz() { checkRoleQuiz(7); }
+function w8CheckRoleQuiz() { checkRoleQuiz(8); }
 
 function w9CheckRoleQuiz() {
   const questions = document.querySelectorAll('#w9-role-quiz .w6-mc');
@@ -5183,6 +5766,24 @@ function w9CheckRoleQuiz() {
     if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
   });
   const result = document.getElementById('w9-role-result');
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 6 ? '#15803d' : '#dc2626';
+}
+
+function w10CheckRoleQuiz() {
+  const questions = document.querySelectorAll('#w10-role-quiz .w6-mc');
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById('w10-role-result');
   result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
   result.style.color = score >= 6 ? '#15803d' : '#dc2626';
 }
@@ -5254,7 +5855,7 @@ function w6SetField(field, week = 'w6') {
 }
 
 function w6HideKeyboard() {
-  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard'].forEach(id => {
+  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard'].forEach(id => {
     const keyboard = document.getElementById(id);
     if (keyboard) keyboard.classList.add('hidden');
   });
@@ -5323,7 +5924,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (['woche6', 'woche7', 'woche8', 'woche9'].includes(name)) navName = 'a22';
+  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5331,6 +5932,8 @@ function showTab(name) {
 document.querySelectorAll('nav.tabs button').forEach(btn => {
   btn.addEventListener('click', () => showTab(btn.dataset.tab));
 });
+enhanceVocabularyTypes();
+enhanceReadingAnalysis();
 // Allow direct hash links: e.g. #woche2
 if (location.hash) {
   const tab = location.hash.replace('#', '');
