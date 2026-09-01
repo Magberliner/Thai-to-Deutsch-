@@ -583,6 +583,7 @@ h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
 .week-card.red .head { background: #dc2626; }
 .week-card.ocean .head { background: #0369a1; }
 .week-card.gold .head { background: #a16207; }
+.week-card.berry .head { background: #9f1239; }
 .week-card .body { padding: 16px 18px; font-size: 13px; }
 .week-card .body p { margin: 4px 0; }
 .week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
@@ -813,6 +814,106 @@ table.vocab.has-types .col-icon { width: 8%; }
 @media print {
   .role-tools { display: none !important; }
   .role-reader .word-role { background: transparent !important; color: inherit !important; box-shadow: none !important; outline: 0 !important; padding: 0 !important; }
+}
+
+/* ==================== VIDEO LESSON ==================== */
+.video-session-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.video-session-head h3 { margin: 0; font-size: 19px; color: #1d2733; }
+.video-session-head p { margin: 5px 0 0; color: #566273; font-size: 13px; }
+.video-duration {
+  flex: 0 0 auto;
+  background: #172033;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.video-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(230px, .8fr);
+  gap: 18px;
+  align-items: start;
+}
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #111827;
+  display: block;
+}
+.video-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111827;
+  overflow: hidden;
+}
+.video-file-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+}
+.video-file-fallback::before { content: ''; position: absolute; inset: 0; background: rgba(15, 23, 42, .78); }
+.video-file-fallback > div { position: relative; max-width: 420px; }
+.video-file-fallback strong { display: block; font-size: 18px; margin-bottom: 7px; }
+.video-file-fallback p { margin: 0 0 13px; color: #e2e8f0; font-size: 12px; line-height: 1.5; }
+.video-file-fallback a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: #fff;
+  color: #172033;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.video-player.file-mode .video-frame { display: none; }
+.video-player.file-mode .video-file-fallback { display: flex; }
+.video-chapters { border-left: 3px solid #be123c; padding-left: 13px; }
+.video-chapters h4 { margin: 0 0 8px; color: #881337; font-size: 13px; }
+.video-chapters a {
+  display: block;
+  color: #334155;
+  padding: 7px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 12px;
+  text-decoration: none;
+}
+.video-chapters a:hover, .video-chapters a:focus-visible { color: #9f1239; text-decoration: underline; }
+.video-chapters time { display: inline-block; width: 48px; color: #9f1239; font-weight: 800; }
+.watch-pass {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+.watch-pass > div { border-top: 3px solid #0369a1; padding: 9px 10px 0; min-width: 0; }
+.watch-pass strong { display: block; color: #0c4a6e; font-size: 12px; margin-bottom: 3px; }
+.watch-pass span { color: #566273; font-size: 12px; line-height: 1.45; }
+.source-note { color: #64748b; font-size: 11px; line-height: 1.5; margin-top: 10px; }
+@media (max-width: 760px) {
+  .video-shell { grid-template-columns: minmax(0, 1fr); }
+  .watch-pass { grid-template-columns: minmax(0, 1fr); }
+  .video-session-head { display: block; }
+  .video-duration { display: inline-block; margin-top: 8px; }
+}
+@media print {
+  .video-frame { display: none !important; }
+  .video-shell { grid-template-columns: 1fr; }
 }
 
 /* ==================== GRAMMAR ==================== */
@@ -1199,7 +1300,7 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 10 Wochen · 1 Stunde pro Tag</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 11 Wochen · flexibel lernen</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
@@ -1212,9 +1313,9 @@ ul, ol { padding-left: 22px; }
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">10</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">70</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~550</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">11</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">70+</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~590</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1246,7 +1347,7 @@ ul, ol { padding-left: 22px; }
   <div class="card amber">
     <h3 class="h-card amber"><span class="pill">Lernziele</span> Was Sie am Ende des Kurses können</h3>
     <ul class="goals">
-      <li>~ 550 neue Wörter aktiv anwenden</li>
+      <li>~ 590 neue Wörter aktiv anwenden</li>
       <li>Einfache Texte zu Alltagsthemen verstehen</li>
       <li>Kurze Dialoge selbständig führen</li>
       <li>Eigene Sätze in Thai-Schrift verfassen</li>
@@ -1257,7 +1358,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 10 mit Reise-, Urlaubs-, Küchen-, Natur- und Kultursituationen.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 11 mit Reise-, Urlaubs-, Küchen-, Natur-, Kultur- und Video-Lektionen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1277,7 +1378,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6-10 · Verkehr · Urlaub · Küche · Natur · Traditionen</p>
+          <p>Woche 6-11 · Verkehr · Urlaub · Küche · Natur · Kultur · Video</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1435,13 +1536,14 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 10 ergänzt die Themen um Buddhismus, Tempelbesuche und thailändische Traditionen.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 11 trainiert authentisches Hörverstehen mit einem Food- und Reisevideo aus Nan.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche8')">Woche 8 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche9')">Woche 9 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche10')">Woche 10 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche11')">Woche 11 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1449,8 +1551,8 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-10 · 35 Stunden</div></div>
-    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Alltag, Natur und Kultur</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-11 · Präsenz + Video</div></div>
+    <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Alltag, Natur, Kultur und Hörverstehen</div></div>
   </div>
 
   <div class="card">
@@ -1519,6 +1621,19 @@ ul, ol { padding-left: 22px; }
           <p><span class="lab">Grammatik:</span> Erfahrungen, Bedeutungen, Unterschiede und Bräuche</p>
           <p><span class="lab">Praxis:</span> Tempelbesuch, Loi Krathong, Wortfilter und Thai-Tastatur</p>
           <button class="open-link">Woche 10 öffnen →</button>
+        </div>
+      </div>
+      <div class="week-card berry" onclick="showTab('woche11')">
+        <img class="photo" src="https://img.youtube.com/vi/ful41w7EPeM/hqdefault.jpg" alt="Food- und Reisevideo über Restaurants in Nan">
+        <div class="head">
+          <div><div class="n">Woche 11</div><div class="t">Essen gehen in Nan · Video-Lektion</div></div>
+          <div class="th thai">ตะลุยกินที่น่าน</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Video:</span> zwei Sessions à 15 Minuten + freiwilliger Ausklang</p>
+          <p><span class="lab">Sprache:</span> Geschmack, Empfehlungen und gesprochene Alltagssprache</p>
+          <p><span class="lab">Praxis:</span> Hörfragen, Wortfilter, Restaurantkritik und Empfehlung</p>
+          <button class="open-link">Woche 11 öffnen →</button>
         </div>
       </div>
     </div>
@@ -5447,6 +5562,264 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 11: VIDEO-LEKTION NAN ==================== -->
+<section id="woche11" class="page">
+
+  <div class="hero-block" style="min-height: 300px;">
+    <div class="bg" style="background-image: url('https://img.youtube.com/vi/ful41w7EPeM/maxresdefault.jpg');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(159, 18, 57, 0.9); border-color: transparent;">Woche 11 · A2.2 · Video</span>
+      <h1>Essen gehen in Nan</h1>
+      <div class="thai-title thai">ตะลุยกินที่น่าน</div>
+      <p class="lead">Trainieren Sie authentisches Hörverstehen mit einem thailändischen Food- und Reisevideo. Zwei Abschnitte à 15 Minuten führen durch Restaurants, Cafés, Geschmacksbeschreibungen und spontane Gespräche in Nan.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Video</div><div class="v">2 Sessions × 15 Minuten</div></div>
+    <div class="info-card blue"><div class="k">Sprache</div><div class="v">Gesprochenes Thai im Food-Vlog</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Verstehen, bewerten und empfehlen</div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Videowortschatz · คำศัพท์จากวิดีโอ</h3>
+    <p class="vocab-type-note"><strong>Worttyp · ชนิดคำ:</strong> Die Auswahl stammt aus den beiden Videosegmenten. Geschmack, Konsistenz, Empfehlungen und typische Vlog-Ausdrücke stehen im Mittelpunkt.</p>
+
+    <h4 style="color:#047857; margin-top:14px;">A · Restaurants und Gerichte · ร้านอาหารและอาหาร</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ร้านอาหาร</td><td class="translit">ráan-aa-hǎan</td><td>Restaurant</td><td><span class="word-type noun">Nomen</span></td><td>🍽️</td></tr>
+        <tr><td class="thai">เมนู</td><td class="translit">mee-nuu</td><td>Speisekarte, Gericht</td><td><span class="word-type noun">Nomen</span></td><td>📋</td></tr>
+        <tr><td class="thai">น้ำซุป</td><td class="translit">náam-súp</td><td>Brühe</td><td><span class="word-type noun">Nomen</span></td><td>🥣</td></tr>
+        <tr><td class="thai">เครื่องใน</td><td class="translit">khrʉ̂ang-nai</td><td>Innereien</td><td><span class="word-type noun">Nomen</span></td><td>🥩</td></tr>
+        <tr><td class="thai">บะหมี่</td><td class="translit">bà-mìi</td><td>Eiernudeln</td><td><span class="word-type noun">Nomen</span></td><td>🍜</td></tr>
+        <tr><td class="thai">ขนมเปี๊ยะ</td><td class="translit">khà-nǒm-pía</td><td>gefülltes chinesisch-thailändisches Gebäck</td><td><span class="word-type noun">Nomen</span></td><td>🥮</td></tr>
+        <tr><td class="thai">น้ำเงี้ยว</td><td class="translit">náam-ngíao</td><td>nordthailändische Nudelsuppe</td><td><span class="word-type noun">Nomen</span></td><td>🍲</td></tr>
+        <tr><td class="thai">ข้าวซอย</td><td class="translit">khâao-soi</td><td>nordthailändische Curry-Nudeln</td><td><span class="word-type noun">Nomen</span></td><td>🍛</td></tr>
+        <tr><td class="thai">ขนมจีน</td><td class="translit">khà-nǒm-jiin</td><td>fermentierte Reisnudeln</td><td><span class="word-type noun">Nomen</span></td><td>🍝</td></tr>
+        <tr><td class="thai">มะแขว่น</td><td class="translit">má-khwàen</td><td>nordthailändisches Gewürz</td><td><span class="word-type noun">Nomen</span></td><td>🌿</td></tr>
+        <tr><td class="thai">ถั่วเน่า</td><td class="translit">thùa-nâo</td><td>fermentierte Sojabohnen</td><td><span class="word-type noun">Nomen</span></td><td>🫘</td></tr>
+        <tr><td class="thai">เตาถ่าน</td><td class="translit">tao-thàan</td><td>Holzkohleherd</td><td><span class="word-type noun">Nomen</span></td><td>🔥</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">B · Geschmack und Konsistenz · รสชาติและเนื้อสัมผัส</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">รสชาติ</td><td class="translit">rót-châat</td><td>Geschmack</td><td><span class="word-type noun">Nomen</span></td><td>👅</td></tr>
+        <tr><td class="thai">อร่อย</td><td class="translit">à-ròi</td><td>lecker</td><td><span class="word-type adjective">Adjektiv</span></td><td>😋</td></tr>
+        <tr><td class="thai">เข้มข้น</td><td class="translit">khêm-khôn</td><td>intensiv, kräftig</td><td><span class="word-type adjective">Adjektiv</span></td><td>🟤</td></tr>
+        <tr><td class="thai">จัดจ้าน</td><td class="translit">jàt-jâan</td><td>kräftig gewürzt</td><td><span class="word-type adjective">Adjektiv</span></td><td>🌶️</td></tr>
+        <tr><td class="thai">เผ็ด</td><td class="translit">phèt</td><td>scharf</td><td><span class="word-type adjective">Adjektiv</span></td><td>🌶️</td></tr>
+        <tr><td class="thai">หอม</td><td class="translit">hǒom</td><td>duftend, aromatisch</td><td><span class="word-type adjective">Adjektiv</span></td><td>👃</td></tr>
+        <tr><td class="thai">นุ่ม</td><td class="translit">nûm</td><td>weich, zart</td><td><span class="word-type adjective">Adjektiv</span></td><td>☁️</td></tr>
+        <tr><td class="thai">กรอบ</td><td class="translit">kròp</td><td>knusprig</td><td><span class="word-type adjective">Adjektiv</span></td><td>✨</td></tr>
+        <tr><td class="thai">สดใหม่</td><td class="translit">sòt-mài</td><td>frisch</td><td><span class="word-type adjective">Adjektiv</span></td><td>🥬</td></tr>
+        <tr><td class="thai">สดชื่น</td><td class="translit">sòt-chʉ̂ʉn</td><td>erfrischend</td><td><span class="word-type adjective">Adjektiv</span></td><td>🧊</td></tr>
+        <tr><td class="thai">ไม่หวานมาก</td><td class="translit">mâi-wǎan-mâak</td><td>nicht sehr süß</td><td><span class="word-type phrase">Adjektivgruppe</span></td><td>🍬</td></tr>
+        <tr><td class="thai">น่ากิน</td><td class="translit">nâa-gin</td><td>appetitlich</td><td><span class="word-type adjective">Adjektiv</span></td><td>🤩</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">C · Handlungen und Empfehlungen · การกระทำและคำแนะนำ</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">แนะนำ</td><td class="translit">náe-nam</td><td>empfehlen</td><td><span class="word-type verb">Verb</span></td><td>💡</td></tr>
+        <tr><td class="thai">ชิม</td><td class="translit">chim</td><td>probieren, kosten</td><td><span class="word-type verb">Verb</span></td><td>🥄</td></tr>
+        <tr><td class="thai">ปรุง</td><td class="translit">prung</td><td>abschmecken, würzen</td><td><span class="word-type verb">Verb</span></td><td>🧂</td></tr>
+        <tr><td class="thai">สั่ง</td><td class="translit">sàng</td><td>bestellen</td><td><span class="word-type verb">Verb</span></td><td>🧾</td></tr>
+        <tr><td class="thai">ทำเอง</td><td class="translit">tham-eeng</td><td>selbst machen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🙌</td></tr>
+        <tr><td class="thai">ทำสดใหม่ทุกวัน</td><td class="translit">tham-sòt-mài-thúk-wan</td><td>jeden Tag frisch zubereiten</td><td><span class="word-type phrase">Verbgruppe</span></td><td>📅</td></tr>
+        <tr><td class="thai">เปิดปุ๊บเต็มปั๊บ</td><td class="translit">pə̀ət-púp-tem-páp</td><td>sofort nach dem Öffnen voll sein</td><td><span class="word-type expression">Redemittel</span></td><td>⚡</td></tr>
+        <tr><td class="thai">หมดก่อน</td><td class="translit">mòt-gòn</td><td>früher ausverkauft sein</td><td><span class="word-type phrase">Verbgruppe</span></td><td>⏳</td></tr>
+        <tr><td class="thai">ถ่ายรูป</td><td class="translit">thàai-rûup</td><td>fotografieren</td><td><span class="word-type phrase">Verbgruppe</span></td><td>📷</td></tr>
+        <tr><td class="thai">สนับสนุนเกษตรกร</td><td class="translit">sà-nàp-sà-nǔn-gà-sèet-trà-gɔɔn</td><td>Landwirte unterstützen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🤝</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">D · Gesprochenes Thai · ภาษาไทยพูด</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ถ้าเกิด</td><td class="translit">thâa-gə̀ət</td><td>falls, wenn</td><td><span class="word-type connector">Konnektor</span></td><td>🔀</td></tr>
+        <tr><td class="thai">เพราะฉะนั้น</td><td class="translit">phrɔ́-chà-nán</td><td>deshalb</td><td><span class="word-type connector">Konnektor</span></td><td>➡️</td></tr>
+        <tr><td class="thai">ก่อน</td><td class="translit">gɔ̀ɔn</td><td>zuerst, vorher</td><td><span class="word-type time">Zeitangabe</span></td><td>1️⃣</td></tr>
+        <tr><td class="thai">แล้วก็</td><td class="translit">láeo-gɔ̂</td><td>und dann, außerdem</td><td><span class="word-type connector">Konnektor</span></td><td>➕</td></tr>
+        <tr><td class="thai">เหมือน</td><td class="translit">mʉ̌an</td><td>wie, ähnlich</td><td><span class="word-type connector">Vergleich</span></td><td>🟰</td></tr>
+        <tr><td class="thai">ประมาณ</td><td class="translit">prà-maan</td><td>ungefähr</td><td><span class="word-type particle">Partikel</span></td><td>≈</td></tr>
+        <tr><td class="thai">เนี่ย</td><td class="translit">nîa</td><td>dies hier; Fokuspartikel</td><td><span class="word-type particle">Partikel</span></td><td>👉</td></tr>
+        <tr><td class="thai">ผมขอแนะนำว่า</td><td class="translit">phǒm-khǒr-náe-nam-wâa</td><td>Ich möchte empfehlen, dass …</td><td><span class="word-type expression">Redemittel</span></td><td>🗣️</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card blue">
+    <div class="video-session-head">
+      <div><h3>Session 1 · Essen in der Stadt Nan</h3><p class="thai">ช่วงที่ 1 · ตะลุยกินในตัวเมืองน่าน</p></div>
+      <span class="video-duration">00:00–15:00 · 15 Min.</span>
+    </div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/ful41w7EPeM?start=0&amp;end=900&amp;rel=0">
+        <iframe class="video-frame" title="Woche 11 Session 1: Restaurants in Nan, Minute 0 bis 15" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/ful41w7EPeM/hqdefault.jpg');"><div><strong>Session 1 · 00:00–15:00</strong><p>Direkt geöffnete HTML-Dateien können YouTube keinen gültigen Absender übermitteln. Nutzen Sie die lokale Vorschau oder öffnen Sie dieses Segment auf YouTube.</p><a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=0s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters">
+        <h4>Orientierung im Video</h4>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=70s" target="_blank" rel="noopener"><time>01:10</time> เลิศรส · Frühstückssuppe</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=341s" target="_blank" rel="noopener"><time>05:41</time> สหายสายเตี๋ยว · hausgemachte Nudeln</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=474s" target="_blank" rel="noopener"><time>07:54</time> โวล่านิรวาณ · Café im alten Haus</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=704s" target="_blank" rel="noopener"><time>11:44</time> เสน่ห์เหนือ · nordthailändische Küche</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vor dem Sehen · 2 Min.</strong><span>Markieren Sie fünf Wörter aus Lektion 1, die Sie in einem Food-Vlog erwarten.</span></div>
+      <div><strong>Erstes Sehen · 15 Min.</strong><span>Notieren Sie nur Restauranttyp, Hauptgericht und eine Geschmacksbeschreibung.</span></div>
+      <div><strong>Gezieltes Hören · 5 Min.</strong><span>Spulen Sie zu zwei Kapiteln zurück und achten Sie auf Öffnungszeiten, Preise oder Zutaten.</span></div>
+    </div>
+    <div class="exercise" id="w11-s1-quiz"><span class="num">1</span><h4>Hörverstehen · Session 1</h4><p class="task">Wählen Sie nach dem ersten Videosehen die beste Antwort.</p>
+      <div class="w6-mc" data-answer="b"><p><strong>1.</strong> In welcher Provinz findet die Tour statt?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Phuket</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Nan</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Trat</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Krabi</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>2.</strong> Was empfiehlt der Moderator als leichtes Frühstück?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Klebreis mit Mango</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>grünes Curry</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Schweineblutsuppe</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>gebratenen Reis</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>3.</strong> Wann sollte man zum Restaurant Lert Ros kommen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>am Morgen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>spät am Abend</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nach Mitternacht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>nur sonntags</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> Was ist bei Sahai Sai Tiao hausgemacht?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>die Stühle</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>der Kaffee</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>das Eis</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>die Nudeln</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> Welche Spezialität backt das Café im alten Haus?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Baguette</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Khanom Pia</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Pizza</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Waffeln</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> Was soll man bei Saneh Nuea vor dem Nachwürzen tun?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>bezahlen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>fotografieren</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>zuerst probieren</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Wasser bestellen</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w11-s1-quiz','w11-s1-result')">✓ Session 1 prüfen</button><div id="w11-s1-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="video-session-head">
+      <div><h3>Session 2 · Lokale Küche auf dem Weg nach Pua</h3><p class="thai">ช่วงที่ 2 · อาหารท้องถิ่นระหว่างทางไปปัว</p></div>
+      <span class="video-duration">15:00–30:00 · 15 Min.</span>
+    </div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/ful41w7EPeM?start=900&amp;end=1800&amp;rel=0">
+        <iframe class="video-frame" title="Woche 11 Session 2: Lokale Küche und Pua, Minute 15 bis 30" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/ful41w7EPeM/hqdefault.jpg');"><div><strong>Session 2 · 15:00–30:00</strong><p>Direkt geöffnete HTML-Dateien können YouTube keinen gültigen Absender übermitteln. Nutzen Sie die lokale Vorschau oder öffnen Sie dieses Segment auf YouTube.</p><a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=900s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters">
+        <h4>Orientierung im Video</h4>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=900s" target="_blank" rel="noopener"><time>15:00</time> เสน่ห์เหนือ · Geschmack und Makhwaen</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=1166s" target="_blank" rel="noopener"><time>19:26</time> เจ๊โอชิน · lokale Reisnudeln</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=1314s" target="_blank" rel="noopener"><time>21:54</time> เตาถ่าน · Kochen über Holzkohle</a>
+        <a href="https://www.youtube.com/watch?v=ful41w7EPeM&amp;t=1550s" target="_blank" rel="noopener"><time>25:50</time> โรงบ่มปัว · altes Tabaklager als Café</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vor dem Sehen · 2 Min.</strong><span>Ordnen Sie มะแขว่น, เตาถ่าน, ขนมจีน und โรงบ่ม den Kategorien Zutat, Werkzeug, Gericht und Ort zu.</span></div>
+      <div><strong>Erstes Sehen · 15 Min.</strong><span>Hören Sie auf Begründungen: Warum kocht die Besitzerin selbst, und warum dürfen Gäste nicht überall hinein?</span></div>
+      <div><strong>Gezieltes Hören · 5 Min.</strong><span>Notieren Sie drei Wörter für Geschmack oder Konsistenz und einen traditionellen Arbeitsschritt.</span></div>
+    </div>
+    <div class="exercise" id="w11-s2-quiz"><span class="num">2</span><h4>Hörverstehen · Session 2</h4><p class="task">Achten Sie auf Gründe, Herstellung und lokale Besonderheiten.</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> Welches nordthailändische Gewürz wird mit Sichuanpfeffer verglichen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>มะแขว่น</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>อัญชัน</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>ใบเตย</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>ลำไย</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>2.</strong> Warum begann Je Oshin selbst Khanom Jin zu kochen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie wollte ein Hotel eröffnen.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie erbte eine Fabrik.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Sie mochte keine Nudeln.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Anderswo traf der Geschmack nicht ihren Geschmack.</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>3.</strong> Womit kocht das Restaurant traditionelle Gerichte?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Mikrowelle</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Holzkohle- und Holzherd</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Solarofen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Induktionsplatte</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> Was kann mittags passieren?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Das Café wird zum Hotel.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Es schneit.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Das Essen ist früh ausverkauft.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Die Preise verdoppeln sich.</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>5.</strong> Was waren die ungewöhnlichen Gebäude in Pua ursprünglich?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Tabak-Trocknungs- und Reifehäuser</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Bahnhöfe</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Tempel</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Schulen</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>6.</strong> Woher stammen die Kaffeebohnen des Cafés?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Brasilien</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Japan</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Frankreich</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Nan</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w11-s2-quiz','w11-s2-result')">✓ Session 2 prüfen</button><div id="w11-s2-result" class="w6-result"></div>
+    </div>
+    <p class="source-note"><strong>Freiwilliger Ausklang:</strong> Minute 30:00–33:32 zeigt Bua-Loy-Desserts und Spezialitätenkaffee. Dieser Teil gehört nicht zu den beiden 15-Minuten-Kernsessions.</p>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 2</span> Sprache eines Food-Vlogs · ภาษาของวิดีโอรีวิวอาหาร</h3>
+    <div class="grammar">
+      <h4>1 · Bewerten, ohne nur อร่อย zu sagen</h4>
+      <table><thead><tr><th>Muster</th><th>Beispiel</th><th>Bedeutung</th></tr></thead><tbody>
+        <tr><td><strong>น่า + Verb</strong></td><td class="thai">อาหารร้านนี้น่ากินมาก</td><td>Das Essen dieses Restaurants sieht sehr appetitlich aus.</td></tr>
+        <tr><td><strong>ไม่ + Adjektiv + มาก</strong></td><td class="thai">ขนมไม่หวานมาก</td><td>Das Dessert ist nicht sehr süß.</td></tr>
+        <tr><td><strong>มีความ + Adjektiv</strong></td><td class="thai">น้ำซุปมีความเข้มข้น</td><td>Die Brühe hat eine kräftige Intensität. Umgangssprachlich im Review.</td></tr>
+        <tr><td><strong>Adjektiv + ที่สุด</strong></td><td class="thai">เมนูนี้อร่อยที่สุด</td><td>Dieses Gericht ist am leckersten.</td></tr>
+      </tbody></table>
+    </div>
+    <div class="grammar">
+      <h4>2 · Vergleichen, erklären und weiterführen</h4>
+      <table><thead><tr><th>Muster</th><th>Beispiel</th><th>Funktion</th></tr></thead><tbody>
+        <tr><td><strong>เหมือน</strong></td><td class="thai">มะแขว่นเหมือนพริกเสฉวน</td><td>Ähnlichkeit ausdrücken</td></tr>
+        <tr><td><strong>กว่า</strong></td><td class="thai">เตาถ่านร้อนลึกกว่าเตาแก๊ส</td><td>zwei Dinge vergleichen</td></tr>
+        <tr><td><strong>ก่อน … แล้วก็ …</strong></td><td class="thai">ชิมก่อน แล้วก็ปรุงเพิ่ม</td><td>Handlungen ordnen</td></tr>
+        <tr><td><strong>เพราะฉะนั้น</strong></td><td class="thai">คนเยอะ เพราะฉะนั้นควรมาเร็ว</td><td>eine Schlussfolgerung einleiten</td></tr>
+      </tbody></table>
+    </div>
+    <div class="tip"><strong>Hörtipp:</strong> เนี่ย, คือ, ก็ und แบบ strukturieren spontane Rede. Beim ersten Hören müssen Sie diese Partikeln nicht übersetzen; hören Sie auf die Inhaltswörter direkt danach.</div>
+  </div>
+
+  <div class="card purple">
+    <h3 class="h-card purple"><span class="pill">Lektion 3</span> Gekürzter Hörtext · ใจความสำคัญจากวิดีโอ</h3>
+    <p class="section-sub">Die folgenden Sätze fassen den bereitgestellten automatischen Videotext in korrigiertem Lern-Thai zusammen. Sie sind keine wörtliche Abschrift.</p>
+    <div class="role-tools" id="w11-role-tools">
+      <div class="role-filter-head"><strong>Worttyp und Satzfunktion filtern · ชนิดคำและหน้าที่ในประโยค</strong><button class="role-clear" type="button" onclick="clearWordRoles('w11-role-reader','w11-role-tools')">× Markierungen aus</button></div>
+      <div class="role-filter-options"></div>
+    </div>
+    <div class="reading role-reader" id="w11-role-reader">
+      <p class="thai th-mid"><span class="word-role role-context">ในวิดีโอนี้</span> <span class="word-role role-subject">ผู้ดำเนินรายการ</span> <span class="word-role role-verb">พาไปชิม</span> <span class="word-role role-object">อาหารท้องถิ่นหลายร้าน</span> <span class="word-role role-context">ที่จังหวัดน่าน</span></p><p class="de">In diesem Video führt der Moderator durch mehrere lokale Restaurants in der Provinz Nan.</p>
+      <p class="thai th-mid"><span class="word-role role-context">ตอนเช้า</span> <span class="word-role role-subject">ร้านเลิศรส</span> <span class="word-role role-verb">เสิร์ฟ</span> <span class="word-role role-object">ต้มเลือดหมูร้อน ๆ</span> <span class="word-role role-connector">และ</span> <span class="word-role role-subject">เครื่องใน</span> <span class="word-role role-adjective">สะอาดมาก</span></p><p class="de">Am Morgen serviert Lert Ros heiße Schweineblutsuppe; die Innereien sind sehr sauber.</p>
+      <p class="thai th-mid"><span class="word-role role-context">ต่อมา</span> <span class="word-role role-subject">ร้านสหายสายเตี๋ยว</span> <span class="word-role role-verb">ทำ</span> <span class="word-role role-object">เส้นบะหมี่</span> <span class="word-role role-connector">เอง</span> <span class="word-role role-adjective">เหนียวนุ่ม</span></p><p class="de">Danach stellt Sahai Sai Tiao seine elastisch-weichen Nudeln selbst her.</p>
+      <p class="thai th-mid"><span class="word-role role-context">ในบ้านเก่า</span> <span class="word-role role-subject">คาเฟ่โวล่านิรวาณ</span> <span class="word-role role-verb">ขาย</span> <span class="word-role role-object">กาแฟและขนมเปี๊ยะ</span> <span class="word-role role-adjective">แบบโบราณ</span></p><p class="de">In einem alten Haus verkauft das Café Voila Nirvanan Kaffee und traditionelles Khanom Pia.</p>
+      <p class="thai th-mid"><span class="word-role role-context">หลังนาทีที่สิบห้า</span> <span class="word-role role-subject">อาหารเหนือ</span> <span class="word-role role-verb">มี</span> <span class="word-role role-object">รสชาติจากมะแขว่นและถั่วเน่า</span> <span class="word-role role-adjective">เข้มข้น</span></p><p class="de">Nach Minute 15 prägen Makhwaen und fermentierte Sojabohnen den kräftigen Geschmack nordthailändischer Gerichte.</p>
+      <p class="thai th-mid"><span class="word-role role-context">ระหว่างทางไปปัว</span> <span class="word-role role-subject">เจ๊โอชิน</span> <span class="word-role role-verb">ทำ</span> <span class="word-role role-object">ขนมจีนและแกง</span> <span class="word-role role-adjective">สดใหม่ทุกวัน</span></p><p class="de">Auf dem Weg nach Pua bereitet Je Oshin jeden Tag frische Reisnudeln und Currys zu.</p>
+      <p class="thai th-mid"><span class="word-role role-subject">ร้านนี้</span> <span class="word-role role-verb">ใช้</span> <span class="word-role role-object">เตาถ่าน</span> <span class="word-role role-connector">เพราะ</span> <span class="word-role role-subject">เจ้าของร้าน</span> <span class="word-role role-verb">เชื่อว่า</span> <span class="word-role role-object">ความร้อนแบบนี้</span> <span class="word-role role-adjective">เหมาะกับสูตรเก่า</span></p><p class="de">Das Restaurant verwendet Holzkohle, weil die Besitzerin diese Hitze für traditionelle Rezepte passend findet.</p>
+      <p class="thai th-mid"><span class="word-role role-context">ที่โรงบ่มปัว</span> <span class="word-role role-subject">อาคารเก่า</span> <span class="word-role role-verb">กลายเป็น</span> <span class="word-role role-object">คาเฟ่</span> <span class="word-role role-connector">และ</span> <span class="word-role role-subject">ผู้ดำเนินรายการ</span> <span class="word-role role-verb">ขอแนะนำให้</span> <span class="word-role role-object">ลองกาแฟจากน่าน</span></p><p class="de">In Rong Bom Pua wurden alte Gebäude zum Café; der Moderator empfiehlt, Kaffee aus Nan zu probieren.</p>
+    </div>
+
+    <div class="exercise" id="w11-role-quiz"><span class="num">3</span><h4>Wortfunktionen · หน้าที่ของคำ</h4><p class="task">Welche Satzfunktion hat der markierte Ausdruck im zusammengefassten Hörtext?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">ผู้ดำเนินรายการ</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> <span class="thai">พาไปชิม</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> <span class="thai">อาหารท้องถิ่นหลายร้าน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">ตอนเช้า</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> <span class="thai">เหนียวนุ่ม</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> <span class="thai">เพราะ</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>7.</strong> <span class="thai">เจ๊โอชิน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>8.</strong> <span class="thai">เมล็ดกาแฟจากน่าน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w11-role-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Schreiben und Sprechen · เขียนและพูด</h3>
+    <div class="exercise"><span class="num">4</span><h4>Sätze für eine Restaurantbewertung bauen</h4><p class="task">Ordnen Sie die Wörter. Die Sätze verwenden die Sprache aus dem Video.</p>
+      <div class="w6-build-set" id="w11-build-review">
+        <div class="w6-build" data-answer="อาหาร ร้าน นี้ น่ากิน มาก"><div class="task">1. Das Essen dieses Restaurants sieht sehr appetitlich aus.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น่ากิน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อาหาร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มาก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ร้าน</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ขนม ไม่ หวาน มาก"><div class="task">2. Das Dessert ist nicht sehr süß.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มาก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ขนม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หวาน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไม่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ชิม ก่อน แล้วก็ ปรุง เพิ่ม"><div class="task">3. Probieren Sie zuerst und würzen Sie dann nach.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เพิ่ม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ก่อน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชิม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ปรุง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แล้วก็</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ร้าน คน เยอะ เพราะฉะนั้น ควร มา เร็ว"><div class="task">4. Das Restaurant ist voll; deshalb sollte man früh kommen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มา</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เพราะฉะนั้น</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เร็ว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ร้าน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เยอะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ควร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คน</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ผม ขอ แนะนำ เมนู นี้"><div class="task">5. Ich möchte dieses Gericht empfehlen.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เมนู</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แนะนำ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">นี้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ขอ</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="น้ำซุป มี ความ เข้มข้น และ หอม"><div class="task">6. Die Brühe ist kräftig und aromatisch.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หอม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ความ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">และ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำซุป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เข้มข้น</button></div><div class="w6-feedback"></div></div>
+      </div><button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w11-build-review')">✓ Sätze prüfen</button>
+    </div>
+    <div class="exercise"><span class="num">5</span><h4>Mini-Restaurantkritik</h4><p class="task">Schreiben Sie 5–6 Thai-Sätze über einen Ort aus dem Video. Nennen Sie Gericht, Geschmack, Konsistenz, Preis oder Zeitpunkt und eine Empfehlung.</p><textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: ผมขอแนะนำร้าน... เมนูนี้..." onfocus="w6SetField(this,'w11')"></textarea></div>
+    <div class="exercise"><span class="num">6</span><h4>30-Sekunden-Food-Vlog</h4><p class="task">Sprechen Sie frei und verwenden Sie mindestens vier Bausteine: ร้านนี้, เมนูนี้, รสชาติ, น่ากิน, ไม่...มาก, ผม/ฉันขอแนะนำว่า, เพราะฉะนั้น.</p><div class="speak-grid">
+      <div class="speak-card"><div class="role">Moderator · ผู้ดำเนินรายการ</div><p class="line"><span class="thai th-mid">วันนี้ผมจะพาไปกินร้านเด็ดที่น่านครับ</span><br>Heute nehme ich euch zu einem tollen Restaurant in Nan mit.</p><p class="line"><span class="thai th-mid">เมนูนี้น่ากินมาก รสชาติเข้มข้นและหอม</span><br>Dieses Gericht sieht sehr gut aus; es schmeckt kräftig und aromatisch.</p></div>
+      <div class="speak-card green"><div class="role">Empfehlung · คำแนะนำ</div><p class="line"><span class="thai th-mid">ผมขอแนะนำให้ชิมก่อนปรุงครับ</span><br>Ich empfehle, vor dem Nachwürzen zu probieren.</p><p class="line"><span class="thai th-mid">ตอนกลางวันคนเยอะ เพราะฉะนั้นควรมาเร็ว</span><br>Mittags ist es voll; deshalb sollte man früh kommen.</p></div>
+    </div></div>
+    <div id="w11Keyboard" class="w6-keyboard hidden"><div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 11</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div><div id="w11Keys"></div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">2-Sessions-Plan</span> Kompakt lernen</h3>
+    <table class="plan-table"><thead><tr><th>Schritt</th><th>Session 1 · 00:00–15:00</th><th>Session 2 · 15:00–30:00</th></tr></thead><tbody>
+      <tr><td class="day">Vorbereiten</td><td>Restaurant- und Gerichtswörter markieren</td><td>Zutaten, Werkzeuge und Orte zuordnen</td></tr>
+      <tr><td class="day">Ansehen</td><td>Vier Stationen und Hauptgerichte notieren</td><td>Gründe, Herstellung und Tradition notieren</td></tr>
+      <tr><td class="day">Prüfen</td><td>Sechs Hörfragen beantworten</td><td>Sechs Hörfragen beantworten</td></tr>
+      <tr><td class="day">Vertiefen</td><td>Geschmack und Konsistenz beschreiben</td><td>Vergleiche und Schlussfolgerungen bilden</td></tr>
+      <tr><td class="day">Produzieren</td><td colspan="2">Eine Mini-Kritik schreiben und einen 30-Sekunden-Food-Vlog sprechen</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="answer-key"><h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Session 1 · Hörverstehen</h4><ol><li>b – Nan</li><li>c – Schweineblutsuppe</li><li>a – am Morgen</li><li>d – die Nudeln</li><li>b – Khanom Pia</li><li>c – zuerst probieren</li></ol></div>
+    <div class="ak-block"><h4>Session 2 · Hörverstehen</h4><ol><li>a – มะแขว่น</li><li>d – Anderswo traf der Geschmack nicht ihren Geschmack.</li><li>b – Holzkohle- und Holzherd</li><li>c – Das Essen ist früh ausverkauft.</li><li>a – Tabak-Trocknungs- und Reifehäuser</li><li>d – Nan</li></ol></div>
+    <div class="ak-block"><h4>Wortfunktionen</h4><ol><li>a – Subjekt</li><li>b – Prädikat</li><li>c – Objekt</li><li>d – Zeit/Ort</li><li>b – Beschreibung</li><li>c – Verknüpfung</li><li>a – Subjekt</li><li>d – Objekt</li></ol></div>
+    <div class="ak-block"><h4>Restaurantbewertung</h4><ol><li>อาหารร้านนี้น่ากินมาก</li><li>ขนมไม่หวานมาก</li><li>ชิมก่อนแล้วก็ปรุงเพิ่ม</li><li>ร้านคนเยอะ เพราะฉะนั้นควรมาเร็ว</li><li>ผมขอแนะนำเมนูนี้</li><li>น้ำซุปมีความเข้มข้นและหอม</li></ol></div>
+    <div class="ak-block"><h4>Mini-Kritik · Muster</h4><p class="thai" style="font-size:14px;">ผมขอแนะนำร้านเจ๊โอชินที่อำเภอปัว ร้านนี้มีขนมจีนหลายเมนู น้ำเงี้ยวขาหมูมีรสชาติเข้มข้นและหอม เนื้อหมูนุ่มและผักสดมาก ตอนกลางวันคนอาจจะเยอะ เพราะฉะนั้นควรมาเร็วครับ</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Ich empfehle Je Oshin im Bezirk Pua. Das Restaurant hat mehrere Khanom-Jin-Gerichte. Die Nam-Ngiao-Suppe mit Schweinehaxe schmeckt kräftig und aromatisch, das Fleisch ist zart und das Gemüse sehr frisch. Mittags kann es voll werden, deshalb sollte man früh kommen.</p></div>
+  </div>
+
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -5525,16 +5898,32 @@ function enhanceVocabularyTypes() {
   });
 }
 
+function prepareVideoPlayers() {
+  const canEmbed = location.protocol === 'http:' || location.protocol === 'https:';
+  document.querySelectorAll('.video-player[data-video-src]').forEach(player => {
+    const iframe = player.querySelector('.video-frame');
+    if (!iframe) return;
+    if (!canEmbed) {
+      player.classList.add('file-mode');
+      return;
+    }
+    const url = new URL(player.dataset.videoSrc);
+    url.searchParams.set('origin', location.origin);
+    iframe.src = url.toString();
+  });
+}
+
 function enhanceReadingAnalysis() {
   const names = new Set([
     'แอนนา', 'อันนา', 'มาร์ค', 'เลนา', 'เยอรมนี', 'เชียงใหม่', 'กระบี่',
     'กรุงเทพ เชียงใหม่ และกระบี่', 'อุทยานแห่งชาติเขาใหญ่',
-    'มะลิและอันนา', 'ช่วงเทศกาลลอยกระทง'
+    'มะลิและอันนา', 'ช่วงเทศกาลลอยกระทง', 'จังหวัดน่าน', 'ร้านเลิศรส',
+    'ร้านสหายสายเตี๋ยว', 'คาเฟ่โวล่านิรวาณ', 'เจ๊โอชิน', 'โรงบ่มปัว'
   ]);
-  const particles = new Set(['ว่า', 'ที่', 'ให้', 'ได้แล้ว']);
+  const particles = new Set(['ว่า', 'ที่', 'ให้', 'ได้แล้ว', 'เอง']);
   const expressions = new Set([
     'อยากเห็น', 'ยังทำเองไม่เป็น', 'ไม่ควรส่งเสียง', 'ห้ามว่ายน้ำ',
-    'ควรถาม ฟัง และเคารพ', 'ต้องช่วยกันอนุรักษ์'
+    'ควรถาม ฟัง และเคารพ', 'ต้องช่วยกันอนุรักษ์', 'ขอแนะนำให้'
   ]);
   const verbPhrases = new Set([
     'เข้าใกล้', 'จะทำให้', 'จะอยู่', 'ช่วยกันทำ', 'ชอบกิน', 'เช็คเอาท์',
@@ -5542,7 +5931,7 @@ function enhanceReadingAnalysis() {
     'ปิดเสียง', 'ไปดู', 'ไปถึง', 'ไปเรียนทำ', 'มาจาก', 'มาเที่ยว',
     'ไม่จับ', 'ไม่ชี้', 'ไม่ทิ้ง', 'ไม่ไป', 'ยังมี', 'เรียนทำ', 'ทำตาม',
     'วางแผนไป', 'หยุดเดิน', 'อยากไป', 'อยากเรียนรู้', 'อาจปฏิบัติ',
-    'ใส่บาตร', 'ให้อาหาร'
+    'ใส่บาตร', 'ให้อาหาร', 'พาไปชิม', 'เชื่อว่า', 'กลายเป็น'
   ]);
   const groups = [
     {
@@ -5709,6 +6098,24 @@ function w10CheckMC() {
   result.style.color = score >= 7 ? '#15803d' : '#dc2626';
 }
 
+function w11CheckSession(quizId, resultId) {
+  const questions = document.querySelectorAll(`#${quizId} .w6-mc`);
+  let score = 0;
+  questions.forEach(q => {
+    const answer = q.dataset.answer;
+    const selected = q.querySelector('.w6-option.selected');
+    q.querySelectorAll('.w6-option').forEach(opt => {
+      opt.classList.remove('correct', 'wrong');
+      if (opt.dataset.choice === answer) opt.classList.add('correct');
+    });
+    if (selected && selected.dataset.choice === answer) score++;
+    if (selected && selected.dataset.choice !== answer) selected.classList.add('wrong');
+  });
+  const result = document.getElementById(resultId);
+  result.textContent = `Ergebnis: ${score} / ${questions.length} richtig`;
+  result.style.color = score >= 5 ? '#15803d' : '#dc2626';
+}
+
 function toggleWordRole(readerId, role, input) {
   const reader = document.getElementById(readerId);
   if (!reader) return;
@@ -5788,6 +6195,8 @@ function w10CheckRoleQuiz() {
   result.style.color = score >= 6 ? '#15803d' : '#dc2626';
 }
 
+function w11CheckRoleQuiz() { checkRoleQuiz(11); }
+
 function w6MoveTile(tile) {
   const build = tile.closest('.w6-build');
   const answer = build.querySelector('.w6-answer');
@@ -5855,7 +6264,7 @@ function w6SetField(field, week = 'w6') {
 }
 
 function w6HideKeyboard() {
-  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard'].forEach(id => {
+  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard', 'w11Keyboard'].forEach(id => {
     const keyboard = document.getElementById(id);
     if (keyboard) keyboard.classList.add('hidden');
   });
@@ -5924,7 +6333,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10'].includes(name)) navName = 'a22';
+  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10', 'woche11'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5934,6 +6343,7 @@ document.querySelectorAll('nav.tabs button').forEach(btn => {
 });
 enhanceVocabularyTypes();
 enhanceReadingAnalysis();
+prepareVideoPlayers();
 // Allow direct hash links: e.g. #woche2
 if (location.hash) {
   const tab = location.hash.replace('#', '');
