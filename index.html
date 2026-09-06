@@ -584,6 +584,7 @@ h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
 .week-card.ocean .head { background: #0369a1; }
 .week-card.gold .head { background: #a16207; }
 .week-card.berry .head { background: #9f1239; }
+.week-card.forest .head { background: #365314; }
 .week-card .body { padding: 16px 18px; font-size: 13px; }
 .week-card .body p { margin: 4px 0; }
 .week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
@@ -805,6 +806,17 @@ table.vocab.has-types .col-icon { width: 8%; }
 .role-reader.show-adjective .role-adjective { outline: 1px solid #7e22ce; box-shadow: inset 0 -3px #7e22ce; }
 .role-reader.show-context .role-context { outline: 1px solid #b45309; box-shadow: inset 0 -3px #b45309; }
 .role-reader.show-connector .role-connector { outline: 1px solid #0e7490; box-shadow: inset 0 -3px #0e7490; }
+.exercise[id$="-role-quiz"] .w6-mc > p .thai {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: 1px solid #f59e0b;
+  border-bottom-width: 3px;
+  border-radius: 4px;
+  background: #fffbeb;
+  color: #78350f;
+  font-weight: 800;
+}
 @media (max-width: 560px) {
   .role-filter-head { align-items: flex-start; }
   .role-filter-group { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -1300,7 +1312,7 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 11 Wochen · flexibel lernen</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 12 Wochen · flexibel lernen</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
@@ -1314,8 +1326,8 @@ ul, ol { padding-left: 22px; }
 
   <div class="stats">
     <div class="stat"><div class="num">11</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">70+</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~590</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">75+</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~630</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1347,7 +1359,7 @@ ul, ol { padding-left: 22px; }
   <div class="card amber">
     <h3 class="h-card amber"><span class="pill">Lernziele</span> Was Sie am Ende des Kurses können</h3>
     <ul class="goals">
-      <li>~ 590 neue Wörter aktiv anwenden</li>
+      <li>~ 630 neue Wörter aktiv anwenden</li>
       <li>Einfache Texte zu Alltagsthemen verstehen</li>
       <li>Kurze Dialoge selbständig führen</li>
       <li>Eigene Sätze in Thai-Schrift verfassen</li>
@@ -1358,7 +1370,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 11 mit Reise-, Urlaubs-, Küchen-, Natur-, Kultur- und Video-Lektionen.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 12 mit Reise-, Urlaubs-, Küchen-, Natur-, Kultur- und Video-Lektionen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1378,7 +1390,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6-11 · Verkehr · Urlaub · Küche · Natur · Kultur · Video</p>
+          <p>Woche 6-12 · Verkehr · Urlaub · Küche · Natur · Kultur · Video</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1536,7 +1548,7 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 11 trainiert authentisches Hörverstehen mit einem Food- und Reisevideo aus Nan.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 11 und 12 trainieren authentisches Hörverstehen mit Food-, Natur- und Reisevideos.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
@@ -1544,6 +1556,7 @@ ul, ol { padding-left: 22px; }
         <button class="btn ghost" onclick="showTab('woche9')">Woche 9 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche10')">Woche 10 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche11')">Woche 11 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche12')">Woche 12 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1551,7 +1564,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-11 · Präsenz + Video</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-12 · Präsenz + Video</div></div>
     <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Alltag, Natur, Kultur und Hörverstehen</div></div>
   </div>
 
@@ -1634,6 +1647,19 @@ ul, ol { padding-left: 22px; }
           <p><span class="lab">Sprache:</span> Geschmack, Empfehlungen und gesprochene Alltagssprache</p>
           <p><span class="lab">Praxis:</span> Hörfragen, Wortfilter, Restaurantkritik und Empfehlung</p>
           <button class="open-link">Woche 11 öffnen →</button>
+        </div>
+      </div>
+      <div class="week-card forest" onclick="showTab('woche12')">
+        <img class="photo" src="https://img.youtube.com/vi/GExlfYpC9lE/hqdefault.jpg" alt="Reisevideo über den Süden der Provinz Chiang Mai">
+        <div class="head">
+          <div><div class="n">Woche 12</div><div class="t">Orientierung südlich von Chiang Mai</div></div>
+          <div class="th thai">การเดินทางและบอกทาง</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Video:</span> zwei kompakte Sessions · insgesamt 24 Minuten</p>
+          <p><span class="lab">Sprache:</span> Richtungen, Entfernungen, Wege und Orientierungspunkte</p>
+          <p><span class="lab">Praxis:</span> Hörfragen, Wortfilter, Routenplan und Wegbeschreibung</p>
+          <button class="open-link">Woche 12 öffnen →</button>
         </div>
       </div>
     </div>
@@ -5820,6 +5846,303 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 12: ORIENTIERUNG IN CHIANG MAI ==================== -->
+<section id="woche12" class="page">
+
+  <div class="hero-block" style="min-height: 300px;">
+    <div class="bg" style="background-image: url('https://img.youtube.com/vi/GExlfYpC9lE/maxresdefault.jpg');"></div>
+    <div class="content">
+      <span class="badge" style="background: rgba(54, 83, 20, 0.92); border-color: transparent;">Woche 12 · A2.2 · Video</span>
+      <h1>Orientierung südlich von Chiang Mai</h1>
+      <div class="thai-title thai">การเดินทางและบอกทางเชียงใหม่ตอนใต้</div>
+      <p class="lead">Folgen Sie der Route aus dem Video: von Chiang Mai zu Wasserfällen, Schluchten, Omkoi und einem Kiefernwald. Sie lernen, Richtungen, Entfernungen, Orientierungspunkte und die Reihenfolge einer Reise auf Thai zu erklären.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Video</div><div class="v">2 Sessions · insgesamt 24 Min.</div></div>
+    <div class="info-card blue"><div class="k">Sprache</div><div class="v">Richtung, Strecke und Orientierung</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Eine Route verstehen und erklären</div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Wortschatz zur Orientierung · คำศัพท์การบอกทาง</h3>
+    <p class="vocab-type-note"><strong>Worttyp · ชนิดคำ:</strong> Die Auswahl folgt der Reise im Video. Ortsangaben zeigen eine Position, Verben beschreiben die Bewegung und Redemittel helfen beim Erklären einer längeren Route.</p>
+
+    <h4 style="color:#047857; margin-top:14px;">A · Himmelsrichtung und Position · ทิศและตำแหน่ง</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ทิศเหนือ</td><td class="translit">thít-nʉ̌a</td><td>Norden</td><td><span class="word-type time">Ortsangabe</span></td><td>⬆️</td></tr>
+        <tr><td class="thai">ทิศใต้</td><td class="translit">thít-tâi</td><td>Süden</td><td><span class="word-type time">Ortsangabe</span></td><td>⬇️</td></tr>
+        <tr><td class="thai">ทิศตะวันออก</td><td class="translit">thít-tà-wan-ɔ̀ɔk</td><td>Osten</td><td><span class="word-type time">Ortsangabe</span></td><td>➡️</td></tr>
+        <tr><td class="thai">ทิศตะวันตก</td><td class="translit">thít-tà-wan-tòk</td><td>Westen</td><td><span class="word-type time">Ortsangabe</span></td><td>⬅️</td></tr>
+        <tr><td class="thai">ข้างใน</td><td class="translit">khâang-nai</td><td>drinnen, innerhalb</td><td><span class="word-type time">Ortsangabe</span></td><td>↘️</td></tr>
+        <tr><td class="thai">ตรงกลาง</td><td class="translit">trong-glaang</td><td>in der Mitte</td><td><span class="word-type time">Ortsangabe</span></td><td>⏺️</td></tr>
+        <tr><td class="thai">ข้างๆ</td><td class="translit">khâang-khâang</td><td>direkt daneben</td><td><span class="word-type time">Ortsangabe</span></td><td>↔️</td></tr>
+        <tr><td class="thai">ระหว่าง</td><td class="translit">rá-wàang</td><td>zwischen</td><td><span class="word-type time">Ortsangabe</span></td><td>↔️</td></tr>
+        <tr><td class="thai">ใกล้</td><td class="translit">glâi</td><td>nah</td><td><span class="word-type adjective">Adjektiv</span></td><td>📍</td></tr>
+        <tr><td class="thai">ไกล</td><td class="translit">glai</td><td>weit entfernt</td><td><span class="word-type adjective">Adjektiv</span></td><td>🛣️</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">B · Einer Route folgen · เดินทางตามเส้นทาง</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ตรงไป</td><td class="translit">trong-pai</td><td>geradeaus gehen/fahren</td><td><span class="word-type phrase">Verbgruppe</span></td><td>⬆️</td></tr>
+        <tr><td class="thai">เลี้ยวซ้าย</td><td class="translit">líao-sáai</td><td>links abbiegen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>↩️</td></tr>
+        <tr><td class="thai">เลี้ยวขวา</td><td class="translit">líao-khwǎa</td><td>rechts abbiegen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>↪️</td></tr>
+        <tr><td class="thai">ผ่าน</td><td class="translit">phàan</td><td>passieren, vorbeifahren</td><td><span class="word-type verb">Verb</span></td><td>🚗</td></tr>
+        <tr><td class="thai">ข้าม</td><td class="translit">khâam</td><td>überqueren</td><td><span class="word-type verb">Verb</span></td><td>🌉</td></tr>
+        <tr><td class="thai">เข้าไป</td><td class="translit">khâo-pai</td><td>hineingehen, hineinfahren</td><td><span class="word-type phrase">Verbgruppe</span></td><td>➡️</td></tr>
+        <tr><td class="thai">ออกจาก</td><td class="translit">ɔ̀ɔk-jàak</td><td>verlassen, herausfahren aus</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🚪</td></tr>
+        <tr><td class="thai">มุ่งหน้าไป</td><td class="translit">mûng-nâa-pai</td><td>sich auf den Weg machen nach</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🧭</td></tr>
+        <tr><td class="thai">เดินตามทาง</td><td class="translit">dəən-taam-thaang</td><td>dem Weg folgen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>🥾</td></tr>
+        <tr><td class="thai">ไปต่อ</td><td class="translit">pai-tɔ̀ɔ</td><td>weiterfahren, weitergehen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>⏭️</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">C · Orientierungspunkte · จุดสังเกต</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">จุดสังเกต</td><td class="translit">jùt-sǎng-gèet</td><td>Orientierungspunkt</td><td><span class="word-type noun">Nomen</span></td><td>📌</td></tr>
+        <tr><td class="thai">น้ำตก</td><td class="translit">náam-tòk</td><td>Wasserfall</td><td><span class="word-type noun">Nomen</span></td><td>💧</td></tr>
+        <tr><td class="thai">หน้าผา</td><td class="translit">nâa-phǎa</td><td>Klippe, Felswand</td><td><span class="word-type noun">Nomen</span></td><td>⛰️</td></tr>
+        <tr><td class="thai">ช่องเขา</td><td class="translit">chɔ̂ng-khǎo</td><td>Schlucht, Gebirgspass</td><td><span class="word-type noun">Nomen</span></td><td>🏞️</td></tr>
+        <tr><td class="thai">สะพานแขวน</td><td class="translit">sà-phaan-khwǎen</td><td>Hängebrücke</td><td><span class="word-type noun">Nomen</span></td><td>🌉</td></tr>
+        <tr><td class="thai">ที่ทำการอุทยาน</td><td class="translit">thîi-tham-gaan-ùt-thá-yaan</td><td>Parkverwaltung</td><td><span class="word-type noun">Nomengruppe</span></td><td>🏢</td></tr>
+        <tr><td class="thai">สวนป่า</td><td class="translit">sǔan-pàa</td><td>Waldpark, Forstgarten</td><td><span class="word-type noun">Nomen</span></td><td>🌲</td></tr>
+        <tr><td class="thai">วัด</td><td class="translit">wát</td><td>Tempel</td><td><span class="word-type noun">Nomen</span></td><td>🛕</td></tr>
+        <tr><td class="thai">ร้านอาหาร</td><td class="translit">ráan-aa-hǎan</td><td>Restaurant</td><td><span class="word-type noun">Nomen</span></td><td>🍜</td></tr>
+        <tr><td class="thai">สนามบิน</td><td class="translit">sà-nǎam-bin</td><td>Flughafen</td><td><span class="word-type noun">Nomen</span></td><td>✈️</td></tr>
+      </tbody>
+    </table>
+
+    <h4 style="color:#047857; margin-top:20px;">D · Entfernung und Reihenfolge · ระยะทางและลำดับ</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ไกลแค่ไหน</td><td class="translit">glai-khâe-nǎi</td><td>Wie weit?</td><td><span class="word-type expression">Redemittel</span></td><td>❓</td></tr>
+        <tr><td class="thai">ประมาณ</td><td class="translit">prà-maan</td><td>ungefähr</td><td><span class="word-type particle">Partikel</span></td><td>≈</td></tr>
+        <tr><td class="thai">เมตร</td><td class="translit">mêet</td><td>Meter</td><td><span class="word-type noun">Nomen</span></td><td>📏</td></tr>
+        <tr><td class="thai">กิโลเมตร</td><td class="translit">gì-loo-mêet</td><td>Kilometer</td><td><span class="word-type noun">Nomen</span></td><td>🛣️</td></tr>
+        <tr><td class="thai">อยู่บนเส้นทาง</td><td class="translit">yùu-bon-sên-thaang</td><td>auf der Strecke liegen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>📍</td></tr>
+        <tr><td class="thai">ลึกเข้าไปในป่า</td><td class="translit">lʉ́k-khâo-pai-nai-pàa</td><td>tief im Wald</td><td><span class="word-type time">Ortsangabe</span></td><td>🌳</td></tr>
+        <tr><td class="thai">จุดแรก</td><td class="translit">jùt-râek</td><td>erste Station</td><td><span class="word-type time">Reihenfolge</span></td><td>1️⃣</td></tr>
+        <tr><td class="thai">ต่อไป</td><td class="translit">tɔ̀ɔ-pai</td><td>als Nächstes</td><td><span class="word-type connector">Konnektor</span></td><td>2️⃣</td></tr>
+        <tr><td class="thai">จากนั้น</td><td class="translit">jàak-nán</td><td>danach</td><td><span class="word-type connector">Konnektor</span></td><td>3️⃣</td></tr>
+        <tr><td class="thai">สุดท้าย</td><td class="translit">sùt-tháai</td><td>schließlich, zuletzt</td><td><span class="word-type connector">Konnektor</span></td><td>🏁</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card blue">
+    <div class="video-session-head">
+      <div><h3>Session 1 · Von Chiang Mai nach Omkoi</h3><p class="thai">ช่วงที่ 1 · จากเชียงใหม่ไปอมก๋อย</p></div>
+      <span class="video-duration">00:00–12:00 · 12 Min.</span>
+    </div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/GExlfYpC9lE?start=0&amp;end=720&amp;rel=0">
+        <iframe class="video-frame" title="Woche 12 Session 1: Von Chiang Mai nach Omkoi" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/GExlfYpC9lE/hqdefault.jpg');"><div><strong>Session 1 · 00:00–12:00</strong><p>Direkt geöffnete HTML-Dateien können YouTube keinen gültigen Absender übermitteln. Öffnen Sie das Segment auf YouTube oder nutzen Sie die veröffentlichte Seite.</p><a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=0s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters">
+        <h4>Route im Video</h4>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=113s" target="_blank" rel="noopener"><time>01:53</time> Mae-Tia-Wasserfall · erster Halt</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=298s" target="_blank" rel="noopener"><time>04:58</time> Weiterfahrt nach Ob Luang</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=319s" target="_blank" rel="noopener"><time>05:19</time> Kussende Klippen und Schlucht</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=518s" target="_blank" rel="noopener"><time>08:38</time> Straße in Richtung Omkoi</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vor dem Sehen · 2 Min.</strong><span>Lesen Sie die vier Stationen. Sagen Sie voraus, welche Orientierungspunkte zu sehen sind.</span></div>
+      <div><strong>Erstes Sehen · 12 Min.</strong><span>Notieren Sie die Route nur als Pfeilkette: Start → Halt 1 → Halt 2 → Ziel.</span></div>
+      <div><strong>Gezieltes Hören · 5 Min.</strong><span>Achten Sie beim zweiten Durchgang auf Meter, Kilometer, Lage und Straßenverhältnisse.</span></div>
+    </div>
+    <div class="exercise" id="w12-s1-quiz"><span class="num">1</span><h4>Hörverstehen · Session 1</h4><p class="task">Wählen Sie die beste Antwort zur Route.</p>
+      <div class="w6-mc" data-answer="b"><p><strong>1.</strong> In welche Richtung fährt die Gruppe von Chiang Mai?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>nach Norden</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nach Süden</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nach Osten</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>nach Westen</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>2.</strong> Was ist der erste Halt?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Mae-Tia-Wasserfall</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Flughafen</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Doi Bo Luang</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Wat Kiu Lom</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>3.</strong> Wo liegt der Mae-Tia-Wasserfall?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>neben dem Flughafen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>im Stadtzentrum</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>am Meer</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>tief im Wald</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> Wie weit ist der kurze Weg zu den Kussenden Klippen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>15 Meter</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>80 Meter</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>150 Meter</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>5 Kilometer</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> Was verbindet die beiden Klippen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>ein Tunnel</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>eine Hängebrücke</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>eine Seilbahn</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>eine Fähre</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>6.</strong> Warum muss man die Fahrt nach Omkoi gut planen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Die Strecke führt nur über das Meer.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Es gibt keinen Flughafen.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Der Bezirk liegt im Norden.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Die Straße ist weit, steil und kurvenreich.</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w12-s1-quiz','w12-s1-result')">✓ Session 1 prüfen</button><div id="w12-s1-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="video-session-head">
+      <div><h3>Session 2 · Vom Obstgarten zum Flughafen</h3><p class="thai">ช่วงที่ 2 · จากสวนไปสนามบิน</p></div>
+      <span class="video-duration">12:00–24:35 · 12 Min. 35 Sek.</span>
+    </div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/GExlfYpC9lE?start=720&amp;end=1475&amp;rel=0">
+        <iframe class="video-frame" title="Woche 12 Session 2: Vom Obstgarten zum Flughafen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/GExlfYpC9lE/hqdefault.jpg');"><div><strong>Session 2 · 12:00–24:35</strong><p>Direkt geöffnete HTML-Dateien können YouTube keinen gültigen Absender übermitteln. Öffnen Sie das Segment auf YouTube oder nutzen Sie die veröffentlichte Seite.</p><a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=720s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters">
+        <h4>Route im Video</h4>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=802s" target="_blank" rel="noopener"><time>13:22</time> Obstgarten in Omkoi</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=1020s" target="_blank" rel="noopener"><time>17:00</time> Doi-Bo-Luang-Waldpark</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=1259s" target="_blank" rel="noopener"><time>20:59</time> Restaurant bei Wat Kiu Lom</a>
+        <a href="https://www.youtube.com/watch?v=GExlfYpC9lE&amp;t=1325s" target="_blank" rel="noopener"><time>22:05</time> Café vor dem Flughafen</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vor dem Sehen · 2 Min.</strong><span>Ordnen Sie: Obstgarten, Waldpark, Restaurant, Café, Flughafen.</span></div>
+      <div><strong>Erstes Sehen · 12 Min.</strong><span>Notieren Sie nach jedem Ortswechsel den nächsten Orientierungspunkt.</span></div>
+      <div><strong>Gezieltes Hören · 5 Min.</strong><span>Achten Sie auf „in der Nähe“, „neben“, „vor“ und die Uhrzeit beim Einchecken.</span></div>
+    </div>
+    <div class="exercise" id="w12-s2-quiz"><span class="num">2</span><h4>Hörverstehen · Session 2</h4><p class="task">Rekonstruieren Sie den zweiten Teil der Reise.</p>
+      <div class="w6-mc" data-answer="c"><p><strong>1.</strong> Wohin fährt die Gruppe nach dem Besuch in Omkoi?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>zum Meer</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>nach Bangkok</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>zum Doi-Bo-Luang-Waldpark</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>zur Hängebrücke</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>2.</strong> Bis wann muss man im Waldpark einchecken?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>vor 18 Uhr</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>vor 12 Uhr</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nach 22 Uhr</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>genau um Mitternacht</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>3.</strong> Wann kann man den Nebel besonders gut sehen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>mittags</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>früh am Morgen</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>nur am Abend</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>nie</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> Neben welchem Orientierungspunkt liegt das Restaurant?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Mae-Tia-Wasserfall</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Parkverwaltung</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Flughafen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Wat Kiu Lom</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>5.</strong> Wo hält die Gruppe vor der Fahrt zum Flughafen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>an einer Höhle</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>an einer Schule</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>an einem Café</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>an einem Bahnhof</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>6.</strong> Was ist das letzte Ziel der Reise im Video?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>der Flughafen</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>der Wasserfall</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>die Schlucht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>der Obstgarten</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w12-s2-quiz','w12-s2-result')">✓ Session 2 prüfen</button><div id="w12-s2-result" class="w6-result"></div>
+    </div>
+    <p class="source-note">Grundlage: vom Nutzer bereitgestelltes deutsches Videotranskript. Die Thai-Texte sind didaktische A2.2-Zusammenfassungen und keine wortgetreuen Untertitel.</p>
+  </div>
+
+  <div class="card">
+    <h3 class="h-card"><span class="pill">Lektion 2</span> Grammatik · Lage und Strecke</h3>
+    <div class="grammar">
+      <div class="gh">1 · Lage mit อยู่ + Position + ของ</div>
+      <p><strong>Ort A + อยู่ + Positionsangabe + ของ + Ort B</strong></p>
+      <div class="formula"><span class="thai">อมก๋อย + อยู่ + ทางใต้ + ของ + เชียงใหม่</span><br>Omkoi liegt südlich von Chiang Mai.</div>
+      <p class="thai">ร้านอาหารอยู่ข้างๆ วัดกิ่วลม</p>
+      <p>Das Restaurant liegt direkt neben Wat Kiu Lom.</p>
+      <p class="thai">สะพานแขวนอยู่ระหว่างหน้าผาสองด้าน</p>
+      <p>Die Hängebrücke liegt zwischen den beiden Felswänden.</p>
+    </div>
+    <div class="grammar">
+      <div class="gh">2 · Strecke mit จาก … ไป … ผ่าน …</div>
+      <p><strong>จาก + Start + ไป + Ziel + ผ่าน + Orientierungspunkt</strong></p>
+      <div class="formula"><span class="thai">จากเชียงใหม่ไปอมก๋อย ผ่านจอมทองและออบหลวง</span><br>Von Chiang Mai nach Omkoi fährt man über Chom Thong und Ob Luang.</div>
+      <p class="thai">ออกจากสวนป่า แล้วไปต่อที่ร้านอาหาร</p>
+      <p>Man verlässt den Waldpark und fährt dann weiter zum Restaurant.</p>
+      <p><strong>Reihenfolge:</strong> <span class="thai">จุดแรก</span> zuerst · <span class="thai">ต่อไป</span> als Nächstes · <span class="thai">จากนั้น</span> danach · <span class="thai">สุดท้าย</span> zuletzt.</p>
+    </div>
+    <div class="exercise"><span class="num">3</span><h4>Route lesen</h4><p class="task">Ergänzen Sie mündlich eine passende Lage oder Bewegung.</p>
+      <table class="plan-table"><thead><tr><th>Thai-Baustein</th><th>Aufgabe</th><th>Muster</th></tr></thead><tbody>
+        <tr><td class="thai">อยู่ทางใต้ของ</td><td>Omkoi / Chiang Mai</td><td class="thai">อมก๋อยอยู่ทางใต้ของเชียงใหม่</td></tr>
+        <tr><td class="thai">อยู่ข้างๆ</td><td>Restaurant / Tempel</td><td class="thai">ร้านอาหารอยู่ข้างๆ วัด</td></tr>
+        <tr><td class="thai">จาก … ไป …</td><td>Waldpark / Flughafen</td><td class="thai">จากสวนป่าไปสนามบิน</td></tr>
+        <tr><td class="thai">ผ่าน</td><td>Chom Thong</td><td class="thai">ขับรถผ่านจอมทอง</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lektion 3</span> Route mit Wortfilter · อ่านเส้นทาง</h3>
+    <div class="role-tools" id="w12-role-tools">
+      <div class="role-filter-head"><strong>Worttyp und Satzfunktion filtern · ชนิดคำและหน้าที่ในประโยค</strong><button class="role-clear" type="button" onclick="clearWordRoles('w12-role-reader','w12-role-tools')">× Markierungen aus</button></div>
+      <div class="role-filter-options"></div>
+    </div>
+    <div class="reading role-reader" id="w12-role-reader">
+      <p class="thai">
+        <span class="word-role role-context">ในวิดีโอนี้</span>
+        <span class="word-role role-subject">ผู้ดำเนินรายการ</span>
+        <span class="word-role role-verb">เดินทางไป</span>
+        <span class="word-role role-object">จังหวัดเชียงใหม่</span>
+        <span class="word-role role-connector">แต่</span>
+        <span class="word-role role-context">ครั้งนี้</span>
+        <span class="word-role role-subject">เขา</span>
+        <span class="word-role role-verb">มุ่งหน้าไป</span>
+        <span class="word-role role-context">ทางใต้</span>
+        <span class="word-role role-connector">จุดแรก</span>
+        <span class="word-role role-verb">คือ</span>
+        <span class="word-role role-subject">น้ำตกแม่เตี๊ยะ</span>
+        <span class="word-role role-adjective">ที่อยู่ลึกเข้าไปในป่า</span>
+        <span class="word-role role-connector">จากนั้น</span>
+        <span class="word-role role-subject">ทีมเดินทาง</span>
+        <span class="word-role role-verb">ไปต่อ</span>
+        <span class="word-role role-object">อุทยานแห่งชาติออบหลวง</span>
+        <span class="word-role role-context">ที่นั่น</span>
+        <span class="word-role role-subject">สะพานแขวน</span>
+        <span class="word-role role-verb">เชื่อม</span>
+        <span class="word-role role-object">หน้าผาสองด้าน</span>
+        <span class="word-role role-connector">ต่อไป</span>
+        <span class="word-role role-subject">ถนน</span>
+        <span class="word-role role-verb">พาเข้าไป</span>
+        <span class="word-role role-object">อำเภออมก๋อย</span>
+        <span class="word-role role-adjective">ซึ่งอยู่ไกลและมีทางคดเคี้ยว</span>
+        <span class="word-role role-context">วันต่อมา</span>
+        <span class="word-role role-subject">กลุ่มนักเดินทาง</span>
+        <span class="word-role role-verb">ออกจาก</span>
+        <span class="word-role role-object">สวนป่าดอยบ่อหลวง</span>
+        <span class="word-role role-connector">แล้ว</span>
+        <span class="word-role role-verb">แวะกินข้าว</span>
+        <span class="word-role role-context">ข้างๆ วัดกิ่วลม</span>
+        <span class="word-role role-connector">สุดท้าย</span>
+        <span class="word-role role-subject">พวกเขา</span>
+        <span class="word-role role-verb">แวะ</span>
+        <span class="word-role role-object">คาเฟ่</span>
+        <span class="word-role role-connector">ก่อน</span>
+        <span class="word-role role-verb">ไป</span>
+        <span class="word-role role-object">สนามบินเชียงใหม่</span>
+      </p>
+      <p class="de">In diesem Video reist der Moderator nach Chiang Mai, fährt diesmal aber nach Süden. Der erste Halt ist der tief im Wald gelegene Mae-Tia-Wasserfall. Danach geht es zum Ob-Luang-Nationalpark, wo eine Hängebrücke zwei Felsseiten verbindet. Die kurvenreiche Straße führt weiter nach Omkoi. Am nächsten Tag verlässt die Gruppe den Waldpark, isst neben Wat Kiu Lom und hält schließlich vor dem Flughafen noch an einem Café.</p>
+    </div>
+    <div class="exercise" id="w12-role-quiz"><span class="num">4</span><h4>Wortfunktionen · หน้าที่ของคำ</h4><p class="task">Welche Satzfunktion hat der markierte Ausdruck in der Routenzusammenfassung?</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">ผู้ดำเนินรายการ</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> <span class="thai">มุ่งหน้าไป</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>3.</strong> <span class="thai">ทางใต้</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> <span class="thai">อุทยานแห่งชาติออบหลวง</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> <span class="thai">ที่อยู่ลึกเข้าไปในป่า</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> <span class="thai">จากนั้น</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>7.</strong> <span class="thai">สะพานแขวน</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>8.</strong> <span class="thai">ข้างๆ วัดกิ่วลม</span></p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit/Ort</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w12CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w12-role-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 4</span> Route bauen, schreiben und sprechen</h3>
+    <div class="exercise"><span class="num">5</span><h4>Wegbeschreibungen bauen</h4><p class="task">Ordnen Sie die Wörter zu vollständigen Routen-Sätzen.</p>
+      <div class="w6-build-set" id="w12-build-route">
+        <div class="w6-build" data-answer="อมก๋อย อยู่ ทางใต้ ของ เชียงใหม่"><div class="task">1. Omkoi liegt südlich von Chiang Mai.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ของ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทางใต้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เชียงใหม่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อมก๋อย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="น้ำตก อยู่ ลึก เข้าไป ใน ป่า"><div class="task">2. Der Wasserfall liegt tief im Wald.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ใน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ป่า</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เข้าไป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">น้ำตก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ลึก</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="จาก เชียงใหม่ ไป อมก๋อย ผ่าน จอมทอง"><div class="task">3. Von Chiang Mai fährt man über Chom Thong nach Omkoi.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อมก๋อย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ผ่าน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จาก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">จอมทอง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เชียงใหม่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ร้านอาหาร อยู่ ข้างๆ วัดกิ่วลม"><div class="task">4. Das Restaurant liegt neben Wat Kiu Lom.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">วัดกิ่วลม</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ร้านอาหาร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ข้างๆ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อยู่</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ออกจาก สวนป่า แล้ว ไปต่อ ที่ ร้านอาหาร"><div class="task">5. Verlassen Sie den Waldpark und fahren Sie zum Restaurant weiter.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ร้านอาหาร</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไปต่อ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ออกจาก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แล้ว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ที่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สวนป่า</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="สุดท้าย แวะ คาเฟ่ ก่อน ไป สนามบิน"><div class="task">6. Halten Sie zuletzt vor dem Flughafen an einem Café.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สนามบิน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แวะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ก่อน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สุดท้าย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คาเฟ่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไป</button></div><div class="w6-feedback"></div></div>
+      </div><button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w12-build-route')">✓ Sätze prüfen</button>
+    </div>
+    <div class="exercise"><span class="num">6</span><h4>Meine Route</h4><p class="task">Schreiben Sie 5–6 Thai-Sätze für eine Route mit mindestens vier Stationen. Verwenden Sie จาก…ไป…, ผ่าน, อยู่ข้างๆ, ต่อไป, จากนั้น und สุดท้าย.</p><textarea class="w6-thai-input thai" rows="6" placeholder="ตัวอย่าง: จากเชียงใหม่ไปอมก๋อย..." onfocus="w6SetField(this,'w12')"></textarea></div>
+    <div class="exercise"><span class="num">7</span><h4>45-Sekunden-Navigation</h4><p class="task">Eine Person fragt nach dem Weg, die andere erklärt die Strecke. Tauschen Sie danach die Rollen.</p><div class="speak-grid">
+      <div class="speak-card"><div class="role">Reisender · นักท่องเที่ยว</div><p class="line"><span class="thai th-mid">ขอโทษครับ จากเชียงใหม่ไปอมก๋อยไปทางไหนครับ</span><br>Entschuldigung, wie fährt man von Chiang Mai nach Omkoi?</p><p class="line"><span class="thai th-mid">ไกลแค่ไหนครับ แล้วผ่านที่ไหนบ้าง</span><br>Wie weit ist es, und an welchen Orten kommt man vorbei?</p></div>
+      <div class="speak-card green"><div class="role">Wegweiser · คนบอกทาง</div><p class="line"><span class="thai th-mid">มุ่งหน้าไปทางใต้ ผ่านจอมทองและออบหลวงครับ</span><br>Fahren Sie Richtung Süden über Chom Thong und Ob Luang.</p><p class="line"><span class="thai th-mid">ทางคดเคี้ยวและค่อนข้างไกล ควรวางแผนล่วงหน้าครับ</span><br>Die Straße ist kurvenreich und ziemlich weit; planen Sie besser im Voraus.</p></div>
+    </div></div>
+    <div id="w12Keyboard" class="w6-keyboard hidden"><div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 12</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div><div id="w12Keys"></div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Reiseplan</span> Die Videoroute auf einen Blick</h3>
+    <table class="plan-table"><thead><tr><th>Reihenfolge</th><th>Station</th><th>Orientierungssprache</th></tr></thead><tbody>
+      <tr><td class="day">Start</td><td>Chiang Mai</td><td class="thai">มุ่งหน้าไปทางใต้</td></tr>
+      <tr><td class="day">1</td><td>Mae-Tia-Wasserfall</td><td class="thai">ลึกเข้าไปในป่า</td></tr>
+      <tr><td class="day">2</td><td>Ob Luang und Kussende Klippen</td><td class="thai">เดินตามทางประมาณ 150 เมตร</td></tr>
+      <tr><td class="day">3</td><td>Omkoi</td><td class="thai">อยู่ไกลทางใต้ของเชียงใหม่</td></tr>
+      <tr><td class="day">4</td><td>Doi-Bo-Luang-Waldpark</td><td class="thai">ต้องเช็กอินก่อนหกโมงเย็น</td></tr>
+      <tr><td class="day">5</td><td>Restaurant bei Wat Kiu Lom</td><td class="thai">อยู่ข้างๆ วัดกิ่วลม</td></tr>
+      <tr><td class="day">Ziel</td><td>Café und Flughafen</td><td class="thai">แวะคาเฟ่ก่อน แล้วไปสนามบิน</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="answer-key"><h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Session 1 · Hörverstehen</h4><ol><li>b – nach Süden</li><li>a – Mae-Tia-Wasserfall</li><li>d – tief im Wald</li><li>c – 150 Meter</li><li>b – eine Hängebrücke</li><li>d – Die Straße ist weit, steil und kurvenreich.</li></ol></div>
+    <div class="ak-block"><h4>Session 2 · Hörverstehen</h4><ol><li>c – zum Doi-Bo-Luang-Waldpark</li><li>a – vor 18 Uhr</li><li>b – früh am Morgen</li><li>d – Wat Kiu Lom</li><li>c – an einem Café</li><li>a – der Flughafen</li></ol></div>
+    <div class="ak-block"><h4>Wortfunktionen</h4><ol><li>a – Subjekt</li><li>b – Prädikat</li><li>d – Zeit/Ort</li><li>c – Objekt</li><li>b – Beschreibung</li><li>c – Verknüpfung</li><li>a – Subjekt</li><li>d – Zeit/Ort</li></ol></div>
+    <div class="ak-block"><h4>Wegbeschreibungen</h4><ol><li>อมก๋อยอยู่ทางใต้ของเชียงใหม่</li><li>น้ำตกอยู่ลึกเข้าไปในป่า</li><li>จากเชียงใหม่ไปอมก๋อยผ่านจอมทอง</li><li>ร้านอาหารอยู่ข้างๆ วัดกิ่วลม</li><li>ออกจากสวนป่าแล้วไปต่อที่ร้านอาหาร</li><li>สุดท้ายแวะคาเฟ่ก่อนไปสนามบิน</li></ol></div>
+    <div class="ak-block"><h4>Meine Route · Muster</h4><p class="thai" style="font-size:14px;">เราออกจากเชียงใหม่และมุ่งหน้าไปทางใต้ จุดแรกคือน้ำตกแม่เตี๊ยะที่อยู่ลึกเข้าไปในป่า ต่อไปเราไปอุทยานแห่งชาติออบหลวง จากนั้นขับรถผ่านภูเขาไปอมก๋อย วันต่อมาเราออกจากสวนป่าและแวะกินข้าวข้างๆ วัดกิ่วลม สุดท้ายเราแวะคาเฟ่ก่อนไปสนามบินเชียงใหม่</p><p style="font-size:12px; font-style:italic; color:#5a6573;">Wir verlassen Chiang Mai und fahren nach Süden. Der erste Halt ist der tief im Wald gelegene Mae-Tia-Wasserfall. Danach besuchen wir Ob Luang und fahren über die Berge nach Omkoi. Am nächsten Tag verlassen wir den Waldpark, essen neben Wat Kiu Lom und halten vor dem Flughafen noch an einem Café.</p></div>
+  </div>
+
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -5918,12 +6241,16 @@ function enhanceReadingAnalysis() {
     'แอนนา', 'อันนา', 'มาร์ค', 'เลนา', 'เยอรมนี', 'เชียงใหม่', 'กระบี่',
     'กรุงเทพ เชียงใหม่ และกระบี่', 'อุทยานแห่งชาติเขาใหญ่',
     'มะลิและอันนา', 'ช่วงเทศกาลลอยกระทง', 'จังหวัดน่าน', 'ร้านเลิศรส',
-    'ร้านสหายสายเตี๋ยว', 'คาเฟ่โวล่านิรวาณ', 'เจ๊โอชิน', 'โรงบ่มปัว'
+    'ร้านสหายสายเตี๋ยว', 'คาเฟ่โวล่านิรวาณ', 'เจ๊โอชิน', 'โรงบ่มปัว',
+    'จังหวัดเชียงใหม่', 'น้ำตกแม่เตี๊ยะ', 'อุทยานแห่งชาติออบหลวง',
+    'ผาจูบกัน', 'อำเภออมก๋อย', 'สวนป่าดอยบ่อหลวง', 'ชาวปกาเกอะญอ',
+    'วัดกิ่วลม', 'สนามบินเชียงใหม่'
   ]);
   const particles = new Set(['ว่า', 'ที่', 'ให้', 'ได้แล้ว', 'เอง']);
   const expressions = new Set([
     'อยากเห็น', 'ยังทำเองไม่เป็น', 'ไม่ควรส่งเสียง', 'ห้ามว่ายน้ำ',
-    'ควรถาม ฟัง และเคารพ', 'ต้องช่วยกันอนุรักษ์', 'ขอแนะนำให้'
+    'ควรถาม ฟัง และเคารพ', 'ต้องช่วยกันอนุรักษ์', 'ขอแนะนำให้',
+    'ต้องจองล่วงหน้า', 'อยู่ร่วมกับป่า', 'ทำให้มีรายได้'
   ]);
   const verbPhrases = new Set([
     'เข้าใกล้', 'จะทำให้', 'จะอยู่', 'ช่วยกันทำ', 'ชอบกิน', 'เช็คเอาท์',
@@ -5931,7 +6258,10 @@ function enhanceReadingAnalysis() {
     'ปิดเสียง', 'ไปดู', 'ไปถึง', 'ไปเรียนทำ', 'มาจาก', 'มาเที่ยว',
     'ไม่จับ', 'ไม่ชี้', 'ไม่ทิ้ง', 'ไม่ไป', 'ยังมี', 'เรียนทำ', 'ทำตาม',
     'วางแผนไป', 'หยุดเดิน', 'อยากไป', 'อยากเรียนรู้', 'อาจปฏิบัติ',
-    'ใส่บาตร', 'ให้อาหาร', 'พาไปชิม', 'เชื่อว่า', 'กลายเป็น'
+    'ใส่บาตร', 'ให้อาหาร', 'พาไปชิม', 'เชื่อว่า', 'กลายเป็น',
+    'เดินทางไป', 'ไหลผ่าน', 'ปลูกขึ้นใหม่', 'เก็บจากป่า', 'นำไปตากแห้ง',
+    'ช่วยบรรเทา', 'สร้างรายได้', 'ตื่นเช้า', 'มองเห็นหมอก', 'มุ่งหน้าไป',
+    'พาเข้าไป', 'แวะกินข้าว', 'ออกจาก', 'ไปต่อ'
   ]);
   const groups = [
     {
@@ -6196,6 +6526,7 @@ function w10CheckRoleQuiz() {
 }
 
 function w11CheckRoleQuiz() { checkRoleQuiz(11); }
+function w12CheckRoleQuiz() { checkRoleQuiz(12); }
 
 function w6MoveTile(tile) {
   const build = tile.closest('.w6-build');
@@ -6264,7 +6595,7 @@ function w6SetField(field, week = 'w6') {
 }
 
 function w6HideKeyboard() {
-  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard', 'w11Keyboard'].forEach(id => {
+  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard', 'w11Keyboard', 'w12Keyboard'].forEach(id => {
     const keyboard = document.getElementById(id);
     if (keyboard) keyboard.classList.add('hidden');
   });
@@ -6333,7 +6664,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10', 'woche11'].includes(name)) navName = 'a22';
+  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10', 'woche11', 'woche12'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
