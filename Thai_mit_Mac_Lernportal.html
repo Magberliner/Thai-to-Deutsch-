@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Thai mit Mac · Lernportal A2.1 / A2.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="alphabet.css">
 <!-- Sarabun font: covers both Thai and Latin glyphs; loaded from Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -585,6 +586,7 @@ h3.h-card.amber .pill { background: #fff7e6; color: #874d00; }
 .week-card.gold .head { background: #a16207; }
 .week-card.berry .head { background: #9f1239; }
 .week-card.forest .head { background: #365314; }
+.week-card.market .head { background: #b91c1c; }
 .week-card .body { padding: 16px 18px; font-size: 13px; }
 .week-card .body p { margin: 4px 0; }
 .week-card .body .lab { font-weight: 600; color: #1d2733; display: inline-block; min-width: 78px; }
@@ -1299,6 +1301,7 @@ ul, ol { padding-left: 22px; }
       <button data-tab="home" class="active">Home</button>
       <button data-tab="a21">A2.1</button>
       <button data-tab="a22">A2.2</button>
+      <button data-tab="alphabet">Thai-Schrift</button>
     </nav>
     <button class="print-cta" onclick="window.print()">⬇ Als PDF speichern</button>
   </div>
@@ -1312,22 +1315,23 @@ ul, ol { padding-left: 22px; }
   <div class="hero-block">
     <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70&fm=jpg&auto=format');"></div>
     <div class="content">
-      <span class="badge">Stufe A2.1 + A2.2 · 12 Wochen · flexibel lernen</span>
+      <span class="badge">Stufe A2.1 + A2.2 · 13 Wochen · flexibel lernen</span>
       <h1>Thai lernen mit Spaß</h1>
       <div class="thai-title thai">เรียนภาษาไทยอย่างสนุก</div>
       <p class="lead">Ein Selbstlernkurs für deutschsprachige Anfänger — mit täglichen Lese-, Schreib- und Sprechübungen, echten Fotos, Klangbeispielen und Antwortschlüssel. Drucken Sie jede Lektion als PDF aus oder lernen Sie direkt im Browser.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('a21')">A2.1 öffnen</button>
         <button class="btn ghost" onclick="showTab('a22')">A2.2 öffnen</button>
+        <button class="btn ghost" onclick="showTab('alphabet')">Thai-Schrift üben</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">11</div><div class="lab">Wochen</div></div>
-    <div class="stat"><div class="num">75+</div><div class="lab">Stunden insgesamt</div></div>
-    <div class="stat"><div class="num">~630</div><div class="lab">neue Wörter</div></div>
+    <div class="stat"><div class="num">13</div><div class="lab">Wochen</div></div>
+    <div class="stat"><div class="num">80+</div><div class="lab">Stunden insgesamt</div></div>
+    <div class="stat"><div class="num">~680</div><div class="lab">neue Wörter</div></div>
     <div class="stat"><div class="num">3</div><div class="lab">Fertigkeiten täglich</div></div>
   </div>
 
@@ -1359,7 +1363,7 @@ ul, ol { padding-left: 22px; }
   <div class="card amber">
     <h3 class="h-card amber"><span class="pill">Lernziele</span> Was Sie am Ende des Kurses können</h3>
     <ul class="goals">
-      <li>~ 630 neue Wörter aktiv anwenden</li>
+      <li>~ 680 neue Wörter aktiv anwenden</li>
       <li>Einfache Texte zu Alltagsthemen verstehen</li>
       <li>Kurze Dialoge selbständig führen</li>
       <li>Eigene Sätze in Thai-Schrift verfassen</li>
@@ -1370,7 +1374,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="card">
     <h2 class="section-title"><span class="accent">📋</span> Kursplan</h2>
-    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 12 mit Reise-, Urlaubs-, Küchen-, Natur-, Kultur- und Video-Lektionen.</p>
+    <p class="section-sub">Der Kurs ist in zwei klare Lernbereiche gegliedert. A2.1 bündelt die ersten fünf Wochen und den großen Test. A2.2 umfasst Woche 6 bis 13 mit Reise-, Urlaubs-, Küchen-, Natur-, Kultur- und Video-Lektionen.</p>
     <div class="weeks-grid" style="grid-template-columns: 1fr 1fr;">
       <div class="week-card green" onclick="showTab('a21')">
         <img class="photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=70&fm=jpg&auto=format" alt="A2.1 Kursbereich">
@@ -1390,7 +1394,7 @@ ul, ol { padding-left: 22px; }
           <div class="th thai">ระดับ A2.2</div>
         </div>
         <div class="body">
-          <p>Woche 6-12 · Verkehr · Urlaub · Küche · Natur · Kultur · Video</p>
+          <p>Woche 6-13 · Verkehr · Urlaub · Küche · Natur · Kultur · Video</p>
           <button class="open-link">A2.2 öffnen →</button>
         </div>
       </div>
@@ -1548,7 +1552,7 @@ ul, ol { padding-left: 22px; }
       <span class="badge" style="background: rgba(13, 148, 136, 0.88); border-color: transparent;">Thai A2.2</span>
       <h1>A2.2 Lernbereich</h1>
       <div class="thai-title thai">ระดับ A2.2</div>
-      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 11 und 12 trainieren authentisches Hörverstehen mit Food-, Natur- und Reisevideos.</p>
+      <p class="lead">Der A2.2-Bereich erweitert die Alltagssprache für Reisen und das Leben in Thailand. Woche 11 bis 13 trainieren authentisches Hörverstehen mit Food-, Natur- und Reisevideos. Woche 13 führt auf den Frühstücksmarkt Trok Mor.</p>
       <div class="cta-row">
         <button class="btn primary" onclick="showTab('woche6')">Woche 6 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche7')">Woche 7 öffnen</button>
@@ -1557,6 +1561,7 @@ ul, ol { padding-left: 22px; }
         <button class="btn ghost" onclick="showTab('woche10')">Woche 10 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche11')">Woche 11 öffnen</button>
         <button class="btn ghost" onclick="showTab('woche12')">Woche 12 öffnen</button>
+        <button class="btn ghost" onclick="showTab('woche13')">Woche 13 öffnen</button>
         <button class="btn ghost" onclick="printAll()">⬇ Alles drucken</button>
       </div>
     </div>
@@ -1564,7 +1569,7 @@ ul, ol { padding-left: 22px; }
 
   <div class="info-grid">
     <div class="info-card red"><div class="k">Niveau</div><div class="v">Thai A2.2</div></div>
-    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-12 · Präsenz + Video</div></div>
+    <div class="info-card"><div class="k">Umfang</div><div class="v">Woche 6-13 · Präsenz + Video</div></div>
     <div class="info-card blue"><div class="k">Fokus</div><div class="v">Reisen, Alltag, Natur, Kultur und Hörverstehen</div></div>
   </div>
 
@@ -1660,6 +1665,19 @@ ul, ol { padding-left: 22px; }
           <p><span class="lab">Sprache:</span> Richtungen, Entfernungen, Wege und Orientierungspunkte</p>
           <p><span class="lab">Praxis:</span> Hörfragen, Wortfilter, Routenplan und Wegbeschreibung</p>
           <button class="open-link">Woche 12 öffnen →</button>
+        </div>
+      </div>
+      <div class="week-card market" onclick="showTab('woche13')">
+        <img class="photo" src="https://img.youtube.com/vi/zmOepv_8iGI/hqdefault.jpg" alt="Frühstück und Gespräche auf dem Markt Trok Mor">
+        <div class="head">
+          <div><div class="n">Woche 13</div><div class="t">Essen auf dem Markt kaufen</div></div>
+          <div class="th thai">ซื้อของกินที่ตลาดตรอกหม้อ</div>
+        </div>
+        <div class="body">
+          <p><span class="lab">Video:</span> zwei Sessions à 15 Minuten + kurzer Ausklang</p>
+          <p><span class="lab">Sprache:</span> Einkaufsphrasen, Marktgerichte, Portionen und Bezahlen</p>
+          <p><span class="lab">Praxis:</span> Hörfragen, Wortfilter, Marktgespräche und Einkaufsnotiz</p>
+          <button class="open-link">Woche 13 öffnen →</button>
         </div>
       </div>
     </div>
@@ -6143,6 +6161,329 @@ ul, ol { padding-left: 22px; }
 
 </section>
 
+<!-- ==================== WOCHE 13: MARKTESSEN EINKAUFEN ==================== -->
+<section id="woche13" class="page">
+
+  <div class="hero-block" style="min-height:300px;">
+    <div class="bg" style="background-image:url('https://img.youtube.com/vi/zmOepv_8iGI/hqdefault.jpg');"></div>
+    <div class="content">
+      <span class="badge" style="background:rgba(185,28,28,.92);border-color:transparent;">Woche 13 · A2.2 · Video</span>
+      <h1>Essen auf dem Markt kaufen</h1>
+      <div class="thai-title thai">ซื้อของกินที่ตลาดตรอกหม้อ</div>
+      <p class="lead">Ein Morgen auf dem Markt Trok Mor: Schweinespieße, Klebreis, Getränke und traditionelle Süßspeisen. Lernen Sie die Namen der Gerichte und kaufen Sie auf Thai ein: nachfragen, bestellen, Portionen wählen und bezahlen.</p>
+    </div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card"><div class="k">Video</div><div class="v">2 Sessions × 15 Minuten</div></div>
+    <div class="info-card blue"><div class="k">Wortschatz</div><div class="v">50 Wörter und Einkaufsphrasen</div></div>
+    <div class="info-card red"><div class="k">Lernziel</div><div class="v">Essen am Marktstand kaufen</div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Lektion 1</span> Marktessen · ของกินในตลาด</h3>
+    <p class="vocab-type-note">Die Auswahl stammt aus dem bereitgestellten Videotranskript. Die Aussprachehilfe markiert hohe, tiefe, fallende und steigende Töne; unmarkierte Silben haben einen mittleren Ton.</p>
+    <h4 style="color:#047857;">A · Herzhaftes Frühstück · ของคาว</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ตลาดเช้า</td><td class="translit">tà-làat-cháao</td><td>Morgenmarkt</td><td><span class="word-type noun">Nomen</span></td><td>🛒</td></tr>
+        <tr><td class="thai">หมูปิ้ง</td><td class="translit">mǔu-pîng</td><td>gegrillte Schweinespieße</td><td><span class="word-type noun">Nomen</span></td><td>🍢</td></tr>
+        <tr><td class="thai">ไก่ปิ้ง</td><td class="translit">gài-pîng</td><td>gegrillte Hähnchenspieße</td><td><span class="word-type noun">Nomen</span></td><td>🍢</td></tr>
+        <tr><td class="thai">ข้าวเหนียว</td><td class="translit">khâao-nǐao</td><td>Klebreis</td><td><span class="word-type noun">Nomen</span></td><td>🍚</td></tr>
+        <tr><td class="thai">โจ๊ก</td><td class="translit">jóok</td><td>Reisbrei</td><td><span class="word-type noun">Nomen</span></td><td>🥣</td></tr>
+        <tr><td class="thai">ทอดมันปลา</td><td class="translit">thɔ̂ɔt-man-plaa</td><td>würzige Fischküchlein</td><td><span class="word-type noun">Nomen</span></td><td>🐟</td></tr>
+        <tr><td class="thai">หมูทอด</td><td class="translit">mǔu-thɔ̂ɔt</td><td>frittiertes Schweinefleisch</td><td><span class="word-type noun">Nomen</span></td><td>🥩</td></tr>
+        <tr><td class="thai">ไก่ทอด</td><td class="translit">gài-thɔ̂ɔt</td><td>frittiertes Hähnchen</td><td><span class="word-type noun">Nomen</span></td><td>🍗</td></tr>
+        <tr><td class="thai">หมูสามชั้น</td><td class="translit">mǔu-sǎam-chán</td><td>Schweinebauch</td><td><span class="word-type noun">Nomen</span></td><td>🥓</td></tr>
+        <tr><td class="thai">หมูแดง</td><td class="translit">mǔu-daeeng</td><td>rot mariniertes Schweinefleisch</td><td><span class="word-type noun">Nomen</span></td><td>🥩</td></tr>
+        <tr><td class="thai">ซาลาเปา</td><td class="translit">saa-laa-pao</td><td>gedämpftes, gefülltes Brötchen</td><td><span class="word-type noun">Nomen</span></td><td>🥟</td></tr>
+        <tr><td class="thai">โรตีมะตะบะ</td><td class="translit">roo-tii-má-tà-bà</td><td>gefülltes Roti, Murtabak</td><td><span class="word-type noun">Nomen</span></td><td>🫓</td></tr>
+      </tbody>
+    </table>
+    <h4 style="color:#047857;margin-top:20px;">B · Süßspeisen und Getränke · ของหวานและเครื่องดื่ม</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ขนมต้ม</td><td class="translit">khà-nǒm-tôm</td><td>Kokoskugeln aus Klebreisteig</td><td><span class="word-type noun">Nomen</span></td><td>🥥</td></tr>
+        <tr><td class="thai">ขนมมัน</td><td class="translit">khà-nǒm-man</td><td>Maniok-Süßspeise</td><td><span class="word-type noun">Nomen</span></td><td>🍠</td></tr>
+        <tr><td class="thai">ขนมเปี๊ยะ</td><td class="translit">khà-nǒm-pía</td><td>gefülltes chinesisch-thailändisches Gebäck</td><td><span class="word-type noun">Nomen</span></td><td>🥮</td></tr>
+        <tr><td class="thai">ขนมครก</td><td class="translit">khà-nǒm-khrók</td><td>kleine Kokospfannküchlein</td><td><span class="word-type noun">Nomen</span></td><td>🥥</td></tr>
+        <tr><td class="thai">เผือกทอด</td><td class="translit">phʉ̀ak-thɔ̂ɔt</td><td>frittierte Taro-Stücke</td><td><span class="word-type noun">Nomen</span></td><td>🍠</td></tr>
+        <tr><td class="thai">ไส้งาดำ</td><td class="translit">sâi-ngaa-dam</td><td>Füllung aus schwarzem Sesam</td><td><span class="word-type noun">Nomengruppe</span></td><td>⚫</td></tr>
+        <tr><td class="thai">ชาไทย</td><td class="translit">chaa-thai</td><td>Thai-Tee</td><td><span class="word-type noun">Nomen</span></td><td>🧋</td></tr>
+        <tr><td class="thai">กาแฟ</td><td class="translit">gaa-fae</td><td>Kaffee</td><td><span class="word-type noun">Nomen</span></td><td>☕</td></tr>
+        <tr><td class="thai">น้ำจับเลี้ยง</td><td class="translit">náam-jàp-líang</td><td>chinesisch-thailändisches Kräutergetränk</td><td><span class="word-type noun">Nomen</span></td><td>🍵</td></tr>
+        <tr><td class="thai">น้ำจิ้ม</td><td class="translit">náam-jîm</td><td>Dipsauce</td><td><span class="word-type noun">Nomen</span></td><td>🥣</td></tr>
+      </tbody>
+    </table>
+    <h4 style="color:#047857;margin-top:20px;">C · Einkaufssprache · คำพูดเวลาซื้อของ</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ขายอะไรบ้าง</td><td class="translit">khǎai-à-rai-bâang</td><td>Was verkaufen Sie alles?</td><td><span class="word-type expression">Redemittel</span></td><td>❓</td></tr>
+        <tr><td class="thai">ขายยังไง</td><td class="translit">khǎai-yang-ngai</td><td>Wie wird es verkauft / was kostet es?</td><td><span class="word-type expression">Redemittel</span></td><td>🏷️</td></tr>
+        <tr><td class="thai">เท่าไหร่</td><td class="translit">thâo-rài</td><td>Wie viel kostet es?</td><td><span class="word-type expression">Redemittel</span></td><td>💰</td></tr>
+        <tr><td class="thai">เอา</td><td class="translit">ao</td><td>nehmen; beim Bestellen: ich nehme</td><td><span class="word-type verb">Verb</span></td><td>🛍️</td></tr>
+        <tr><td class="thai">ขอ</td><td class="translit">khɔ̌ɔ</td><td>bitten um, erbitten</td><td><span class="word-type verb">Verb</span></td><td>🙏</td></tr>
+        <tr><td class="thai">ชิม</td><td class="translit">chim</td><td>kosten, probieren</td><td><span class="word-type verb">Verb</span></td><td>🥄</td></tr>
+        <tr><td class="thai">ซื้อเพิ่ม</td><td class="translit">sʉ́ʉ-phə̂əm</td><td>mehr dazukaufen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>➕</td></tr>
+        <tr><td class="thai">ผสมกันได้ไหม</td><td class="translit">phà-sǒm-gan-dâi-mǎi</td><td>Kann man Sorten mischen?</td><td><span class="word-type expression">Redemittel</span></td><td>🔀</td></tr>
+        <tr><td class="thai">สั่งไว้</td><td class="translit">sàng-wái</td><td>vorbestellen, eine Bestellung hinterlassen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>📝</td></tr>
+        <tr><td class="thai">กลับมารับ</td><td class="translit">glàp-maa-ráp</td><td>zurückkommen und abholen</td><td><span class="word-type phrase">Verbgruppe</span></td><td>↩️</td></tr>
+        <tr><td class="thai">หมดแล้ว</td><td class="translit">mòt-láeo</td><td>schon ausverkauft</td><td><span class="word-type phrase">Verbgruppe</span></td><td>⏳</td></tr>
+        <tr><td class="thai">ยังมีไหม</td><td class="translit">yang-mii-mǎi</td><td>Gibt es noch etwas davon?</td><td><span class="word-type expression">Redemittel</span></td><td>❓</td></tr>
+        <tr><td class="thai">มีสแกนไหม</td><td class="translit">mii-sà-gaen-mǎi</td><td>Kann ich per QR-Code bezahlen?</td><td><span class="word-type expression">Redemittel</span></td><td>📱</td></tr>
+        <tr><td class="thai">ทั้งหมด</td><td class="translit">tháng-mòt</td><td>alles zusammen, insgesamt</td><td><span class="word-type expression">Redemittel</span></td><td>🧾</td></tr>
+      </tbody>
+    </table>
+    <h4 style="color:#047857;margin-top:20px;">D · Portionen und Bestellwünsche · จำนวนและความต้องการ</h4>
+    <table class="vocab has-types">
+      <thead><tr><th class="col-thai">Thai</th><th class="col-trans">Aussprache</th><th class="col-de">Deutsch</th><th class="col-type">Worttyp</th><th class="col-icon">Icon</th></tr></thead>
+      <tbody>
+        <tr><td class="thai">ไม้</td><td class="translit">máai</td><td>Spieß; Zähleinheit für Spieße</td><td><span class="word-type noun">Nomen/Zählwort</span></td><td>🍢</td></tr>
+        <tr><td class="thai">ถุง</td><td class="translit">thǔng</td><td>Tüte; Zähleinheit für Tüten</td><td><span class="word-type noun">Nomen/Zählwort</span></td><td>🛍️</td></tr>
+        <tr><td class="thai">ชิ้น</td><td class="translit">chín</td><td>Stück; Zähleinheit</td><td><span class="word-type noun">Nomen/Zählwort</span></td><td>🍗</td></tr>
+        <tr><td class="thai">แก้ว</td><td class="translit">gâeo</td><td>Glas, Becher; Zähleinheit</td><td><span class="word-type noun">Nomen/Zählwort</span></td><td>🥤</td></tr>
+        <tr><td class="thai">กล่อง</td><td class="translit">glɔ̀ng</td><td>Schachtel; Zähleinheit</td><td><span class="word-type noun">Nomen/Zählwort</span></td><td>📦</td></tr>
+        <tr><td class="thai">ละ</td><td class="translit">lá</td><td>pro, je</td><td><span class="word-type particle">Partikel</span></td><td>÷</td></tr>
+        <tr><td class="thai">อีก</td><td class="translit">ìik</td><td>noch, zusätzlich</td><td><span class="word-type particle">Partikel</span></td><td>➕</td></tr>
+        <tr><td class="thai">เพิ่ง</td><td class="translit">phə̂ng</td><td>gerade erst</td><td><span class="word-type particle">Partikel</span></td><td>⏱️</td></tr>
+        <tr><td class="thai">หวานน้อย</td><td class="translit">wǎan-nɔ́ɔi</td><td>weniger süß; wenig Zucker</td><td><span class="word-type adjective">Adjektivgruppe</span></td><td>🧋</td></tr>
+        <tr><td class="thai">ไม่หวาน</td><td class="translit">mâi-wǎan</td><td>nicht süß; beim Getränk: ungesüßt</td><td><span class="word-type adjective">Adjektivgruppe</span></td><td>☕</td></tr>
+        <tr><td class="thai">กรอบ</td><td class="translit">grɔ̀ɔp</td><td>knusprig</td><td><span class="word-type adjective">Adjektiv</span></td><td>🍗</td></tr>
+        <tr><td class="thai">นุ่ม</td><td class="translit">nûm</td><td>weich, zart</td><td><span class="word-type adjective">Adjektiv</span></td><td>🫓</td></tr>
+        <tr><td class="thai">หอม</td><td class="translit">hɔ̌ɔm</td><td>aromatisch, duftend</td><td><span class="word-type adjective">Adjektiv</span></td><td>👃</td></tr>
+        <tr><td class="thai">บาท</td><td class="translit">bàat</td><td>Baht</td><td><span class="word-type noun">Nomen</span></td><td>฿</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card blue">
+    <div class="video-session-head"><div><h3>Session 1 · Am Frühstücksstand bestellen</h3><p class="thai">ช่วงที่ 1 · ซื้ออาหารเช้า</p></div><span class="video-duration">00:00–15:00 · 15 Min.</span></div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/zmOepv_8iGI?start=0&amp;end=900&amp;rel=0">
+        <iframe class="video-frame" title="Woche 13 Session 1: Frühstück auf dem Markt kaufen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/zmOepv_8iGI/hqdefault.jpg');"><div><strong>Session 1 · 00:00–15:00</strong><a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=0s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters"><h4>Einkaufssituationen</h4>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=210s" target="_blank" rel="noopener"><time>03:30</time> Schweinespieße und Klebreis bestellen</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=456s" target="_blank" rel="noopener"><time>07:36</time> Fischküchlein · Preis pro Tüte</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=761s" target="_blank" rel="noopener"><time>12:41</time> Gefüllte Dampfbrötchen</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=850s" target="_blank" rel="noopener"><time>14:10</time> Eiskaffee ohne Zucker</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vorbereiten · 2 Min.</strong><span>Wählen Sie fünf Lebensmittel und die passenden Portionen: ไม้, ถุง, ชิ้น, แก้ว.</span></div>
+      <div><strong>Ansehen · 15 Min.</strong><span>Notieren Sie drei Bestellungen als „Gericht + Menge + Wunsch“.</span></div>
+      <div><strong>Nachhören · 5 Min.</strong><span>Hören Sie auf ขายยังไง, เอา, เท่าไหร่ und die genannten Preise.</span></div>
+    </div>
+    <div class="exercise" id="w13-s1-quiz"><span class="num">1</span><h4>Hörverstehen · Einkaufen am Stand</h4><p class="task">Die Preise beziehen sich auf die Aussagen im Video.</p>
+      <div class="w6-mc" data-answer="b"><p><strong>1.</strong> Was bestellt der Moderator beim Grillstand?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Thai-Tee und Roti</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>einen Schweinespieß und Klebreis</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Reisbrei und Fisch</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>zwei Dampfbrötchen</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>2.</strong> Wie viel kostet eine Tüte Fischküchlein?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>15 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>25 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>50 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>100 Baht</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>3.</strong> Was sagt die Fischküchlein-Verkäuferin über die Zubereitung?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Sie knetet und schneidet selbst.</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Sie verkauft nur Tiefkühlware.</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Alles wird am Vortag gegrillt.</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Es gibt heute keine Ware.</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> Wie viel kostet ein Dampfbrötchen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>5 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>15 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>60 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>25 Baht</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> Wie bestellt er seinen Americano?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>heiß mit Milch</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>eisgekühlt und ungesüßt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>mit viel Zucker</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>ohne Kaffee</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> Welcher Preis wird für den Americano genannt?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>20 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>40 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>60 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>150 Baht</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w13-s1-quiz','w13-s1-result')">✓ Session 1 prüfen</button><div id="w13-s1-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="video-session-head"><div><h3>Session 2 · Sorten wählen und später abholen</h3><p class="thai">ช่วงที่ 2 · เลือกของกินและกลับมารับ</p></div><span class="video-duration">15:00–30:00 · 15 Min.</span></div>
+    <div class="video-shell">
+      <div class="video-player" data-video-src="https://www.youtube-nocookie.com/embed/zmOepv_8iGI?start=900&amp;end=1800&amp;rel=0">
+        <iframe class="video-frame" title="Woche 13 Session 2: Süßspeisen, Portionen und Bestellungen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-file-fallback" style="background-image:url('https://img.youtube.com/vi/zmOepv_8iGI/hqdefault.jpg');"><div><strong>Session 2 · 15:00–30:00</strong><a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=900s" target="_blank" rel="noopener">Auf YouTube ansehen</a></div></div>
+      </div>
+      <div class="video-chapters"><h4>Einkaufssituationen</h4>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=938s" target="_blank" rel="noopener"><time>15:38</time> Zwei Süßspeisen für 20 Baht mischen</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=1018s" target="_blank" rel="noopener"><time>16:58</time> Sesamgebäck vorbestellen</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=1060s" target="_blank" rel="noopener"><time>17:40</time> Frisches Hähnchen · Preis pro Stück</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=1309s" target="_blank" rel="noopener"><time>21:49</time> Thai-Tee mit wenig Zucker</a>
+        <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=1745s" target="_blank" rel="noopener"><time>29:05</time> Bestellung abholen und bezahlen</a>
+      </div>
+    </div>
+    <div class="watch-pass">
+      <div><strong>Vorbereiten · 2 Min.</strong><span>Lesen Sie die Bestellphrasen ผสมกันได้ไหม, สั่งไว้ und กลับมารับ.</span></div>
+      <div><strong>Ansehen · 15 Min.</strong><span>Notieren Sie ein gemischtes Angebot, eine Wartezeit und zwei Stückpreise.</span></div>
+      <div><strong>Nachhören · 5 Min.</strong><span>Wiederholen Sie eine Bestellung und die passende Antwort der Verkäuferin.</span></div>
+    </div>
+    <div class="exercise" id="w13-s2-quiz"><span class="num">2</span><h4>Hörverstehen · Portionen und Bestellwünsche</h4><p class="task">Achten Sie auf Mengen, Verfügbarkeit und Bezahlen.</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> Welche beiden Süßspeisen lässt der Moderator mischen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Khanom Tom und Khanom Man</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Khanom Krok und Roti</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Klebreis und Reisbrei</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Sesamgebäck und Taro</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>2.</strong> Was bekommt er für 20 Baht?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>zwei Becher Tee</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>zehn Spieße</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>ein Roti</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>fünf Süßspeisen-Stücke insgesamt</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>3.</strong> Wie lange soll er auf die nächste Charge Sesamgebäck warten?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>fünf Minuten</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>eine halbe Stunde</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>zwei Stunden</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>bis morgen</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>4.</strong> Was kostet ein Stück frisch frittiertes Hähnchen?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>10 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>20 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>25 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>50 Baht</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>5.</strong> Welchen Wunsch nennt er beim Thai-Tee?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>หวานน้อย · weniger süß</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>เผ็ดมาก · sehr scharf</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>ร้อนมาก · sehr heiß</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>ไม่เอาชา · keinen Tee</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>6.</strong> Was bezahlt er beim Abholen der Gebäckbestellung?</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>30 Baht</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>50 Baht</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>60 Baht</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>100 Baht</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w11CheckSession('w13-s2-quiz','w13-s2-result')">✓ Session 2 prüfen</button><div id="w13-s2-result" class="w6-result"></div>
+    </div>
+    <p class="source-note"><strong>Freiwilliger Ausklang ab 30:11:</strong> <a href="https://www.youtube.com/watch?v=zmOepv_8iGI&amp;t=1811s" target="_blank" rel="noopener">Khanom Krok ansehen</a>. Eine Schale kostet im Video 30 Baht; verschiedene Füllungen können gemischt werden. Der Abschluss enthält Hinweise zum Besuchszeitpunkt.</p>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 2</span> Einkaufsmuster · ประโยคซื้อของ</h3>
+    <div class="grammar"><div class="gh">G1 · Einheitspreis mit ละ</div><p><strong>Zähleinheit + ละ + Betrag + บาท</strong> nennt den Preis pro Portion.</p><div class="formula"><span class="thai">ถุงละห้าสิบบาท · ชิ้นละยี่สิบห้าบาท · แก้วละหกสิบบาท</span><br>50 Baht pro Tüte · 25 Baht pro Stück · 60 Baht pro Becher</div><p class="ex"><span class="thai th-mid">ทอดมันถุงละเท่าไหร่ครับ</span><br>Wie viel kostet eine Tüte Fischküchlein?</p></div>
+    <div class="grammar"><div class="gh">G2 · Bestellen und ergänzen mit เอา / ขอ … อีก …</div><p><strong>เอา + Lebensmittel + Zahl + Zähleinheit</strong> ist eine übliche Bestellung. <strong>ขอ + Lebensmittel + อีก + Zahl + Zähleinheit</strong> bestellt etwas zusätzlich.</p><div class="formula"><span class="thai">เอาหมูปิ้งสองไม้ครับ</span><br>Ich nehme zwei Schweinespieße.</div><p class="ex"><span class="thai th-mid">ขอข้าวเหนียวอีกหนึ่งถุงค่ะ</span><br>Ich hätte gern noch eine Tüte Klebreis.</p><p>Mit <span class="thai">ครับ</span> oder <span class="thai">ค่ะ</span> klingt die Bestellung höflich. Beides sind übliche Höflichkeitspartikeln; verwenden Sie die Form, die zu Ihrer Sprechweise passt.</p></div>
+    <div class="grammar"><div class="gh">G3 · Frisch, noch vorhanden oder schon ausverkauft</div><table><thead><tr><th>Muster</th><th>Beispiel</th><th>Deutsch</th></tr></thead><tbody>
+      <tr><td class="thai">เพิ่ง + Verb</td><td class="thai">ไก่เพิ่งทอด</td><td>Das Hähnchen wurde gerade erst frittiert.</td></tr>
+      <tr><td class="thai">ยัง + มี + ไหม</td><td class="thai">ไส้งาดำยังมีไหมครับ</td><td>Gibt es noch die Sesamfüllung?</td></tr>
+      <tr><td class="thai">หมด + แล้ว</td><td class="thai">ไส้งาดำหมดแล้วค่ะ</td><td>Die Sesamfüllung ist schon ausverkauft.</td></tr>
+    </tbody></table><p class="ex"><span class="thai th-mid">ขอสั่งไว้ก่อน แล้วกลับมารับได้ไหมครับ</span><br>Kann ich vorbestellen und später zurückkommen, um es abzuholen?</p></div>
+    <div class="tip"><strong>Bestellwunsch:</strong> <span class="thai">หวานน้อย</span> bedeutet weniger süß, <span class="thai">ไม่หวาน</span> ungesüßt. <span class="thai">ผสมกันได้ไหม</span> fragt, ob verschiedene Sorten in einer Portion gemischt werden können.</div>
+  </div>
+
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lesetext A</span> Frühstück kaufen · ซื้ออาหารเช้า</h3>
+    <p class="section-sub">Gekürztes, korrigiertes Lern-Thai aus Session 1.</p>
+    <div class="role-tools" id="w13-s1-role-tools"><div class="role-filter-head"><strong>Worttyp und Satzfunktion filtern</strong><button class="role-clear" type="button" onclick="clearWordRoles('w13-s1-role-reader','w13-s1-role-tools')">× Markierungen aus</button></div><div class="role-filter-options"></div></div>
+    <div class="reading role-reader" id="w13-s1-role-reader">
+      <p class="thai"><span class="word-role role-context" data-word-type="context">ตอนเช้า</span> <span class="word-role role-subject" data-word-type="name">นัท</span> <span class="word-role role-verb" data-word-type="verb">ไป</span> <span class="word-role role-object" data-word-type="name">ตลาดตรอกหม้อ</span> <span class="word-role role-context" data-word-type="context">ใกล้เสาชิงช้า</span> <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="verb">ถาม</span> <span class="word-role role-object" data-word-type="noun">แม่ค้า</span> <span class="word-role" data-word-type="particle">ว่า</span> “<span class="word-role" data-word-type="expression">ขายอะไรบ้าง</span><span class="word-role" data-word-type="particle">ครับ</span>”
+      <span class="word-role role-subject" data-word-type="noun">แม่ค้า</span> <span class="word-role role-verb" data-word-type="verb">ขาย</span> <span class="word-role role-object" data-word-type="noun">หมูปิ้ง</span> <span class="word-role role-connector" data-word-type="connector">และ</span> <span class="word-role role-object" data-word-type="noun">ไก่ปิ้ง</span> <span class="word-role role-subject" data-word-type="noun">นัท</span> <span class="word-role role-verb" data-word-type="verb">สั่ง</span> <span class="word-role role-object" data-word-type="noun">หมูปิ้งหนึ่งไม้</span> <span class="word-role role-connector" data-word-type="connector">กับ</span> <span class="word-role role-object" data-word-type="noun">ข้าวเหนียว</span>
+      <span class="word-role role-subject" data-word-type="noun">หมูปิ้ง</span> <span class="word-role role-adjective" data-word-type="adjective">ร้อนและหอม</span> <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="phrase">ซื้อเพิ่ม</span> <span class="word-role role-object" data-word-type="noun">อีกหนึ่งไม้</span>
+      <span class="word-role role-connector" data-word-type="connector">ต่อมา</span> <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="verb">ซื้อ</span> <span class="word-role role-object" data-word-type="noun">ทอดมัน</span> <span class="word-role role-adjective" data-word-type="expression">ถุงละห้าสิบบาท</span>
+      <span class="word-role role-subject" data-word-type="noun">แม่ค้า</span> <span class="word-role role-verb" data-word-type="verb">ทำ</span> <span class="word-role role-object" data-word-type="noun">ทอดมัน</span> <span class="word-role" data-word-type="particle">เอง</span>
+      <span class="word-role role-context" data-word-type="context">ที่ร้านกาแฟ</span> <span class="word-role role-subject" data-word-type="noun">นัท</span> <span class="word-role role-verb" data-word-type="verb">สั่ง</span> <span class="word-role role-object" data-word-type="noun">อเมริกาโนเย็น</span> <span class="word-role role-adjective" data-word-type="adjective">ไม่หวาน</span>
+      <span class="word-role role-subject" data-word-type="noun">กาแฟ</span> <span class="word-role role-adjective" data-word-type="expression">แก้วละหกสิบบาท</span></p>
+      <p class="de">Morgens geht Nat zum Markt Trok Mor nahe der Großen Schaukel. Er fragt eine Verkäuferin, was sie verkauft, und bestellt einen Schweinespieß mit Klebreis. Der Spieß ist heiß und aromatisch; er kauft noch einen. Danach kauft er eine Tüte hausgemachte Fischküchlein für 50 Baht. Im Café bestellt er einen ungesüßten Iced Americano für 60 Baht.</p>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <h3 class="h-card blue"><span class="pill">Lesetext B</span> Süßspeisen auswählen · เลือกขนม</h3>
+    <p class="section-sub">Gekürztes, korrigiertes Lern-Thai aus Session 2.</p>
+    <div class="role-tools" id="w13-s2-role-tools"><div class="role-filter-head"><strong>Worttyp und Satzfunktion filtern</strong><button class="role-clear" type="button" onclick="clearWordRoles('w13-s2-role-reader','w13-s2-role-tools')">× Markierungen aus</button></div><div class="role-filter-options"></div></div>
+    <div class="reading role-reader" id="w13-s2-role-reader">
+      <p class="thai"><span class="word-role role-subject" data-word-type="name">นัท</span> <span class="word-role role-verb" data-word-type="verb">ซื้อ</span> <span class="word-role role-object" data-word-type="noun">ขนมต้ม</span> <span class="word-role role-connector" data-word-type="connector">กับ</span> <span class="word-role role-object" data-word-type="noun">ขนมมัน</span>
+      <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="verb">ขอ</span> <span class="word-role role-object" data-word-type="noun">ขนมผสมกัน</span> <span class="word-role role-adjective" data-word-type="expression">ยี่สิบบาท</span>
+      <span class="word-role role-subject" data-word-type="noun">แม่ค้า</span> <span class="word-role role-verb" data-word-type="verb">ให้</span> <span class="word-role role-object" data-word-type="noun">ขนมห้าลูก</span>
+      <span class="word-role role-context" data-word-type="context">ที่ร้านขนมเปี๊ยะ</span> <span class="word-role role-subject" data-word-type="noun">ไส้งาดำ</span> <span class="word-role role-verb" data-word-type="verb">หมด</span><span class="word-role" data-word-type="particle">แล้ว</span>
+      <span class="word-role role-subject" data-word-type="noun">นัท</span> <span class="word-role role-verb" data-word-type="phrase">สั่งไว้</span> <span class="word-role role-object" data-word-type="noun">หนึ่งกล่อง</span> <span class="word-role role-connector" data-word-type="connector">แล้ว</span> <span class="word-role role-verb" data-word-type="phrase">กลับมารับ</span> <span class="word-role role-context" data-word-type="context">หลังจากครึ่งชั่วโมง</span>
+      <span class="word-role role-context" data-word-type="context">ระหว่างรอ</span> <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="verb">ซื้อ</span> <span class="word-role role-object" data-word-type="noun">ไก่ทอด</span> <span class="word-role role-adjective" data-word-type="expression">ชิ้นละยี่สิบห้าบาท</span>
+      <span class="word-role role-subject" data-word-type="noun">ไก่</span> <span class="word-role" data-word-type="particle">เพิ่ง</span><span class="word-role role-verb" data-word-type="verb">ทอด</span>
+      <span class="word-role role-subject" data-word-type="noun">หนัง</span> <span class="word-role role-adjective" data-word-type="adjective">กรอบ</span>
+      <span class="word-role role-subject" data-word-type="noun">นัท</span> <span class="word-role role-verb" data-word-type="verb">สั่ง</span> <span class="word-role role-object" data-word-type="noun">ชาไทย</span> <span class="word-role role-adjective" data-word-type="adjective">หวานน้อย</span>
+      <span class="word-role role-context" data-word-type="context">ตอนกลับมารับขนม</span> <span class="word-role role-subject" data-word-type="noun">เขา</span> <span class="word-role role-verb" data-word-type="verb">จ่าย</span> <span class="word-role role-object" data-word-type="noun">หนึ่งร้อยบาท</span></p>
+      <p class="de">Nat kauft eine gemischte Portion Khanom Tom und Khanom Man für 20 Baht und erhält fünf Stücke. Am Gebäckstand ist die Sesamfüllung schon ausverkauft. Er bestellt eine Schachtel vor und kommt nach einer halben Stunde zurück. Währenddessen kauft er frisch frittiertes Hähnchen für 25 Baht pro Stück und bestellt Thai-Tee mit wenig Zucker. Beim Abholen des Gebäcks bezahlt er 100 Baht.</p>
+    </div>
+    <p class="source-note">Die Lesetexte und Übungsdialoge sind an den bereitgestellten automatischen Untertiteln orientiert und für A2.2 vereinfacht. Übliche Einkaufsphrasen ergänzen die Sprache des Videos.</p>
+    <div class="exercise" id="w13-role-quiz"><span class="num">3</span><h4>Wortfunktionen · หน้าที่ของคำ</h4><p class="task">Der gelb hervorgehobene Ausdruck ist das Ziel. Der zugehörige Satz steht jeweils darunter.</p>
+      <div class="w6-mc" data-answer="a"><p><strong>1.</strong> <span class="thai">แม่ค้า</span><br>Im Satz: แม่ค้าขายหมูปิ้งและไก่ปิ้ง</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Ort</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>2.</strong> <span class="thai">ซื้อเพิ่ม</span><br>Im Satz: เขาซื้อเพิ่มอีกหนึ่งไม้</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat · Verbgruppe</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>3.</strong> <span class="thai">ข้าวเหนียว</span><br>Im Satz: นัทสั่งหมูปิ้งหนึ่งไม้กับข้าวเหนียว</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Zeit</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Teil des Objekts</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>4.</strong> <span class="thai">ที่ร้านกาแฟ</span><br>Im Satz: ที่ร้านกาแฟ นัทสั่งอเมริกาโนเย็นไม่หวาน</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Prädikat</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Ortsangabe</button></div></div>
+      <div class="w6-mc" data-answer="b"><p><strong>5.</strong> <span class="thai">หวานน้อย</span><br>Im Satz: นัทสั่งชาไทยหวานน้อย</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung · Bestellwunsch</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Ortsangabe</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Konnektor</button></div></div>
+      <div class="w6-mc" data-answer="c"><p><strong>6.</strong> <span class="thai">แล้ว</span><br>Im Satz: นัทสั่งไว้หนึ่งกล่อง แล้วกลับมารับหลังจากครึ่งชั่วโมง</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Subjekt</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Verknüpfung · danach</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Beschreibung</button></div></div>
+      <div class="w6-mc" data-answer="a"><p><strong>7.</strong> <span class="thai">เพิ่ง</span><br>Im Satz: ไก่เพิ่งทอด</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Partikel · gerade erst</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Eigenname</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Nomen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Objekt</button></div></div>
+      <div class="w6-mc" data-answer="d"><p><strong>8.</strong> <span class="thai">ขายอะไรบ้าง</span><br>In der Frage: ขายอะไรบ้างครับ</p><div class="w6-options"><button class="w6-option" data-choice="a" onclick="w6PickChoice(this)"><span class="mark"></span>Eigenname</button><button class="w6-option" data-choice="b" onclick="w6PickChoice(this)"><span class="mark"></span>Ortsangabe</button><button class="w6-option" data-choice="c" onclick="w6PickChoice(this)"><span class="mark"></span>Nomen</button><button class="w6-option" data-choice="d" onclick="w6PickChoice(this)"><span class="mark"></span>Redemittel · Einkaufsfrage</button></div></div>
+      <button class="w6-check-pill" type="button" onclick="w13CheckRoleQuiz()">✓ Wortfunktionen prüfen</button><div id="w13-role-result" class="w6-result"></div>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <h3 class="h-card amber"><span class="pill">Lektion 3</span> Am Marktstand · ซื้อของหน้าร้าน</h3>
+    <div class="exercise"><span class="num">4</span><h4>Bestellungen bauen</h4><p class="task">Ordnen Sie die Wörter zu einer Einkaufsfrage oder Bestellung.</p>
+      <div class="w6-build-set" id="w13-build-shopping">
+        <div class="w6-build" data-answer="เอา หมูปิ้ง สอง ไม้ ครับ"><div class="task">1. Ich nehme zwei Schweinespieße.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">สอง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หมูปิ้ง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไม้</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เอา</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ทอดมัน ถุง ละ เท่าไหร่ คะ"><div class="task">2. Wie viel kostet eine Tüte Fischküchlein?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ละ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทอดมัน</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">คะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เท่าไหร่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถุง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ขอ ชาไทย หวานน้อย หนึ่ง แก้ว ครับ"><div class="task">3. Einen Becher Thai-Tee mit wenig Zucker, bitte.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หนึ่ง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หวานน้อย</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ขอ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">แก้ว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ชาไทย</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ขอ ข้าวเหนียว อีก หนึ่ง ถุง ค่ะ"><div class="task">4. Noch eine Tüte Klebreis, bitte.</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">อีก</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ถุง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ข้าวเหนียว</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ค่ะ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ขอ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">หนึ่ง</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ไส้งาดำ ยัง มี ไหม ครับ"><div class="task">5. Gibt es noch Sesamfüllung?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">มี</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไส้งาดำ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ยัง</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ไหม</button></div><div class="w6-feedback"></div></div>
+        <div class="w6-build" data-answer="ทั้งหมด เท่าไหร่ ครับ"><div class="task">6. Wie viel kostet alles zusammen?</div><div class="w6-answer"></div><div class="w6-bank"><button class="w6-tile" type="button" onclick="w6MoveTile(this)">เท่าไหร่</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ครับ</button><button class="w6-tile" type="button" onclick="w6MoveTile(this)">ทั้งหมด</button></div><div class="w6-feedback"></div></div>
+      </div><button class="w6-check-pill" type="button" onclick="w6CheckBuildSet('w13-build-shopping')">✓ Bestellungen prüfen</button>
+    </div>
+    <div class="exercise"><span class="num">5</span><h4>Ihre Einkaufsnotiz</h4><p class="task">Schreiben Sie drei Bestellungen: ein herzhaftes Gericht, eine Süßspeise und ein Getränk. Nennen Sie jeweils Menge und Zähleinheit. Ergänzen Sie einen Bestellwunsch und eine Frage zum Bezahlen.</p><textarea class="w6-thai-input thai" rows="6" placeholder="เอา... ขอ... ทั้งหมดเท่าไหร่..." onfocus="w6SetField(this,'w13')"></textarea></div>
+    <div class="exercise"><span class="num">6</span><h4>Marktgespräch · Rollenspiel</h4><p class="task">Wählen Sie andere Lebensmittel aus dem Wortschatz und tauschen Sie die Rollen. Die folgenden Preise und Antworten sind Übungsbeispiele.</p><div class="speak-grid">
+      <div class="speak-card"><div class="role">Kunde · ลูกค้า</div><p class="line"><span class="thai th-mid">สวัสดีครับ ขายอะไรบ้างครับ</span><br>Guten Tag. Was verkaufen Sie?</p><p class="line"><span class="thai th-mid">ทอดมันถุงละเท่าไหร่ครับ</span><br>Wie viel kostet eine Tüte Fischküchlein?</p><p class="line"><span class="thai th-mid">เอาหนึ่งถุงครับ แล้วขอชาไทยหวานน้อยหนึ่งแก้ว</span><br>Eine Tüte und einen Becher Thai-Tee mit wenig Zucker, bitte.</p><p class="line"><span class="thai th-mid">ทั้งหมดเท่าไหร่ครับ มีสแกนไหมครับ</span><br>Wie viel kostet alles? Kann ich per QR-Code bezahlen?</p></div>
+      <div class="speak-card green"><div class="role">Verkäuferin · แม่ค้า</div><p class="line"><span class="thai th-mid">มีทอดมันกับไก่ทอดค่ะ</span><br>Wir haben Fischküchlein und frittiertes Hähnchen.</p><p class="line"><span class="thai th-mid">ถุงละห้าสิบบาทค่ะ</span><br>50 Baht pro Tüte.</p><p class="line"><span class="thai th-mid">ได้ค่ะ ชาไทยแก้วละยี่สิบห้าบาท</span><br>Gern. Der Thai-Tee kostet 25 Baht pro Becher.</p><p class="line"><span class="thai th-mid">ทั้งหมดเจ็ดสิบห้าบาทค่ะ สแกนได้ค่ะ</span><br>Zusammen 75 Baht. QR-Zahlung ist möglich.</p></div>
+    </div></div>
+    <div id="w13Keyboard" class="w6-keyboard hidden"><div class="w6-kbhead"><span class="w6-kbtitle">แป้นพิมพ์ไทย · Thai-Tastatur für Woche 13</span><button class="w6-key fn" type="button" onclick="w6HideKeyboard()">ausblenden</button></div><div id="w13Keys"></div></div>
+  </div>
+
+  <div class="card green">
+    <h3 class="h-card"><span class="pill">Einkaufshelfer</span> Fünf Schritte am Marktstand</h3>
+    <table class="plan-table"><thead><tr><th>Schritt</th><th>Thai</th><th>Deutsch</th></tr></thead><tbody>
+      <tr><td class="day">Angebot</td><td class="thai">ขายอะไรบ้างครับ/คะ</td><td>Was verkaufen Sie?</td></tr>
+      <tr><td class="day">Preis</td><td class="thai">ถุงละเท่าไหร่ครับ/คะ</td><td>Wie viel kostet eine Tüte?</td></tr>
+      <tr><td class="day">Bestellung</td><td class="thai">เอาหนึ่งถุงครับ/ค่ะ</td><td>Eine Tüte, bitte.</td></tr>
+      <tr><td class="day">Wunsch</td><td class="thai">ขอหวานน้อยครับ/ค่ะ</td><td>Mit wenig Zucker, bitte.</td></tr>
+      <tr><td class="day">Bezahlen</td><td class="thai">ทั้งหมดเท่าไหร่ มีสแกนไหมครับ/คะ</td><td>Wie viel insgesamt? Ist QR-Zahlung möglich?</td></tr>
+    </tbody></table>
+  </div>
+  <div class="answer-key"><h2>📋 Antwortschlüssel · เฉลย</h2>
+    <div class="ak-block"><h4>Session 1</h4><ol><li>b – Schweinespieß und Klebreis</li><li>c – 50 Baht</li><li>a – selbst kneten und schneiden</li><li>d – 25 Baht</li><li>b – eisgekühlt und ungesüßt</li><li>c – 60 Baht</li></ol></div>
+    <div class="ak-block"><h4>Session 2</h4><ol><li>a – Khanom Tom und Khanom Man</li><li>d – fünf Stücke insgesamt</li><li>b – eine halbe Stunde</li><li>c – 25 Baht</li><li>a – weniger süß</li><li>d – 100 Baht</li></ol></div>
+    <div class="ak-block"><h4>Wortfunktionen</h4><ol><li>a – Subjekt</li><li>b – Prädikat, Verbgruppe</li><li>c – Teil des Objekts</li><li>d – Ortsangabe</li><li>b – Beschreibung, Bestellwunsch</li><li>c – Verknüpfung</li><li>a – Partikel</li><li>d – Redemittel</li></ol></div>
+    <div class="ak-block"><h4>Bestellungen bauen</h4><ol><li>เอาหมูปิ้งสองไม้ครับ</li><li>ทอดมันถุงละเท่าไหร่คะ</li><li>ขอชาไทยหวานน้อยหนึ่งแก้วครับ</li><li>ขอข้าวเหนียวอีกหนึ่งถุงค่ะ</li><li>ไส้งาดำยังมีไหมครับ</li><li>ทั้งหมดเท่าไหร่ครับ</li></ol></div>
+    <div class="ak-block"><h4>Einkaufsnotiz · Muster</h4><p class="thai" style="font-size:14px;">เอาหมูปิ้งสองไม้กับข้าวเหนียวหนึ่งถุงครับ ขอขนมเปี๊ยะไส้งาดำหนึ่งกล่องด้วยครับ แล้วขอชาไทยหวานน้อยหนึ่งแก้ว ทั้งหมดเท่าไหร่ครับ มีสแกนไหมครับ ขอบคุณครับ</p><p class="de">Zwei Schweinespieße und eine Tüte Klebreis, bitte. Dazu eine Schachtel Sesamgebäck und einen Becher Thai-Tee mit wenig Zucker. Wie viel kostet alles? Kann ich per QR-Code bezahlen? Vielen Dank.</p></div>
+  </div>
+</section>
+
+<section id="alphabet" class="page script-room">
+  <header class="script-heading">
+    <span class="script-eyebrow">Speziallektion · พื้นฐานภาษาไทย</span>
+    <h1>Thai-Schrift lernen</h1>
+    <p class="thai">พยัญชนะ สระ และการอ่าน</p>
+    <div class="script-summary"><span><strong>44</strong> Konsonanten</span><span><strong>32</strong> traditionelle Vokalformen</span><span id="script-progress">0 / 76 vertraut</span></div>
+  </header>
+  <div class="script-tabs" role="tablist" aria-label="Thai-Schrift Lernbereiche">
+    <button id="script-tab-consonants" role="tab" aria-selected="true" aria-controls="script-pane-consonants" data-script-tab="consonants">Konsonanten</button>
+    <button id="script-tab-vowels" role="tab" aria-selected="false" aria-controls="script-pane-vowels" data-script-tab="vowels" tabindex="-1">Vokale</button>
+    <button id="script-tab-syllables" role="tab" aria-selected="false" aria-controls="script-pane-syllables" data-script-tab="syllables" tabindex="-1">Silben &amp; Töne</button>
+    <button id="script-tab-practice" role="tab" aria-selected="false" aria-controls="script-pane-practice" data-script-tab="practice" tabindex="-1">Üben &amp; Schreiben</button>
+  </div>
+
+  <div id="script-pane-consonants" role="tabpanel" aria-labelledby="script-tab-consonants">
+    <div class="script-lesson-intro"><h2>พยัญชนะ · Konsonanten</h2><p>Der Buchstabenname verbindet den Laut mit einem Merkwort: <strong class="thai">กอ ไก่</strong> heißt „ko kai“, mit <strong class="thai">ไก่</strong> (Huhn). Im Wort steht <strong class="thai">ก</strong> für /k/, nicht für die ganze Silbe „ko“. Die Buchstabenklasse beeinflusst den Ton; sie ist nicht selbst der Ton.</p></div>
+    <div class="script-toolbar">
+      <label class="script-search">Suchen<input id="script-consonant-search" type="search" placeholder="ก, Huhn, /k/ …"></label>
+      <label>Klasse<select id="script-consonant-filter"><option value="all">Alle Klassen · 44</option><option value="mid">Mittel · 9</option><option value="high">Hoch · 11</option><option value="low">Tief · 24</option></select></label>
+      <label class="script-check"><input id="script-consonant-review" type="checkbox">Noch nicht vertraut</label>
+      <span class="script-count" id="script-consonant-count"></span>
+    </div>
+    <div id="script-consonant-grid" class="script-grid" aria-label="Konsonanten-Bildkarten"></div>
+    <div class="script-pagination"><button class="script-icon" id="script-consonant-prev" type="button" aria-label="Vorherige Konsonantenseite" title="Vorherige Seite"><i data-lucide="chevron-left"></i></button><span id="script-consonant-page"></span><button class="script-icon" id="script-consonant-next" type="button" aria-label="Nächste Konsonantenseite" title="Nächste Seite"><i data-lucide="chevron-right"></i></button></div>
+    <div class="script-reference">
+      <h3>Drei Klassen · อักษรสามหมู่</h3>
+      <div class="script-class-lines"><p><span class="script-class mid">Mittel · 9</span> <span class="thai">ก จ ฎ ฏ ด ต บ ป อ</span></p><p><span class="script-class high">Hoch · 11</span> <span class="thai">ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห</span></p><p><span class="script-class low">Tief · 24</span> <span class="thai">ค ฅ ฆ ง ช ซ ฌ ญ ฑ ฒ ณ ท ธ น พ ฟ ภ ม ย ร ล ว ฬ ฮ</span></p></div>
+      <p><strong class="thai">ฃ</strong> und <strong class="thai">ฅ</strong> gehören zum Alphabet, werden in der heutigen Standardschreibung aber nicht mehr verwendet. Nicht alle Buchstaben mit gleichem Anfangslaut haben dieselbe Klasse: <span class="thai">ข</span> und <span class="thai">ค</span> sind beide /kʰ/, aber hoch bzw. tief.</p>
+      <h3>Luftstoß oder kein Luftstoß?</h3>
+      <div class="script-scroll"><table><thead><tr><th>Ohne Luftstoß</th><th>Mit Luftstoß</th><th>Stimmhaft</th></tr></thead><tbody><tr><td><span class="thai">ก</span> /k/</td><td><span class="thai">ข ค</span> /kʰ/</td><td>—</td></tr><tr><td><span class="thai">ต</span> /t/</td><td><span class="thai">ถ ท</span> /tʰ/</td><td><span class="thai">ด</span> /d/</td></tr><tr><td><span class="thai">ป</span> /p/</td><td><span class="thai">ผ พ</span> /pʰ/</td><td><span class="thai">บ</span> /b/</td></tr><tr><td><span class="thai">จ</span> /tɕ/</td><td><span class="thai">ฉ ช</span> /tɕʰ/</td><td>—</td></tr></tbody></table></div>
+      <p>Das kleine <strong>ʰ</strong> bezeichnet einen hörbaren Luftstoß, kein zusätzliches „h“. /ŋ/ ist das „ng“ in „lang“ und kann im Thai auch am Wortanfang stehen. /j/ klingt wie deutsches „j“; /tɕ/ ist der Laut von <span class="thai">จ</span>.</p>
+    </div>
+  </div>
+
+  <div id="script-pane-vowels" role="tabpanel" aria-labelledby="script-tab-vowels" hidden>
+    <div class="script-lesson-intro"><h2>สระ · Vokale</h2><p>Vokalzeichen stehen vor, hinter, über oder unter einem Konsonanten. <strong>Der Strich in einem Muster ist der Platz des Anfangskonsonanten.</strong> <span class="thai">เ-า</span> wird mit <span class="thai">ก</span> zu <span class="thai">เกา</span>. Die traditionelle Übersicht zählt 32 Formen: 18 einfache Vokale, 6 Diphthongformen und 8 Sonderformen. Das sind nicht 32 unabhängige Vokallaute.</p></div>
+    <div class="script-toolbar"><label class="script-search">Suchen<input id="script-vowel-search" type="search" placeholder="อา, lang, Wasser …"></label><label>Gruppe<select id="script-vowel-filter"><option value="all">Alle Formen · 32</option><option value="short">Kurz</option><option value="long">Lang</option><option value="diphthong">Diphthonge</option><option value="special">Sonderformen</option></select></label><label class="script-check"><input id="script-vowel-review" type="checkbox">Noch nicht vertraut</label><span class="script-count" id="script-vowel-count"></span></div>
+    <div id="script-vowel-grid" class="script-grid" aria-label="Vokal-Bildkarten"></div>
+    <div class="script-pagination"><button class="script-icon" id="script-vowel-prev" type="button" aria-label="Vorherige Vokalseite" title="Vorherige Seite"><i data-lucide="chevron-left"></i></button><span id="script-vowel-page"></span><button class="script-icon" id="script-vowel-next" type="button" aria-label="Nächste Vokalseite" title="Nächste Seite"><i data-lucide="chevron-right"></i></button></div>
+    <div class="script-reference"><h3>Kurz und lang: andere Wörter</h3><div id="script-vowel-pairs" class="script-pair-grid"></div><p>Ein kurzer Vokal in einer offenen Silbe endet gewöhnlich mit einem kurzen Kehlverschluss /ʔ/. Ein langer Vokal wird länger gehalten, nicht einfach lauter gesprochen. /ɯ/ ist ein ungerundeter hoher Vokal: Die Lippen bleiben ungerundet. /ɤ/ ist ein zentraler bis hinterer ungerundeter Vokal; das deutsche „er“ ist nur eine Annäherung, ohne hörbares r.</p><h3>Andere Form vor einem Endkonsonanten</h3><div class="script-scroll"><table><thead><tr><th>Offene Form</th><th>Mit Endkonsonant</th><th>Beispiel</th></tr></thead><tbody><tr><td class="thai">-ะ</td><td class="thai">-ั-</td><td><span class="thai">กะ → กัด</span> · kàʔ → kàt</td></tr><tr><td class="thai">เ-ะ</td><td class="thai">เ-็-</td><td><span class="thai">เตะ → เต็ม</span> · tèʔ → tem</td></tr><tr><td class="thai">แ-ะ</td><td class="thai">แ-็-</td><td><span class="thai">แพะ → แข็ง</span> · phɛ́ʔ → khɛ̌ng</td></tr><tr><td class="thai">โ-ะ</td><td>oft ungeschriebenes /o/</td><td><span class="thai">คน</span> · khon</td></tr><tr><td class="thai">-ือ</td><td class="thai">-ื-</td><td><span class="thai">มือ → คืน</span> · mʉʉ → khʉʉn</td></tr><tr><td class="thai">-ัว</td><td class="thai">-ว-</td><td><span class="thai">วัว → สวน</span> · wua → sǔan</td></tr><tr><td class="thai">เ-อ</td><td class="thai">เ-ิ-</td><td><span class="thai">เงิน</span> · ngəən, Ausnahmen z. B. <span class="thai">เคย</span></td></tr></tbody></table></div><p>Das sind häufige Muster, keine vollständige Rechtschreibregel für jedes Wort. Auch Tonzeichen können die geschriebene Form verändern. <span class="thai">ใ-</span> und <span class="thai">ไ-</span> haben denselben Grundlaut /aj/, aber unterschiedliche Schreibungen. Die Länge von <span class="thai">-ำ ใ- ไ- เ-า</span> kann je nach Wort abweichen.</p></div>
+  </div>
+
+  <div id="script-pane-syllables" role="tabpanel" aria-labelledby="script-tab-syllables" hidden>
+    <div class="script-lesson-intro"><h2>Lesen: Laut, Länge, Ende, Ton</h2><p>Eine Silbe verbindet Anfangskonsonant, Vokal, gegebenenfalls Endkonsonant und Ton. In <span class="thai">กิน</span> steht <span class="thai">ิ</span> über <span class="thai">ก</span>; gesprochen wird /k/ + /i/ + /n/. In <span class="thai">เสือ</span> gehört <span class="thai">เ-ือ</span> als Ganzes zum Vokal.</p></div>
+    <h3>Wörter zerlegen · แยกส่วนประกอบ</h3><div id="script-word-buttons" class="script-word-buttons"></div><div id="script-word-anatomy" class="script-anatomy" aria-live="polite"></div>
+    <div class="script-reference"><h3>Acht Endlautgruppen · มาตราตัวสะกด</h3><div class="script-scroll"><table><thead><tr><th>Gruppe</th><th>Endlaut</th><th>Buchstaben</th><th>Beispiel</th></tr></thead><tbody>
+      <tr><td class="thai">แม่กก</td><td>/k̚/</td><td class="thai">ก ข ค ฆ</td><td><span class="thai">นก</span> · nók</td></tr><tr><td class="thai">แม่กด</td><td>/t̚/</td><td class="thai">จ ช ซ ฎ ฏ ฐ ฑ ฒ ด ต ถ ท ธ ศ ษ ส</td><td><span class="thai">บาท</span> · bàat</td></tr><tr><td class="thai">แม่กบ</td><td>/p̚/</td><td class="thai">บ ป พ ฟ ภ</td><td><span class="thai">รูป</span> · rûup</td></tr><tr><td class="thai">แม่กง</td><td>/ŋ/</td><td class="thai">ง</td><td><span class="thai">ลิง</span> · ling</td></tr><tr><td class="thai">แม่กน</td><td>/n/</td><td class="thai">ญ ณ น ร ล ฬ</td><td><span class="thai">อาหาร</span> · aa-hǎan</td></tr><tr><td class="thai">แม่กม</td><td>/m/</td><td class="thai">ม</td><td><span class="thai">นม</span> · nom</td></tr><tr><td class="thai">แม่เกย</td><td>/j/</td><td class="thai">ย</td><td><span class="thai">ขาย</span> · khǎai</td></tr><tr><td class="thai">แม่เกอว</td><td>/w/</td><td class="thai">ว</td><td><span class="thai">ขาว</span> · khǎao</td></tr>
+    </tbody></table></div><p>/k̚ t̚ p̚/ werden am Silbenende ohne hörbare Freigabe gesprochen: kein angehängtes „e“. <span class="thai">ก กา</span> bezeichnet Silben ohne geschriebenen Endkonsonanten. <span class="thai">อ</span> und <span class="thai">ว</span> können Bestandteile eines Vokalmusters sein; nicht jedes Zeichen am rechten Rand ist ein Endkonsonant.</p>
+    <h3>Lebende und tote Silben · คำเป็น / คำตาย</h3><p><strong>Lebend:</strong> lange offene Vokale oder Endlaute /m n ŋ j w/. <strong>Tot:</strong> Endlaute /p t k/ oder kurze offene Vokale mit /ʔ/. Ein kurzer Vokal mit nasalem Ende ist lebend: <span class="thai">กิน</span>. Ein langer Vokal mit /k/ ist tot: <span class="thai">มาก</span>.</p></div>
+    <div class="script-tone-lab"><h3>Tonlabor · ผันวรรณยุกต์</h3><div class="script-toolbar"><label>Anfang<select id="script-tone-initial"><option value="mid">ก · mittel · /k/</option><option value="high">ข · hoch · /kʰ/</option><option value="low">ค · tief · /kʰ/</option></select></label><label>Vokal<select id="script-tone-length"><option value="long">-า · lang /aː/</option><option value="short">-ะ · kurz /a/</option></select></label><label>Ende<select id="script-tone-ending"><option value="open">offen</option><option value="nasal">น · /n/</option><option value="stop">ก · /k̚/</option></select></label><label>Tonzeichen<select id="script-tone-mark"><option value="none">kein Zeichen</option><option value="ek">่ · ไม้เอก</option><option value="tho">้ · ไม้โท</option><option value="tri">๊ · ไม้ตรี</option><option value="chattawa">๋ · ไม้จัตวา</option></select></label></div><div id="script-tone-result" class="script-tone-result" aria-live="polite"></div><p class="script-note">Kontrollierte Übungssilben, nicht immer Wörter. Die Regeln gelten hier für einfache Anfänge ohne führendes ห / อ. ไม้ตรี und ไม้จัตวา werden in der Standardschreibung mit mittleren Konsonanten verwendet.</p></div>
+    <div class="script-reference"><h3>Tonübersicht</h3><div class="script-scroll"><table><thead><tr><th>Klasse</th><th>Ohne Zeichen: lebend</th><th>Ohne Zeichen: tot</th><th>่</th><th>้</th><th>๊</th><th>๋</th></tr></thead><tbody><tr><td>Mittel</td><td>mittel</td><td>tief</td><td>tief</td><td>fallend</td><td>hoch</td><td>steigend</td></tr><tr><td>Hoch</td><td>steigend</td><td>tief</td><td>tief</td><td>fallend</td><td>—</td><td>—</td></tr><tr><td>Tief</td><td>mittel</td><td>kurz: hoch<br>lang: fallend</td><td>fallend</td><td>hoch</td><td>—</td><td>—</td></tr></tbody></table></div><p>Fünf gesprochene Töne, vier geschriebene Tonzeichen. Ein Tonzeichen allein nennt nicht den gesprochenen Ton. Bei <span class="thai">คำ</span> (kham) liegt eine lebende Silbe vor, weil <span class="thai">ำ</span> /am/ enthält.</p>
+    <details><summary>Führende Konsonanten, Cluster und stumme Zeichen</summary><p><strong class="thai">ห นำ:</strong> Vor <span class="thai">ง ญ น ม ย ร ล ว</span> kann ein stummes <span class="thai">ห</span> die Tonregeln der hohen Klasse auslösen: <span class="thai">หมา</span> mǎa, <span class="thai">หนู</span> nǔu.</p><p><strong class="thai">อ นำ:</strong> In <span class="thai">อย่า อยู่ อย่าง อยาก</span> ist <span class="thai">อ</span> stumm, bestimmt aber die mittlere Tonklasse. <span class="thai">อยู่</span> yùu.</p><p><strong>Cluster:</strong> <span class="thai">กร กล กว คร คล คว ปร ปล พร พล ตร</span> sind typische echte Anfangsgruppen. Die erste Konsonantenklasse steuert normalerweise den Ton. Bei unechten Gruppen wie <span class="thai">ทร</span> gelten wortabhängige Regeln: <span class="thai">ทราย</span> saai.</p><p><strong>Stumm:</strong> <span class="thai">์</span> (ทัณฑฆาต) kennzeichnet stumme Buchstaben oder eine stumme Gruppe: <span class="thai">สัตว์</span> sàt. Ungeschriebene Vokale kommen ebenfalls vor: <span class="thai">คน</span> khon. Mehrsilbige Wörter und Lehnwörter müssen zusätzlich als Wörter gelernt werden.</p></details></div>
+  </div>
+
+  <div id="script-pane-practice" role="tabpanel" aria-labelledby="script-tab-practice" hidden>
+    <div class="script-lesson-intro"><h2>ฝึกอ่านและเขียน · Übungsraum</h2></div>
+    <div class="script-practice-tools"><label>Übung<select id="script-quiz-mode"><option value="picture">Bild → Konsonant</option><option value="class">Konsonantenklasse</option><option value="final">Anfangs- und Endlaut</option><option value="vowel">Vokalmuster</option><option value="length">Kurz oder lang?</option><option value="mixed">Gemischte Wiederholung</option></select></label><label class="script-check"><input id="script-quiz-review" type="checkbox">Nur Fehler wiederholen</label><button id="script-quiz-start" class="script-command" type="button"><i data-lucide="play"></i>10 Fragen starten</button><span id="script-quiz-history" class="script-note"></span></div>
+    <div id="script-quiz" class="script-quiz" aria-live="polite"><p>Welche Konsonanten gehören zur hohen Klasse? Wie unterscheiden sich <span class="thai">-ิ</span> und <span class="thai">-ี</span>? Welchen Endlaut hat <span class="thai">ร</span>?</p></div>
+    <div class="script-writing"><h3>Schreibpraxis · ฝึกเขียน</h3><div class="script-toolbar"><label>Vorlage<select id="script-write-letter"></select></label><label class="script-check"><input id="script-write-guide" type="checkbox" checked>Vorlage sichtbar</label><label>Stiftstärke<input id="script-write-size" type="range" min="2" max="14" value="5"></label><button class="script-icon" id="script-write-undo" type="button" aria-label="Letzten Strich zurücknehmen" title="Letzten Strich zurücknehmen"><i data-lucide="undo-2"></i></button><button class="script-icon" id="script-write-clear" type="button" aria-label="Schreibfläche leeren" title="Schreibfläche leeren"><i data-lucide="eraser"></i></button><button class="script-icon" id="script-write-download" type="button" aria-label="Schreibübung als Bild herunterladen" title="Schreibübung herunterladen"><i data-lucide="download"></i></button></div><div class="script-canvas-wrap"><canvas id="script-writing-canvas" width="960" height="480" aria-label="Schreibfläche für Thai-Zeichen"></canvas></div><p class="script-note">Formvergleich, keine automatische Handschriftbewertung. Die graue Vorlage ist ein Druckschriftmodell und keine Strichfolge.</p><div class="script-copy"><label>Thai schreiben<input id="script-copy-input" type="text" lang="th" autocomplete="off" spellcheck="false"></label><button id="script-copy-check" class="script-command" type="button"><i data-lucide="check"></i>Prüfen</button><span id="script-copy-feedback" role="status"></span></div><div id="script-copy-keys" class="script-copy-keys" aria-label="Zeichen für die Schreibvorlage"></div></div>
+    <div class="script-reference"><h3>Eine Lernwoche für die Schrift</h3><table class="plan-table"><thead><tr><th>Tag</th><th>Fokus</th><th>Praxis</th></tr></thead><tbody><tr><td>1</td><td class="thai">ก จ ด ต บ ป อ</td><td>Namen, Bilder und Anfangslaute; fünf Zeichen schreiben.</td></tr><tr><td>2</td><td>Kurze und lange einfache Vokale</td><td>Neun Vokalpaare vergleichen; Vokale an Konsonanten setzen.</td></tr><tr><td>3</td><td>Hohe und tiefe Klassen</td><td>Gleiche Laute mit anderer Klasse unterscheiden; Klassenquiz.</td></tr><tr><td>4</td><td>Acht Endlautgruppen</td><td>Wörter zerlegen; lebende und tote Silben unterscheiden.</td></tr><tr><td>5</td><td>Diphthonge und Sonderformen</td><td>Vokalpositionen und Schreibänderungen; seltene Formen erkennen.</td></tr><tr><td>6</td><td>Fünf Töne</td><td>Im Tonlabor Anfangsklasse, Ende und Länge vergleichen.</td></tr><tr><td>7</td><td>Wiederholung</td><td>Gemischtes Quiz, Fehler wiederholen und kurze Wörter schreiben.</td></tr></tbody></table></div>
+  </div>
+
+  <div class="script-sources"><details><summary>Quellen und Aussprache</summary><p>Standard-Thai; IPA in Schrägstrichen, daneben eine Lernumschrift. Bildnamen sind traditionelle Merkwörter. Konsonanten und grundlegende Lautregeln: <a href="https://seasite.niu.edu/Thai/basic/alpha_cons_table.htm" target="_blank" rel="noopener">Northern Illinois University · Thai consonants</a>. Vokallänge und Lautbildung: <a href="https://seasite.niu.edu/thai/spokenthai/unit1/Hint/Default.htm" target="_blank" rel="noopener">NIU · pronunciation</a>, <a href="https://seasite.niu.edu/Thai/spokenthai/unit2/hints.htm" target="_blank" rel="noopener">NIU · additional vowels</a>. Tonregeln: <a href="https://seasite.niu.edu/thai/selfassessment/module1/tone_chart.htm" target="_blank" rel="noopener">NIU · tone chart</a>. Endkonsonanten: <a href="https://dltv.ac.th/teachplan/episode/84973" target="_blank" rel="noopener">DLTV · แม่กบ</a>. Lautsystem: <a href="https://www.thai-language.com/resources/slayden-thai-phonology.pdf" target="_blank" rel="noopener">Central Thai Phonology</a>.</p><p>Audio ist synthetische Thai-Sprachausgabe des Geräts, keine Aufnahme eines Muttersprachlers. Seltene historische Formen werden nicht als gewöhnliche Alltagswörter vorgelesen. Die Bilder wurden für diese Lektion erzeugt.</p></details><p id="script-status" role="status"></p></div>
+  <dialog id="script-letter-dialog" class="script-dialog" aria-labelledby="script-detail-title"><div class="script-dialog-top"><button class="script-icon" id="script-detail-prev" type="button" aria-label="Vorheriges Zeichen" title="Vorheriges Zeichen"><i data-lucide="chevron-left"></i></button><button class="script-icon" id="script-detail-next" type="button" aria-label="Nächstes Zeichen" title="Nächstes Zeichen"><i data-lucide="chevron-right"></i></button><button class="script-icon" id="script-detail-close" type="button" aria-label="Details schließen" title="Schließen"><i data-lucide="x"></i></button></div><div id="script-detail-content"></div></dialog>
+</section>
+
 <footer class="foot">
   Thai mit Mac · A2.1 / A2.2 Lernportal — für deutschsprachige Anfänger · 2026<br>
   Drücken Sie ⌘ Cmd + P für eine PDF-Version mit „Thai mit Mac"-Kopfzeile auf jeder Seite
@@ -6300,7 +6641,8 @@ function enhanceReadingAnalysis() {
     reader.querySelectorAll('.word-role').forEach(span => {
       const text = span.textContent.trim();
       let type = 'type-noun';
-      if (names.has(text)) type = 'type-name';
+      if (span.dataset.wordType) type = `type-${span.dataset.wordType}`;
+      else if (names.has(text)) type = 'type-name';
       else if (particles.has(text)) type = 'type-particle';
       else if (expressions.has(text)) type = 'type-expression';
       else if (span.classList.contains('role-verb')) type = verbPhrases.has(text) ? 'type-phrase' : 'type-verb';
@@ -6527,6 +6869,7 @@ function w10CheckRoleQuiz() {
 
 function w11CheckRoleQuiz() { checkRoleQuiz(11); }
 function w12CheckRoleQuiz() { checkRoleQuiz(12); }
+function w13CheckRoleQuiz() { checkRoleQuiz(13); }
 
 function w6MoveTile(tile) {
   const build = tile.closest('.w6-build');
@@ -6595,7 +6938,7 @@ function w6SetField(field, week = 'w6') {
 }
 
 function w6HideKeyboard() {
-  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard', 'w11Keyboard', 'w12Keyboard'].forEach(id => {
+  ['w6Keyboard', 'w7Keyboard', 'w8Keyboard', 'w9Keyboard', 'w10Keyboard', 'w11Keyboard', 'w12Keyboard', 'w13Keyboard'].forEach(id => {
     const keyboard = document.getElementById(id);
     if (keyboard) keyboard.classList.add('hidden');
   });
@@ -6664,7 +7007,7 @@ function showTab(name) {
   if (sec) sec.classList.add('active');
   let navName = name;
   if (['woche1', 'woche2', 'woche3', 'woche4', 'woche5'].includes(name)) navName = 'a21';
-  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10', 'woche11', 'woche12'].includes(name)) navName = 'a22';
+  if (['woche6', 'woche7', 'woche8', 'woche9', 'woche10', 'woche11', 'woche12', 'woche13'].includes(name)) navName = 'a22';
   const btn = document.querySelector('nav.tabs button[data-tab="' + navName + '"]');
   if (btn) btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -6689,6 +7032,9 @@ function printAll() {
   }, 50);
 }
 </script>
+
+<script src="assets/vendor/lucide.min.js"></script>
+<script src="alphabet.js"></script>
 
 </body>
 </html>
