@@ -2,7 +2,27 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const {consonants,vowels,words,toneFor,composeSyllable} = require('../alphabet.js');
+const {consonants,vowels,words,toneFor,composeSyllable,writingGuide,icon} = require('../alphabet.js');
+
+test('controls contain visible Lucide paths without an external icon runtime',()=>{
+  for(const name of ['chevron-left','chevron-right','check','play','undo-2','eraser','download','arrow-right','rotate-ccw','volume-2','pen-line','bookmark','delete','x']){
+    const markup=icon(name);
+    assert(markup.includes('<path d="'));
+    assert(markup.includes('stroke="currentColor"'));
+    assert(markup.includes('viewBox="0 0 24 24"'));
+    assert(!markup.includes('<i '));
+  }
+});
+test('writing directions cover all consonants and 28 standard vowel forms',()=>{
+  for(const c of consonants)assert(writingGuide(c).source.endsWith(`c${c.id.slice(1).padStart(2,'0')}_details.htm`));
+  assert(writingGuide(consonants[2]).image.endsWith('/basic/aac03.gif'));
+  assert(writingGuide(consonants[4]).image.endsWith('/basic/acc05.gif'));
+  assert(writingGuide(consonants[13]).image.endsWith('/basic/aac0141.gif'));
+  for(const v of vowels.slice(0,28))assert(writingGuide(v).source.startsWith('https://seasite.niu.edu/Thai/basic/vw'));
+  assert(writingGuide(vowels[25]).image.endsWith('vww27.gif'));
+  assert(writingGuide(vowels[26]).image.endsWith('vww26.gif'));
+  for(const v of vowels.slice(28))assert.equal(writingGuide(v),null);
+});
 
 test('complete alphabet data and local images',()=>{
   assert.equal(consonants.length,44);assert.equal(vowels.length,32);

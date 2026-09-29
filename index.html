@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Thai mit Mac · Lernportal A2.1 / A2.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="alphabet.css">
+<link rel="stylesheet" href="alphabet.css?v=20260929-2">
 <!-- Sarabun font: covers both Thai and Latin glyphs; loaded from Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6476,7 +6476,15 @@ ul, ol { padding-left: 22px; }
     <div class="script-lesson-intro"><h2>ฝึกอ่านและเขียน · Übungsraum</h2></div>
     <div class="script-practice-tools"><label>Übung<select id="script-quiz-mode"><option value="picture">Bild → Konsonant</option><option value="class">Konsonantenklasse</option><option value="final">Anfangs- und Endlaut</option><option value="vowel">Vokalmuster</option><option value="length">Kurz oder lang?</option><option value="mixed">Gemischte Wiederholung</option></select></label><label class="script-check"><input id="script-quiz-review" type="checkbox">Nur Fehler wiederholen</label><button id="script-quiz-start" class="script-command" type="button"><i data-lucide="play"></i>10 Fragen starten</button><span id="script-quiz-history" class="script-note"></span></div>
     <div id="script-quiz" class="script-quiz" aria-live="polite"><p>Welche Konsonanten gehören zur hohen Klasse? Wie unterscheiden sich <span class="thai">-ิ</span> und <span class="thai">-ี</span>? Welchen Endlaut hat <span class="thai">ร</span>?</p></div>
-    <div class="script-writing"><h3>Schreibpraxis · ฝึกเขียน</h3><div class="script-toolbar"><label>Vorlage<select id="script-write-letter"></select></label><label class="script-check"><input id="script-write-guide" type="checkbox" checked>Vorlage sichtbar</label><label>Stiftstärke<input id="script-write-size" type="range" min="2" max="14" value="5"></label><button class="script-icon" id="script-write-undo" type="button" aria-label="Letzten Strich zurücknehmen" title="Letzten Strich zurücknehmen"><i data-lucide="undo-2"></i></button><button class="script-icon" id="script-write-clear" type="button" aria-label="Schreibfläche leeren" title="Schreibfläche leeren"><i data-lucide="eraser"></i></button><button class="script-icon" id="script-write-download" type="button" aria-label="Schreibübung als Bild herunterladen" title="Schreibübung herunterladen"><i data-lucide="download"></i></button></div><div class="script-canvas-wrap"><canvas id="script-writing-canvas" width="960" height="480" aria-label="Schreibfläche für Thai-Zeichen"></canvas></div><p class="script-note">Formvergleich, keine automatische Handschriftbewertung. Die graue Vorlage ist ein Druckschriftmodell und keine Strichfolge.</p><div class="script-copy"><label>Thai schreiben<input id="script-copy-input" type="text" lang="th" autocomplete="off" spellcheck="false"></label><button id="script-copy-check" class="script-command" type="button"><i data-lucide="check"></i>Prüfen</button><span id="script-copy-feedback" role="status"></span></div><div id="script-copy-keys" class="script-copy-keys" aria-label="Zeichen für die Schreibvorlage"></div></div>
+    <div class="script-writing">
+      <h3>Schreibpraxis · ฝึกเขียน</h3>
+      <div class="script-toolbar"><label>Vorlage<select id="script-write-letter"></select></label><label class="script-check"><input id="script-write-guide" type="checkbox" checked>Vorlage sichtbar</label><label>Stiftstärke<input id="script-write-size" type="range" min="2" max="14" value="5"></label><button class="script-icon" id="script-write-undo" type="button" aria-label="Letzten Strich zurücknehmen" title="Letzten Strich zurücknehmen"><i data-lucide="undo-2"></i></button><button class="script-icon" id="script-write-clear" type="button" aria-label="Schreibfläche leeren" title="Schreibfläche leeren"><i data-lucide="eraser"></i></button><button class="script-icon" id="script-write-download" type="button" aria-label="Schreibübung als Bild herunterladen" title="Schreibübung herunterladen"><i data-lucide="download"></i></button></div>
+      <div class="script-direction" aria-labelledby="script-direction-title">
+        <div id="script-direction-preview" class="script-direction-preview"></div>
+        <div><h4 id="script-direction-title">Schreibbewegung · ลำดับการเขียน</h4><p id="script-direction-description"></p><p id="script-direction-vowel-note" class="script-note" hidden>Die Vokalvorführung verwendet den Träger อ; die Schreibfläche verwendet bei regulären Vokalmustern ก.</p><div class="script-direction-actions"><button id="script-direction-play" type="button" class="script-command secondary"><i data-lucide="play"></i>Animation ansehen</button><a id="script-direction-source" href="https://seasite.niu.edu/Thai/basic/alpha_cons_table.htm" target="_blank" rel="noopener noreferrer">Quelle: NIU SEASITE</a></div><p id="script-direction-status" class="script-direction-status" role="status"></p></div>
+      </div>
+      <div class="script-canvas-wrap"><canvas id="script-writing-canvas" width="960" height="480" aria-label="Schreibfläche für Thai-Zeichen"></canvas></div><p class="script-note">Formvergleich, keine automatische Handschriftbewertung. Die graue Vorlage ist ein Druckschriftmodell; die Animation zeigt die Schreibbewegung.</p><div class="script-copy"><label>Thai schreiben<input id="script-copy-input" type="text" lang="th" autocomplete="off" spellcheck="false"></label><button id="script-copy-check" class="script-command" type="button"><i data-lucide="check"></i>Prüfen</button><span id="script-copy-feedback" role="status"></span></div><div id="script-copy-keys" class="script-copy-keys" aria-label="Zeichen für die Schreibvorlage"></div>
+    </div>
     <div class="script-reference"><h3>Eine Lernwoche für die Schrift</h3><table class="plan-table"><thead><tr><th>Tag</th><th>Fokus</th><th>Praxis</th></tr></thead><tbody><tr><td>1</td><td class="thai">ก จ ด ต บ ป อ</td><td>Namen, Bilder und Anfangslaute; fünf Zeichen schreiben.</td></tr><tr><td>2</td><td>Kurze und lange einfache Vokale</td><td>Neun Vokalpaare vergleichen; Vokale an Konsonanten setzen.</td></tr><tr><td>3</td><td>Hohe und tiefe Klassen</td><td>Gleiche Laute mit anderer Klasse unterscheiden; Klassenquiz.</td></tr><tr><td>4</td><td>Acht Endlautgruppen</td><td>Wörter zerlegen; lebende und tote Silben unterscheiden.</td></tr><tr><td>5</td><td>Diphthonge und Sonderformen</td><td>Vokalpositionen und Schreibänderungen; seltene Formen erkennen.</td></tr><tr><td>6</td><td>Fünf Töne</td><td>Im Tonlabor Anfangsklasse, Ende und Länge vergleichen.</td></tr><tr><td>7</td><td>Wiederholung</td><td>Gemischtes Quiz, Fehler wiederholen und kurze Wörter schreiben.</td></tr></tbody></table></div>
   </div>
 
@@ -7033,8 +7041,7 @@ function printAll() {
 }
 </script>
 
-<script src="assets/vendor/lucide.min.js"></script>
-<script src="alphabet.js"></script>
+<script src="alphabet.js?v=20260929-2"></script>
 
 </body>
 </html>

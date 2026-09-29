@@ -114,15 +114,47 @@
     const end = {open:'',nasal:'น',stop:'ก'}[ending];
     return length === 'long' ? c + tone + 'า' + end : ending === 'open' ? c + tone + 'ะ' : c + 'ั' + tone + end;
   }
+  // Official Lucide path data; license: assets/vendor/lucide-LICENSE.txt.
+  const iconPaths = {
+    'chevron-left':['m15 18-6-6 6-6'], 'chevron-right':['m9 18 6-6-6-6'],
+    check:['M20 6 9 17l-5-5'], play:['M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z'],
+    'undo-2':['M9 14 4 9l5-5','M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'],
+    eraser:['M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21','m5.082 11.09 8.828 8.828'],
+    download:['M12 15V3','M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4','m7 10 5 5 5-5'],
+    'arrow-right':['M5 12h14','m12 5 7 7-7 7'],
+    'rotate-ccw':['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8','M3 3v5h5'],
+    'volume-2':['M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 0 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z','M16 9a5 5 0 0 1 0 6','M19.364 18.364a9 9 0 0 0 0-12.728'],
+    'pen-line':['M13 21h8','M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z'],
+    bookmark:['M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z'],
+    delete:['M10 5a2 2 0 0 0-1.344.519l-6.328 5.74a1 1 0 0 0 0 1.481l6.328 5.741A2 2 0 0 0 10 19h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z','m12 9 6 6','m18 9-6 6'],
+    x:['M18 6 6 18','m6 6 12 12']
+  };
+  const icon = name => `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide" aria-hidden="true">${(iconPaths[name] || []).map(d=>`<path d="${d}"></path>`).join('')}</svg>`;
+  function writingGuide(letter) {
+    if (!letter) return null;
+    const n=Number(letter.id.slice(1));
+    const base='https://seasite.niu.edu/Thai/';
+    if (letter.kind==='consonant' && n>=1 && n<=44) {
+      const number=String(n).padStart(2,'0');
+      const exceptions={3:'aac03',5:'acc05',11:'aac111',12:'aac121',13:'aac131',14:'aac0141',15:'aac151',16:'aac161',18:'aac181',19:'aac191',20:'aac201'};
+      const path=exceptions[n]?`basic/${exceptions[n]}.gif`:`consonants/animations/aac${number}.gif`;
+      return {image:`${base}${path}`,source:`${base}basic/c${number}_details.htm`};
+    }
+    if (letter.kind==='vowel' && n>=1 && n<=28) {
+      // NIU indexes ไ- before ใ-; our learning grid uses the opposite order.
+      const number=String(n===26?27:n===27?26:n).padStart(2,'0');
+      return {image:`${base}basic/vww${number}.gif`,source:`${base}basic/vw${number}_details.htm`};
+    }
+    return null;
+  }
   if (typeof document === 'undefined') {
-    if (typeof module !== 'undefined') module.exports = { consonants,vowels,words,toneFor,composeSyllable };
+    if (typeof module !== 'undefined') module.exports = { consonants,vowels,words,toneFor,composeSyllable,writingGuide,icon };
     return;
   }
   const $ = id => document.getElementById(id);
   if (!$('alphabet')) return;
   const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const icon = name => `<i data-lucide="${name}"></i>`;
-  const icons = () => window.lucide?.createIcons();
+  const icons = () => document.querySelectorAll('#alphabet i[data-lucide]').forEach(el=>{el.outerHTML=icon(el.dataset.lucide);});
   const validIds = new Set(letters.map(l=>l.id));
   let progress = { learned:[],mistakes:[],lastScore:null };
   try {
@@ -310,6 +342,31 @@
   let strokes=[],activeStroke=null;
   const writingLetter=()=>letters.find(l=>l.id===$('script-write-letter').value)||consonants[0];
   const writingModel=l=>l.kind==='consonant'?l.glyph:l.length==='special'?l.name:l.glyph.replace('-', 'ก');
+  let animationReplay=0;
+  function renderWritingGuide() {
+    const letter=writingLetter(),guide=writingGuide(letter);
+    $('script-direction-title').textContent=`Schreibbewegung · ${letter.kind==='consonant'?letter.glyph:letter.name}`;
+    $('script-direction-preview').innerHTML=`<span class="thai">${letter.kind==='consonant'?letter.glyph:letter.name}</span>`;
+    $('script-direction-play').hidden=!guide;
+    $('script-direction-play').innerHTML=`${icon('play')}Animation ansehen`;
+    $('script-direction-source').href=guide?guide.source:'https://seasite.niu.edu/Thai/basic/Vowels_table.htm';
+    $('script-direction-description').textContent=guide?'Startpunkt, Bewegungsrichtung und Reihenfolge im Schreibbeispiel von NIU SEASITE.': 'Für diese Sonderform bietet NIU keine Schreibanimation an. Die Druckvorlage ist keine Strichfolge.';
+    $('script-direction-status').textContent=guide?'Die Animation benötigt eine Internetverbindung.':'';
+    $('script-direction-vowel-note').hidden=letter.kind!=='vowel'||!guide;
+  }
+  $('script-direction-play').addEventListener('click',()=>{
+    const letter=writingLetter(),guide=writingGuide(letter);
+    if(!guide)return;
+    const image=document.createElement('img');
+    image.alt=`Schreibbewegung für ${letter.kind==='consonant'?letter.glyph:letter.name}`;
+    image.referrerPolicy='no-referrer';
+    image.addEventListener('load',()=>{if(image.parentElement===$('script-direction-preview'))$('script-direction-status').textContent='';});
+    image.addEventListener('error',()=>{if(image.parentElement===$('script-direction-preview'))$('script-direction-status').textContent='Die Animation konnte nicht geladen werden. Das Original ist über den Quellenlink erreichbar.';});
+    image.src=`${guide.image}?replay=${Date.now()}-${++animationReplay}`;
+    $('script-direction-preview').replaceChildren(image);
+    $('script-direction-play').innerHTML=`${icon('rotate-ccw')}Wiederholen`;
+    $('script-direction-status').textContent='Animation wird geladen …';
+  });
   $('script-write-letter').innerHTML=`<optgroup label="Konsonanten">${consonants.map(l=>`<option value="${l.id}">${l.glyph} ${l.word}</option>`).join('')}</optgroup><optgroup label="Vokale">${vowels.map(l=>`<option value="${l.id}">${l.glyph} · ${l.name}</option>`).join('')}</optgroup>`;
   function draw() {
     if(!ctx)return;
@@ -325,7 +382,7 @@
   canvas.addEventListener('pointerdown',event=>{if(event.button!==0)return;event.preventDefault();canvas.setPointerCapture(event.pointerId);activeStroke={width:Number($('script-write-size').value)*2,points:[position(event)]};strokes.push(activeStroke);draw();});
   canvas.addEventListener('pointermove',event=>{if(!activeStroke)return;activeStroke.points.push(position(event));draw();});
   for(const event of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(event,()=>{activeStroke=null;});
-  function changeWriting(){strokes=[];activeStroke=null;$('script-copy-input').value='';$('script-copy-feedback').textContent='';const model=writingModel(writingLetter());$('script-copy-input').placeholder=model;$('script-copy-keys').innerHTML=[...new Set([...model])].map(c=>`<button type="button" data-copy-char="${escape(c)}">${escape(c)}</button>`).join('')+`<button type="button" data-copy-delete aria-label="Letztes Zeichen entfernen" title="Letztes Zeichen entfernen">${icon('delete')}</button>`;draw();icons();}
+  function changeWriting(){strokes=[];activeStroke=null;$('script-copy-input').value='';$('script-copy-feedback').textContent='';const model=writingModel(writingLetter());$('script-copy-input').placeholder=model;$('script-copy-keys').innerHTML=[...new Set([...model])].map(c=>`<button type="button" data-copy-char="${escape(c)}">${escape(c)}</button>`).join('')+`<button type="button" data-copy-delete aria-label="Letztes Zeichen entfernen" title="Letztes Zeichen entfernen">${icon('delete')}</button>`;renderWritingGuide();draw();icons();}
   $('script-write-letter').addEventListener('change',changeWriting);
   $('script-write-guide').addEventListener('change',draw);
   $('script-write-undo').addEventListener('click',()=>{activeStroke=null;strokes.pop();draw();});
