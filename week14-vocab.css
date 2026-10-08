@@ -1,0 +1,99 @@
+#woche14 .w14-word-trigger {
+  appearance: none;
+  display: inline;
+  border: 0;
+  border-bottom: 1px dotted #0f766e;
+  border-radius: 0;
+  padding: 2px 0;
+  background: transparent;
+  color: #145b50;
+  font: inherit;
+  letter-spacing: 0;
+  text-align: left;
+  cursor: pointer;
+}
+#woche14 .w14-word-trigger:hover { color: #047857; border-bottom-style: solid; }
+#woche14 .w14-word-trigger:focus-visible { outline: 2px solid #0f766e; outline-offset: 4px; }
+#woche14 .w14-word-selected > td { background: #dcfce7; }
+dialog.w14-word-card {
+  box-sizing: border-box;
+  position: fixed;
+  inset: auto;
+  top: 16px;
+  left: 16px;
+  margin: 0;
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid #b7d5cc;
+  border-radius: 8px;
+  background: #fff;
+  color: #20312e;
+  box-shadow: 0 8px 32px #102e302e;
+  z-index: 1000;
+  overflow: hidden;
+  font-family: inherit;
+  letter-spacing: 0;
+}
+dialog.w14-word-card[open] { display: flex; flex-direction: column; }
+dialog.w14-word-card:not([open]) { display: none; }
+.w14-word-head, .w14-word-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex: none; padding: 10px 16px; }
+.w14-word-head { border-bottom: 1px solid #e4ede9; font-size: 14px; font-weight: 600; color: #506a63; }
+.w14-word-nav { border-top: 1px solid #d8e8e2; background: #f3faf7; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+.w14-word-content { padding: 16px 20px; overflow-y: auto; min-height: 0; overscroll-behavior: contain; }
+.w14-word-figure { margin: 0 0 12px; }
+.w14-word-figure img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; object-position: center; border-radius: 4px; }
+.w14-word-figure img[hidden] { display: none; }
+.w14-word-figure figcaption { color: #687970; font-size: 11px; text-align: right; margin-top: 4px; }
+.w14-word-identity { display: flex; gap: 12px; align-items: start; justify-content: space-between; }
+.w14-word-identity h2 { margin: 0; font-size: 30px; line-height: 1.5; overflow-wrap: anywhere; min-width: 0; color: #173c34; }
+.w14-word-identity .word-type { flex: none; margin-top: 8px; white-space: normal; max-width: 130px; text-align: center; }
+.w14-word-roman { margin: 4px 0; font-size: 16px; font-style: italic; color: #617168; overflow-wrap: anywhere; }
+.w14-word-meaning { margin: 4px 0 16px; font-size: 18px; line-height: 1.5; overflow-wrap: anywhere; }
+.w14-word-example { border-top: 1px solid #dbe8e1; padding-top: 12px; }
+.w14-word-example h3 { margin: 0 0 8px; font-size: 14px; color: #047857; }
+.w14-word-example p { margin: 0 0 8px; font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.w14-word-example p.thai { font-size: 22px; line-height: 1.7; }
+.w14-word-example mark { background: #d1fae5; color: #064e3b; border-radius: 2px; padding: 2px 0; }
+.w14-word-card button.w14-icon {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 1px solid #bedfd4;
+  border-radius: 4px;
+  background: #ecfdf5;
+  color: #047857;
+  cursor: pointer;
+}
+.w14-word-card .w14-icon svg { display: block; stroke: currentColor; flex: none; }
+.w14-word-card .w14-icon:hover:not(:disabled) { background: #d1fae5; }
+.w14-word-card .w14-icon:focus-visible { outline: 2px solid #0f766e; outline-offset: 2px; }
+.w14-word-card .w14-icon:disabled { opacity: 1; background: #f4f5f4; color: #84948c; border-color: #dce4df; cursor: default; }
+#w14-word-counter { font-size: 15px; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) {
+  dialog.w14-word-card {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: 85vh;
+    max-height: 85dvh;
+    border-radius: 8px 8px 0 0;
+  }
+  .w14-word-content { padding: 12px 18px; }
+  .w14-word-identity h2 { font-size: 26px; }
+}
+@media print {
+  dialog.w14-word-card { display: none !important; }
+  #woche14 .w14-word-trigger { border: 0; color: inherit; padding: 0; }
+}
