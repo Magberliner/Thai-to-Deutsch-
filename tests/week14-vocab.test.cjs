@@ -31,8 +31,8 @@ test('the paired connector is highlighted at both occurrences', () => {
 test('both portal copies load the detail card and preserve complete images', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.equal(html, fs.readFileSync(path.join(root, 'Thai_mit_Mac_Lernportal.html'), 'utf8'));
-  assert(html.includes('week14-vocab.js?v=20261007-2'));
-  assert(html.includes('week14-vocab.css?v=20261007-2'));
+  assert(html.includes('week14-vocab.js?v=20261012-1'));
+  assert(html.includes('week14-vocab.css?v=20261012-1'));
   const css = fs.readFileSync(path.join(root, 'week14-vocab.css'), 'utf8');
   assert(css.includes('object-fit: contain'));
   assert(css.includes('aspect-ratio: 8 / 5'));

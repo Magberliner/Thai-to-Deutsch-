@@ -50,7 +50,8 @@
     if (typeof module !== 'undefined') module.exports = { examples };
     return;
   }
-  const section = document.getElementById('woche14');
+  function mount(week, examples) {
+  const section = document.getElementById(`woche${week}`);
   if (!section) return;
   // Lucide paths, matching the portal's other tools. License: assets/vendor/lucide-LICENSE.txt.
   const paths = {
@@ -74,26 +75,30 @@
     button.textContent = entry.word;
     button.title = `Wortdetails öffnen: ${entry.meaning}`;
     button.setAttribute('aria-haspopup', 'dialog');
-    button.setAttribute('aria-controls', 'w14-word-card');
+    button.setAttribute('aria-controls', `w${week}-word-card`);
     button.setAttribute('aria-expanded', 'false');
     cell.replaceChildren(button); entry.button = button;
     const index = entries.push(entry) - 1;
     button.addEventListener('click', () => open(index));
   });
+  window.illustratedVocabulary = (window.illustratedVocabulary || []).concat(entries.map(entry => ({
+    id: `w${week}-${entry.word}`, week, thai: entry.word, roman: entry.roman,
+    german: entry.meaning, prompt: entry.meaning, type: entry.type, image: entry.image
+  })));
   const card = document.createElement('dialog');
-  card.id = 'w14-word-card'; card.className = 'w14-word-card';
-  card.setAttribute('aria-labelledby', 'w14-word-title');
+  card.id = `w${week}-word-card`; card.className = 'w14-word-card';
+  card.setAttribute('aria-labelledby', `w${week}-word-title`);
   card.innerHTML = `
-    <div class="w14-word-head"><span>Wortdetails · Woche 14</span><button type="button" class="w14-icon" id="w14-word-close" title="Schließen" aria-label="Wortdetails schließen">${icon('close')}</button></div>
+    <div class="w14-word-head"><span>Wortdetails · Woche ${week}</span><button type="button" class="w14-icon" id="w14-word-close" title="Schließen" aria-label="Wortdetails schließen">${icon('close')}</button></div>
     <div class="w14-word-content">
       <figure class="w14-word-figure"><img id="w14-word-photo" width="640" height="400" alt=""><figcaption>KI-generiertes Lernbild</figcaption></figure>
       <div class="w14-word-identity"><h2 class="thai" lang="th" id="w14-word-title"></h2><span id="w14-word-type"></span></div>
       <p class="w14-word-roman" id="w14-word-roman"></p><p class="w14-word-meaning" id="w14-word-meaning"></p>
       <div class="w14-word-example"><h3>Beispielsatz</h3><p class="thai" lang="th" id="w14-word-sentence"></p><p lang="de" id="w14-word-translation"></p></div>
     </div>
-    <div class="w14-word-nav"><button type="button" class="w14-icon" id="w14-word-previous" title="Vorheriges Wort" aria-label="Vorheriges Wort">${icon('previous')}</button><span id="w14-word-counter" role="status" aria-live="polite"></span><button type="button" class="w14-icon" id="w14-word-next" title="Nächstes Wort" aria-label="Nächstes Wort">${icon('next')}</button></div>`;
+    <div class="w14-word-nav"><button type="button" class="w14-icon" id="w14-word-previous" title="Vorheriges Wort" aria-label="Vorheriges Wort">${icon('previous')}</button><span id="w14-word-counter" role="status" aria-live="polite"></span><button type="button" class="w14-icon" id="w14-word-next" title="Nächstes Wort" aria-label="Nächstes Wort">${icon('next')}</button></div>`.replace(/id="w14-/g, `id="w${week}-`);
   document.body.append(card);
-  const $ = id => document.getElementById(id);
+  const $ = id => document.getElementById(id.replace(/^w14-/, `w${week}-`));
   let current = 0, opener = null, anchor = null;
   function resetRows() {
     entries.forEach(entry => { entry.row.classList.remove('w14-word-selected'); entry.button.setAttribute('aria-expanded', 'false'); });
@@ -164,4 +169,7 @@
   new MutationObserver(() => {
     if (!section.classList.contains('active')) close(false);
   }).observe(section, { attributes: true, attributeFilter: ['class'] });
+  }
+  mount(14, examples);
+  if (window.week15Vocabulary) mount(15, window.week15Vocabulary);
 })();

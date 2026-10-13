@@ -29,6 +29,14 @@
     return copy;
   }
   function createRound(items,random=Math.random) {return {deck:shuffle(items,random),index:0,revealed:false,answers:[]};}
+  function reviewPool(items) {
+    const seen=new Set();
+    return items.filter(card=>{
+      if(card.week<12||card.week>14||!card.image||seen.has(card.thai))return false;
+      seen.add(card.thai);return true;
+    });
+  }
+  function sampleRound(items,count=20,random=Math.random) {return createRound(shuffle(reviewPool(items),random).slice(0,count),random);}
   function reveal(round) {if(round.index<round.deck.length)round.revealed=true;}
   function rate(round,known) {
     if(!round.revealed||round.index>=round.deck.length)return false;
@@ -41,7 +49,7 @@
     round.index++;return true;
   }
   if(typeof document==='undefined'){
-    if(typeof module!=='undefined')module.exports={cards,shuffle,createRound,reveal,rate,skip};
+    if(typeof module!=='undefined')module.exports={cards,shuffle,createRound,sampleRound,reviewPool,reveal,rate,skip};
     return;
   }
   const $=id=>document.getElementById(id);
@@ -50,7 +58,10 @@
   // Lucide icon paths; license: assets/vendor/lucide-LICENSE.txt.
   const paths={flip:['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8','M3 3v5h5'],check:['M20 6 9 17l-5-5'],repeat:['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8','M3 3v5h5'],next:['M5 12h14','m12 5 7 7-7 7']};
   const icon=name=>`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name].map(d=>`<path d="${d}"></path>`).join('')}</svg>`;
-  let round=createRound(cards),previousMistakes=[];
+  const recentCards=reviewPool([...(window.reviewVocabulary||[]),...(window.illustratedVocabulary||[])]);
+  const selection=$('vtest-set');
+  function selectedRound() {return selection.value==='recent'?sampleRound(recentCards):createRound(cards);}
+  let round=selectedRound(),previousMistakes=[];
   function render() {
     const complete=round.index>=round.deck.length;
     $('vtest-run').hidden=complete;$('vtest-summary').hidden=!complete;
@@ -88,7 +99,7 @@
       return `<li><img src="${c.image}" alt="${escape(c.prompt)}" loading="lazy" width="60" height="60"><div><strong>${escape(c.prompt)}</strong>${answerMarkup}</div><span class="vtest-result-state ${state}">${state==='skipped'?'Übersprungen':answer.known?'Gewusst':'Noch üben'}</span></li>`;
     }).join('');
     $('vtest-announcement').textContent=`Runde beendet. ${known} von ${round.deck.length} gewusst.`;
-    try{localStorage.setItem('thai-vocab-test-last-score',JSON.stringify({known,total:round.deck.length,date:new Date().toISOString()}));}catch(_){/* The test also works without storage. */}
+    try{localStorage.setItem('thai-vocab-test-last-score',JSON.stringify({set:selection.value,known,total:round.deck.length,date:new Date().toISOString()}));}catch(_){/* The test also works without storage. */}
   }
   function start(items){round=createRound(items);render();$('vtest-reveal').focus();}
   $('vtest-reveal').innerHTML=`${icon('flip')}Antwort zeigen`;
@@ -102,8 +113,15 @@
   for(const [id,known]of [['vtest-known',true],['vtest-practice',false]])$(id).addEventListener('click',()=>{
     if(!rate(round,known))return;render();(round.index>=round.deck.length?$('vtest-again'):$('vtest-reveal')).focus();
   });
-  $('vtest-again').addEventListener('click',()=>start(cards));
+  function restart() {
+    previousMistakes=[];round=selectedRound();
+    $('vtest-results').replaceChildren();
+    $('vtest-set-description').textContent=selection.value==='recent'?`Wochen 12–14 · 20 Zufallswörter aus ${recentCards.length} Bildwörtern · Deutsch → Thai`:'Wochen 10–13 · 20 Wörter · Deutsch → Thai';
+    render();$('vtest-reveal').focus();
+  }
+  $('vtest-again').addEventListener('click',restart);
+  selection.addEventListener('change',restart);
   $('vtest-review').addEventListener('click',()=>{if(previousMistakes.length)start(previousMistakes);});
   $('vtest-lesson').addEventListener('click',event=>{event.preventDefault();window.showTab(`woche${round.deck[round.index].week}`);});
-  render();
+  restart();
 })();

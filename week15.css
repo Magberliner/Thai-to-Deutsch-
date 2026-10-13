@@ -1,0 +1,20 @@
+#woche15 { letter-spacing: 0; }
+#woche15 .hero-block { min-height: 300px; }
+#woche15 .w15-group-title { color: #047857; margin-top: 18px; font-size: 18px; }
+#woche15 table.vocab .col-thai { width: 23%; }
+#woche15 table.vocab .col-trans { width: 24%; }
+#woche15 table.vocab .col-de { width: 35%; }
+#woche15 table.vocab .col-type { width: 18%; }
+#woche15 .grammar { margin-bottom: 18px; }
+#woche15 .grammar h4 { margin: 0 0 12px; font-size: 18px; }
+#woche15 .grammar p { line-height: 1.8; }
+#woche15 #w15-role-quiz mark { background: #fef08a; color: #3f3f12; padding: 2px 4px; border-radius: 2px; }
+#woche15 .source-note { overflow-wrap: anywhere; }
+.vtest-set-label { display: block; margin: 18px 0 6px; font-size: 14px; font-weight: 600; }
+#vtest-set { max-width: 100%; min-height: 44px; border: 1px solid #96bbb0; border-radius: 4px; padding: 8px 36px 8px 12px; background: #fff; color: #20312e; font: inherit; font-size: 14px; letter-spacing: 0; }
+#vtest-set:focus-visible { outline: 2px solid #0f766e; outline-offset: 2px; }
+@media (max-width: 600px) {
+  #woche15 .hero-block h1 { font-size: 28px; overflow-wrap: anywhere; }
+  #woche15 .grammar h4 { font-size: 16px; }
+  #woche15 .video-session-head h3 { overflow-wrap: anywhere; }
+}

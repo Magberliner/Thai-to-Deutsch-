@@ -13,6 +13,7 @@ const window = new Window({ url: 'file:///portal/index.html', settings: {
 const document = window.document;
 const html = fs.readFileSync(root + '/index.html', 'utf8');
 document.write(html);
+window.eval(fs.readFileSync(root + '/week15.js', 'utf8'));
 window.HTMLDialogElement.prototype.show = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
 window.eval([...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map(match => match[1]).join('\n'));

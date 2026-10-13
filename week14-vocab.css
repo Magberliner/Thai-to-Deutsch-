@@ -1,4 +1,4 @@
-#woche14 .w14-word-trigger {
+:is(#woche14, #woche15) .w14-word-trigger {
   appearance: none;
   display: inline;
   border: 0;
@@ -12,9 +12,9 @@
   text-align: left;
   cursor: pointer;
 }
-#woche14 .w14-word-trigger:hover { color: #047857; border-bottom-style: solid; }
-#woche14 .w14-word-trigger:focus-visible { outline: 2px solid #0f766e; outline-offset: 4px; }
-#woche14 .w14-word-selected > td { background: #dcfce7; }
+:is(#woche14, #woche15) .w14-word-trigger:hover { color: #047857; border-bottom-style: solid; }
+:is(#woche14, #woche15) .w14-word-trigger:focus-visible { outline: 2px solid #0f766e; outline-offset: 4px; }
+:is(#woche14, #woche15) .w14-word-selected > td { background: #dcfce7; }
 dialog.w14-word-card {
   box-sizing: border-box;
   position: fixed;
@@ -77,7 +77,7 @@ dialog.w14-word-card:not([open]) { display: none; }
 .w14-word-card .w14-icon:hover:not(:disabled) { background: #d1fae5; }
 .w14-word-card .w14-icon:focus-visible { outline: 2px solid #0f766e; outline-offset: 2px; }
 .w14-word-card .w14-icon:disabled { opacity: 1; background: #f4f5f4; color: #84948c; border-color: #dce4df; cursor: default; }
-#w14-word-counter { font-size: 15px; font-variant-numeric: tabular-nums; }
+:is(#w14-word-counter, #w15-word-counter) { font-size: 15px; font-variant-numeric: tabular-nums; }
 @media (max-width: 600px) {
   dialog.w14-word-card {
     left: 0;
@@ -95,5 +95,5 @@ dialog.w14-word-card:not([open]) { display: none; }
 }
 @media print {
   dialog.w14-word-card { display: none !important; }
-  #woche14 .w14-word-trigger { border: 0; color: inherit; padding: 0; }
+  :is(#woche14, #woche15) .w14-word-trigger { border: 0; color: inherit; padding: 0; }
 }
